@@ -1,0 +1,20 @@
+To-do list
+
+Home page:
+- Page theme, styles, fonts, etc. 
+- Primary structure
+	- Header
+		- Title
+		- Logo
+	- Grid
+		- Names
+		- Links to resumes
+	- Footer
+		- Some information here
+
+
+Writeup:
+- stuff
+- stuff
+
+
