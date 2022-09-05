@@ -8,3 +8,5 @@ Resources:
     https://code-boxx.com/text-over-image-hover-html-css/
     https://www.w3schools.com/howto/howto_css_image_overlay.asp
     https://www.w3schools.com/css/css_display_visibility.asp
+    https://99designs.com/blog/tips/website-color-schemes/
+    https://www.sessions.edu/color-calculator/
