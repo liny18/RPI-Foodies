@@ -1,217 +1,345 @@
-/*********************
-* Boilerplate Styles *
-*********************/
+* {
+    font-family: Roboto;
+}
 
+#team,
+#project{
+    display: flex;
+    flex-direction: column;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
 .header-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding-left: 180px;
-  padding-right: 180px;
-  padding-top: 50px;
-  padding-bottom: 50px;
+    background-color: rgb(255, 255, 255);
+    border-bottom-color: rgb(228, 228, 228);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    left: 0;
+    right: 0;
+    z-index: 1;
 }
 
-.title a {
-  text-decoration: none;
-  color: #000;
-  font-size: 10px;
+#team{
+    background-color: white;
 }
-/* Dropdown Button */
+
+#project {
+    background-color: #fbfbfb;
+}
+
+.team-name a {
+    text-decoration: none;
+    color: #fff15a;
+    font-size: 10px;
+}
+  /* Dropdown Button */
 .dropdown-button {
-  background-color: #04AA6D;
-  color: white;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  font-size: 16px;
-  border: none;
-  transition: color, 0.1;
-  border-radius: 5px;
+    background-color: black;
+    /* border-color: rgb(30, 111, 217); */
+    border-style: solid;
+    border-width: 1px;
+    /* color: rgb(30, 111, 217); */
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    font-size: 16px;
+    transition: color, 0.1s;
+    border-radius: 5px;
 }
 
-/* The container <div> - needed to position the dropdown content */
+/* The container <div> - needed to position the dropdown content
 .team-dropdown {
-  position: relative;
-  display: inline-block;
-}
+    position: relative;
+    display: inline-block;
+} */
 
-/* Dropdown Content (Hidden by Default) */
+  /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.15);
 }
 
-/* Links inside the dropdown */
+  /* Links inside the dropdown */
 .dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
 }
 
-/* Change color of dropdown links on hover */
+  /* Change color of dropdown links on hover */
 .dropdown-content a:hover {
-  background-color: #ddd;
+    background-color: #ddd;
 }
 
-/* Show the dropdown menu on hover */
+  /* Show the dropdown menu on hover */
 .team-dropdown:hover .dropdown-content {
-  display: block;
+    display: block;
 }
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .team-dropdown:hover .dropdown-button {
-  background-color: #3e8e41;
-  cursor: pointer;
+/* background-color: rgb(30, 111, 217); */
+background-color: white;
+box-shadow: inset 0 0 5px rgba(0,0,0,0.15);
+color: black;
 }
 
-.boilerplate__body {
-  background-color: rgba(220, 220, 220, 1.0);
-}
-.boilerplate__main {
-  background-color: rgba(150, 150, 150, 1.0);
-  display: inline-block;
-  height: auto;
-  left: 180px;
-  position: relative;
-  width: calc(100% - 360px);
-}
-.boilerplate__footer {
-  bottom: 0px;
-  height: 25px;
-  margin-top: 10px;
-  position: relative;
-  text-align: center;
-  width: 100%;
+.team-title {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 500;
 }
 
-/* End Boilerplate */
-
-
-/******************
-**** Index ********
-******************/
-
-.index--header__link,
-.index--header__link>a {
-  color: black;
-  display: block;
-  /* font-size: 84px; */
-  height: 100px;
-  text-align: center;
-  text-decoration: none;
-}
-.index--header__link>a {
-  width: 100%;
-}
-#IndexMain {
-  background-color: #2299FF;
-  /* Center horizontally*/
-
-}
-#IndexGridContainer {
-}
-.mainpage__h3 {
-  background-color: rgba(255, 255, 255, 0.8);
-  font-size: 32px;
-  margin: 10px;
-  padding: 10px;
-  text-align: center;
-}
-.projects__grid {
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  padding: 0px 10px 10px 10px;
-}
-.projects--item {
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 10px 0;
-}
-.projects--item__h6 {
-  font-size: 16px;
-  padding:  0px 4px;
-  vertical-align: middle;
-}
-.projects--item__p {
-  font-size: 24px;
-  text-align: center;
-  vertical-align: text-top;
-}
-.profiles__grid {
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  padding: 0px 10px 10px 10px;
-}
-.profiles--item {
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 10px 0;
-}
-.profiles--item__h6 {
-  font-size: 16px;
-  padding:  0px 4px;
-  vertical-align: middle;
-}
-.profiles--item__p {
-  font-size: 24px;
-  text-align: center;
-  vertical-align: text-top;
+.team-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
-/* End Padding */
+.member-block {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+}
+
+.member-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.photo-container {
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    transition: 1s;
+}
+
+.photo-container:hover {
+    transform: rotateZ(-10deg);
+}
+
+.member-photo {
+    width: 96%;
+    height: 270px;
+    border: 5px solid rgb(0, 0, 0);
+    filter: grayscale(50%);
+    transition: 1s;
+}
+
+.member-photo:hover {
+    filter: grayscale(0%);
+}
+
+.member-background {
+    font-size: 28px;
+    font-weight: 500;
+    background-color: rgb(0, 0, 0, 0.9);
+    color: white;
+    width: 100%;
+    height: 80px;
+    padding-top: 7%;
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    transition: background-color, 1s;
+}
+
+.member-background:hover {
+    background-color: rgb(0, 0, 0, 1);
+}
+
+/* .member-intro h1{
+    font-size: 22px;
+    font-weight: 300;
+    line-height: 30px;
+    margin-bottom: 0;
+} */
+
+.member-description p{
+    font-size: 14px;
+    font-weight: 300;
+    color: gray;
+    line-height: 2;
+    margin-top: 10px;
+}
+
+.project-title {
+    font-size: 30px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-rows: repeat(5, 300px);
+    gap: 20px;
+}
+
+.project1 {
+    grid-row: 1/2
+}
+.project2 {
+    grid-row: 2/3;
+}
+.project3 {
+    grid-row: 3/4;
+}
+.project4{
+    grid-row: 4/5;
+}
+
+.project5 {
+    grid-row: 5/6;
+}
+
+.projects {
+    display: flex;
+    flex-direction: row;
+}
+
+.project-main {
+    position: relative;
+}
+
+.project-link button {
+    background-color: white;
+    color: black;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 16px;
+    border: none;
+    transition: color, 0.1s;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.project-link button:hover {
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.15);
+    cursor: pointer;
+}
+
+.project-link button:active {
+    box-shadow: inset 0 0 100px rgba(0,0,0,0.15);
+}
+
+.project-main:hover .project-link {
+    visibility: visible; 
+    opacity: 1;
+}
+
+.project-pics {
+    width: 300px;
+    height: 96.5%;
+    border: 5px solid #000000;
+    filter: grayscale(30%);
+    transition: filter, 1s;
+}
+
+.project-pics:hover {
+    /* cursor: pointer; */
+    filter: grayscale(0%);
+    /* transform: scale(1.15); */
+}
+
+.project-link {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+    padding-top: 35%;
+    padding-left: 35%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.project-link div {
+    background-color: white;
+    color: black;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 23%;
+    font-size: 16px;
+    border: none;
+    transition: color, 0.1s;
+    border-radius: 5px;
+}
+
+.project-link div:hover {
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.15);
+    cursor: pointer;
+}
+
+.project-link div:active {
+    box-shadow: inset 0 0 100px rgba(0,0,0,0.15);
+}
+
+.project-main:hover .project-link {
+    visibility: visible; 
+    opacity: 1;
+}
+
+.project-description {
+    height: 100%;
+    width: 100%;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    text-align: center;
+}
+
+.project-description h1 {
+    font-size: 28px;
+    font-weight: 500;
+    padding-top: 7%;
+}
 
 
-/******************
-**** Jingrui ******
-******************/
+.footer-container {
+    position: fixed;
+    bottom: 7px;
+    right: 18px;
+}
 
+.footer-picture {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 3px solid white;
+    background-color: rgb(186, 186, 186);
+    transition: transform, 0.3s;
+}
 
-
-
-
-
-/******************
-**** Jordan *******
-******************/
-
-
-
-
-
-
-/******************
-**** Ryan *********
-******************/
-
-
-
-
-
-
-/******************
-**** Terry  *******
-******************/
-
-
-
-
-
-
-/******************
-**** Veevek *******
-******************/
-
-
-
-
-
-
-
+.footer-picture:hover {
+    transform: scale(1.3);
+    cursor: pointer;
+}
