@@ -428,7 +428,7 @@ color: white;
 }
 
 #sidebar img:hover {
-    scale: 1.3;
+    transform: scale(1.3);
     cursor: pointer;
 }
 #profile {
@@ -509,4 +509,159 @@ color: white;
 
 .personal-info a {
     color: white;
+}
+
+/* Ryans personal css page */
+
+#profileR, #organizations {
+    background-color: #fffbf0;
+    padding-top: 100px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.vcard {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.basic-info {
+    width: 50%;
+    margin-right: 50px;
+}
+
+.basic-info h1 {
+    font-size: 60px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.basic-info span {
+    color: #249489;
+}
+
+.basic-info p {
+    width: 70%;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 35px;
+    color:rgb(139, 139, 139);
+    margin-top: 60px;
+}
+
+.pfp-container {
+    display: flex;
+    width: 300px;
+    flex-direction: column;
+    transition: transform, 1s;
+    text-align: center;
+}
+
+.pfp-container:hover {
+    transform: scale(1.1);
+}
+
+.profile-picture {
+    width: 300px;
+    height: 400px;
+    border: 5px solid #249489;
+    transition: 1s;
+}
+
+.profile-picture:hover {
+    opacity: 0.8;
+}
+
+.contact-info {
+    font-size: 15px;
+    background-color: #249489;
+    color: #333;
+    height: 100px;
+    width: 96.5%;
+    padding: 10px;
+}
+
+.contact-info p {
+    line-height: 20px;
+    padding-bottom: 8px;
+}
+
+.contact-info a {
+    color: white;
+}
+
+
+.education, .work, .skills {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 50px;
+    font-weight: 500;
+    text-align: center;
+    background-color: #fffbf0;
+}
+
+.skills h1 {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 50px;
+    font-weight: 500;
+    text-align: center;
+    background-color: #fffbf0;
+}
+
+.school, .job {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: row;
+    font-size: 20px;
+    text-align: left;
+}
+
+.school a, .job a {
+    color: #D5C8F2;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    font-size: 15px;
+    margin: 10px;
+}
+
+.logo {
+    display: flex;
+    float: right;
+    max-width: 200px;
+    height: auto;
+}
+
+.hardSkill, .softSkills {
+    background-color: #fffbf0;
+    width: 30%;
+    padding: 20px;
+}
+
+.hardSkill {
+    margin-left: 10%;
+    float: left;
+}
+
+.softSkills {
+    margin-right: 10%;
+    float: right;
+}
+
+.hardSkill h1, .softSkills h1 {
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 900;
+    font-size: 30px;
+}
+
+.street-address, .tel, .email {
+    padding-left: 5%;
+    font-size: 20px;
 }
