@@ -1,5 +1,5 @@
 * {
-    font-family: Roboto;
+    /* font-family: Roboto; */ /*cannot overirde with id or class*/
     margin: 0;
     padding: 0;
 }
@@ -448,7 +448,6 @@ color: white;
 
 .intro-content {
     width: 50%;
-    margin-right: 50px;
 }
 
 .intro-content h1 {
@@ -484,7 +483,7 @@ color: white;
 
 .profile-picture {
     width: 300px;
-    height: 400px;
+    height: ex400px;
     border: 5px solid #d5c8f2;;
     transition: 1s;
 }
@@ -509,4 +508,40 @@ color: white;
 
 .personal-info a {
     color: white;
+}
+
+/***Jackson's profile CSS***/
+#JacksonName a{
+    font-size: 20px;
+}
+.format-jackson{
+    font-size: 30px;
+    padding-left: 500px;
+}
+#jackson-photo{
+    display: flex;
+    flex-direction: column;
+    width:20%;
+    height :20%;
+    float: left;
+    padding-top: 90px;
+    border: solid 10px white;
+    line-height: 35px;
+    text-align: center;
+    background-size: contain;
+    position: relative;
+    margin-left: 10%;
+    margin-top: 20px;    
+}
+#jackson-intro{
+    text-align: justify;
+    padding-top: 225px;
+    font-family: 'Combo';
+    text-align: center;
+}
+#education-jackson{
+    font-family: 'Kanit';
+}
+#working-jackson{
+    font-family: 'Kanit';
 }
