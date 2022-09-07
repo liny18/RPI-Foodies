@@ -702,7 +702,7 @@ li {
 #education-jackson{
     font-family: 'Kanit';
 }
-#organization-name{
+.organization-name{
     color: darkblue;
     font-family: 'Arvo';
     font-size: larger;
