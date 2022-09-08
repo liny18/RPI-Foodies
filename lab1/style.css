@@ -703,6 +703,7 @@ color: white;
 
 /* Ryans personal css page */
 
+/* Sets the background for the page and the padding */
 #profileR, #organizations {
     background-color: #fffbf0;
     padding-top: 100px;
@@ -710,6 +711,7 @@ color: white;
     padding-right: 100px;
 }
 
+/* Sets the box for the introduction and picture */
 .vcard {
     display: flex;
     flex-direction: row;
@@ -733,6 +735,7 @@ color: white;
     color: #249489;
 }
 
+/* Changes the intorduction statement text adn size */
 .basic-info p {
     width: 70%;
     font-size: 20px;
@@ -750,6 +753,7 @@ color: white;
     text-align: center;
 }
 
+/* When the mouse hovers over the picture, it increases in size */
 .pfp-container:hover {
     transform: scale(1.1);
 }
@@ -761,45 +765,28 @@ color: white;
     transition: 1s;
 }
 
-.profile-picture:hover {
-    opacity: 0.8;
-}
-
-.contact-info {
-    font-size: 15px;
-    background-color: #249489;
-    color: #333;
-    height: 100px;
-    width: 96.5%;
-    padding: 10px;
-}
-
-.contact-info p {
-    line-height: 20px;
-    padding-bottom: 8px;
-}
-
-.contact-info a {
-    color: white;
-}
-
-
+/* Sets font and background up for the section about education 
+work experiance */
 .education, .work, .skills {
-    font-family: 'Exo 2', sans-serif;
-    font-size: 50px;
-    font-weight: 500;
+    
     text-align: center;
     background-color: #fffbf0;
 }
+.education h1, .work h1, .skills h1 {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 50px;
+    font-weight: 500;
+}
 
+/* sets font and place of text for skills */
 .skills h1 {
     font-family: 'Exo 2', sans-serif;
     font-size: 50px;
     font-weight: 500;
     text-align: center;
-    background-color: #fffbf0;
 }
 
+/*sets up margins and box for each school and job */
 .school, .job {
     margin-top: 40px;
     margin-bottom: 40px;
@@ -813,15 +800,17 @@ color: white;
     color: #D5C8F2;
 }
 
-ul {
+/* all lists do not have bullet points */
+.hardSkill ul, .softSkills ul, .job ul, .school ul {
     list-style: none;
 }
 
-li {
+.hardSkill li, .softSkills li, .job li, .school li {
     font-size: 15px;
-    margin: 10px;
+    padding: 10px;
 }
 
+/* scales the logos down to fit the page */
 .logo {
     display: flex;
     float: right;
@@ -829,19 +818,19 @@ li {
     height: auto;
 }
 
+/* each skill section takes up half the screen */
 .hardSkill, .softSkills {
     background-color: #fffbf0;
-    width: 30%;
-    padding: 20px;
+    width: 50%;
 }
 
+/* hard skills on the left */
 .hardSkill {
-    margin-left: 10%;
     float: left;
 }
 
+/* soft skills on the right */
 .softSkills {
-    margin-right: 10%;
     float: right;
 }
 
@@ -851,6 +840,7 @@ li {
     font-size: 30px;
 }
 
+/* sets the contact info in the header to be spaced correctly */
 .street-address, .tel, .email {
     padding-left: 5%;
     font-size: 20px;
