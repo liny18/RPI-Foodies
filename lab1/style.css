@@ -768,10 +768,10 @@ color: white;
 /* Sets font and background up for the section about education 
 work experiance */
 .education, .work, .skills {
-    
     text-align: center;
     background-color: #fffbf0;
 }
+
 .education h1, .work h1, .skills h1 {
     font-family: 'Exo 2', sans-serif;
     font-size: 50px;
@@ -791,13 +791,20 @@ work experiance */
     margin-top: 40px;
     margin-bottom: 40px;
     display: flex;
-    flex-direction: row;
     font-size: 20px;
-    text-align: left;
+    padding-right: 0;
+    
 }
 
 .school a, .job a {
     color: #D5C8F2;
+}
+
+.schoolText, .jobText {
+    padding-left: 25%;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
 }
 
 /* all lists do not have bullet points */
@@ -812,7 +819,6 @@ work experiance */
 
 /* scales the logos down to fit the page */
 .logo {
-    display: flex;
     float: right;
     max-width: 200px;
     height: auto;
