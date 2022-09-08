@@ -882,6 +882,7 @@ work experiance */
     font-size: 30px;
     text-align: center;
 }
+/* format of the photo */
 #jackson-photo{
     display: flex;
     flex-direction: column;
@@ -897,35 +898,42 @@ work experiance */
     margin-left: 10%;
     margin-top: 20px;    
 }
+/* basic CSS format */
 #jackson-intro{
     padding-top: 10px;
-    font-family: 'Combo';
     text-align: center;
     font-size: 20px;
-    border: solid 3px darkcyan;
-    margin-left: 10px;
-    margin-right: 10px;
+    border: solid 3px lightcoral;
+    margin-left: 40px;
+    margin-right: 40px;
     margin-top: 50px;
     line-height: 30px;
+    background-color: azure;
+    
 }
+/* basic CSS format */
 #education-jackson{
     font-family: 'Kanit';
+    margin-top: 50px;
 }
+/* basic CSS format */
 .organization-name{
     color: darkblue;
     font-family: 'Arvo';
     font-size: larger;
 }
+/* basic CSS format */
 #working-jackson{
     font-family: 'Kanit';
 }
+/* basic CSS format */
 #profileJ {
     background-color: azure;
     padding-top: 100px;
     padding-left: 100px;
     padding-right: 100px;
 }
-
+/* basic CSS format */
 .vcardJ {
     display: flex;
     flex-direction: row;
@@ -933,12 +941,12 @@ work experiance */
     align-items: center;
     margin-top: 70px;
 }
-
+/* basic CSS format */
 .basic-infoJ {
     width: 50%;
     margin-right: 50px;
 }
-
+/* basic CSS format */
 .basic-infoJ h1 {
     font-size: 60px;
     font-weight: 500;
@@ -946,11 +954,11 @@ work experiance */
     font-family: 'Combo';
     font-weight:100;
 }
-
+/* basic CSS format */
 .basic-infoJ span {
     color: darkblue
 }
-
+/* basic CSS format */
 .basic-infoJ p {
     width: 70%;
     font-size: 20px;
@@ -961,7 +969,7 @@ work experiance */
     font-family: 'Combo';
     
 }
-
+/* container can hold photo and have basic effect when hover */
 .pfp-containerJ {
     display: flex;
     width: 300px;
@@ -969,24 +977,32 @@ work experiance */
     transition: transform, 1s;
     text-align: center;
 }
-
+/* basic CSS format */
 .profile-pictureJ {
     width: 300px;
     height: 350px;
     border: 5px solid darkblue;
     transition: .3s ease-in-out;
 }
+/* basic CSS format */
 .profile-pictureJ:hover{
     transform: scale(1.3);
 }
+/* basic CSS format */
 #footer-j{
     text-align: center;
     font-size: 20px;
     margin-top: 10px;
     margin-bottom: 50px;
 }
+/* basic CSS format */
 .icon-barj{
     text-align: center;
     padding-top: 50px;
     padding-bottom: 50px;
+    border: solid 3px lightgrey;
+    margin-top: 100px;
+    margin-left: 300px;
+    margin-right: 300px;
+    background-color: #e4ddf4;
 }
