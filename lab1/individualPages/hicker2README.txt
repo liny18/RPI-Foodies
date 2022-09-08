@@ -16,7 +16,10 @@ WAY TO FIX
 Lastly my last big issue was getting the margins to have 
 color. Honestly I was lost for this one because I thought
 that the padding would still be colored with the background
-but for some reason it wasn't working like that.
+but for some reason it wasn't working like that. So to solve
+that I redid my css so I didn't use margins and instead 
+just made the width 50% so that sat side by side and had 
+all the background coloring.
 
 Overall I spent a lot of time on this, but I think that 
 as much as I suffered it was a good refresher on basic web 
