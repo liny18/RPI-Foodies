@@ -12,13 +12,15 @@
     <title>ErrorCats</title>
 </head>
 <body>
+    <!--- Fixed header -->
     <header class="header-container">
         <div class="team-name">
             <a href="/">
+                <!--- Team name that redirects to the top of the page -->
                 <h1>ErrorCats</h1>
             </a>
         </div>
-
+        <!--- Navigation dropdown bar that leads to members' individual pages -->
         <nav class="team-dropdown">
             <button class="dropdown-button">Team 8</button>
             <div class="dropdown-content">
@@ -31,23 +33,28 @@
         </nav>
     </header>
 
+    <hr>
+    <!--- Main content of the website, showing member's information-->
     <main id="team">
         <div class="team-title">
             <h1>
                 Meet our Team
             </h1>
         </div>
-
+        <!-- A flex box that contains every member's information-->
         <div class="team-container">
+            <!-- Each member block represents one member-->
             <div class="member-block">
+                <!-- member-content contains the picture and the name of a member-->
                 <div class="member-content">
+                    <!-- Picture of the member that redirects to his individual page-->
                     <div class="photo-container">
                         <a href="../lab1/individualPages/fengj5.html">
                             <img class="member-photo" src="pictures/JacksonPhoto.png" alt="A picture of Jackson">
                         </a>
                         <div class="member-background"> Jackson </div>
                     </div>
-
+                    <!-- Basic information of a member -->
                     <div class="member-description">
                         <p>
                             Sophmore ITWS Major @ RPI. Loves badminton, 
@@ -57,6 +64,7 @@
                 </div>
             </div>
 
+            <!-- Second instance of member-->
             <div class="member-block">
                 <div class="member-content">
                     <div class="photo-container">
@@ -74,6 +82,7 @@
                 </div>
             </div>
 
+            <!-- Third instance of member-->
             <div class="member-block">
                 <div class="member-content">
                     <div class="photo-container">
@@ -92,6 +101,7 @@
                 </div>
             </div>
 
+            <!-- Fourth instance of member-->
             <div class="member-block">
                 <div class="member-content">
                     <div class="photo-container">
@@ -110,6 +120,7 @@
                 </div>
             </div>
 
+            <!-- Fifth instance of member-->
             <div class="member-block">
                 <div class="member-content">
                     <div class="photo-container">
@@ -129,16 +140,21 @@
         </div>
     </main>
 
+    <hr>
+    <!--- Project section that showcases members' past projects -->
     <div id="project">
         <div class="project-title">
             <h1>
                 Our Projects
             </h1>
         </div>
-
+        <!-- Projects showcased in grid style-->
         <div class="project-grid">
+            <!-- Each instance of a project -->
             <div class="projects project1">
+                <!-- project-main contains a picture and a link that redirects to project related info-->
                 <div class="project-main">
+                    <!-- project-pics shows the link when hovered-->
                     <img class="project-pics" src="pictures/proj1.jpeg" alt="proj1">
                     <div class="project-link">
                         <a href="https://images.unsplash.com/photo-1559142843-5b8fcb9de0af?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2787&q=80" target="_blank">
@@ -148,6 +164,7 @@
                         </a>
                     </div>
                 </div>
+                <!-- Blocks of text giving a brief description of the project-->
                 <div class="project-description">
                     <h1>Past Labs Showing Page</h1>
                     <p>
@@ -159,6 +176,7 @@
                 </div>
             </div>
 
+            <!-- Second instance of project-->
             <div class="projects project2">
                 <div class="project-main">
                     <img class="project-pics" src="pictures/proj2.jpeg" alt="proj2">
@@ -179,6 +197,7 @@
                 </div>
             </div>
 
+            <!-- Third instance of project-->
             <div class="projects project3">
                 <div class="project-main">
                     <img class="project-pics" src="pictures/project3Lib.jpg" alt="proj3">
@@ -203,6 +222,7 @@
                 </div>
             </div>
 
+            <!-- Fourth instance of project-->
             <div class="projects project4">
                 <div class="project-main">
                     <img class="project-pics" src="pictures/iit-final-project.png" alt="proj4">
@@ -223,6 +243,7 @@
                 </div>
             </div>
 
+            <!-- Fifth instance of project-->
             <div class="projects project5">
                 <div class="project-main">
                     <img class="project-pics" src="pictures/proj5.jpeg" alt="proj5">
@@ -245,10 +266,18 @@
         </div>
     </div>
 
+    <hr>
+
+    <!--Footer with a link to our group repo and a fake email-->
     <footer class="footer-container">
-        <h1>
-            Group Repo
-        </h1>
+        <p>
+            Email: <a class="email-group" href="mailto:ErrorCats@404.com">
+                ErrorCats@404.com
+                </a>
+        </p>
+        <p>
+            Group Repo -
+        </p>
         <a href="https://github.com/RPI-ITWS/ITWS2110-F22-ErrorCats" target="_blank">
             <img class="footer-picture" src="pictures/Octocat.png" alt="Octocat">
         </a>
