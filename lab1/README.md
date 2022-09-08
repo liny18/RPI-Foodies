@@ -28,4 +28,5 @@ Resources:
     https://99designs.com/blog/tips/website-color-schemes/
     https://www.sessions.edu/color-calculator/
     https://coder-coder.com/display-divs-side-by-side/
-
+    https://stackoverflow.com/questions/15745045/
+    https://stackoverflow.com/questions/40864278/
