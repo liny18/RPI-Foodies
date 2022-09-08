@@ -1,15 +1,17 @@
 * {
-    /* font-family: Roboto; */ /*cannot overirde with id or class*/
+    font-family: Roboto;
     margin: 0;
     padding: 0;
 }
 
 #team,
-#project {
+#project,
+#experience-terry {
     display: flex;
     flex-direction: column;
     padding-left: 100px;
     padding-right: 100px;
+    padding-top: 50px;
 }
 
 #team {
@@ -18,7 +20,8 @@
     padding-bottom: 100px;
 }
 
-#project {
+#project,
+#experience-terry {
     background-color: #fffbf0;
     padding-bottom: 50px;
 }
@@ -49,6 +52,7 @@
     color: #282612;
     font-size: 10px;
 }
+
   /* Dropdown Button */
 .dropdown-button,
 .contact-button {
@@ -181,7 +185,9 @@ color: white;
     margin-top: 10px;
 }
 
-.project-title {
+.project-title,
+.experience-title,
+.education-title {
     font-size: 30px;
     font-weight: 500;
     text-align: center;
@@ -194,7 +200,8 @@ color: white;
     gap: 20px;
 }
 
-.project1 {
+.project1,
+.experience1 {
     grid-row: 1/2
 }
 .project2 {
@@ -211,36 +218,15 @@ color: white;
     grid-row: 5/6;
 }
 
-.projects {
+.projects,
+.experiences {
     display: flex;
     flex-direction: row;
 }
 
-.project-main {
+.project-main,
+.experience-main {
     position: relative;
-}
-
-.project-link button {
-    background-color: white;
-    color: black;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    font-size: 16px;
-    border: none;
-    transition: color, 0.1s;
-    border-radius: 5px;
-    margin-top: 20px;
-}
-
-.project-link button:hover {
-    box-shadow: inset 0 0 20px rgba(0,0,0,0.15);
-    cursor: pointer;
-}
-
-.project-link button:active {
-    box-shadow: inset 0 0 100px rgba(0,0,0,0.15);
 }
 
 .project-main:hover .project-link {
@@ -248,21 +234,15 @@ color: white;
     opacity: 1;
 }
 
-.project-pics {
+.project-pics,
+.experience-pics {
     width: 500px;
     height: 96.5%;
     border: 5px solid #000000;
-    filter: grayscale(30%);
-    transition: filter, 1s;
 }
 
-.project-pics:hover {
-    /* cursor: pointer; */
-    filter: grayscale(0%);
-    /* transform: scale(1.15); */
-}
-
-.project-link {
+.project-link,
+.experience-link {
     box-sizing: border-box;
     width: 100%;
     height: 100%;
@@ -279,7 +259,8 @@ color: white;
     transition: opacity 0.3s;
 }
 
-.project-link div {
+.project-link div,
+.experience-link div {
     background-color: white;
     color: black;
     padding-left: 20px;
@@ -293,21 +274,25 @@ color: white;
     border-radius: 5px;
 }
 
-.project-link div:hover {
+.project-link div:hover,
+.experience-link div:hover {
     box-shadow: inset 0 0 20px rgba(0,0,0,0.15);
     cursor: pointer;
 }
 
-.project-link div:active {
+.project-link div:active,
+.experience-link div:active {
     box-shadow: inset 0 0 100px rgba(0,0,0,0.15);
 }
 
-.project-main:hover .project-link {
+.project-main:hover .project-link,
+.experience-main:hover .experience-link {
     visibility: visible; 
     opacity: 1;
 }
 
-.project-description {
+.project-description,
+.experience-description {
     height: 100%;
     width: 100%;
     background-color: rgb(0, 0, 0);
@@ -315,14 +300,16 @@ color: white;
     text-align: center;
 }
 
-.project-description h1 {
+.project-description h1,
+.experience-description h1 {
     font-size: 28px;
     font-weight: 500;
     padding-top: 8%;
     padding-bottom: 20px;
 }
 
-.project-description p {
+.project-description p,
+.experience-description p {
     line-height: 30px;
     padding-left: 10%;
     padding-right: 10%;
@@ -363,6 +350,17 @@ color: white;
 }
 
 /***Terry's profile CSS***/
+.contact {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.contact a {
+    text-decoration: none;
+}
+
+.contact-button:hover {
+    cursor: pointer;
+}
 
 #sidebar {
     display: flex;
@@ -378,7 +376,7 @@ color: white;
     border-left: #e4ddf4 1px solid;
     padding-top: 15px;
     padding-bottom: 15px;
-    box-shadow: inset 0 0 10px rgba(0,0,0,0.15);
+    box-shadow: inset 0 0 20px rgba(213, 200, 242, 0.5);
 }
 
 #sidebar h1 {
@@ -446,21 +444,22 @@ color: white;
     margin-bottom: 50px;
 }
 
-.intro-content {
+.vcard-terry {
     width: 50%;
+    margin-right: 50px;
 }
 
-.intro-content h1 {
+.vcard-terry h1 {
     font-size: 60px;
     font-weight: 500;
     margin-bottom: 20px;
 }
 
-.intro-content span {
+.vcard-terry span {
     color: #d5c8f2;
 }
 
-.intro-content p {
+.vcard-terry p {
     width: 70%;
     font-size: 20px;
     font-weight: 300;
@@ -469,7 +468,7 @@ color: white;
     margin-top: 60px;
 }
 
-.pfp-container {
+.pfp-container-terry {
     display: flex;
     width: 300px;
     flex-direction: column;
@@ -477,18 +476,18 @@ color: white;
     text-align: center;
 }
 
-.pfp-container:hover {
+.pfp-container-terry:hover {
     transform: scale(1.1);
 }
 
-.profile-picture {
+.photo {
     width: 300px;
-    height: ex400px;
+    height: 400px;
     border: 5px solid #d5c8f2;;
     transition: 1s;
 }
 
-.profile-picture:hover {
+.photo:hover {
     opacity: 0.8;
 }
 
@@ -508,6 +507,139 @@ color: white;
 
 .personal-info a {
     color: white;
+}
+
+.experience-grid {
+    display: grid;
+    grid-template-rows: repeat(3, 300px);
+    gap: 20px;
+}
+.experience-pics {
+    width: 300px;
+    border-color: #d5c8f2;
+}
+
+.experience-link {
+    padding-top: 40%;
+    padding-left: 38%;
+}
+
+.experience-description {
+    background-color: #e4ddf4;
+}
+
+.experience-description h1,
+.experience-description ul {
+    color: #333;
+}
+
+.experience-description h1 {
+    padding-top: 55px;
+}
+
+.experience-description ul {
+    padding-left: 50px;
+    line-height: 40px;
+    font-size: 17px;
+}
+.experience-description span {
+    color: #555;
+    padding-left: 10px;
+    font-size: 75%;
+}
+
+.education-terry {
+    padding-top: 50px;
+}
+
+.education-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.school-info {
+    width: 50%;
+    margin-right: 50px;
+    background-color: #e4ddf4;
+}
+.school-basic {
+    text-align: center;
+    padding-top: 20px;
+}
+.school-basic h1{
+    font-size: 25px;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+.school-basic span {
+    font-size: 80%;
+    font-weight: lighter;
+}
+
+.school-basic p {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 25px;
+    color:#555;
+    margin-top: 5px;
+}
+
+.school-detail {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    padding-bottom: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.school-detail img {
+    width: 300px;
+    height: 300px;
+    border: 5px solid #d5c8f2;
+    transition: 1s;
+}
+
+.school-detail img:hover {
+    opacity: 0.6;
+    transform: scale(1.3);
+    cursor: pointer;
+}
+
+.school-detail ul {
+    padding-left: 10%;
+    line-height: 250%;
+    font-size: 110%;
+}
+
+#footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #fffbf0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#footer img {
+    width: 50px;
+    height: 50px;
+    padding-right: 50px;
+    transition: 1s;
+}
+
+#footer img:hover {
+    cursor: pointer;
+    transform: scale(1.3);
 }
 
 /* Ryans personal css page */
