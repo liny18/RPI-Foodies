@@ -55,7 +55,21 @@
 }
 
 /* Removes the underline for anchor element and changes color and font size */
-.team-name a,
+.team-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.team-info img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.team-info a,
 .name a {
     text-decoration: none;
     color: #282612;
@@ -118,7 +132,15 @@ color: white;
     text-align: center;
     font-size: 30px;
     font-weight: 500;
-    margin-bottom: 50px;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    line-height: 30px;
+}
+
+.team-title p{
+    font-family: prompt;
+    font-weight: 200;
+    font-style: italic;
 }
 
 /* Horizontal flexbox containing the information of all members*/
