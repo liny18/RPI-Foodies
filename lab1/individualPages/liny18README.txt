@@ -28,6 +28,7 @@ my branch onto other temporary files and then pull from main and slowly applying
 changes from my branch to avoid conflicts. I know this is not the best way, but
 I'm really unsure of what the best way is.
 
+
 The fact that every member of the group has to share one css file along with the
 group website is very frustrating. I've came across multiple instances of tag name
 conflicts. We definitely need better communications next time, but at the same time
