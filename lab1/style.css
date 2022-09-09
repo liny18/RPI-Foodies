@@ -232,7 +232,7 @@ color: white;
 /* Display every project in a 300px box with 20px gap in between each, a total of 5 */
 .project-grid {
     display: grid;
-    grid-template-rows: repeat(5, 300px);
+    grid-template-rows: repeat(4, 300px);
     gap: 20px;
 }
 
@@ -249,10 +249,6 @@ color: white;
 }
 .project4{
     grid-row: 4/5;
-}
-
-.project5 {
-    grid-row: 5/6;
 }
 
 /* Each project/experience is a flex box containing a picture on the left and text on the right*/
@@ -802,6 +798,7 @@ work experiance */
 
 /* sets font and place of text for skills */
 .skills h1 {
+    margin: 0px;
     font-family: 'Exo 2', sans-serif;
     font-size: 50px;
     font-weight: 500;
@@ -810,8 +807,8 @@ work experiance */
 
 /*sets up margins and box for each school and job */
 .school, .job {
-    margin-top: 40px;
-    margin-bottom: 40px;
+    padding-top: 40px;
+    padding-bottom: 40px;
     display: flex;
     font-size: 20px;
     padding-right: 0;
@@ -1008,9 +1005,80 @@ work experiance */
 }
 
 
+.davev-basic-info {
+    font-family: 'Lato', sans-serif;
+    width: 50%;
+    margin-right: 50px;
+}
+.davev-vcard {
+    font-family: 'Lato', sans-serif;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+}
+.davev-vcard-headline {
+    font-size: xx-large;
+}
+.note {
+    width: 450px;
+    font-size: x-large;
+}
+#vd-dave {
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+    font-style: italic;
+    color: blue;
+}
+#profileV {
+    background-color: rgb(225, 249, 251);
+    padding-top: 100px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
 
+.work-experience {
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+    background-color: #eae3fa;
+}
 
-/* Jordan's Profile */
+.veevek-title{
+    font-family: 'Lato', sans-serif;
+    margin-bottom: 40px;
+}
+
+.veevek-ul {
+    list-style: none;
+}
+.veevek-li {
+    margin-bottom: 15px;
+} 
+
+.logo-pic {
+    width: 280px;
+    height: 200px;
+}
+
+.veevek-education {
+    background-color: #fffbf0;;
+    text-align: center;
+}
+
+.veevek-skills {
+    text-align: center;
+    background-color: beige;
+}
+
+#veevek-footer{
+    padding-top: 5px;
+    text-align: center;
+    font-size: 20px;
+    border: solid 3px rgb(7, 8, 5);
+    background-color: #d5c8f2;
+    line-height: 30px;
+}
 
 
 #profile-jordan {
