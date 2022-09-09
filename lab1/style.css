@@ -1009,12 +1009,12 @@ work experiance */
 
 
 .davev-basic-info {
-    font-family: Roboto;
+    font-family: 'Lato', sans-serif;
     width: 50%;
     margin-right: 50px;
 }
 .davev-vcard {
-    font-family: Roboto;
+    font-family: 'Lato', sans-serif;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -1029,6 +1029,7 @@ work experiance */
     font-size: x-large;
 }
 #vd-dave {
+    font-family: 'Lato', sans-serif;
     font-weight: bold;
     font-style: italic;
     color: blue;
@@ -1041,8 +1042,12 @@ work experiance */
 }
 
 .work-experience {
+    font-family: 'Lato', sans-serif;
     text-align: center;
     background-color: #eae3fa;
+}
+.title{
+    font-family: 'Lato', sans-serif;
 }
 h1 {
     margin-bottom: 40px;
