@@ -990,3 +990,74 @@ work experiance */
     padding-top: 50px;
     padding-bottom: 50px;
 }
+
+
+.davev-basic-info {
+    font-family: Roboto;
+    width: 50%;
+    margin-right: 50px;
+}
+.davev-vcard {
+    font-family: Roboto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+}
+.davev-vcard-headline {
+    font-size: xx-large;
+}
+.note {
+    width: 450px;
+    font-size: x-large;
+}
+#vd-dave {
+    font-weight: bold;
+    font-style: italic;
+    color: blue;
+}
+#profileV {
+    background-color: rgb(225, 249, 251);
+    padding-top: 100px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.work-experience {
+    text-align: center;
+    background-color: #eae3fa;
+}
+h1 {
+    margin-bottom: 40px;
+}
+ul {
+    list-style: none;
+}
+li {
+    margin-bottom: 15px;
+}
+
+.logo-pic {
+    width: 200px;
+    height: 150px;
+}
+
+.veevek-education {
+    background-color: #fffbf0;;
+    text-align: center;
+}
+
+.veevek-skills {
+    text-align: center;
+    background-color: beige;
+}
+
+#veevek-footer{
+    padding-top: 5px;
+    text-align: center;
+    font-size: 20px;
+    border: solid 3px rgb(7, 8, 5);
+    background-color: #d5c8f2;
+    line-height: 30px;
+}
