@@ -232,7 +232,7 @@ color: white;
 /* Display every project in a 300px box with 20px gap in between each, a total of 5 */
 .project-grid {
     display: grid;
-    grid-template-rows: repeat(5, 300px);
+    grid-template-rows: repeat(4, 300px);
     gap: 20px;
 }
 
@@ -249,10 +249,6 @@ color: white;
 }
 .project4{
     grid-row: 4/5;
-}
-
-.project5 {
-    grid-row: 5/6;
 }
 
 /* Each project/experience is a flex box containing a picture on the left and text on the right*/
@@ -1047,7 +1043,8 @@ work experiance */
     text-align: center;
     background-color: #eae3fa;
 }
-.title{
+
+/* .title{
     font-family: 'Lato', sans-serif;
 }
 h1 {
@@ -1058,7 +1055,7 @@ ul {
 }
 li {
     margin-bottom: 15px;
-}
+} */
 
 .logo-pic {
     width: 200px;
