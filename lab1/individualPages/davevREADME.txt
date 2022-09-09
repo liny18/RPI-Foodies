@@ -4,7 +4,10 @@ When I started to build my personal page, I had visualized how it would look, bu
 
 Overall, I felt like I have improved as well. I was able to read my fellow teammates code and understand what they were trying to implement. I was able to recall most tags and attributes. Through this lab, I was able to improve my github skills and interact with my team members through creating branches and merging them together which I have struggled with in the past.
 
+My site would work with browsers that dont support certain features like certain fonts. When I imported google fonts and set it as the font size, I also added another font as a "back up" for older browsers.
+
 Overall, I know that I can become better at html and css. I just need to review and practise more. I hope to recreate my personal page once I get a better grasp of html and css.
+
 
 References:
 http://microformats.org/wiki/hcard
