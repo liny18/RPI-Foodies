@@ -1080,7 +1080,7 @@ work experiance */
     line-height: 30px;
 }
 
-
+/* Jordan's Portfolio */
 #profile-jordan {
     padding: 100px 100px 0px 100px;
 }
@@ -1174,7 +1174,6 @@ work experiance */
     font-size: 110%;
 }
 
-/* Horizontal flex box with items centered */
 #footer {
     display: flex;
     flex-direction: row;
