@@ -1,0 +1,1082 @@
+/* Some tags are followed by specific names/letters to avoid conflict
+* Many of the tags on individual pages follow that of the group page
+*/
+
+/* Base styles */
+* {
+    font-family: Roboto;
+    margin: 0;
+    padding: 0;
+}
+
+/* Main sections styles, each section is a flexbox */
+#team,
+#project,
+#experience-terry {
+    display: flex;
+    flex-direction: column;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 50px;
+}
+
+/* Additional styles for each section */
+#team {
+    background-color: #fffbf0;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+#project,
+#experience-terry {
+    background-color: #fffbf0;
+    padding-bottom: 50px;
+}
+
+/* Header styles, a flexbox position-fixed on top of the page*/
+.header-container {
+    background-color: #e4ddf4;
+    border-bottom-color: rgb(228, 228, 228);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+
+/* Removes the underline for anchor element and changes color and font size */
+.team-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.team-info img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.team-info a,
+.name a {
+    text-decoration: none;
+    color: #282612;
+    font-size: 10px;
+}
+
+  /* Dropdown Button */
+.dropdown-button,
+.contact-button {
+    background-color: white;
+    border-style: solid;
+    border-width: 1px;
+    color: black;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    font-size: 16px;
+    transition: color, 0.1s;
+    border-radius: 5px;
+}
+
+  /* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.15);
+}
+
+  /* Links inside the dropdown */
+.dropdown-content a {
+    color: #282612;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+  /* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+  /* Show the dropdown menu on hover */
+.team-dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.team-dropdown:hover .dropdown-button,
+.contact-button:hover {
+background-color: #2d2d2d;
+box-shadow: inset 0 0 5px rgba(0,0,0,0.15);
+color: white;
+}
+
+.team-title {
+    color: #282612;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 500;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    line-height: 30px;
+}
+
+.team-title p{
+    font-family: prompt;
+    font-weight: 200;
+    font-style: italic;
+}
+
+/* Horizontal flexbox containing the information of all members*/
+.team-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+.member-block {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+}
+
+/* Vertical flexbox containing the information of each individual member*/
+.member-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+}
+
+/* A flexbox with member photo on top and name on bottom*/
+.photo-container {
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    transition: 1s;
+}
+
+/* Rotates the photo on hover*/
+.photo-container:hover {
+    transform: rotateZ(-10deg);
+}
+
+/* Member photo that has a border and has grayed out effect by default*/
+.member-photo {
+    width: 96%;
+    height: 270px;
+    border: 5px solid #2d2d2d;
+    filter: grayscale(50%);
+    transition: 1s;
+}
+
+/* Changes the border color and removes grayed our effect on hover*/
+.member-photo:hover {
+    border-color: #249489;
+    filter: grayscale(0%);
+}
+
+/* A black block with member's name in white*/
+.member-background {
+    font-size: 28px;
+    font-weight: 500;
+    background-color: black;
+    color: white;
+    width: 101%;
+    height: 80px;
+    padding-top: 7%;
+    transition: background-color, 1s;
+}
+
+/* Changes the block color*/
+.member-background:hover {
+    background-color: #249489;
+}
+
+.member-description p {
+    font-size: 14px;
+    font-weight: 300;
+    color: gray;
+    line-height: 2;
+    margin-top: 10px;
+}
+
+.project-title,
+.experience-title,
+.education-title {
+    font-size: 30px;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+/* Display every project in a 300px box with 20px gap in between each, a total of 5 */
+.project-grid {
+    display: grid;
+    grid-template-rows: repeat(4, 300px);
+    gap: 20px;
+}
+
+/* Place each project/experience into corresponding boxes */
+.project1,
+.experience1 {
+    grid-row: 1/2
+}
+.project2 {
+    grid-row: 2/3;
+}
+.project3 {
+    grid-row: 3/4;
+}
+.project4{
+    grid-row: 4/5;
+}
+
+/* Each project/experience is a flex box containing a picture on the left and text on the right*/
+.projects,
+.experiences {
+    display: flex;
+    flex-direction: row;
+}
+
+/* Position relative required to place hover effect box */
+.project-main,
+.experience-main {
+    position: relative;
+}
+
+.project-pics,
+.experience-pics {
+    width: 500px;
+    height: 96.5%;
+    border: 5px solid #000000;
+}
+
+/* Hover effect box to show a button that is hidden by default*/
+.project-link,
+.experience-link {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+    padding-top: 25%;
+    padding-left: 40%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* Styles the button */
+.project-link div,
+.experience-link div {
+    background-color: white;
+    color: black;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 23%;
+    font-size: 16px;
+    border: none;
+    transition: color, 0.1s;
+    border-radius: 5px;
+}
+
+/* Hover style for button, gives a shadow around the inside of the box*/
+.project-link div:hover,
+.experience-link div:hover {
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.15);
+    cursor: pointer;
+}
+
+/* Deepens the shadow when button clicked */
+.project-link div:active,
+.experience-link div:active {
+    box-shadow: inset 0 0 100px rgba(0,0,0,0.15);
+}
+
+/* Reveals the hidden box when hovered */
+.project-main:hover .project-link,
+.experience-main:hover .experience-link {
+    visibility: visible; 
+    opacity: 1;
+}
+
+/* Black container with white text providing project description*/
+.project-description,
+.experience-description {
+    height: 100%;
+    width: 100%;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    text-align: center;
+}
+
+.project-description h1,
+.experience-description h1 {
+    font-size: 28px;
+    font-weight: 500;
+    padding-top: 8%;
+    padding-bottom: 20px;
+}
+
+.project-description p,
+.experience-description p {
+    line-height: 30px;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+/* A flexbox footer*/
+.footer-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #e4ddf4;
+    border-top-color: rgb(228, 228, 228);
+    border-top-style: solid;
+    border-top-width: 1px;
+    width: 100%;
+    text-align: center;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.15);
+    padding-top: 5px;
+}
+
+.footer-container p {
+    margin-right: 20px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+/* Makes the hyperlink standout */
+.footer-container a {
+    text-decoration: none;
+    color: white;
+    padding-right: 100px;
+}
+
+.footer-container a:hover {
+    text-decoration: underline;
+}
+
+.footer-picture {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 3px solid white;
+    background-color: rgb(255, 255, 255);
+    transition: transform, 0.3s;
+}
+
+/* Makes the picture bigger when hovered*/
+.footer-picture:hover {
+    transform: scale(1.3);
+    cursor: pointer;
+}
+
+/***Terry's profile CSS***/
+
+/* Gives more space around the header */
+.contact {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+/* Hides the underline of the hyperlink */
+.contact a {
+    text-decoration: none;
+}
+
+/* Makes the hyperlink standout when hovered*/
+.contact-button:hover {
+    cursor: pointer;
+}
+
+/* A vertical flex box that sticks to the right side of the website */
+#sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    right: 0;
+    top: 65px;
+    bottom: 0;
+    background-color: white;
+    width: 80px;
+    border-left: #e4ddf4 1px solid;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    box-shadow: inset 0 0 20px rgba(213, 200, 242, 0.5);
+}
+
+#sidebar h1 {
+    font-size: 25px;
+    font-weight: 700;
+    color: #D5C8F2;
+    border-bottom: #D5C8F2 5px solid;
+}
+
+/* apply the grayscale filter to make every icon share the same color*/
+#sidebar img {
+    width: 50px;
+    height: 50px;
+    filter: grayscale(100%);
+    transition: 1s;
+}
+
+/* Align every icon */
+.skill-terry {
+    text-align: center;
+}
+
+/* Hide all the texts */
+.c-text,
+.cpp-text,
+.css-text,
+.git-text,
+.html-text,
+.js-text,
+.python-text,
+.php-text {
+    display: none;
+}
+
+/* Show text when corresponding icons are hovered*/
+.c-icon:hover + .c-text,
+.cpp-icon:hover + .cpp-text,
+.css-icon:hover + .css-text,
+.git-icon:hover + .git-text,
+.html-icon:hover + .html-text,
+.js-icon:hover + .js-text,
+.python-icon:hover + .python-text,
+.php-icon:hover + .php-text {
+    display: block;
+    color: gray;
+}
+
+/* Make the image larger and cursor pointer */
+#sidebar img:hover {
+    transform: scale(1.3);
+}
+
+/* White spaces at top, left, and right sides*/
+#profile {
+    padding-top: 100px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+/* Horizontal flexbox with items aligned in the center and margins at top and bottom*/
+.introduction {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+/* Makes the text take up only half the space of the container with some white spaces to the right*/
+.vcard-terry {
+    width: 50%;
+    margin-right: 50px;
+}
+
+/* Changes the size and weight of the font and adds white space to the bottom */
+.vcard-terry h1 {
+    font-size: 60px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.vcard-terry span {
+    color: #d5c8f2;
+}
+
+/* Changes to font and styles */
+.vcard-terry p {
+    width: 70%;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 35px;
+    color:rgb(179, 179, 179);
+    margin-top: 60px;
+}
+
+/* A vertical flexbox with width 300px with items aligned in the center*/
+.pfp-container-terry {
+    display: flex;
+    width: 300px;
+    flex-direction: column;
+    transition: transform, 1s;
+    text-align: center;
+}
+
+/* Enlarges the container by 1.1 when hovered*/
+.pfp-container-terry:hover {
+    transform: scale(1.1);
+}
+
+/* Give the photo a fixed size and border*/
+.photo {
+    width: 300px;
+    height: 400px;
+    border: 5px solid #d5c8f2;;
+    transition: 1s;
+}
+
+/* Makes the photo more transparent when hovered */
+.photo:hover {
+    opacity: 0.8;
+}
+
+/* Changes font, colors and spacing */
+.personal-info {
+    font-size: 15px;
+    background-color:  #d5c8f2;
+    color: #333;
+    height: 100px;
+    width: 96.5%;
+    padding: 10px;
+}
+
+.personal-info p {
+    line-height: 20px;
+    padding-bottom: 8px;
+}
+
+.personal-info a {
+    color: white;
+}
+
+/* Grid with 3 rows of 300px and 20px gap in between each row */
+.experience-grid {
+    display: grid;
+    grid-template-rows: repeat(3, 300px);
+    gap: 20px;
+}
+
+/* Each picture has a border and width of 300px */
+.experience-pics {
+    width: 300px;
+    border-color: #d5c8f2;
+}
+
+/* Spacing at top and left */
+.experience-link {
+    padding-top: 40%;
+    padding-left: 38%;
+}
+
+.experience-description {
+    background-color: #e4ddf4;
+}
+
+.experience-description h1,
+.experience-description ul {
+    color: #333;
+}
+
+.experience-description h1 {
+    padding-top: 55px;
+}
+
+.experience-description ul {
+    padding-left: 50px;
+    line-height: 40px;
+    font-size: 17px;
+}
+
+.experience-description span {
+    color: #555;
+    padding-left: 10px;
+    font-size: 75%;
+}
+
+/* white space to separate the next section */
+.education-terry {
+    padding-top: 50px;
+}
+
+/* Horizontal flexbox with items centered and white spaces around */
+.education-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.school-info {
+    width: 50%;
+    margin-right: 50px;
+    background-color: #e4ddf4;
+}
+.school-basic {
+    text-align: center;
+    padding-top: 20px;
+}
+.school-basic h1{
+    font-size: 25px;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+.school-basic span {
+    font-size: 80%;
+    font-weight: lighter;
+}
+
+.school-basic p {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 25px;
+    color:#555;
+    margin-top: 5px;
+}
+
+/* Horizontal flexbox with items centered and spacing around */
+.school-detail {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    padding-bottom: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.school-detail img {
+    width: 300px;
+    height: 300px;
+    border: 5px solid #d5c8f2;
+    transition: 1s;
+}
+
+/* Enlarges the image by 1.3x and change cursor to pointer when hovered */
+.school-detail img:hover {
+    opacity: 0.6;
+    transform: scale(1.3);
+    cursor: pointer;
+}
+
+.school-detail ul {
+    padding-left: 10%;
+    line-height: 250%;
+    font-size: 110%;
+}
+
+/* Horizontal flex box with items centered */
+#footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #fffbf0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#footer img {
+    width: 50px;
+    height: 50px;
+    padding-right: 50px;
+    transition: 1s;
+}
+
+/* Changes cursor to pointer and enlarges images by 1.3x when hovered */
+#footer img:hover {
+    cursor: pointer;
+    transform: scale(1.3);
+}
+
+/* Ryans personal css page */
+
+/* Sets the background for the page and the padding */
+#profileR, #organizations {
+    background-color: #fffbf0;
+    padding-top: 100px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+/* Sets the box for the introduction and picture */
+.vcard {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.basic-info {
+    width: 50%;
+    margin-right: 50px;
+}
+
+.basic-info h1 {
+    font-size: 60px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.basic-info span {
+    color: #249489;
+}
+
+/* Changes the intorduction statement text adn size */
+.basic-info p {
+    width: 70%;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 35px;
+    color:rgb(139, 139, 139);
+    margin-top: 60px;
+}
+
+.pfp-container {
+    display: flex;
+    width: 300px;
+    flex-direction: column;
+    transition: transform, 1s;
+    text-align: center;
+}
+
+/* When the mouse hovers over the picture, it increases in size */
+.pfp-container:hover {
+    transform: scale(1.1);
+}
+
+.profile-picture {
+    width: 300px;
+    height: 400px;
+    border: 5px solid #249489;
+    transition: 1s;
+}
+
+/* Sets font and background up for the section about education 
+work experiance */
+.education, .work, .skills {
+    text-align: center;
+    background-color: #fffbf0;
+}
+
+.education h1, .work h1, .skills h1 {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 50px;
+    font-weight: 500;
+}
+
+/* sets font and place of text for skills */
+.skills h1 {
+    margin: 0px;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 50px;
+    font-weight: 500;
+    text-align: center;
+}
+
+/*sets up margins and box for each school and job */
+.school, .job {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    display: flex;
+    font-size: 20px;
+    padding-right: 0;
+    
+}
+
+.school a, .job a {
+    color: #D5C8F2;
+}
+
+.schoolText, .jobText {
+    padding-left: 25%;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* all lists do not have bullet points */
+.hardSkill ul, .softSkills ul, .job ul, .school ul {
+    list-style: none;
+}
+
+.hardSkill li, .softSkills li, .job li, .school li {
+    font-size: 15px;
+    padding: 10px;
+}
+
+/* scales the logos down to fit the page */
+.logo {
+    float: right;
+    max-width: 200px;
+    height: auto;
+}
+
+/* each skill section takes up half the screen */
+.hardSkill, .softSkills {
+    background-color: #fffbf0;
+    width: 50%;
+}
+
+/* hard skills on the left */
+.hardSkill {
+    float: left;
+}
+
+/* soft skills on the right */
+.softSkills {
+    float: right;
+}
+
+.hardSkill h1, .softSkills h1 {
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 900;
+    font-size: 30px;
+}
+
+/* sets the contact info in the header to be spaced correctly */
+.street-address, .tel, .email {
+    padding-left: 5%;
+    font-size: 20px;
+}
+
+/***Jackson's profile CSS***/
+#JacksonName a{
+    font-size: 20px;
+}
+.format-jackson{
+    font-size: 30px;
+    text-align: center;
+}
+/* format of the photo */
+#jackson-photo{
+    display: flex;
+    flex-direction: column;
+    width:20%;
+    height :20%;
+    float: left;
+    padding-top: 90px;
+    border: solid 10px white;
+    line-height: 35px;
+    text-align: center;
+    background-size: contain;
+    position: relative;
+    margin-left: 10%;
+    margin-top: 20px;    
+}
+/* basic CSS format */
+#jackson-intro{
+    padding-top: 10px;
+    text-align: center;
+    font-size: 20px;
+    border: solid 3px lightcoral;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 50px;
+    line-height: 30px;
+    background-color: azure;
+    
+}
+/* basic CSS format */
+#education-jackson{
+    font-family: 'Kanit';
+    margin-top: 50px;
+}
+/* basic CSS format */
+.organization-name{
+    color: darkblue;
+    font-family: 'Arvo';
+    font-size: larger;
+}
+/* basic CSS format */
+#working-jackson{
+    font-family: 'Kanit';
+}
+/* basic CSS format */
+#profileJ {
+    background-color: azure;
+    padding-top: 100px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+/* basic CSS format */
+.vcardJ {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+}
+/* basic CSS format */
+.basic-infoJ {
+    width: 50%;
+    margin-right: 50px;
+}
+/* basic CSS format */
+.basic-infoJ h1 {
+    font-size: 60px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    font-family: 'Combo';
+    font-weight:100;
+}
+/* basic CSS format */
+.basic-infoJ span {
+    color: darkblue
+}
+/* basic CSS format */
+.basic-infoJ p {
+    width: 70%;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 35px;
+    margin-top: 60px;
+    color: #000000;
+    font-family: 'Combo';
+    
+}
+/* container can hold photo and have basic effect when hover */
+.pfp-containerJ {
+    display: flex;
+    width: 300px;
+    flex-direction: column;
+    transition: transform, 1s;
+    text-align: center;
+}
+/* basic CSS format */
+.profile-pictureJ {
+    width: 300px;
+    height: 350px;
+    border: 5px solid darkblue;
+    transition: .3s ease-in-out;
+}
+/* basic CSS format */
+.profile-pictureJ:hover{
+    transform: scale(1.3);
+}
+/* basic CSS format */
+#footer-j{
+    text-align: center;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+/* basic CSS format */
+.icon-barj{
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    border: solid 3px lightgrey;
+    margin-top: 100px;
+    margin-left: 300px;
+    margin-right: 300px;
+    background-color: #e4ddf4;
+}
+
+
+.davev-basic-info {
+    font-family: 'Lato', sans-serif;
+    width: 50%;
+    margin-right: 50px;
+}
+.davev-vcard {
+    font-family: 'Lato', sans-serif;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+}
+.davev-vcard-headline {
+    font-size: xx-large;
+}
+.note {
+    width: 450px;
+    font-size: x-large;
+}
+#vd-dave {
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+    font-style: italic;
+    color: blue;
+}
+#profileV {
+    background-color: rgb(225, 249, 251);
+    padding-top: 100px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.work-experience {
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+    background-color: #eae3fa;
+}
+
+/* .title{
+    font-family: 'Lato', sans-serif;
+}
+h1 {
+    margin-bottom: 40px;
+}
+ul {
+    list-style: none;
+}
+li {
+    margin-bottom: 15px;
+} */
+
+.logo-pic {
+    width: 200px;
+    height: 150px;
+}
+
+.veevek-education {
+    background-color: #fffbf0;;
+    text-align: center;
+}
+
+.veevek-skills {
+    text-align: center;
+    background-color: beige;
+}
+
+#veevek-footer{
+    padding-top: 5px;
+    text-align: center;
+    font-size: 20px;
+    border: solid 3px rgb(7, 8, 5);
+    background-color: #d5c8f2;
+    line-height: 30px;
+}
