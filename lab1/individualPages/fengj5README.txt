@@ -19,3 +19,15 @@ folders from the web side and not connect to VS Code to use it. Although I still
 with Merging, they were all solved in my discussions with my teammates.
 
 Overall, this lab has taught me a lot and given me a strong motivation to continue learning.
+
+Reference:
+https://www.w3schools.com/html/html_images.asp
+
+https://www.w3schools.com/html/html_css.asp
+
+https://www.w3schools.com/html/html_layout.asp
+
+https://hcardcreator.com
+
+http://microformats.org/wiki/hcard
+
