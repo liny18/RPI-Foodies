@@ -1079,3 +1079,109 @@ work experiance */
     background-color: #d5c8f2;
     line-height: 30px;
 }
+
+/* Jordan's Portfolio */
+#profile-jordan {
+    padding: 100px 100px 0px 100px;
+}
+
+.intro-jordan {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0px;
+}
+
+.intro-text-jordan {
+    width: 50%;
+    margin-right: 50px;
+}
+
+.intro-text-jordan h1 {
+    font-size: 60px;
+    font-weight: 500;
+    line-height: 100%;
+    margin-bottom: 20px;
+}
+
+.intro-text-jordan p {
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 35px;
+    color: rgb(179, 179, 179);
+    margin-top: 60px;
+}
+
+.photo-jordan {
+    width: 300px;
+    height: 400px;
+    border: 5px solid #d5c8f2;
+}
+
+.section-header-jordan {
+    padding-top: 25px;
+}
+
+.section-title-jordan {
+    font-size: 30px;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.content-container-jordan {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+}
+
+.block-info-jordan {
+    width: 50%;
+    height: 240px;
+    margin-right: 50px;
+    background-color: #e4ddf4;
+}
+
+.block-header-jordan {
+    text-align: center;
+    padding-top: 20px;
+}
+
+.block-header-jordan h1 {
+    font-size: 25px;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+.block-header-jordan span {
+    font-size: 80%;
+    font-weight: lighter;
+}
+
+.block-detail-jordan {
+    margin-top: 20px;
+    padding-bottom: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.block-detail-jordan ul {
+    padding-left: 10%;
+    line-height: 180%;
+    font-size: 110%;
+}
+
+#footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #fffbf0;
+    padding: 10px 0px;
+}
+
+.email a {
+    color: black;
+}
