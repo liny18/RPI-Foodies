@@ -1,76 +1,126 @@
 /* popup container */
 .popup {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-    
-  }
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
   
-  /* The actual popup */
-  .popup .popuptext {
-    visibility: hidden;
-    background-color: #555;
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 50%;
-    height: 50%;
-  }
-  
-  /* Toggle this class when clicking on the popup container (hide and show the popup) */
-  .popup .show {
-    visibility: visible;
-    -webkit-animation: fadeIn 1s;
-    animation: fadeIn 1s;
-  }
-  
-  /* Add animation (fade in the popup) */
-  @-webkit-keyframes fadeIn {
-    from {opacity: 0;} 
-    to {opacity: 1;}
-  }
-  
-  @keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity:1 ;}
-  }
+}
 
-  header, h2, h3 {
-    display: flex;
-    justify-content: center;
-  }
+/* The actual popup */
+.popup .popuptext {
+  visibility: hidden;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  height: 50%;
+}
 
-  h3 {
-    text-decoration: underline;
-  }
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;} 
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
+
+/* header, h2, h3 {
+  display: flex;
+  justify-content: center;
+} */
+.hero {
+  height: 100vh;
+  background-image: url(images/hero-image.webp);
+}
+
+.hero h1 {
+  text-align: center;
+  padding-top: 20px;
+  font-size: 3rem;
+  margin: 0px;
+}
+
+.hero .title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 25px;
+  font-size: 1.5rem;
+}
+
+.hero .title p {
+  font-size: smaller;
+  font-style: italic;
+}
+
+img[alt="logo"] {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+}
+
+.preamble {
+  text-align: center;
+  font-size: 1.5rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30%;
+  line-height: 1.5;
+}
+
+.preamble p {
+  font-size: smaller;
+}
+
+h3 {
+  text-decoration: underline;
+}
 
 
-  .constitution-article-section {
-    border-style: solid;
-    margin-top: 10px;
-    display: grid;
-    grid-template-columns: 200px 1fr 200px;
-  }
+.constitution-article-section {
+  border-style: solid;
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 200px 1fr 200px;
+}
 
-  .annotation-button, .section-title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+.annotation-button, .section-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  .section-description {
-    display: flex;
-    flex-direction: column;
-  }
+.section-description {
+  display: flex;
+  flex-direction: column;
+}
 
-  button {
-    height: 50px;
-    width: 130px;
-  }
+button {
+  height: 50px;
+  width: 130px;
+}
 
 
 
