@@ -5,6 +5,15 @@
   cursor: pointer;
   
 }
+body {
+  background-image: url(images/hero-image.webp);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: lighten;
+  background-color: rgba(255,255,255,0.3);
+}
 
 /* The actual popup */
 .popup .popuptext {
@@ -45,7 +54,10 @@
 } */
 .hero {
   height: 100vh;
-  background-image: url(images/hero-image.webp);
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .hero h1 {
@@ -82,16 +94,36 @@ img[alt="logo"] {
 .preamble {
   text-align: center;
   font-size: 1.5rem;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 30%;
+  width: 50vw;
   line-height: 1.5;
+  min-width: 50vw;
 }
 
 .preamble p {
   font-size: smaller;
+}
+
+.nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 100px;
+  width: 50vw;
+}
+
+.nav-buttons a {
+  text-decoration: none;
+}
+
+.articles-button,
+.amendments-button {
+  background-color: rgb(85, 85, 85);
+  color: #fff;
+  padding: 25px;
+  width: 80px;
+  border-radius: 5px;
+  margin: 10px;
+  text-align: center;
 }
 
 h3 {
