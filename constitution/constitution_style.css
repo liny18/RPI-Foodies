@@ -58,7 +58,7 @@ body {
   align-items: center;
 }
 
-.hero h1 {
+.hero h2 {
   text-align: center;
   padding-top: 20px;
   font-size: 3rem;
@@ -141,7 +141,7 @@ h3 {
   align-items: center;
 }
 
-.section-description {
+.constitution-article-section p, .section-description {
   display: flex;
   flex-direction: column;
 }
