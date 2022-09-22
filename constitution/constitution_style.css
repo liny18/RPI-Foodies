@@ -185,6 +185,60 @@ footer a {
   color: black;
 }
 
+.navbar {
+  height: 80%;
+  right: 0;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+  position: fixed; /* eww */
+  top: 125px;
+  width: 130px;
+  z-index: 1;
+}
+.navbar input {
+  display: none;
+}
+.navbar label {
+  background: #222290;
+  border-radius: 3px;
+  color: #FFF;
+  cursor: pointer;
+  display: block;    
+  margin: 0 0 1px 0;
+  padding: 8px 22px;
+  transition: ease .5s;
+}
+.navbar label:hover {
+  background: #5555B0;
+}
+.navbar--content {
+  background: #555;
+  border: 1px solid #AAA;
+  border-radius: 3px;
+  color: #FFF;
+  margin: 0 0 1px 0;
+  padding: 2px;
+}
+input + label + .navbar--content {
+  display: none;
+}
+input:checked + label + .navbar--content {
+  display: block;
+}
+.navbar--content__dropdown {
+  border-radius: 3px;
+  color: #FFF;
+  display: block;
+  margin: 0 0 1px 0;
+  padding: 2px 16px;
+}
+.navbar--content__dropdown a{
+  color: #FFF;
+}
+.navbar--content__dropdown:hover {
+  background-color: #888;
+}
+
 .collapsible {
   background-color: rgb(85, 85, 85);
   color: #fff;
