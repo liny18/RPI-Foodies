@@ -26,8 +26,8 @@
         </div>
       </div>
 
-      <input type="checkbox" id="Article I">
-      <label for="Article I">Article I</label>
+      <input type="checkbox" id="ArticleI">
+      <label for="ArticleI">Article I</label>
       <div class="navbar--content">
         <div class="navbar--content__dropdown">
           <a href="#Section1-1">Section 1</a>
@@ -61,8 +61,8 @@
         </div>
       </div>
 
-      <input type="checkbox" id="Article II">
-      <label for="Article II">Article II</label>
+      <input type="checkbox" id="ArticleII">
+      <label for="ArticleII">Article II</label>
       <div class="navbar--content">
         <div class="navbar--content__dropdown">
           <a href="#Section2-1">Section 1</a>
@@ -78,8 +78,8 @@
         </div>
       </div>
 
-      <input type="checkbox" id="Article III">
-      <label for="Article III">Outside Links</label>
+      <input type="checkbox" id="ArticleIII">
+      <label for="ArticleIII">Outside Links</label>
       <div class="navbar--content">
         <div class="navbar--content__dropdown">
           <a href="#Section3-1">Section 1</a>
@@ -92,8 +92,8 @@
         </div>
       </div>
 
-      <input type="checkbox" id="Article IV">
-      <label for="Article III">Outside Links</label>
+      <input type="checkbox" id="ArticleIV">
+      <label for="ArticleIV">Outside Links</label>
       <div class="navbar--content">
         <div class="navbar--content__dropdown">
           <a href="#Section4-1">Section 1</a>
@@ -139,7 +139,8 @@
 
     <main>
         <article id="articles">
-            <h2>Articles of the Constitution</h2>
+            <h2 class="text-title">Articles of the Constitution</h2>
+            <button class="collapsible">Article 1</button>
             <section class="constitution-article">
                 <h3>Article I</h3>    
                 <section class="constitution-article-section">
@@ -484,8 +485,11 @@
                     </div>
                 </section>
                 <div class="analysis">content</div>
+            </section>
 
+            <button class="collapsible">Article 2</button>
             <section class="constitution-article">
+                
                 <h3>Article II</h3>
                 <section class="constitution-article-section">
                     <h4 class="section-title">Section 1</h4>
@@ -614,6 +618,7 @@
 
             </section>
 
+            <button class="collapsible">Article 3</button>
             <section class="constitution-article">
                 <h3>Article III</h3>
                 <section class="constitution-article-section">
@@ -682,6 +687,7 @@
                 <div class="analysis">content</div>
             </section>
 
+            <button class="collapsible">Article 4</button>
             <section class="constitution-article">
                 <h3>Article IV</h3>
                 <section class="constitution-article-section">
@@ -760,8 +766,9 @@
 
             </section>
 
-            <section class="constitution-article-section">
-                <h4 class="section-title">Section 5</h4>
+            <button class="collapsible">Article 5</button>
+            <section class="constitution-article">
+                <h3 class="section-title">Article 5</h3>
                 <div class="section-description">
                     <p>
                         The Congress, whenever two thirds of both Houses shall deem it necessary, shall propose Amendments 
@@ -780,10 +787,10 @@
                 </div>
             </section>
             <div class="analysis">content</div>
-            </section>
-
-            <section class="constitution-article-section">
-                <h4 class="section-title">Section 6</h4>
+            
+            <button class="collapsible">Article 6</button>
+            <section class="constitution-article">
+                <h3>Article 6</h3>
                 <div class="section-description">
                     <p>
                         All Debts contracted and Engagements entered into, before the Adoption of this Constitution, shall be 
@@ -808,8 +815,9 @@
             </section>
             <div class="analysis">content</div>
 
-            <section class="constitution-article-section">
-                <h4 class="section-title">Section 7</h4>
+            <button class="collapsible">Article 7</button>
+            <section class="constitution-article">
+                <h3 class="section-title">Article 7</h3>
                 <div class="section-description">
                     <p>
                         The Ratification of the Conventions of nine States, shall be sufficient for the Establishment of 
@@ -843,11 +851,13 @@
             <div class="analysis">content</div>
 
             <section class="constitution-amendment">
-                <h3>Second Amendment</h3>
-                <p>
-                    A well regulated Militia, being necessary to the security of a free State, the right of the people to keep 
-                    and bear Arms, shall not be infringed.
-                </p>
+                <h3 class="section-title">Second Amendment</h3>                 
+                <div class="section-description">
+                    <p>
+                        A well regulated Militia, being necessary to the security of a free State, the right of the people to keep 
+                        and bear Arms, shall not be infringed.
+                    </p>
+                </div>
                 <div class="annotation-button">
                     <button class="popup">Analysis</button>
                 </div>
@@ -855,11 +865,13 @@
             <div class="analysis">content</div>
 
             <section class="constitution-amendment">
-                <h3>Third Amendment</h3>
-                <p>
-                    No Soldier shall, in time of peace be quartered in any house, without the consent of the Owner, 
-                    nor in time of war, but in a manner to be prescribed by law.
-                </p>
+                <h3 class="section-title">Third Amendment</h3>                 
+                <div class="section-description">
+                    <p>
+                        No Soldier shall, in time of peace be quartered in any house, without the consent of the Owner, nor in time 
+                        of war, but in a manner to be prescribed by law.
+                    </p>
+                </div>
                 <div class="annotation-button">
                     <button class="popup">Analysis</button>
                 </div>
@@ -867,13 +879,15 @@
             <div class="analysis">content</div>
 
             <section class="constitution-amendment">
-                <h3>Fourth Amendment</h3>
-                <p>
-                    The right of the people to be secure in their persons, houses, papers, and effects, against unreasonable 
-                    searches and seizures, shall not be violated, and no Warrants shall issue, but upon probable cause, 
-                    supported by Oath or affirmation, and particularly describing the place to be searched, and the persons 
-                    or things to be seized.
-                </p>
+                <h3 class="section-title">Fourth Amendment</h3>                 
+                <div class="section-description">
+                    <p>
+                        The right of the people to be secure in their persons, houses, papers, and effects, against unreasonable 
+                        searches and seizures, shall not be violated, and no Warrants shall issue, but upon probable cause, supported 
+                        by Oath or affirmation, and particularly describing the place to be searched, and the persons or things to 
+                        be seized.
+                    </p>
+                </div>
                 <div class="annotation-button">
                     <button class="popup">Analysis</button>
                 </div>
@@ -881,15 +895,17 @@
             <div class="analysis">content</div>
 
             <section class="constitution-amendment">
-                <h3>Fifth Amendment</h3>
-                <p>
-                    No person shall be held to answer for a capital, or otherwise infamous crime, unless on a presentment or 
-                    indictment of a Grand Jury, except in cases arising in the land or naval forces, or in the Militia, when 
-                    in actual service in time of War or public danger; nor shall any person be subject for the same offence 
-                    to be twice put in jeopardy of life or limb; nor shall be compelled in any criminal case to be a witness 
-                    against himself, nor be deprived of life, liberty, or property, without due process of law; nor shall 
-                    private property be taken for public use, without just compensation.
-                </p>
+                <h3 class="section-title">Fifth Amendment</h3>                 
+                <div class="section-description">
+                    <p>
+                        No person shall be held to answer for a capital, or otherwise infamous crime, unless on a presentment or 
+                        indictment of a Grand Jury, except in cases arising in the land or naval forces, or in the Militia, when in 
+                        actual service in time of War or public danger; nor shall any person be subject for the same offense to be 
+                        twice put in jeopardy of life or limb; nor shall be compelled in any criminal case to be a witness against 
+                        himself, nor be deprived of life, liberty, or property, without due process of law; nor shall private property 
+                        be taken for public use, without just compensation.
+                    </p>
+                </div>
                 <div class="annotation-button">
                     <button class="popup">Analysis</button>
                 </div>
@@ -897,14 +913,16 @@
             <div class="analysis">content</div>
 
             <section class="constitution-amendment">
-                <h3>Sixth Amendment</h3>
-                <p>
-                    In all criminal prosecutions, the accused shall enjoy the right to a speedy and public trial, by an impartial 
-                    jury of the State and district wherein the crime shall have been committed, which district shall have been 
-                    previously ascertained by law, and to be informed of the nature and cause of the accusation; to be confronted 
-                    with the witnesses against him; to have compulsory process for obtaining witnesses in his favor, and to have 
-                    the Assistance of Counsel for his defence.
-                </p>
+                <h3 class="section-title">Sixth Amendment</h3>                 
+                <div class="section-description">
+                    <p>
+                        In all criminal prosecutions, the accused shall enjoy the right to a speedy and public trial, by an impartial 
+                        jury of the State and district wherein the crime shall have been committed, which district shall have been 
+                        previously ascertained by law, and to be informed of the nature and cause of the accusation; to be confronted 
+                        with the witnesses against him; to have compulsory process for obtaining witnesses in his favor, and to have 
+                        the Assistance of Counsel for his defense.
+                    </p>
+                </div>
                 <div class="annotation-button">
                     <button class="popup">Analysis</button>
                 </div>
@@ -912,12 +930,14 @@
             <div class="analysis">content</div>
 
             <section class="constitution-amendment">
-                <h3>Seventh Amendment</h3>
-                <p>
-                    In Suits at common law, where the value in controversy shall exceed twenty dollars, the right of trial by jury 
-                    shall be preserved, and no fact tried by a jury, shall be otherwise re-examined in any Court of the United States, 
-                    than according to the rules of the common law.
-                </p>
+                <h3 class="section-title">Seventh Amendment</h3>                 
+                <div class="section-description">
+                    <p>
+                        In Suits at common law, where the value in controversy shall exceed twenty dollars, the right of trial by jury 
+                        shall be preserved, and no fact tried by a jury, shall be otherwise re-examined in any Court of the United States, 
+                        than according to the rules of the common law.
+                    </p>
+                </div>
                 <div class="annotation-button">
                     <button class="popup">Analysis</button>
                 </div>
@@ -925,10 +945,12 @@
             <div class="analysis">content</div>
 
             <section class="constitution-amendment">
-                <h3>Eighth Amendment</h3>
-                <p>
-                    Excessive bail shall not be required, nor excessive fines imposed, nor cruel and unusual punishments inflicted.
-                </p>
+                <h3 class="section-title">Eighth Amendment</h3>                 
+                <div class="section-description">
+                    <p>
+                        Excessive bail shall not be required, nor excessive fines imposed, nor cruel and unusual punishments inflicted.
+                    </p>
+                </div>
                 <div class="annotation-button">
                     <button class="popup">Analysis</button>
                 </div>
@@ -936,11 +958,13 @@
             <div class="analysis">content</div>
 
             <section class="constitution-amendment">
-                <h3>Ninth Amendment</h3>
-                <p>
-                    The enumeration in the Constitution, of certain rights, shall not be construed to deny or disparage others
-                    retained by the people.
-                </p>
+                <h3 class="section-title">Ninth Amendment</h3>                 
+                <div class="section-description">
+                    <p>
+                        The enumeration in the Constitution, of certain rights, shall not be construed to deny or disparage others 
+                        retained by the people.
+                    </p>
+                </div>
                 <div class="annotation-button">
                     <button class="popup">Analysis</button>
                 </div>
@@ -948,11 +972,13 @@
             <div class="analysis">content</div>
 
             <section class="constitution-amendment">
-                <h3>Tenth Amendment</h3>
-                <p>
-                    The powers not delegated to the United States by the Constitution, nor prohibited by it to the States, 
-                    are reserved to the States respectively, or to the people.
-                </p>
+                <h3 class="section-title">Tenth Amendment</h3>                 
+                <div class="section-description">
+                    <p>
+                        The powers not delegated to the United States by the Constitution, nor prohibited by it to the States, are 
+                        reserved to the States respectively, or to the people.
+                    </p>
+                </div>
                 <div class="annotation-button">
                     <button class="popup">Analysis</button>
                 </div>
@@ -960,44 +986,48 @@
             <div class="analysis">content</div>
 
             <section class="constitution-amendment">
-                <h3>Eleventh Amendment</h3>
-                <p>
-                    The Judicial power of the United States shall not be construed to extend to any suit in law or equity, 
-                    commenced or prosecuted against one of the United States by Citizens of another State, or by Citizens or 
-                    Subjects of any Foreign State.
-                </p>
+                <h3 class="section-title">Eleventh Amendment</h3>                 
+                <div class="section-description">
+                    <p>
+                        The Judicial power of the United States shall not be construed to extend to any suit in law or equity, commenced 
+                        or prosecuted against one of the United States by Citizens of another State, or by Citizens or Subjects of any 
+                        Foreign State.
+                    </p>
+                </div>
             </section>
 
             <section class="constitution-amendment">
-                <h3>Twelfth Amendment</h3>
-                <p>
-                    The Electors shall meet in their respective states and vote by ballot for President and Vice-President, 
-                    one of whom, at least, shall not be an inhabitant of the same state with themselves; they shall name in 
-                    their ballots the person voted for as President, and in distinct ballots the person voted for as Vice-President, 
-                    and they shall make distinct lists of all persons voted for as President, and of all persons voted for as 
-                    Vice-President, and of the number of votes for each, which lists they shall sign and certify, and transmit 
-                    sealed to the seat of the government of the United States, directed to the President of the Senate;-the 
-                    President of the Senate shall, in the presence of the Senate and House of Representatives, open all the 
-                    certificates and the votes shall then be counted;-The person having the greatest number of votes for President, 
-                    shall be the President, if such number be a majority of the whole number of Electors appointed; and if no person 
-                    have such majority, then from the persons having the highest numbers not exceeding three on the list of those voted 
-                    for as President, the House of Representatives shall choose immediately, by ballot, the President. But in choosing 
-                    the President, the votes shall be taken by states, the representation from each state having one vote; a quorum for 
-                    this purpose shall consist of a member or members from two-thirds of the states, and a majority of all the states 
-                    shall be necessary to a choice. [And if the House of Representatives shall not choose a President whenever the 
-                    right of choice shall devolve upon them, before the fourth day of March next following, then the Vice-President 
-                    shall act as President, as in case of the death or other constitutional disability of the President.-]The person 
-                    having the greatest number of votes as Vice-President, shall be the Vice-President, if such number be a majority 
-                    of the whole number of Electors appointed, and if no person have a majority, then from the two highest numbers 
-                    on the list, the Senate shall choose the Vice-President; a quorum for the purpose shall consist of two-thirds 
-                    of the whole number of Senators, and a majority of the whole number shall be necessary to a choice. But no 
-                    person constitutionally ineligible to the office of President shall be eligible to that of Vice-President 
-                    of the United States.
-                </p>
+                <h3 class="section-title">Twelfth Amendment</h3>                 
+                <div class="section-description">
+                    <p>
+                        The Electors shall meet in their respective states and vote by ballot for President and Vice-President, 
+                        one of whom, at least, shall not be an inhabitant of the same state with themselves; they shall name in
+                        their ballots the person voted for as President, and in distinct ballots the person voted for as Vice-President, 
+                        and they shall make distinct lists of all persons voted for as President, and of all persons voted for as 
+                        Vice-President, and of the number of votes for each, which lists they shall sign and certify, and transmit 
+                        sealed to the seat of the government of the United States, directed to the President of the Senate;-the 
+                        President of the Senate shall, in the presence of the Senate and House of Representatives, open all the 
+                        certificates and the votes shall then be counted;-The person having the greatest number of votes for President, 
+                        shall be the President, if such number be a majority of the whole number of Electors appointed; and if no 
+                        person have such majority, then from the persons having the highest numbers not exceeding three on the list 
+                        of those voted for as President, the House of Representatives shall choose immediately, by ballot, the President. 
+                        But in choosing the President, the votes shall be taken by states, the representation from each state having one vote; 
+                        a quorum for this purpose shall consist of a member or members from two-thirds of the states, and a majority of all 
+                        the states shall be necessary to a choice. [And if the House of Representatives shall not choose a President 
+                        whenever the right of choice shall devolve upon them, before the fourth day of March next following, then 
+                        the Vice-President shall act as President, as in case of the death or other constitutional disability of the 
+                        President.-]The person having the greatest number of votes as Vice-President, shall be the Vice-President, 
+                        if such number be a majority of the whole number of Electors appointed, and if no person have a majority, 
+                        then from the two highest numbers on the list, the Senate shall choose the Vice-President; a quorum for 
+                        the purpose shall consist of two-thirds of the whole number of Senators, and a majority of the whole number 
+                        shall be necessary to a choice. But no person constitutionally ineligible to the office of President shall be 
+                        eligible to that of Vice-President of the United States.
+                    </p>
+                </div>
             </section>
 
             <section class="constitution-amendment">
-                <h3>Thirteenth Amendment</h3>
+                <h3 class="section-title">Thirteenth Amendment</h3> 
                 <section class="constitution-amendment-section">
                     <h4>Section 1</h4>
                     <p>
@@ -1014,9 +1044,9 @@
             </section>
 
             <section class="constitution-amendment">
-                <h3>Fourteenth Amendment</h3>
+                <h3 class="section-title">Fourteenth Amendment</h3> 
                 <section class="constitution-amendment-section">
-                    <h4>Section 1</h4>
+                    <h4 class="section-title">Section 1</h4>
                     <p>
                         All persons born or naturalized in the United States, and subject to the jurisdiction thereof, 
                         are citizens of the United States and of the State wherein they reside. No State shall make or 
@@ -1026,7 +1056,7 @@
                     </p>
                 </section>
                 <section class="constitution-amendment-section">
-                    <h4>Section 2</h4>
+                    <h4 class="section-title">Section 2</h4>
                     <p>
                         Representatives shall be apportioned among the several States according to their respective numbers, 
                         counting the whole number of persons in each State, excluding Indians not taxed. But when the right to 
@@ -1039,7 +1069,7 @@
                     </p>
                 </section>
                 <section class="constitution-amendment-section">
-                    <h4>Section 3</h4>
+                    <h4 class="section-title">Section 3</h4>
                     <p>
                         No person shall be a Senator or Representative in Congress, or elector of President and Vice-President, 
                         or hold any office, civil or military, under the United States, or under any State, who, having previously 
@@ -1050,7 +1080,7 @@
                     </p>
                 </section>
                 <section class="constitution-amendment-section">
-                    <h4>Section 4</h4>
+                    <h4 class="section-title">Section 4</h4>
                     <p>
                         The validity of the public debt of the United States, authorized by law, including debts incurred for payment 
                         of pensions and bounties for services in suppressing insurrection or rebellion, shall not be questioned. But 
@@ -1060,7 +1090,7 @@
                     </p>
                 </section>
                 <section class="constitution-amendment-section">
-                    <h4>Section 5</h4>
+                    <h4 class="section-title">Section 5</h4>
                     <p>
                         The Congress shall have the power to enforce, by appropriate legislation, the provisions of this article.
                     </p>
@@ -1068,7 +1098,7 @@
             </section>
 
             <section class="constitution-amendment">
-                <h3>Fifteenth  Amendment</h3>
+                <h3 class="section-title">Fifteenth Amendment</h3> 
                 <section class="constitution-amendment-section">
                     <h4 class="section-title">Section 1</h4>
                     <p>
@@ -1085,7 +1115,7 @@
             </section>
 
             <section class="constitution-amendment">
-                <h3>Sixteenth Amendment</h3>
+                <h3 class="section-title">Sixteenth Amendment</h3>
                 <p>
                     The Congress shall have power to lay and collect taxes on incomes, from whatever source derived, 
                     without apportionment among the several States, and without regard to any census or enumeration.
@@ -1093,7 +1123,7 @@
             </section>
 
             <section class="constitution-amendment">
-                <h3>Seventeenth Amendment</h3>
+                <h3 class="section-title">Seventeenth Amendment</h3>
                 <p>
                     The Senate of the United States shall be composed of two Senators from each State, elected by the 
                     people thereof, for six years; and each Senator shall have one vote. The electors in each State shall 
@@ -1112,7 +1142,7 @@
             </section>
 
             <section class="constitution-amendment">
-                <h3>Eighteenth Amendment</h3>
+                <h3 class="section-title">Eighteenth Amendment</h3>
                 <section class="constitution-amendment-section">
                     <h4 class="section-title">Section 1</h4>
                     <p>
@@ -1137,8 +1167,8 @@
                 </section>
             </section>
 
-            <section class="aconstitution-amendment">
-                <h3>Nineteenth Amendment</h3>
+            <section class="constitution-amendment">
+                <h3 class="section-title">Nineteenth Amendment</h3>
                 <p>
                     The right of citizens of the United States to vote shall not be denied or abridged by the United States or 
                     by any State on account of sex.
@@ -1149,7 +1179,7 @@
             </section>
 
             <section class="constitution-amendment">
-                <h3>Twentieth Amendment</h3>
+                <h3 class="section-title">Twentieth Amendment</h3>
                 <section class="constitution-amendment-section">
                     <h4 class="section-title">Section 1</h4>
                     <p>
@@ -1204,7 +1234,7 @@
             </section>
 
             <section class="constitution-amendment">
-                <h3>Twenty-First Amendment</h3>
+                <h3 class="section-title">Twenty-First Amendment</h3>
                 <section class="constitution-amendment-section">
                     <h4 class="section-title">Section 1</h4>
                     <p>
@@ -1229,15 +1259,7 @@
             </section>
 
             <section class="constitution-amendment">
-                <h3>Tenth Amendment</h3>
-                <p>
-                    The powers not delegated to the United States by the Constitution, nor prohibited by it to the States, 
-                    are reserved to the States respectively, or to the people.
-                </p>
-            </section>
-
-            <section class="constitution-amendment">
-                <h3>Twenty-Second Amendment</h3>
+                <h3 class="section-title">Twenty-Second Amendment</h3>
                 <section class="constitution-amendment-section">
                     <h4 class="section-title">Section 1</h4>
                     <p>
@@ -1262,7 +1284,7 @@
             </section>
 
             <section class="constitution-amendment">
-                <h3>Twenty-Third Amendment</h3>
+                <h3 class="section-title">Twenty-Third Amendment</h3>
                 <section class="constitution-amendment-section">
                     <h4 class="section-title">Section 1</h4>
                     <p>
@@ -1285,7 +1307,7 @@
             </section>
 
             <section class="constitution-amendment">
-                <h3>Twenty-Fourth Amendment</h3>
+                <h3 class="section-title">Twenty-Fourth Amendment</h3>
                 <section class="constitution-amendment-section">
                     <h4 class="section-title">Section 1</h4>
                     <p>
@@ -1304,7 +1326,7 @@
             </section>
 
             <section class="constitution-amendment">
-                <h3>Twenty-Fifth Amendment</h3>
+                <h3 class="section-title">Twenty-Fifth Amendment</h3>
                 <section class="constitution-amendment-section">
                     <h4 class="section-title">Section 1</h4>
                     <p>
@@ -1336,7 +1358,7 @@
                         and the Speaker of the House of Representatives their written declaration that the President is unable to 
                         discharge the powers and duties of his office, the Vice President shall immediately assume the powers and 
                         duties of the office as Acting President.
-                        </p>>
+                        </p>
                         <p>
                         Thereafter, when the President transmits to the President pro tempore of the Senate and the Speaker of 
                         the House of Representatives his written declaration that no inability exists, he shall resume the powers 
@@ -1354,7 +1376,7 @@
             </section>
 
             <section class="constitution-amendment">
-                <h3>Twenty-Sixth Amendment</h3>
+                <h3 class="section-title">Twenty-Sixth Amendment</h3>
                 <section class="constitution-amendment-section">
                     <h4 class="section-title">Section 1</h4>
                     <p>
@@ -1371,7 +1393,7 @@
             </section>
 
             <section class="constitution-amendment">
-                <h3>Twenty-Seventh Amendment</h3>
+                <h3 class="section-title">Twenty-Seventh Amendment</h3>
                 <p>
                     No law, varying the compensation for the services of the Senators and Representatives, shall take effect, 
                     until an election of Representatives shall have intervened.
