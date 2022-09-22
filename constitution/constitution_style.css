@@ -188,6 +188,7 @@ footer a {
   outline: none;
   font-weight: 600  ;
   font-size: 1rem;
+  margin-bottom: 1rem;
 }
 
 .active, .collapsible:hover {
@@ -196,19 +197,19 @@ footer a {
   opacity: .8;
 }
 
-.collapsible:after {
+.collapsible::after {
   content: '\002B';
   font-weight: bold;
   float: right;
   margin-left: 5px;
 }
 
-.active:after {
+.active::after {
   content: "\2212";
 }
 
 .constitution-article {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 5s ease-out;
+  transition: max-height 1s ease-out;
 }
