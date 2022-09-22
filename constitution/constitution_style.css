@@ -1,10 +1,8 @@
 /* popup container */
 .popup {
-  position: relative;
-  display: inline-block;
   cursor: pointer;
-  
 }
+
 body {
   background-image: url(images/hero-image.webp);
   background-attachment: fixed;
@@ -16,7 +14,7 @@ body {
 }
 
 /* The actual popup */
-.popup .popuptext {
+/* .popup .popuptext {
   visibility: hidden;
   background-color: #555;
   color: #fff;
@@ -28,17 +26,17 @@ body {
   transform: translate(-50%, -50%);
   width: 50%;
   height: 50%;
-}
+} */
 
 /* Toggle this class when clicking on the popup container (hide and show the popup) */
-.popup .show {
+/* .popup .show {
   visibility: visible;
   -webkit-animation: fadeIn 1s;
   animation: fadeIn 1s;
-}
+} */
 
 /* Add animation (fade in the popup) */
-@-webkit-keyframes fadeIn {
+/* @-webkit-keyframes fadeIn {
   from {opacity: 0;} 
   to {opacity: 1;}
 }
@@ -46,7 +44,7 @@ body {
 @keyframes fadeIn {
   from {opacity: 0;}
   to {opacity:1 ;}
-}
+} */
 
 /* header, h2, h3 {
   display: flex;
@@ -130,7 +128,6 @@ h3 {
   text-decoration: underline;
 }
 
-
 .constitution-article-section {
   border-style: solid;
   margin-top: 10px;
@@ -150,9 +147,33 @@ h3 {
 }
 
 button {
-  height: 50px;
-  width: 130px;
+  padding: 15px 30px;
+  border-radius: 5px;
 }
 
+.analysis {
+  border: 1px solid black;
+  padding: 1rem;
+  display: none;
+  background-color: whitesmoke;
+  color: black;
+  text-align: center;
+}
 
+.show-analysis {
+  display: block;
+}
 
+footer {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+  font-style: italic;
+  border-top: 1px solid black;
+  padding: 0px;
+}
+
+footer a {
+  text-decoration: none;
+  color: black;
+}
