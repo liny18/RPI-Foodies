@@ -1,5 +1,7 @@
-"use strict";
+"use strict"; // This is for your code to comply with the ECMAScript 5 standard.
 
+// Line the buttons up with the analysis contents
+// adds or remove the show-analysis class to the content when button is clicked
 const popup = document.querySelectorAll(".popup");
 const content = document.querySelectorAll(".analysis");
 for (let i = 0; i < popup.length; i++) {
