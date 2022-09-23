@@ -10,6 +10,9 @@ for (let i = 0; i < popup.length; i++) {
   });
 }
 
+// Allows for collapsible buttons that can act as sections of text
+// When the button is clicked it makes it's height equal to 
+// the height of all the text beneth it pushing everything down
 let coll = document.getElementsByClassName("collapsible");
 let i;
 for (i = 0; i < coll.length; i++) {
