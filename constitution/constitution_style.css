@@ -179,7 +179,7 @@ footer a {
 
 .constitution-article {
   max-height: 0;
-  overflow: hidden;
+  overflow-x: auto;
   transition: max-height 1s ease-out;
   margin: 0.5rem;
 }
