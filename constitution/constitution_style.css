@@ -202,12 +202,6 @@ footer a {
   transition: max-height 1s ease-out;
 }
 
-
-
-
-
-
-
 .analysis {
   border: 1px solid black;
   padding: 1rem;
@@ -220,13 +214,15 @@ footer a {
 .show-analysis {
   display: block;
 }
-
 .analysis-content-text {
   display: inline-block;
   width: 60%;
 }
-
 .analysis-content-img {
   display: inline-block;
   width: 30%;
+}
+
+body {
+  font-family: 'Bubblegum Sans', cursive;
 }
