@@ -58,17 +58,9 @@
           </ul>
       </div>
   </nav>
-  
-  <section class="bg-dark text-light p-5 text-center">
-    <div class="container">
-      <div class="d-flex align-items-center justify-content-center">
-        <div class="bg-light d-flex align-items-center justify-content-center" style="height: 300px; width: 400px;">
-           <p class="text-primary lead my-4">Map</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
+  <div class="d-flex pt-5 align-items-center justify-content-center">
+    <h1 class="">Dining Halls</h1>
+  </div>
   <section class="p-5">
     <div class="container">
       <div class="row text-center">
@@ -76,16 +68,10 @@
           <div class="card bg-dark text-light">
             <div class="card-body text-center">
               <div class="h1 mb-3">
-                <i class="bi bi-laptop"></i>
+                <img src="pictures/commons.webp"  style="height: 150px;" alt="" class="w-100">
               </div>
-              <h3 class="card-title mb-3">
-                Virtual
-              </h3>
-              <p class="card-text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed quaerat cum earum saepe fuga consequatur.
-              </p>
               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#info">
-                Launch demo modal
+                <h3  class="card-title">Commons</h3>
               </button>
             </div>
           </div>
@@ -94,16 +80,10 @@
           <div class="card bg-dark text-light">
             <div class="card-body text-center">
               <div class="h1 mb-3">
-                <i class="bi bi-laptop"></i>
+                <img src="pictures/sage.jpeg" style="height: 150px;" alt="" class="w-100">
               </div>
-              <h3 class="card-title mb-3">
-                Virtual
-              </h3>
-              <p class="card-text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed quaerat cum earum saepe fuga consequatur.
-              </p>
               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#info">
-                Launch demo modal
+                <h3  class="card-title">Sage</h3>
               </button>
             </div>
           </div>
@@ -112,16 +92,10 @@
           <div class="card bg-dark text-light">
             <div class="card-body text-center">
               <div class="h1 mb-3">
-                <i class="bi bi-laptop"></i>
+                <img src="pictures/blitman.jpeg" style="height: 150px;" alt="" class="w-100">
               </div>
-              <h3 class="card-title mb-3">
-                Virtual
-              </h3>
-              <p class="card-text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed quaerat cum earum saepe fuga consequatur.
-              </p>
               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#info">
-                Launch demo modal
+                <h3  class="card-title">Blitman</h3>
               </button>
             </div>
           </div>
@@ -130,16 +104,10 @@
           <div class="card bg-dark text-light">
             <div class="card-body text-center">
               <div class="h1 mb-3">
-                <i class="bi bi-laptop"></i>
+                <img src="pictures/barh.jpeg"  style="height: 150px;" alt="" class="w-100">
               </div>
-              <h3 class="card-title mb-3">
-                Virtual
-              </h3>
-              <p class="card-text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed quaerat cum earum saepe fuga consequatur.
-              </p>
               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#info">
-                Launch demo modal
+                <h3  class="card-title">BarH</h3>
               </button>
             </div>
           </div>
@@ -178,6 +146,18 @@
       </div>
     </div>
   </div>
+
+  <section class="bg-light text-light p-5 text-center">
+    <div class="container">
+      <div class="d-flex align-items-center justify-content-center">
+        <div id="map" style="height: 500px; width: 100%;">
+           <p class="text-primary lead my-4">Map</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
   <!-- JavaScript Bundle with Popper -->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
   integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -188,5 +168,9 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
   integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
   crossorigin="anonymous"></script>
+  <script src="script.js"></script>
+  <script async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD0d_qUGjTvVflSTk7-WhGem3bq7bhARUk&callback=initMap">
+  </script>
 </body>
 </html>
