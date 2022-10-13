@@ -21,6 +21,13 @@ function centerPost() {
 function previewFile() {
     const preview = document.querySelector('img');
     const file = document.querySelector('input[type=file]').files[0];
+
+    // make sure correct file type is given
+    if(!("image/jpeg".includes(file.type) || "image/png".includes(file.type))) {
+        alert("Please enter a jpg or a png file type");
+        return false
+    }
+
     const reader = new FileReader();
 
     reader.addEventListener("load", () => {
