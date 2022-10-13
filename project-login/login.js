@@ -18,3 +18,7 @@ function validate(){
 function create(){
     window.location.href = "./create.html";
 }
+
+function login(){
+    window.location.href = "#mainpage here";
+}

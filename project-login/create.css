@@ -10,21 +10,25 @@ body {
   
   /* Add padding to containers */
   .container {
+    color:inherit;
     padding: 16px;
     background-color: white;
   }
   
   /* Full-width input fields */
   input[type=text], input[type=password] {
+    color:inherit;
     width: 100%;
     padding: 15px;
     margin: 5px 0 22px 0;
     display: inline-block;
     border: none;
     background: #f1f1f1;
+    border-radius: 10px;
   }
   
   input[type=text]:focus, input[type=password]:focus {
+    color:inherit;
     background-color: #ddd;
     outline: none;
   }
@@ -54,11 +58,25 @@ body {
   
   /* Add a blue text color to links */
   a {
+    background-color: inherit;
     color: dodgerblue;
   }
   
   /* Set a grey background color and center the text of the "sign in" section */
   .signin {
+    color: inherit;
     background-color: #f1f1f1;
     text-align: center;
+    border-radius: 10px;
   }
+  .cat-logo{
+    height: 3%;
+    width: 3%;
+    margin-top: 1%;
+    margin-left: 1%;
+    border-radius: 10px;
+}
+.team-intro{
+    font-size: small;
+    padding-left: 1%;
+}
