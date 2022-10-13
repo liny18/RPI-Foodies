@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous" defer></script>
+    <link rel="stylesheet" href="./login.css">
+    <script src="./login.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main>
+        <div class="logo-container">
+            <img src="../lab1/pictures/logo.png" alt="team-logo" class="cat-logo">
+            <span class="team-intro">An Error Cat App</span>
+        </div>
+        <h1 class="main-slogan"> RPI Foodies, Find out what you love!</h1>
+        <div class="row">
+            <div class="colm-logo">
+                <img src="./image/RPIFoodies.png" alt="Logo" class="team-logo">
+            </div>
+            <div class="colm-form">
+                <div class="form-container">
+                    <form name="myform" onsubmit="validate()">
+                    <input type="text" placeholder="Enter your RCS ID to login" name="RCS">
+                    <input type="password" placeholder="Password" name="Password">
+                    <button type ="submit" class="btn-login" onclick="login()">Login</button>
+                    </form>
+                    <button class="btn-new" onclick="create()">Create new Account</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="main-footer">
+        <p>This is only a developing demo, more features will be added in the future</p>
+    </footer>
+</body>
+</html>
