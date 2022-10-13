@@ -78,7 +78,7 @@ function makePicFit() {
 //if text is valid and there is a photo, allow submit button to appear
 function validateText() {
     if ($(".imgCont").css("visibility") != "hidden") {
-        if ($("#Caption").val() != null && $("#floatLocation").val() != null) {
+        if (($("#Caption").val() != "" && $("#Caption").val() != "Enter A Caption") && ($("#floatLocation").val() != "" && $("#floatLocation").val() != "Add Location")) {
             $("#postButton").removeAttr("disabled");
         }
     }
