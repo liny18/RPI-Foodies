@@ -5,16 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./create.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"/>
     <script src="./create.js" defer></script>
     <title>Create Account</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script defer> 
+      $.get('../header.html', {}, function(response) { 
+        $('header#header').append(response);
+      });
+  
+      $.get('../footer.html', {}, function(response) { 
+        $('footer#footer').append(response);
+      });
+    </script> 
 </head>
 <body>
+    <header id="header"></header>
     <div class="logo-container">
-      <a href="#">
+      <!-- <a href="#">
         <img src="../pictures/logo.png" alt="team-logo" class="cat-logo">
       </a>
       <span class="team-intro">An Error Cat App</span>
-    </div>
+    </div> -->
     <form name="create-new">
         <div class="container">
           <h1>Meet RPI Foodies</h1>
@@ -39,5 +53,6 @@
           <p>Already have an account? <a href="./login.html">Sign in</a>.</p>
         </div>
       </form>
+      <footer id="footer" class="fixed-bottom"></footer>
 </body>
 </html>
