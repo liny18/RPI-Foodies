@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- CSS only -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"/>
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="main.css">
+  <link rel="icon" type="image/x-icon" href="../pictures/RPIFoodies.png">
+  <title>RPI Foodies</title>
+  <script src="https://kit.fontawesome.com/bb67f860a0.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-md sticky-top navbar-light header" style="z-index: 10000;">
+    <a class="navbar-brand refresh" href="#">
+    <img src="../pictures/RPIFoodies.png" alt="Error Cats logo" width="40" height="40" style="border-radius: 50%;">
+    RPI Foodies
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <form class="form-inline justify-content-center align-items-center container">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-light" type="submit">
+            <img src="../pictures/search_ideogram.svg" alt="Magnifying glass" width="30" height="30">
+        </button>
+    </form>
+    <ul class="navbar-nav ml-auto align-items-center">
+        <li class="nav-item trending">
+            <a href="../Dining Hall Page/index.html" class="navbar-brand">
+                <img src="../pictures/trendingIcon.svg" alt="trending button" width="40" height="40">
+            </a>
+        </li>
+        <li class="nav-item post">
+            <a href="../uploadPage/upload.html" class="navbar-brand">
+                <img src="../pictures/addPostIcon.svg" alt="add post button" width="40" height="40">
+            </a>
+        </li>
+        <li class="nav-item mr-sm-2">
+            <a href="../project-login/login.html" class="btn btn-light" role="button">Log In</a>
+        </li>
+        <li class="nav-item">
+            <a href="../project-login/create.html" class="btn btn-dark" role="button">Sign Up</a>
+        </li>
+    </ul>
+    </div>
+</nav>
+
+<div class="container">
+  <div class="row vh-100">
+      <div class="col-md-3 py-3">
+        <div class="card text-center">
+          <div class="card-header">
+            <i class="fa-regular fa-face-laugh-squint"></i> Best Diner Last Week
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Commons Dinning Hall</h5>
+              <ul class="list-group">
+                <a href="">
+                  <li class="list-group-item">
+                    <i class="fa-solid fa-bowl-food"></i> Pasta
+                  </li>
+                </a>
+                <a href="">
+                  <li class="list-group-item">
+                    <i class="fa-solid fa-bowl-food"></i> Orange chicken
+                  </li>
+                </a>
+                <a href="">
+                  <li class="list-group-item">
+                    <i class="fa-solid fa-bowl-food"></i> Korean pulled pork
+                  </li>
+                </a>
+              </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 py-3">
+        <div class="card text-center">
+          <div class="card-header p-2">
+            <div class="location p-2">
+              <i class="fa-solid fa-location-arrow"></i> Blitman Dining Hall
+            </div>
+            <p class="time">
+              <i class="fa-solid fa-clock"></i> Just Now
+            </p>
+          </div>
+          <img class="card-img-top" src="../pictures/food1.svg" alt="Card image">
+          <div class="card-body">
+            <h5 class="card-title">
+              <i class="fa-solid fa-tags"></i>
+              Asian, Noodles, Spicy
+            </h5>
+            <p class="card-text">
+              <i class="fa-solid fa-quote-left"></i>
+              The Stir Fry is amazing! I love Blitman Dining Hall!
+              <i class="fa-solid fa-quote-right"></i>
+            </p>
+          </div>
+          <div class="card-footer d-flex justify-content-between pl-5 pr-5">
+            <div class="like">
+              <i class="fa-regular fa-heart"></i>
+              0 likes
+            </div>
+            <div class="comment">
+              <i class="fa-regular fa-comment"></i>
+              0 comments
+            </div>
+          </div>
+        </div>
+
+        <div class="card text-center">
+          <div class="card-header p-2">
+            <p class="location p-2">
+              <i class="fa-solid fa-location-arrow"></i> Commons Dining Hall
+            </p>
+            <p class="time">
+              <i class="fa-solid fa-clock"></i> 2 minutes ago
+            </p>
+          </div>
+          <img class="card-img-top" src="../pictures/food2.webp" alt="Card image">
+          <div class="card-body">
+            <h5 class="card-title">
+              <i class="fa-solid fa-tags"></i>
+              Burger
+            </h5>
+            <p class="card-text">
+              <i class="fa-solid fa-quote-left"></i>
+              cheeks
+              <i class="fa-solid fa-quote-right"></i>
+            </p>
+          </div>
+          <div class="card-footer d-flex justify-content-between pl-5 pr-5">
+            <div class="like">
+              <i class="fa-regular fa-heart"></i>
+              5 likes
+            </div>
+            <div class="comment">
+              <i class="fa-regular fa-comment"></i>
+              1 comments
+            </div>
+          </div>
+        </div>
+
+        <div class="card text-center">
+          <div class="card-header">
+            <p class="location p-2">
+              <i class="fa-solid fa-location-arrow"></i> Sage Dining Hall
+            </p>
+            <p class="time">
+              <i class="fa-solid fa-clock"></i> 5 minutes ago
+            </p>
+          </div>
+          <img class="card-img-top" src="../pictures/food3.jpg" alt="Card image">
+          <div class="card-body">
+            <h5 class="card-title">
+              <i class="fa-solid fa-tags"></i>
+              Salad, Vegetables
+            </h5>
+            <p class="card-text">
+              <i class="fa-solid fa-quote-left"></i>
+              mid asf salad
+              <i class="fa-solid fa-quote-right"></i>
+            </p>
+          </div>
+          <div class="card-footer d-flex justify-content-between pl-5 pr-5">
+            <div class="like">
+              <i class="fa-regular fa-heart"></i>
+              4 likes
+            </div>
+            <div class="comment">
+              <i class="fa-regular fa-comment"></i>
+              0 comments
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 py-3">
+        <div class="card text-center">
+          <div class="card-header">
+            <i class="fa-solid fa-utensils"></i> Quick Search
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Popular tags</h5>
+            <ul class="list-group">
+              <a href="">
+                <li class="list-group-item">
+                  <i class="fa-solid fa-hashtag"></i> Vegetable
+                </li>
+              </a>
+              <a href="">
+                <li class="list-group-item">
+                  <i class="fa-solid fa-hashtag"></i> Beef
+                </li>
+              </a>
+              <a href="">
+                <li class="list-group-item">
+                  <i class="fa-solid fa-hashtag"></i> Chicken
+                </li>
+              </a>
+              <a href="">
+                <li class="list-group-item">
+                  <i class="fa-solid fa-hashtag"></i> Non-dairy
+                </li>
+              </a>
+              <a href="">
+                <li class="list-group-item">
+                  <i class="fa-solid fa-hashtag"></i> Dessert
+                </li>
+              </a>
+            </ul>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+
+<footer style="z-index: 10000;">
+  <div class="container foot">
+    <div class="foot-container d-flex justify-content-between">
+      <div class="d-flex align-content-center">
+        <a href="#">
+          <img src="../pictures/logo.png" alt="team-logo" class="foot-logo">
+        </a>
+        <p class="pl-3" >© 2022 ErrorCats</p>
+      </div>
+      <a href="https://github.com/RPI-ITWS/ITWS2110-F22-ErrorCats" target="_blank">
+        <img class="foot-logo" src="../pictures/git.png" alt="git-link">
+      </a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
