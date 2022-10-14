@@ -19,7 +19,7 @@ function centerPost() {
 }
 
 function previewFile() {
-    const preview = document.querySelector('img');
+    const preview = document.querySelector('.photo');
     const file = document.querySelector('input[type=file]').files[0];
 
     // make sure correct file type is given
