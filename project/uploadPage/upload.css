@@ -4,6 +4,10 @@
     transition-property: opacity;
 }
 
+#postButton {
+    background-color: #f04320;
+}
+
 #block {
     margin: auto;
     display: block;
