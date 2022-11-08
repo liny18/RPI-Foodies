@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ceviche+One&family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Terry's Portfolio</title>
     <link rel="stylesheet" href="../style.css">
 </head>
@@ -15,9 +16,9 @@
     <!--- Fixed header on the very top of the website -->
     <header class="header-container">
         <!--- Name on the left of the header, refreshes page when clicked -->
-        <div class="name">
+        <div class="myname">
             <a href="liny18.html">
-                <h1>Terry.</h1>
+                <h1>Terry</h1>
             </a>
         </div>
         <!--- Navigation on the right of the header, links to the footer -->
@@ -37,7 +38,7 @@
         <div class="skill-terry">
             <img class="c-icon" src="../pictures/c.png" alt="an icon of the C language">
             <p class="c-text">
-                C language
+                C
             </p>
         </div>
         <div class="skill-terry">
@@ -127,6 +128,85 @@
 
     <hr>
 
+     <!-- Education section listing student education -->
+     <div class="education-terry">
+        <!-- Title of the section -->
+        <div class="education-title">
+            <h1>
+                Education
+            </h1>
+        </div>
+        <!-- Flexbox to represent each project within a pattern -->
+        <div class="education-container">
+            <!-- First instance of education -->
+            <div class="school-info">
+                <!-- Basic information about the school -->
+                <div class="school-basic">
+                    <h1>
+                        Robert F. Kennedy Community High School
+                        <br>
+                        <span>Flushing, New York, 11355</span>
+                    </h1>
+                    <p>
+                        High School Diploma (2017 - 2021)
+                    </p>
+                </div>
+                <!-- Pictures, websites, and achievements -->
+                <div class="school-detail">
+                    <a href="https://www.rfkchs.com/" target="_blank">
+                        <img src="../pictures/rfkchs.jpeg" alt="logo of RFKCHS">
+                    </a>
+                    <ul>
+                        <li>
+                            4.0/4.0 GPA
+                        </li>
+                        <li>
+                            1480/1600 SAT
+                        </li>
+                        <li>
+                            Dean's Honor Roll
+                        </li>
+                        <li>
+                            Top 10 Graduates of the Class of 2021
+                        </li>
+                    </ul>
+                </div>
+            </div>
+    
+            <!-- Second instance of education -->
+            <div class="school-info">
+                <div class="school-basic">
+                    <h1>
+                        Rensselaer Polytechnic Institute
+                        <br>
+                        <span>Troy, New York, 12180</span>
+                    </h1>
+                    <p>
+                        Bachelor's of Computer Science (2021 - Present)
+                    </p>
+                </div>
+                <div class="school-detail">
+                    <a href="https://www.rpi.edu/" target="_blank">
+                        <img src="../pictures/rpi.png" alt="logo of RPI">
+                    </a>
+                    <ul>
+                        <li>
+                            3.91/4.0 GPA
+                        </li>
+                        <li>
+                            Dean's Honor List
+                        </li>
+                        <li>
+                            Dual CS & ITWS Major
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
     <!-- Experience section listing student experiences -->
     <div id="experience-terry">
         <!-- Title of the section -->
@@ -137,6 +217,37 @@
         </div>
         <!-- Grid to represent each project within a pattern -->
         <div class="experience-grid">
+            <div class="experiences experience0">
+                <div class="experience-main">
+                    <!-- A picture of the company and link to company's website when hovered-->
+                    <img class="experience-pics" src="../pictures/rpi-red.png" alt="picture of RPI">
+                    <div class="experience-link">
+                        <a href="https://www.rpi.edu/" target="_blank">
+                            <div>
+                                Site
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <!-- Description of position -->
+                <div class="experience-description">
+                    <h1>
+                        STRIVE Mentor/ITWS Mentor<span>Sep, 2022 - Present</span>
+                    </h1>
+                    <ul>
+                        <li>
+                            Assist incoming freshmen in their transition to RPI
+                        </li>
+                        <li>
+                            Answer any questions in regards to campus resources, academic assistance, and campus life
+                        </li>
+                        <li>
+                            Complete weekly office hours and make case notes on each student
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
             <div class="experiences experience1">
                 <div class="experience-main">
                     <!-- A picture of the company and link to company's website when hovered-->
@@ -232,87 +343,8 @@
 
     <hr>
 
-    <!-- Education section listing student education -->
-    <div class="education-terry">
-        <!-- Title of the section -->
-        <div class="education-title">
-            <h1>
-                Education
-            </h1>
-        </div>
-        <!-- Flexbox to represent each project within a pattern -->
-        <div class="education-container">
-            <!-- First instance of education -->
-            <div class="school-info">
-                <!-- Basic information about the school -->
-                <div class="school-basic">
-                    <h1>
-                        Robert F. Kennedy Community High School
-                        <br>
-                        <span>Flushing, New York, 11355</span>
-                    </h1>
-                    <p>
-                        High School Diploma (2017 - 2021)
-                    </p>
-                </div>
-                <!-- Pictures, websites, and achievements -->
-                <div class="school-detail">
-                    <a href="https://www.rfkchs.com/" target="_blank">
-                        <img src="../pictures/rfkchs.jpeg" alt="logo of RFKCHS">
-                    </a>
-                    <ul>
-                        <li>
-                            4.0/4.0 GPA
-                        </li>
-                        <li>
-                            1480/1600 SAT
-                        </li>
-                        <li>
-                            Dean's Honor Roll
-                        </li>
-                        <li>
-                            Top 10 Graduates of the Class of 2021
-                        </li>
-                    </ul>
-                </div>
-            </div>
-    
-            <!-- Second instance of education -->
-            <div class="school-info">
-                <div class="school-basic">
-                    <h1>
-                        Rensselaer Polytechnic Institute
-                        <br>
-                        <span>Troy, New York, 12180</span>
-                    </h1>
-                    <p>
-                        Bachelor's of Computer Science (2021 - Present)
-                    </p>
-                </div>
-                <div class="school-detail">
-                    <a href="https://www.rpi.edu/" target="_blank">
-                        <img src="../pictures/rpi.png" alt="logo of RPI">
-                    </a>
-                    <ul>
-                        <li>
-                            3.9/4.0 GPA
-                        </li>
-                        <li>
-                            Dean's Honor List
-                        </li>
-                        <li>
-                            Dual CS & ITWS Major
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <hr>
-
     <!-- Footer at the bottom of the website -->
-    <footer id="footer">
+    <footer id="foot">
         <!-- Icons that goes to listed websites-->
         <a href="https://github.com/liny18" target="_blank">
             <img src="../pictures/github.png" alt="GitHub">
