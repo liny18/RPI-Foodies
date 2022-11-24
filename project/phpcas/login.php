@@ -9,6 +9,7 @@ phpCAS::setNoCasServerValidation();
 if (!phpCAS::isAuthenticated()) {
   phpCAS::forceAuthentication();
 } else {
+  // temporary return address, go back to index.php in php cas system, need to change later when user can have their own page
   header('Location: index.php');
 }
 ?>
