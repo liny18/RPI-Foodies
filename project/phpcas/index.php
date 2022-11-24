@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="../pictures/RPIFoodies.png">
     <title>RPI Foodies</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"/>
     <link rel="stylesheet" href="./login.css">
     <script src="./login.js" defer></script>
@@ -69,11 +68,12 @@
 
                     if (phpCAS::isAuthenticated()) {
                         echo "User: " . phpCAS::getUser();
-                        echo "<a href='logout.php'>Logout</a>";
+                        echo "<a href='logout.php' class='logout_button'>Logout</a>";
                     } else {
-                        echo "<a href='login.php'>Login</a>";
+                        echo "<a href='login.php' class='login_button'>Login</a>";
                     }
                     ?>
+                    <p class="cas_info">*This website is connected to RPI CAS login system, you need to have a RPI account to login.</p>
                 </div>
             </div>
         </div>
