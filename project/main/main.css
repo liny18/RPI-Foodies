@@ -39,6 +39,20 @@
   margin-bottom: 3rem;
 }
 
+
+/* https://stackoverflow.com/questions/1367409/how-to-make-button-look-like-a-link
+   this helped me find how to make it a button but not a button
+*/
+.list-group button {
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  /*optional*/
+  font-family: arial, sans-serif;
+  /*input has OS specific font-family*/
+  cursor: pointer;
+}
+
 .list-group a {
   color: inherit;
   text-decoration: none;

@@ -20,7 +20,7 @@
 
 <body>
     <header>
-        <?php include '../header.html'; ?>
+        <?php include '../header.php'; ?>
     </header>
 
     <main>
