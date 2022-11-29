@@ -7,10 +7,10 @@ phpCAS::client(CAS_VERSION_2_0, 'cas.auth.rpi.edu', 443, '/cas');
 phpCAS::setNoCasServerValidation();
 
 if (!phpCAS::isAuthenticated()) {
+    // not login yet
   phpCAS::forceAuthentication();
-  // back to index.php
-    header('Location: ./index.php');
 } else {
+    // already login
     //back to index.php
     header('Location: ./index.php');
 

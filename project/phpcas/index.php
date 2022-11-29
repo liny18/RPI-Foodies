@@ -47,7 +47,6 @@
                         } catch (PDOException $e) {
                             echo "Connection failed: " . $e->getMessage();
                         }
-                        // check the connection
 
                         // get the user's username, this is the RCS id of the user, this is the userID in the table
                         $username = phpCAS::getUser();
