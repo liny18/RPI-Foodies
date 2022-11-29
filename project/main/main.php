@@ -61,11 +61,11 @@
 
   
   // based on if a button is clicked then go to the search page with the query needed
-  if (array_key_exists('mostLiked1', $_POST)) {
+  if (array_key_exists('mostLiked1', $_POST) && isset($topPost1)) {
     $_SESSION['query'] = 'SELECT * FROM Posts WHERE location = "Commons" AND foodName = "' . $topPost1 . '" ORDER BY likes DESC';
-  } else if (array_key_exists('mostLiked2', $_POST)) {
+  } else if (array_key_exists('mostLiked2', $_POST) && isset($topPost2)) {
     $_SESSION['query'] = 'SELECT * FROM Posts WHERE location = "Commons" AND foodName = "' . $topPost2 . '" ORDER BY likes DESC';
-  } else if (array_key_exists('mostLiked3', $_POST)) {
+  } else if (array_key_exists('mostLiked3', $_POST) && isset($topPost3)) {
     $_SESSION['query'] = 'SELECT * FROM Posts WHERE location = "Commons" AND foodName = "' . $topPost3 . '" ORDER BY likes DESC';
   }
 
