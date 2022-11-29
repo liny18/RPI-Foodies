@@ -72,15 +72,15 @@
   // based on if a button is hit change what is being shown
   // and jump to the next page to show the new data
   if (array_key_exists('quick1', $_POST)) {
-    $_SESSION['query'] = "SELECT * FROM posts WHERE tag1 = 'Vegetable' ORDER BY likes DESC";
+    $_SESSION['query'] = "SELECT * FROM Posts WHERE tag1 = 'Vegetable' ORDER BY likes DESC";
   } else if (array_key_exists('quick2', $_POST)) {
-    $_SESSION['query'] = "SELECT * FROM posts WHERE tag1 = 'Beef' ORDER BY likes DESC";
+    $_SESSION['query'] = "SELECT * FROM Posts WHERE tag1 = 'Beef' ORDER BY likes DESC";
   } else if (array_key_exists('quick3', $_POST)) {
-    $_SESSION['query'] = "SELECT * FROM posts WHERE tag1 = 'Chicken' ORDER BY likes DESC";
+    $_SESSION['query'] = "SELECT * FROM Posts WHERE tag1 = 'Chicken' ORDER BY likes DESC";
   } else if (array_key_exists('quick4', $_POST)) {
-    $_SESSION['query'] = "SELECT * FROM posts WHERE tag1 = 'Non-dairy' ORDER BY likes DESC";
+    $_SESSION['query'] = "SELECT * FROM Posts WHERE tag1 = 'Non-dairy' ORDER BY likes DESC";
   } else if (array_key_exists('quick5', $_POST)) {
-    $_SESSION['query'] = "SELECT * FROM posts WHERE tag1 = 'Dessert' ORDER BY likes DESC";
+    $_SESSION['query'] = "SELECT * FROM Posts WHERE tag1 = 'Dessert' ORDER BY likes DESC";
   }
   ?>
 
