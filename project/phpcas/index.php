@@ -64,7 +64,7 @@
                         $result = $db->query($sql);
                         $userID = $result->fetchColumn();
                         echo "userID is $userID";
-                        header("Location: ../main/main/php");
+                        header("Location: ../main/main.php");
                     } else {
                         echo "<a href='login.php' class='login_button'>Login</a>";
                     }
