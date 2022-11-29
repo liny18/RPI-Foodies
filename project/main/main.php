@@ -158,7 +158,7 @@
               echo '<i class="fa-solid fa-location-arrow"></i>' . $row[$i]['location'] . '</div>';
               echo '<p class="time"><i class="fa-solid fa-clock"></i> ' . $row[$i]['postTime'] . '</p>';
               echo '</div>';
-              echo '<img class="card-img-top" src="../images' . $row[$i]['photoID'] . '"alt="Card image">';
+              echo '<img class="card-img-top" src="../postImages/' . $row[$i]['postPhoto'] . '"alt="Card image">';
               echo '<div class="card-body"><h5 class="card-title"><i class="fa-solid fa-tags"></i>';
               echo $row[$i]['tag1'] . '</h5>';
               echo '<p class="card-text">';
@@ -169,7 +169,7 @@
               echo '<div class="like"><i class="fa-regular fa-heart"></i>';
               echo $row[$i]['likes'] . ' likes</div>';
               echo '<div class="comment"><i class="fa-regular fa-comment"></i>';
-              echo $row[$i]['comments'] . ' comments</div></div></div>';
+              echo 0 . ' comments</div></div></div>';
               // ADD A BUTTON THAT ON SUBMIT WILL INCREMENT LIKES BY 1 
               // ALSO HAVE IT AS A FUNCTION THAT TAKES IN A POST ID
               // CAN BE DONE IN THE FOR LOOP SHIT
@@ -195,7 +195,7 @@
             echo '<i class="fa-solid fa-location-arrow"></i>' . $row[$i]['location'] . '</div>';
             echo '<p class="time"><i class="fa-solid fa-clock"></i> ' . $row[$i]['postTime'] . '</p>';
             echo '</div>';
-            echo '<img class="card-img-top" src="../images' . $row[$i]['photoID'] . '"alt="Card image">';
+            echo '<img class="card-img-top" src="../postImages/' . $row[$i]['postPhoto'] . '"alt="Card image">';
             echo '<div class="card-body"><h5 class="card-title"><i class="fa-solid fa-tags"></i>';
             echo $row[$i]['tag1'] . '</h5>';
             echo '<p class="card-text">';
@@ -206,7 +206,7 @@
             echo '<div class="like"><i class="fa-regular fa-heart"></i>';
             echo $row[$i]['likes'] . ' likes</div>';
             echo '<div class="comment"><i class="fa-regular fa-comment"></i>';
-            echo $row[$i]['comments'] . ' comments</div></div></div>';
+            echo 0 . ' comments</div></div></div>';
           }
           // reset querys to 0
           $_SESSION['query'] = "";
@@ -225,7 +225,7 @@
             echo '<i class="fa-solid fa-location-arrow"></i>' . $row[$i]['location'] . '</div>';
             echo '<p class="time"><i class="fa-solid fa-clock"></i> ' . $row[$i]['postTime'] . '</p>';
             echo '</div>';
-            echo '<img class="card-img-top" src="../images' . $row[$i]['photoID'] . '"alt="Card image">';
+            echo '<img class="card-img-top" src="../postImages/' . $row[$i]['postPhoto'] . '"alt="Card image">';
             echo '<div class="card-body"><h5 class="card-title"><i class="fa-solid fa-tags"></i>';
             echo $row[$i]['tag1'] . '</h5>';
             echo '<p class="card-text">';
@@ -236,7 +236,7 @@
             echo '<div class="like"><i class="fa-regular fa-heart"></i>';
             echo $row[$i]['likes'] . ' likes</div>';
             echo '<div class="comment"><i class="fa-regular fa-comment"></i>';
-            echo $row[$i]['comments'] . ' comments</div></div></div>';
+            echo 0 . ' comments</div></div></div>';
           }
         }
         ?>

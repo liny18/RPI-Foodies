@@ -20,6 +20,7 @@
 
 <?php
 @session_start();
+
 if(array_key_exists('submitSearch', $_POST)){
     $_SESSION['isSearch'] = true;
     $_SESSION['query'] = strtolower($_POST['search']);

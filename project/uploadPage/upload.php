@@ -44,21 +44,21 @@
 
     if (array_key_exists('submitUpload', $_POST)) {
         // create an insert statement
-        $upload = $conn->prepare("INSERT INTO Posts (postTime, userID, likes, mainComment, postPhoto, location, tag1, foodName) VALUES (NOW(), :userID, 0, :mainComment, :postPhoto, :location, :tag1, :foodName)");
+        $upload = $conn->prepare("INSERT INTO Posts (postTime, userID, likes, mainComment, postPhoto, location, tag1, foodName) VALUES (NOW(), 1, 0, :mainComment, :postPhoto, :location, :tag1, :foodName)");
 
         // get file name and location
         $fileName = $_FILES['postPhoto']['name'];
         $fileTmpName = $_FILES['postPhoto']['tmp_name'];
 
         // grab all the data from the form
-        $userID = $_SESSION['userID'];
+        //$userID = $_SESSION['userID'];
         $mainComment = $_POST['caption'];
         $location = $_POST['Location'];
         $tag1 = $_POST['tag1'];
         $foodName = $_POST['foodName'];
 
         // execute the insert statement
-        $upload->execute([':userID' => $userID, ':mainComment' => $mainComment, ':postPhoto' => $fileName, ':location' => $location, ':tag1' => $tag1, ':foodName' => $foodName]);
+        $upload->execute([':mainComment' => $mainComment, ':postPhoto' => $fileName, ':location' => $location, ':tag1' => $tag1, ':foodName' => $foodName]);
 
         // move the file to the correct location
         $fileDestination = '../postImages/' . $fileName;
