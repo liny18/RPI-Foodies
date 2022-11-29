@@ -21,9 +21,14 @@ if (!phpCAS::isAuthenticated()) {
   $sql = "SELECT * FROM users WHERE userID = '$username'";
   $result = $db->query ($sql);
   if ($result->rowCount() == 0) {
-    $sql = "INSERT INTO users (userID, username) VALUES ('$username', '$username')";
-    $db->query ($sql);
+    $user = $sql->prepare("INSERT INTO users (username, admin) VALUES (:username, 0)");
+    $user->execute([':username' => $username]);
   }
+  $sql = "SELECT * FROM users WHERE username = '$username'";
+  $result = $db->query ($sql);
+  // set the session variable to the userID
+  $_SESSION['userID'] = $result['userID'];
+
   // temporary return address, go back to index.php in php cas system, need to change later when user can have their own page
   header('Location: index.php');
 }
