@@ -50,12 +50,9 @@
                         // get the user's username, this is the RCS id of the user, this is the userID in the table
                         $username = phpCAS::getUser();
                         // check if the userID is already in the database, if not, insert the userID into the database, and make the username same with the userID as default
-                        $sql = $db->prepare("SELECT * FROM users WHERE userID = '$username'");
-                        $result=$sql->execute();
-                        if ($result->rowCount() == 0) {
-                            $user = $db->prepare("INSERT INTO users (username, admin) VALUES (:username, 0)");
-                            $user->execute([':username' => $username]);
-                        }
+                        // using insert into values where not exists to avoid duplicate username
+                        $sql = "INSERT INTO users (username,admin) VALUES ('$username', 0) WHERE NOT EXISTS (SELECT username FROM users WHERE username = '$username')";
+                        $db->exec($sql);
                         // get the userID from the database
                         $sql = "SELECT userID FROM users WHERE username = '$username'";
                         $result = $db->query($sql);
