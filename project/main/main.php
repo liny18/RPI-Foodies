@@ -48,7 +48,7 @@
 
 
   // first grab all the data in descending order because newer posts will have a larger postid
-  $grabByPostID = $conn->prepare("SELECT * FROM posts ORDER BY postID DESC");
+  $grabByPostID = $conn->prepare("SELECT * FROM Posts ORDER BY postID DESC");
   $grabByPostID->execute();
 
   // grab data by most likes
