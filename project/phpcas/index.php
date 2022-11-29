@@ -40,8 +40,7 @@
                     phpCAS::setNoCasServerValidation();
 
                     if (phpCAS::isAuthenticated()) {
-                        echo "User: " . phpCAS::getUser();
-                        echo "<a href='logout.php' class='logout_button'>Logout</a>";
+                        header("Location: ../main/main/php");
                     } else {
                         echo "<a href='login.php' class='login_button'>Login</a>";
                     }
