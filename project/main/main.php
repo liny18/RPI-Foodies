@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- CSS only -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
   <link href="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css" rel="stylesheet">
   <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="main.css">
@@ -17,45 +18,12 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-md sticky-top navbar-light header" style="z-index: 10000;">
-    <a class="navbar-brand refresh" href="#">
-    <img src="../pictures/RPIFoodies.png" alt="Error Cats logo" width="40" height="40" style="border-radius: 50%;">
-    RPI Foodies
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <form class="form-inline justify-content-center align-items-center container">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-light" type="submit">
-            <img src="../pictures/search_ideogram.svg" alt="Magnifying glass" width="30" height="30">
-        </button>
-    </form>
-    <ul class="navbar-nav ml-auto align-items-center">
-        <li class="nav-item trending">
-            <a href="../Dining Hall Page/index.html" class="navbar-brand">
-                <img src="../pictures/trendingIcon.svg" alt="trending button" width="40" height="40">
-            </a>
-        </li>
-        <li class="nav-item post">
-            <a href="../uploadPage/upload.html" class="navbar-brand">
-                <img src="../pictures/addPostIcon.svg" alt="add post button" width="40" height="40">
-            </a>
-        </li>
-        <li class="nav-item mr-sm-2">
-            <a href="../project-login/login.html" class="btn btn-light" role="button">Log In</a>
-        </li>
-        <li class="nav-item">
-            <a href="../project-login/create.html" class="btn btn-dark" role="button">Sign Up</a>
-        </li>
-    </ul>
-    </div>
-</nav>
+  <header>
+    <?php include '../header.html'; ?>
+  </header>
 
-<div class="container">
-  <div class="row vh-100">
+  <div class="container">
+    <div class="row vh-100">
       <div class="col-md-3 py-3">
         <div class="card text-center">
           <div class="card-header">
@@ -63,23 +31,23 @@
           </div>
           <div class="card-body">
             <h5 class="card-title">Commons Dinning Hall</h5>
-              <ul class="list-group">
-                <a href="">
-                  <li class="list-group-item">
-                    <i class="fa-solid fa-bowl-food"></i> Pasta
-                  </li>
-                </a>
-                <a href="">
-                  <li class="list-group-item">
-                    <i class="fa-solid fa-bowl-food"></i> Orange chicken
-                  </li>
-                </a>
-                <a href="">
-                  <li class="list-group-item">
-                    <i class="fa-solid fa-bowl-food"></i> Korean pulled pork
-                  </li>
-                </a>
-              </ul>
+            <ul class="list-group">
+              <a href="">
+                <li class="list-group-item">
+                  <i class="fa-solid fa-bowl-food"></i> Pasta
+                </li>
+              </a>
+              <a href="">
+                <li class="list-group-item">
+                  <i class="fa-solid fa-bowl-food"></i> Orange chicken
+                </li>
+              </a>
+              <a href="">
+                <li class="list-group-item">
+                  <i class="fa-solid fa-bowl-food"></i> Korean pulled pork
+                </li>
+              </a>
+            </ul>
           </div>
         </div>
       </div>
@@ -220,24 +188,17 @@
           </div>
         </div>
       </div>
-  </div>
-</div>
-
-<footer style="z-index: 10000;">
-  <div class="container foot">
-    <div class="foot-container d-flex justify-content-between">
-      <div class="d-flex align-content-center">
-        <a href="#">
-          <img src="../pictures/logo.png" alt="team-logo" class="foot-logo">
-        </a>
-        <p class="pl-3" >© 2022 ErrorCats</p>
-      </div>
-      <a href="https://github.com/RPI-ITWS/ITWS2110-F22-ErrorCats" target="_blank">
-        <img class="foot-logo" src="../pictures/git.png" alt="git-link">
-      </a>
     </div>
   </div>
-</footer>
+
+  <footer>
+    <?php include '../footer.html'; ?>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
 
 </body>
+
 </html>
