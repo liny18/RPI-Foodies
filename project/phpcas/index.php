@@ -49,21 +49,17 @@
 
                         // get the user's username, this is the RCS id of the user, this is the userID in the table
                         $username = phpCAS::getUser();
-                        echo "<h1>Welcome, $username!</h1>"; // test the username
                         // check if the userID is already in the database, if not, insert the userID into the database, and make the username same with the userID as default
-                        $sql = "SELECT * FROM users WHERE userID = '$username'";
-                        $result = $db->query($sql);
+                        $sql = $db->prepare("SELECT * FROM users WHERE userID = '$username'");
+                        $result=$sql->execute();
                         if ($result->rowCount() == 0) {
                             $user = $db->prepare("INSERT INTO users (username, admin) VALUES (:username, 0)");
                             $user->execute([':username' => $username]);
-                            echo "done with insertion with username";
                         }
-                        echo "need to get the userid here";
                         // get the userID from the database
                         $sql = "SELECT userID FROM users WHERE username = '$username'";
                         $result = $db->query($sql);
                         $userID = $result->fetchColumn();
-                        echo "userID is $userID";
                         header("Location: ../main/main.php");
                     } else {
                         echo "<a href='login.php' class='login_button'>Login</a>";
