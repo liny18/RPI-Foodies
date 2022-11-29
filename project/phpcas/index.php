@@ -54,7 +54,7 @@
                         $sql = "SELECT * FROM users WHERE userID = '$username'";
                         $result = $db->query($sql);
                         if ($result->rowCount() == 0) {
-                            $user = $sql->prepare("INSERT INTO users (username, admin) VALUES (:username, 0)");
+                            $user = $db->prepare("INSERT INTO users (username, admin) VALUES (:username, 0)");
                             $user->execute([':username' => $username]);
                             echo "done with insertion with username";
                         }
