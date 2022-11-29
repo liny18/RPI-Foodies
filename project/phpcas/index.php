@@ -55,14 +55,14 @@
                         $sql->execute([":username" => $username]);
                         $result = $sql->fetch();
                         if ($result[0]==0) {
-                            $sql = $db->prepare( "INSERT INTO users (username, admin) VALUES ('$username',0)");
-                            $db->exec($sql);
+                            $sql = $db->prepare( "INSERT INTO users (username, admin) VALUES (:username, 0)");
+                            $sql->execute([":username" => $username]);
                         }
 
                         // get the userID from the database
-                        $sql = $db->prepare( "SELECT userID FROM users WHERE username = '$username'");
-                        $result = $db->exec($sql);
-                        $userID = $result->fetchColumn();
+                        $sql = $db->prepare( "SELECT userID FROM users WHERE username = :username");
+                        $result = $sql->execute([":username" => $username]);
+                        $userID = $sql->fetch();
                         header("Location: ../main/main.php");
                     } else {
                         echo "<a href='login.php' class='login_button'>Login</a>";
