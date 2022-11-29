@@ -51,8 +51,8 @@
                         $username = phpCAS::getUser();
                         // check if the userID is already in the database, if not, insert the userID into the database, and make the username same with the userID as default
                         // if the userID is already in the database, do nothing
-                        $sql = $db->prepare("SELECT * FROM users WHERE userID = '$username'");
-                        $sql->execute();
+                        $sql = $db->prepare("SELECT * FROM users WHERE username = :username'");
+                        $sql->execute([":username" => $username]);
                         $result = $sql->fetch();
                         if ($result[0]==0) {
                             $sql = $db->prepare( "INSERT INTO users (username, admin) VALUES ('$username',0)");
