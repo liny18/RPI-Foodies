@@ -142,7 +142,7 @@
 
         <?php
         // we need to see if the query should be based on a search or not
-        if ($_SESSION['isSearch'] == true) {
+        if (isset($_SESSION['isSearch']) && $_SESSION['isSearch'] == true) {
           echo "search";
           // grab the rows of the query
           $row = $grabByPostID->fetchAll();
@@ -179,7 +179,7 @@
           }
           $_SESSION['isSearch'] = false;
           $_SESSION['query'] = "";
-        } else if ($_SESSION['query'] != '') {
+        } else if (isset($_SESSION['query']) && $_SESSION['query'] != '') {
           echo "button";
           // create new query based on the button pressed
           $grabByPostID = $conn->prepare($_SESSION['query']);
