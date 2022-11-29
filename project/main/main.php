@@ -31,7 +31,6 @@
   $username = "root";
   $password = "";
 
-  $conn;
 
   try {
     $conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
@@ -59,9 +58,6 @@
   // grab data by most likes in commons
   $grabByLikesCommons = $conn->prepare("SELECT * FROM Posts WHERE location = 'Commons' ORDER BY likes DESC");
   $grabByLikesCommons->execute();
-
-
-  $row;
 
   
   // based on if a button is clicked then go to the search page with the query needed
@@ -100,11 +96,7 @@
             <ul class="list-group">
 
               <?php
-              // establish variables for the top 3 posts
-              $topPost1;
-              $topPost2;
-              $topPost3;
-
+        
               // grab the rows of the query
               $row = $grabByLikesCommons->fetchAll();
               // print out data for most liked foods
