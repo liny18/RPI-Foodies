@@ -33,6 +33,6 @@ if (!phpCAS::isAuthenticated()) {
   $_SESSION['userID'] = $result['userID'];
 
   // temporary return address, go back to index.php in php cas system, need to change later when user can have their own page
-  header('Location: index.php');
+  header('Location: ../main/main.php');
 }
 ?>
