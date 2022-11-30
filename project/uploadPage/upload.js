@@ -2,8 +2,6 @@
 
 $(window).ready(centerPost);
 $(window).resize(centerPost);
-$("body").keyup(validateText);
-$(document).ready(postSubmit());
 
 //centers the text on screen based on the width and height of the 
 //boxes
@@ -75,20 +73,4 @@ function makePicFit() {
 }
 
 
-//if text is valid and there is a photo, allow submit button to appear
-function validateText() {
-    if ($(".imgCont").css("visibility") != "hidden") {
-        if (($("#Caption").val() != "" && $("#Caption").val() != "Enter A Caption") && ($("#floatLocation").val() != "" && $("#floatLocation").val() != "Add Location")) {
-            $("#postButton").removeAttr("disabled");
-        }
-    }
-}
 
-
-//when submited say submitted go to hompage
-function postSubmit() {
-    $(document).on('submit', '#postText', function () {
-        alert("Successful Post")
-        return false;
-    });
-}

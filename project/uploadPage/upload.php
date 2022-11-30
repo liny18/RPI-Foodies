@@ -34,6 +34,19 @@
 
     $conn;
 
+    function checkFile($file)
+    {
+        $allowed = array(".jpg", ".jpeg", ".png");
+        for($i = 0; $i < count($allowed); $i++)
+        {
+            if(str_contains($file, $allowed[$i]))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
     try {
         $conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
         // set the PDO error mode to exception
@@ -44,25 +57,42 @@
 
     if (array_key_exists('submitUpload', $_POST)) {
         // create an insert statement
-        $upload = $conn->prepare("INSERT INTO Posts (postTime, userID, likes, mainComment, postPhoto, location, tag1, foodName) VALUES (NOW(), 1, 0, :mainComment, :postPhoto, :location, :tag1, :foodName)");
+        $upload = $conn->prepare("INSERT INTO Posts (postTime, userID, likes, mainComment, postPhoto, location, tag1, foodName) VALUES (NOW(), :userID, 0, :mainComment, :postPhoto, :location, :tag1, :foodName)");
 
         // get file name and location
         $fileName = $_FILES['postPhoto']['name'];
         $fileTmpName = $_FILES['postPhoto']['tmp_name'];
 
-        // grab all the data from the form
-        //$userID = $_SESSION['userID'];
-        $mainComment = $_POST['caption'];
-        $location = $_POST['Location'];
-        $tag1 = $_POST['tag1'];
-        $foodName = $_POST['foodName'];
+        if (checkFile($fileName)) {
 
-        // execute the insert statement
-        $upload->execute([':mainComment' => $mainComment, ':postPhoto' => $fileName, ':location' => $location, ':tag1' => $tag1, ':foodName' => $foodName]);
 
-        // move the file to the correct location
-        $fileDestination = '../postImages/' . $fileName;
-        move_uploaded_file($fileTmpName, $fileDestination);
+            // transfer and hash the filename
+            move_uploaded_file($fileTmpName, "temp/$fileName");
+            // output is stored in fileName2
+            exec("sha256sum temp/$fileName | cut -f1 -d' '", $fileName2);
+    
+            // by default the file is transfered into the right place and converted into a jpg
+            exec("convert temp/$fileName ../postImage/$fileName2.jpg");
+            // remove the file from the temp location
+            exec("rm temp/$fileName.png");
+    
+
+            $fileName = $fileName2[0] . ".jpg";
+    
+            // grab all the data from the form
+            $userID = $_SESSION['userID'];
+            $mainComment = $_POST['caption'];
+            $location = $_POST['Location'];
+            $tag1 = $_POST['tag1'];
+            $foodName = $_POST['foodName'];
+
+            // execute the insert statement
+            $upload->execute([':userID' => $userID, ':mainComment' => $mainComment, ':postPhoto' => $fileName, ':location' => $location, ':tag1' => $tag1, ':foodName' => $foodName]);
+    
+        } else {
+            echo "<h2 class='text-center h2'>File type not supported</h2>";
+            echo "<h3 class='text-center h3'>Please upload a .jpg, .jpeg, or .png file</h3>";
+        }
     }
 
     ?>
@@ -73,7 +103,7 @@
                 <section id="uploadPhoto" class="col shadow-lg p-3 mb-5 bg-body rounded">
                     <h1 class="picTitle">Upload Image</h1>
                     <hr class="bg-dark border-5 border-top border-dark">
-                    <input class="form-control" type="file" id="postPhoto" accept="image/jpg, image/png"
+                    <input class="form-control" type="file" id="postPhoto" accept="image/jpg, image/png, image/jpeg"
                         name="postPhoto" value="" onchange="previewFile()" required />
                     <div class="imgCont"><img src="#" alt="Image preview" class="photo" /></div>
                 </section>
