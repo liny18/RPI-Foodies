@@ -59,7 +59,7 @@
   $grabByLikesCommons = $conn->prepare("SELECT * FROM Posts WHERE location = 'Commons' ORDER BY likes DESC");
   $grabByLikesCommons->execute();
 
-  
+
   // based on if a button is clicked then go to the search page with the query needed
   if (array_key_exists('mostLiked0', $_POST) && isset($_SESSION['topPost1'])) {
     $_SESSION['query'] = 'SELECT * FROM Posts WHERE location = "Commons" AND foodName = "' . $_SESSION['topPost1'] . '" ORDER BY likes DESC';
@@ -96,7 +96,7 @@
             <ul class="list-group">
 
               <?php
-        
+
               // grab the rows of the query
               $row = $grabByLikesCommons->fetchAll();
               $len = count($row);
@@ -141,6 +141,7 @@
 
 
         <?php
+        $_SESSION['userID'] = 1;
         // we need to see if the query should be based on a search or not
         if (isset($_SESSION['isSearch']) && $_SESSION['isSearch'] == true) {
           // grab the rows of the query
@@ -164,14 +165,15 @@
               echo $row[$i]['mainComment'];
               echo '<i class="fa-solid fa-quote-right"></i></p></div>';
               echo '<div class="card-footer d-flex justify-content-between pl-5 pr-5">';
-              echo '<div class="like"><i class="fa-regular fa-heart"></i>';
-              echo $row[$i]['likes'] . ' likes</div>';
+              echo '<button class="like" onclick="likeCounter(' . $row[$i]['postID'] . ', ' . $_SESSION['userID'];
+              echo ', this)"><i class="fa-regular fa-heart" ></i> ';
+              echo $row[$i]['likes'] . ' likes</button>';
               echo '<div class="comment"><i class="fa-regular fa-comment"></i>';
               echo 0 . ' comments</div></div></div>';
               // ADD A BUTTON THAT ON SUBMIT WILL INCREMENT LIKES BY 1 
               // ALSO HAVE IT AS A FUNCTION THAT TAKES IN A POST ID
               // CAN BE DONE IN THE FOR LOOP SHIT
-              
+        
               // When terry does modals add that shit to the end of this for loop
             }
           }
@@ -198,8 +200,9 @@
             echo $row[$i]['mainComment'];
             echo '<i class="fa-solid fa-quote-right"></i></p></div>';
             echo '<div class="card-footer d-flex justify-content-between pl-5 pr-5">';
-            echo '<div class="like"><i class="fa-regular fa-heart"></i>';
-            echo $row[$i]['likes'] . ' likes</div>';
+            echo '<button class="like" onclick="likeCounter(' . $row[$i]['postID'] . ', ' . $_SESSION['userID'];
+            echo ', this)"><i class="fa-regular fa-heart" ></i> ';
+            echo $row[$i]['likes'] . ' likes</button>';
             echo '<div class="comment"><i class="fa-regular fa-comment"></i>';
             echo 0 . ' comments</div></div></div>';
           }
@@ -226,15 +229,16 @@
             echo $row[$i]['mainComment'];
             echo '<i class="fa-solid fa-quote-right"></i></p></div>';
             echo '<div class="card-footer d-flex justify-content-between pl-5 pr-5">';
-            echo '<div class="like"><i class="fa-regular fa-heart"></i>';
-            echo $row[$i]['likes'] . ' likes</div>';
+            echo '<button class="like" onclick="likeCounter(' . $row[$i]['postID'] . ', ' . $_SESSION['userID'];
+            echo ', this)"><i class="fa-regular fa-heart" ></i> ';
+            echo $row[$i]['likes'] . ' likes</button>';
             echo '<div class="comment"><i class="fa-regular fa-comment"></i>';
             echo 0 . ' comments</div></div></div>';
           }
         }
         ?>
 
-<!--        
+        <!--        
         <div class="card text-center">
           <div class="card-header p-2">
             <div class="location p-2">
@@ -380,9 +384,11 @@
     <?php include '../footer.html'; ?>
   </footer>
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
+  <script src="main.js"></script>
 
 </body>
 
