@@ -36,15 +36,15 @@
 
     function checkFile($file)
     {
-        $allowed = array(".jpg", ".jpeg", ".png");
-        for($i = 0; $i < count($allowed); $i++)
+        $allowed = array("jpg", "jpeg", "png");
+        if(in_array($file, $allowed))
         {
-            if(str_contains($file, $allowed[$i]))
-            {
-                return true;
-            }
+            return true;
         }
-        return false;
+        else
+        {
+            return false;
+        }
     }
 
     try {
@@ -61,9 +61,10 @@
 
         // get file name and location
         $fileName = $_FILES['postPhoto']['name'];
+        $ext = pathinfo($fileName, PATHINFO_EXTENSION);
         $fileTmpName = $_FILES['postPhoto']['tmp_name'];
 
-        if (checkFile($fileName)) {
+        if (checkFile($ext)) {
 
 
             // transfer and hash the filename
