@@ -141,7 +141,6 @@
 
 
         <?php
-        $_SESSION['userID'] = 1;
         // we need to see if the query should be based on a search or not
         if (isset($_SESSION['isSearch']) && $_SESSION['isSearch'] == true) {
           // grab the rows of the query
