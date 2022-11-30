@@ -63,8 +63,6 @@
         // move the file to the correct location
         $fileDestination = '../postImages/' . $fileName;
         move_uploaded_file($fileTmpName, $fileDestination);
-
-
     }
 
     ?>
@@ -92,20 +90,20 @@
                                 <select name="Location" id="Location" class="form-select"
                                     aria-label="Dining Hall Selection" required>
                                     <option value="">Select a Dining Hall</option>
-                                    <option value="1">Commons</option>
-                                    <option value="2">Sage</option>
-                                    <option value="3">Blitman</option>
-                                    <option value="4">BarH</option>
+                                    <option value="Commons">Commons</option>
+                                    <option value="Sage">Sage</option>
+                                    <option value="Blitman">Blitman</option>
+                                    <option value="Barh">BarH</option>
                                 </select>
                             </div>
                             <div class="col-6 p-3">
                                 <select class="form-select" aria-label="Dining Hall Selection" name="tag1" required>
                                     <option value="">What type of food was it?</option>
-                                    <option value="1">Vegitarian</option>
-                                    <option value="2">Beef</option>
-                                    <option value="3">Chicken</option>
-                                    <option value="4">Non-Dairy</option>
-                                    <option value="4">Desert</option>
+                                    <option value="Vegetarian">Vegetarian</option>
+                                    <option value="Beef">Beef</option>
+                                    <option value="Chicken">Chicken</option>
+                                    <option value="Non-Dairy">Non-Dairy</option>
+                                    <option value="Desert">Desert</option>
                                 </select>
                             </div>
                         </div>
