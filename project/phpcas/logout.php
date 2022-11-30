@@ -7,6 +7,7 @@ phpCAS::client(CAS_VERSION_2_0,'cas.auth.rpi.edu',443,'/cas');
 phpCAS::setNoCasServerValidation();
 
 if (phpCAS::isAuthenticated()) {
+  unset($_SESSION['userID']);
   phpCAS::logout();
 } else {
   // temporary return address, go back to index.php in php cas system, need to change later when user can have their own page

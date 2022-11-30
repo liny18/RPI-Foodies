@@ -21,12 +21,6 @@
 <?php
 @session_start();
 
-// checks to make sure the user is logged in
-// IF YOU ARE WORKING LOCALLY COMMENT THIS OUT OR YOU WONT BE ABLE TO TEST
-if (!isset($_SESSION['userID'])) {
-    header("Location: ../phpcas/index.php");
-}
-
 if(array_key_exists('submitSearch', $_POST)){
     $_SESSION['isSearch'] = true;
     $_SESSION['query'] = strtolower($_POST['search']);
