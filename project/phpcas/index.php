@@ -50,16 +50,19 @@
                         // get the user's username, this is the RCS id of the user, this is the userID in the table
                         $username = phpCAS::getUser();
                         // check if the userID is already in the database, if not, insert the userID into the database, and make the username same with the userID as default
-                        $sql = $db->prepare("SELECT * FROM users WHERE userID = '$username'");
-                        $result=$sql->execute();
-                        if ($result->rowCount() == 0) {
-                            $user = $db->prepare("INSERT INTO users (username, admin) VALUES (:username, 0)");
-                            $user->execute([':username' => $username]);
+                        // if the userID is already in the database, do nothing
+                        $sql = $db->prepare("SELECT * FROM users WHERE username = :username'");
+                        $sql->execute([":username" => $username]);
+                        $result = $sql->fetch();
+                        if ($result[0]==0) {
+                            $sql = $db->prepare( "INSERT INTO users (username, admin) VALUES (:username, 0)");
+                            $sql->execute([":username" => $username]);
                         }
+
                         // get the userID from the database
-                        $sql = "SELECT userID FROM users WHERE username = '$username'";
-                        $result = $db->query($sql);
-                        $userID = $result->fetchColumn();
+                        $sql = $db->prepare( "SELECT userID FROM users WHERE username = :username");
+                        $result = $sql->execute([":username" => $username]);
+                        $userID = $sql->fetch();
                         header("Location: ../main/main.php");
                     } else {
                         echo "<a href='login.php' class='login_button'>Login</a>";
