@@ -41,7 +41,7 @@
                     if (phpCAS::isAuthenticated()) {
                         try {
                             // connect to database using pdo
-                            $db = new PDO('mysql:host=localhost;dbname=rpiFoodies', 'phpmyadmin', 'Err0rC@ts2022');
+                            $db = new PDO('mysql:host=localhost;dbname=rpiFoodies', 'root', '');
                             $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                         } catch (PDOException $e) {
                             echo "Connection failed: " . $e->getMessage();
@@ -51,7 +51,7 @@
                         $username = phpCAS::getUser();
                         // check if the userID is already in the database, if not, insert the userID into the database, and make the username same with the userID as default
                         // if the userID is already in the database, do nothing
-                        $sql = $db->prepare("SELECT * FROM users WHERE username = :username'");
+                        $sql = $db->prepare("SELECT * FROM users WHERE username = :username");
                         $sql->execute([":username" => $username]);
                         $result = $sql->fetch();
                         if ($result[0]==0) {
@@ -62,7 +62,8 @@
                         // get the userID from the database
                         $sql = $db->prepare( "SELECT userID FROM users WHERE username = :username");
                         $result = $sql->execute([":username" => $username]);
-                        $userID = $sql->fetch();
+                        $row = $sql->fetch();
+                        $_SESSION['userID'] = $row['userID'];
                         header("Location: ../main/main.php");
                     } else {
                         echo "<a href='login.php' class='login_button'>Login</a>";
