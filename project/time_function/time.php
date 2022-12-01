@@ -1,9 +1,6 @@
 <?php
 
 
-// i just create a two time for the sample, for our website, we need to read in the user input time as the format below
-$date1 = ("2022-12-01 10:15:00");
-
 function calculate_time($date1){
     //get current time with the format y-m-d h:i:s with time zone America/New_York
     date_default_timezone_set('America/New_York');
