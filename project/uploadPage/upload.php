@@ -69,7 +69,8 @@
 
             // transfer and hash the filename
             move_uploaded_file($fileTmpName, "../postImages/$fileName");
-            $hash = hash_file('sha256', "temp/$fileName");
+            $hash = hash_file('sha256', "../postImages/$fileName");
+            
             
             $out = "$hash.$ext";
             
