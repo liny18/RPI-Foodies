@@ -61,12 +61,12 @@
 
   
   // based on if a button is clicked then go to the search page with the query needed
-  if (array_key_exists('mostLiked1', $_POST) && isset($topPost1)) {
-    $_SESSION['query'] = 'SELECT * FROM Posts WHERE location = "Commons" AND foodName = "' . $topPost1 . '" ORDER BY likes DESC';
-  } else if (array_key_exists('mostLiked2', $_POST) && isset($topPost2)) {
-    $_SESSION['query'] = 'SELECT * FROM Posts WHERE location = "Commons" AND foodName = "' . $topPost2 . '" ORDER BY likes DESC';
-  } else if (array_key_exists('mostLiked3', $_POST) && isset($topPost3)) {
-    $_SESSION['query'] = 'SELECT * FROM Posts WHERE location = "Commons" AND foodName = "' . $topPost3 . '" ORDER BY likes DESC';
+  if (array_key_exists('mostLiked0', $_POST) && isset($_SESSION['topPost1'])) {
+    $_SESSION['query'] = 'SELECT * FROM Posts WHERE location = "Commons" AND foodName = "' . $_SESSION['topPost1'] . '" ORDER BY likes DESC';
+  } else if (array_key_exists('mostLiked1', $_POST) && isset($_SESSION['topPost2'])) {
+    $_SESSION['query'] = 'SELECT * FROM Posts WHERE location = "Commons" AND foodName = "' . $_SESSION['topPost2'] . '" ORDER BY likes DESC';
+  } else if (array_key_exists('mostLiked2', $_POST) && isset($_SESSION['topPost3'])) {
+    $_SESSION['query'] = 'SELECT * FROM Posts WHERE location = "Commons" AND foodName = "' . $_SESSION['topPost3'] . '" ORDER BY likes DESC';
   }
 
   // based on if a button is hit change what is being shown
@@ -91,7 +91,7 @@
           <div class="card-header">
             <i class="fa-regular fa-face-laugh-squint"></i> Best Food Today in Commons
           </div>
-          <form class="card-body">
+          <form class="card-body" action="main.php" method="post">
             <h5 class="card-title">Commons Dinning Hall</h5>
             <ul class="list-group">
 
@@ -99,30 +99,30 @@
         
               // grab the rows of the query
               $row = $grabByLikesCommons->fetchAll();
+              $len = count($row);
               // print out data for most liked foods
-              for ($i = 1; $i < 4; $i++) {
-                if ($row == null || $row[$i] == null)
-                  break;
-                echo "<button type=submit name=mostLiked1 value=mostLiked" . $i . " id=mostLiked" . $i . ">";
+              for ($i = 0; $i < 3 && $i < $len; $i++) {
+                echo "<button type='submit' name='mostLiked" . $i . "' value='mostLiked" . $i . "' id='mostLiked" . $i . "'>";
                 echo '<li class="list-group-item">';
                 echo '<i class="fa-solid fa-bowl-food"></i>' . $row[$i]['foodName'];
                 echo '</li>';
-                echo '</button>;';
-                if ($i == 1) {
-                  $topPost1 = $row[$i]['foodName'];
+                echo '</button>';
+                if ($i == 0) {
+                  $_SESSION['topPost1'] = $row[$i]['foodName'];
+                } else if ($i == 1) {
+                  $_SESSION['topPost2'] = $row[$i]['foodName'];
                 } else if ($i == 2) {
-                  $topPost2 = $row[$i]['foodName'];
-                } else if ($i == 3) {
-                  $topPost3 = $row[$i]['foodName'];
+                  $_SESSION['topPost3'] = $row[$i]['foodName'];
                 }
               }
-              ?>              
+              ?>
+              <!--              
               <button type="submit" id="mostLiked1" name="mostLiked1" value="mostLiked1">
                 <li class="list-group-item">
                   <i class="fa-solid fa-bowl-food"></i> Pasta
                 </li>
               </button>
-              <!--
+              
               <a href="">
                 <li class="list-group-item">
                   <i class="fa-solid fa-bowl-food"></i> Orange chicken
@@ -143,13 +143,11 @@
         <?php
         // we need to see if the query should be based on a search or not
         if (isset($_SESSION['isSearch']) && $_SESSION['isSearch'] == true) {
-          echo "search";
           // grab the rows of the query
           $row = $grabByPostID->fetchAll();
+          $len = count($row);
           // print out data for the specific searched item
-          for ($i = 0; $i < 10; $i++) {
-            if ($row == null || $row[$i] == null)
-              break;
+          for ($i = 0; $i < 10 && $i < $len; $i++) {
             // should only match if the userID, main Comment has some similar word, location is the same, tags are the same
             // or the foodName is the same as the search item
             if (str_contains($row[$i]['userID'], $_SESSION['query']) || str_contains(strtolower($row[$i]['mainComment']), $_SESSION['query']) || str_contains($row[$i]['location'], $_SESSION['query']) || str_contains($row[$i]['tag1'], $_SESSION['query']) || str_contains($row[$i]['foodName'], $_SESSION['query'])) {
@@ -163,7 +161,7 @@
               echo $row[$i]['tag1'] . '</h5>';
               echo '<p class="card-text">';
               echo '<i class="fa-solid fa-quote-left"></i>';
-              echo $row[$i]['mainComment'] . '</p>';
+              echo $row[$i]['mainComment'];
               echo '<i class="fa-solid fa-quote-right"></i></p></div>';
               echo '<div class="card-footer d-flex justify-content-between pl-5 pr-5">';
               echo '<div class="like"><i class="fa-regular fa-heart"></i>';
@@ -180,16 +178,14 @@
           $_SESSION['isSearch'] = false;
           $_SESSION['query'] = "";
         } else if (isset($_SESSION['query']) && $_SESSION['query'] != '') {
-          echo "button";
           // create new query based on the button pressed
           $grabByPostID = $conn->prepare($_SESSION['query']);
           $grabByPostID->execute();
           // grab the rows of the query
           $row = $grabByPostID->fetchAll();
+          $len = count($row);
           // print out data for most liked foods
-          for ($i = 0; $i < 10; $i++) {
-            if ($row == null || $row[$i] == null)
-              break;
+          for ($i = 0; $i < 10 && $i < $len; $i++) {
             echo '<div class="card text-center">';
             echo '<div class="card-header p-2"> <div class="location p-2">';
             echo '<i class="fa-solid fa-location-arrow"></i>' . $row[$i]['location'] . '</div>';
@@ -198,9 +194,8 @@
             echo '<img class="card-img-top" src="../postImages/' . $row[$i]['postPhoto'] . '"alt="Card image">';
             echo '<div class="card-body"><h5 class="card-title"><i class="fa-solid fa-tags"></i>';
             echo $row[$i]['tag1'] . '</h5>';
-            echo '<p class="card-text">';
-            echo '<i class="fa-solid fa-quote-left"></i>';
-            echo $row[$i]['mainComment'] . '</p>';
+            echo '<p class="card-text"><i class="fa-solid fa-quote-left"></i>';
+            echo $row[$i]['mainComment'];
             echo '<i class="fa-solid fa-quote-right"></i></p></div>';
             echo '<div class="card-footer d-flex justify-content-between pl-5 pr-5">';
             echo '<div class="like"><i class="fa-regular fa-heart"></i>';
@@ -213,13 +208,11 @@
         }
         // print out a normal post stream
         else {
-          echo "normal";
           // grab the rows of the query
           $row = $grabByPostID->fetchAll();
+          $len = count($row);
           // print out data for most liked foods
-          for ($i = 0; $i < 10; $i++) {
-            if ($row == null || $row[$i] == null)
-              break;
+          for ($i = 0; $i < 10 && $i < $len; $i++) {
             echo '<div class="card text-center">';
             echo '<div class="card-header p-2"> <div class="location p-2">';
             echo '<i class="fa-solid fa-location-arrow"></i>' . $row[$i]['location'] . '</div>';
@@ -230,7 +223,7 @@
             echo $row[$i]['tag1'] . '</h5>';
             echo '<p class="card-text">';
             echo '<i class="fa-solid fa-quote-left"></i>';
-            echo $row[$i]['mainComment'] . '</p>';
+            echo $row[$i]['mainComment'];
             echo '<i class="fa-solid fa-quote-right"></i></p></div>';
             echo '<div class="card-footer d-flex justify-content-between pl-5 pr-5">';
             echo '<div class="like"><i class="fa-regular fa-heart"></i>';
@@ -241,7 +234,7 @@
         }
         ?>
 
-        
+<!--        
         <div class="card text-center">
           <div class="card-header p-2">
             <div class="location p-2">
@@ -274,7 +267,7 @@
             </div>
           </div>
         </div>
-<!--
+
         <div class="card text-center">
           <div class="card-header p-2">
             <p class="location p-2">
