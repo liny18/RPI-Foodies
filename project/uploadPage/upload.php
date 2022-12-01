@@ -70,20 +70,17 @@
             // transfer and hash the filename
             move_uploaded_file($fileTmpName, "../postImages/$fileName");
 
-            // $hash = hash_file('sha256', "../postImages/$fileName");
+            $hash = hash_file('sha256', "../postImages/$fileName");
             
-            
-            
-            // $out = "$hash.$ext";
+            $out = "$hash.$ext";
 
-            // echo $out;
             
             // // rename the file
-            // rename("../postImages/$fileName", "../postImages/$out");
+            rename("../postImages/$fileName", "../postImages/$out");
     
             // // set the file name to the hashed name
-            // $fileName = $out;
-            // echo $fileName;
+            $fileName = $out;
+            
 
             // grab all the data from the form
             $userID = $_SESSION['userID'];
