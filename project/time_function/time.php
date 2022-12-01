@@ -47,7 +47,6 @@ function calculate_time($date1){
     }
 }
 
-// test the function
-echo calculate_time($date1);
+
 
 ?>
