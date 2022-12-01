@@ -75,7 +75,7 @@
             // by default the file is transfered into the right place and converted into a jpg
             exec("convert temp/$fileName ../postImage/$fileName2.jpg");
             // remove the file from the temp location
-            exec("rm temp/$fileName.png");
+            exec("rm temp/$fileName");
     
 
             $fileName = $fileName2[0] . ".jpg";
