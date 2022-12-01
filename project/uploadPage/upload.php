@@ -69,17 +69,21 @@
 
             // transfer and hash the filename
             move_uploaded_file($fileTmpName, "temp/$fileName");
-            // output is stored in fileName2
-            exec("sha256sum temp/$fileName | cut -f1 -d' '", $fileName2);
+            $hash = hash_file('sha256', "temp/$fileName");
     
             // by default the file is transfered into the right place and converted into a jpg
-            exec("convert temp/$fileName ../postImage/$fileName2.jpg");
+            exec("convert temp/$fileName ../postImage/$hash.jpg");
+
             // remove the file from the temp location
             exec("rm temp/$fileName");
-    
 
-            $fileName = $fileName2[0] . ".jpg";
+            
     
+            // set the file name to the hashed name
+            $fileName = $hash . ".jpg";
+    
+            $_SESSION['userID'] = 1;
+
             // grab all the data from the form
             $userID = $_SESSION['userID'];
             $mainComment = $_POST['caption'];
