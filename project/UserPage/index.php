@@ -16,10 +16,15 @@
     <script defer src="../main/main.js"></script>
   <?php
       @session_start();
-      include '../time_function/time.php';
-      echo "<title>".$_SESSION["userID"]."</title>";
 
-      $userID = $_SESSION["userID"];
+      $userID = $_GET['userID'];
+      if ($userID != $_SESSION['userID']) {
+          echo -1;
+          exit;
+      }
+      include '../time_function/time.php';
+      echo "<title>".$userID."</title>";
+
       $servername = "localhost";
       $database = "rpiFoodies";
       $username = "root";
