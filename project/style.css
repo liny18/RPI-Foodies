@@ -1,11 +1,11 @@
 html {
   position: relative;
-  min-height: 100%;
+  min-height: 100vh;
 }
 
-body {
+#content-wrap {
   /* Margin bottom by footer height */
-  margin-bottom: 7%;
+  padding-bottom: 101px;
 }
 footer {
   position: absolute;
