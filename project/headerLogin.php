@@ -8,6 +8,7 @@ if(array_key_exists('submitSearch', $_POST)){
 }
 
 ?>
+
 <style>
     nav {
         box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.3);
@@ -30,23 +31,23 @@ if(array_key_exists('submitSearch', $_POST)){
     }
 
     .trending,
-    .post,
-    .navbar-brand {
+    .post {
         transition: 0.5s;
     }
 
     .trending:hover,
-    .post:hover,
-    .navbar-brand:hover {
+    .post:hover {
         transform: scale(1.1);
     }
 </style>
 <nav class="navbar navbar-expand-lg navbar-light sticky-top">
-    <div class="container-fluid">
-        <a class="navbar-brand col-3" href="../main/main.php">
-            <img src="../pictures/logo.png" alt="Error Cats logo" width="40" height="40" style="border-radius: 50%;">
-            RPI Foodies
-        </a>
+    <div class="container-fluid d-flex align-items-center">
+        <div class="col-3">
+            <a class="navbar-brand" href="../main/main.php">
+                <img class="nav-logo" src="../pictures/logo.png" alt="Error Cats logo" width="40" height="40" style="border-radius: 50%;">
+                RPI Foodies
+            </a>
+        </div>
         <form class="container d-flex" method="post" action="../headerLogin.php">
             <div class="col m-1">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
@@ -60,19 +61,19 @@ if(array_key_exists('submitSearch', $_POST)){
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse justify-content-end col-3" id="navbarScroll">
+        <div class="collapse navbar-collapse justify-content-end col-3 p-1" id="navbarScroll">
             <ul class="navbar-nav">
-                <li class="nav-item trending">
+                <li class="nav-item trending mt-0">
                     <a href="../Dining Hall Page/index.php" class="navbar-brand" title="Dinning Halls">
                         <img src="../pictures/trendingIcon.svg" alt="trending button" width="40" height="40">
                     </a>
                 </li>
-                <li class="nav-item post">
+                <li class="nav-item post mt-0">
                     <a href="../uploadPage/upload.php" class="navbar-brand" title="Upload">
                         <img src="../pictures/addPostIcon.svg" alt="add post button" width="40" height="40">
                     </a>
                 </li>
-                <li class="nav-item logOut">
+                <li class="nav-item logOut mt-0">
                     <a href="../phpcas/logout.php" class="navbar-brand">
                         <button id="logOut" class="btn btn-outline-light" type="submit">Log Out</button>
                     </a>
