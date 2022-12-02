@@ -36,7 +36,8 @@
 
     function checkFile($file)
     {
-        $allowed = array("jpg", "jpeg", "png");
+        // make sure normal photo types are uploaded and apple photos are also allowed
+        $allowed = array("jpg", "jpeg", "png", "heic", "heif");
         if(in_array($file, $allowed))
         {
             return true;
