@@ -198,7 +198,7 @@
   </div>
 
   <footer>
-    <?php include '../footer.php';?>
+    <?php include '../footer.html';?>
   </footer>
 
   <!-- JavaScript Bundle with Popper -->
