@@ -42,7 +42,7 @@
     <div class="row vh-100">
       <div class="col-md-6 py-3">
         <?php
-          $posts = $conn->prepare("SELECT * FROM Posts WHERE postID = $userID");
+          $posts = $conn->prepare("SELECT * FROM Posts WHERE userID = $userID");
           $posts->execute();
           $row = $posts->fetchAll();
           for ($i = 0; $i < 6; $i++) {
