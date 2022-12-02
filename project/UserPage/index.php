@@ -45,7 +45,8 @@
           $posts = $conn->prepare("SELECT * FROM Posts WHERE userID = $userID");
           $posts->execute();
           $row = $posts->fetchAll();
-          for ($i = 0; $i < 6; $i++) {
+          $len = count($row);
+          for ($i = 0; $i < $len; $i++) {
             echo '<div class="card text-center">';
             echo '<div class="card-header p-2"> <div class="location p-2">';
             echo '<i class="fa-solid fa-location-arrow"></i>' . $row[$i]['location'] . '</div>';
