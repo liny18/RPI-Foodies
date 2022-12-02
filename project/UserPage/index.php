@@ -46,8 +46,8 @@
     <div class="row vh-100">
       <div class="col-md-6 py-3">
         <?php
-          $posts = $conn->prepare("SELECT * FROM Posts WHERE userID = $userID");
-          $posts->execute();
+          $posts = $conn->prepare("SELECT * FROM Posts WHERE userID = :userID");
+          $posts->execute([':userID' => $_SESSION['userID']]);
           $row = $posts->fetchAll();
           $len = count($row);
           for ($i = 0; $i < $len; $i++) {
