@@ -66,6 +66,7 @@
         $fileName = $_FILES['postPhoto']['name'];
         $ext = pathinfo($fileName, PATHINFO_EXTENSION);
         $fileTmpName = $_FILES['postPhoto']['tmp_name'];
+        
 
         if (checkFile($ext)) {
 
@@ -75,11 +76,11 @@
 
             $hash = hash_file('sha256', "../postImages/$fileName");
             
-            $out = "$hash.$ext";
+            $out = "$hash.jpg";
 
             
             // // rename the file
-            rename("../postImages/$fileName", "../postImages/$out");
+            exec("convert ../postImages/$fileName ../postImages/$out");
     
             // // set the file name to the hashed name
             $fileName = $out;
@@ -95,6 +96,8 @@
             // execute the insert statement
             $upload->execute([':userID' => $userID, ':mainComment' => $mainComment, ':postPhoto' => $fileName, ':location' => $location, ':tag1' => $tag1, ':foodName' => $foodName]);
     
+            // redirect to the home page
+            header("Location: ../main/main.php");
         } else {
             echo "<h2 class='text-center h2'>File type not supported</h2>";
             echo "<h3 class='text-center h3'>Please upload a .jpg, .jpeg, or .png file</h3>";
