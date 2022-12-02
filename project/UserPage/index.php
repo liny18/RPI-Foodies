@@ -16,10 +16,15 @@
     <script defer src="../main/main.js"></script>
   <?php
       @session_start();
-      include '../time_function/time.php';
-      echo "<title>".$_SESSION["userID"]."</title>";
 
-      $userID = $_SESSION["userID"];
+      $userID = $_GET['userID'];
+      if ($userID != $_SESSION['userID']) {
+          echo -1;
+          exit;
+      }
+      include '../time_function/time.php';
+      echo "<title>".$userID."</title>";
+
       $servername = "localhost";
       $database = "rpiFoodies";
       $username = "root";
@@ -45,7 +50,8 @@
           $posts = $conn->prepare("SELECT * FROM Posts WHERE userID = $userID");
           $posts->execute();
           $row = $posts->fetchAll();
-          for ($i = 0; $i < 6; $i++) {
+          $len = count($row);
+          for ($i = 0; $i < $len; $i++) {
             echo '<div class="card text-center">';
             echo '<div class="card-header p-2"> <div class="location p-2">';
             echo '<i class="fa-solid fa-location-arrow"></i>' . $row[$i]['location'] . '</div>';
