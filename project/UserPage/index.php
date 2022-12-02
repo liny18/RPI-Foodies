@@ -34,7 +34,7 @@
       }
       $username = $conn->prepare('SELECT * FROM users WHERE userID = :userID');
       $username->execute([':userID' => $_SESSION['userID']]);
-      $username->fetch();
+      $username = $username->fetch();
       echo "<title>".$username['username']."</title>";
   ?>
 </head>
