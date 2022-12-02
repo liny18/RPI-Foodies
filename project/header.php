@@ -23,17 +23,17 @@ if(array_key_exists('submitSearch', $_POST)){
     }
 
     .navbar .navbar-nav {
-    display: inline-block;
-    float: none;
+        display: inline-block;
+        float: none;
     }
 
-    .navbar .navbar-nav .nav-item{
-    display: inline-block;
-    margin-top: 10px;
+    .navbar .navbar-nav .nav-item {
+        display: inline-block;
+        margin-top: 10px;
     }
 
     .navbar .navbar-collapse {
-    text-align: center;
+        text-align: center;
     }
 
     .trending,
@@ -50,21 +50,25 @@ if(array_key_exists('submitSearch', $_POST)){
     <div class="container-fluid d-flex align-items-center">
         <div class="col-3">
             <a class="navbar-brand" href="../main/main.php">
-                <img class="nav-logo" src="../pictures/logo.png" alt="Error Cats logo" width="40" height="40" style="border-radius: 50%;">
+                <img class="nav-logo" src="../pictures/logo.png" alt="Error Cats logo" width="40" height="40"
+                    style="border-radius: 50%;">
                 RPI Foodies
             </a>
         </div>
         <form class="container d-flex" method="post" action="../headerLogin.php">
             <div class="col m-1">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
+                    name="search">
             </div>
             <div class="col m-1">
-                <button class="btn btn-outline-light" type="submit" name="submitSearch" id="submitSearch" value="submitSearch" title="Search">
+                <button class="btn btn-outline-light" type="submit" name="submitSearch" id="submitSearch"
+                    value="submitSearch" title="Search">
                     <img src="../pictures/search_ideogram.svg" alt="Magnifying glass" width="25" height="25">
                 </button>
             </div>
         </form>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+            aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end col-3 p-1" id="navbarScroll">
