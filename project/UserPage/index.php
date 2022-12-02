@@ -17,13 +17,8 @@
   <?php
       @session_start();
 
-      $userID = $_GET['userID'];
-      if ($userID != $_SESSION['userID']) {
-          echo -1;
-          exit;
-      }
       include '../time_function/time.php';
-      echo "<title>".$userID."</title>";
+      
 
       $servername = "localhost";
       $database = "rpiFoodies";
@@ -37,6 +32,10 @@
       } catch (PDOException $e) {
           echo "Connection failed: " . $e->getMessage();
       }
+      $username = $conn->prepare('SELECT * FROM users WHERE userID = :userID');
+      $username->execute([':userID' => $_SESSION['userID']]);
+      $username->fetch();
+      echo "<title>".$username['username']."</title>";
   ?>
 </head>
 <body>
