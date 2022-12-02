@@ -78,9 +78,14 @@
             
             $out = "$hash.jpg";
 
-            
             // // rename the file
-            exec("convert ../postImages/$fileName ../postImages/$out");
+//            exec("convert ../postImages/$fileName ../postImages/$out");
+            imageMagick($fileName, $out);
+            
+
+            // using image magick to convert any format to jpg
+
+
     
             // // set the file name to the hashed name
             $fileName = $out;
