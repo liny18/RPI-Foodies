@@ -39,7 +39,7 @@
     function checkFile($file)
     {
         // make sure normal photo types are uploaded and apple photos are also allowed
-        $allowed = array("jpg", "jpeg", "png", "heic", "heif"); 
+        $allowed = array("jpg", "jpeg", "png"); 
         if(in_array($file, $allowed))
         {
             return true;
@@ -76,17 +76,11 @@
 
             $hash = hash_file('sha256', "../postImages/$fileName");
             
-            $out = "$hash.jpg";
+            $out = "$hash.$ext";
 
+            
             // // rename the file
-//            exec("convert ../postImages/$fileName ../postImages/$out");
-
-            // execute the unix command
-            shell_exec("convert ../postImages/$fileName ../postImages/$out");
-
-            // using image magick to convert any format to jpg
-
-
+            rename("../postImages/$fileName", "../postImages/$out");
     
             // // set the file name to the hashed name
             $fileName = $out;
