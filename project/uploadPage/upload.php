@@ -80,8 +80,9 @@
 
             // // rename the file
 //            exec("convert ../postImages/$fileName ../postImages/$out");
-            imageMagick($fileName, $out);
-            
+
+            // execute the unix command
+            shell_exec("convert ../postImages/$fileName ../postImages/$out");
 
             // using image magick to convert any format to jpg
 
