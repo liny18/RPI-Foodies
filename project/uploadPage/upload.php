@@ -5,14 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="upload.css" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="../pictures/RPIFoodies.png">
     <title>RPI Foodies</title>
     <link rel="stylesheet" href="../style.css">
-    <link href="upload.css" rel="stylesheet">
-    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script defer src="upload.js"></script>
 </head>
 
 <body>
@@ -36,13 +34,10 @@
         $username = "root";
         $password = "";
 
-
         $conn;
 
-    function checkFile($file)
-    {
-        // make sure normal photo types are uploaded and apple photos are also allowed
-        
+        function checkFile($file)
+        {
             $allowed = array("jpg", "jpeg", "png");
             if (in_array($file, $allowed)) {
                 return true;
@@ -100,19 +95,18 @@
                 echo "<h2 class='text-center h2'>File type not supported</h2>";
                 echo "<h3 class='text-center h3'>Please upload a .jpg, .jpeg, or .png file</h3>";
             }
-
         }
 
         ?>
 
-        <main>
+<main>
             <form id="uploadPost" class="container" action="upload.php" method="post" enctype="multipart/form-data">
                 <div class="row">
-                    <section id="uploadPhoto" class="col shadow-lg p-3 mb-5 bg-body rounded">
+                    <section id="uploadPhoto" class="col shadow-lg p-3 mb-5 bg-body rounded position-relative">
                         <h1 class="picTitle">Upload Image</h1>
                         <hr class="bg-dark border-5 border-top border-dark">
-                        <input class="form-control" type="file" id="postPhoto" accept="image/jpg, image/png, image/jpeg"
-                            name="postPhoto" value="" onchange="previewFile()" required />
+                        <input class="form-control w-75 mb-5 mt-lg-5" type="file" id="postPhoto" accept="image/jpg, image/png, image/jpeg"
+                        name="postPhoto" value="" onchange="previewFile()" required />
                         <div class="imgCont"><img src="#" alt="Image preview" class="photo" /></div>
                     </section>
                     <section class="col shadow-lg p-3 mb-5 bg-body rounded">
@@ -147,14 +141,16 @@
                             </div>
                             <div class="row">
                                 <!-- WHEN READING THIS IN AS DATA CONVERT IT TO ALL LOWERCASE USING EITHER JS OR PHP CAN DO BOTH -->
-                                <div class="form-floating fix-floating-label p-1">
+                                <div class="pe-3 ps-3">
                                     <input type="text" class="form-control" id="foodName" placeholder="Name of the Dish"
                                         name="foodName" required>
-                                    <label for="foodName">Name of the Dish</label>
+                                    <label for="foodName"></label>
                                 </div>
                             </div>
-                            <button type="submit" id="postButton" class="btn" value="submitUpload"
+                            <div class="row text-center pe-3 ps-3">
+                                <button type="submit" id="postButton" class="btn" value="submitUpload"
                                 name="submitUpload">Post!</button>
+                            </div>
                         </div>
                     </section>
                 </div>
@@ -166,6 +162,12 @@
     <footer>
         <?php include '../footer.html'; ?>
     </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="upload.js"></script>
 
 </body>
 
