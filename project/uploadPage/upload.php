@@ -69,7 +69,7 @@
         $fileSize = $_FILES['postPhoto']['size'];
 
 
-        if (checkFile($ext) && $fileSize < 5000000) {
+        if (checkFile($ext) && $fileSize < 1500000) {
 
             // get timezone
             date_default_timezone_set('America/New_York');
@@ -104,7 +104,7 @@
         } else {
             echo "<h2 class='text-center h2'>File type not supported</h2>";
             echo "<h3 class='text-center h3'>Please upload a .jpg, .jpeg, or .png file</h3>";
-            echo "<h4 class='text-center h4'>File size must be less than 5MB</h4>";
+            echo "<h4 class='text-center h4'>File size must be less than 1.5MB</h4>";
         }
     }
 
