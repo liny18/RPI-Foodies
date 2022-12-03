@@ -125,7 +125,7 @@
                     <hr class="bg-dark border-5 border-top border-dark">
                     <div id="postText">
                         <div class="form-floating fix-floating-label p-1">
-                            <textarea class="form-control" id="Caption" rows="5" name="caption" required></textarea>
+                            <textarea class="form-control" id="Caption" rows="5" name="caption" maxlength="255" required></textarea>
                             <label class="form-label" for="Caption">Enter A Caption</label>
                         </div>
                         <div class="row">
@@ -154,7 +154,7 @@
                             <!-- WHEN READING THIS IN AS DATA CONVERT IT TO ALL LOWERCASE USING EITHER JS OR PHP CAN DO BOTH -->
                             <div class="form-floating fix-floating-label p-1">
                                 <input type="text" class="form-control" id="foodName" placeholder="Name of the Dish"
-                                    name="foodName" required>
+                                    name="foodName" maxlength="50" required>
                                 <label for="foodName">Name of the Dish</label>
                             </div>
                         </div>
