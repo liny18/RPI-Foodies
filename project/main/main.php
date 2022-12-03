@@ -91,7 +91,7 @@
     ?>
 
     <div class="container">
-      <div class="row vh-100">
+      <div class="row">
         <div class="col-md-3 py-3">
           <div class="card text-center">
             <div class="card-header">
