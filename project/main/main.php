@@ -143,8 +143,9 @@
             </form>
           </div>
         </div>
-        <div class="col-md-6 py-3">
-
+      </div>
+      <div class="col-md-6 py-3">
+      
 
           <?php
           // we need to see if the query should be based on a search or not
