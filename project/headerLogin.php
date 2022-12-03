@@ -76,14 +76,7 @@ if (array_key_exists('submitSearch', $_POST)) {
                         <img src="../pictures/addPostIcon.svg" alt="add post button" width="40" height="40">
                     </a>
                 </li>
-                <li class="nav-item post mt-0">
-                    <button>
-                        <a href="../UserPage/index.php" class="navbar-brand" title="Upload">
-                            Profile
-                        </a>
-                    </button>
-                </li>
-                <li class="nav-item logOut mt-0">
+                <li class="nav-item logOut">
                     <a href="../phpcas/logout.php" class="navbar-brand">
                         <button id="logOut" class="btn btn-outline-light" type="submit">Log Out</button>
                     </a>
