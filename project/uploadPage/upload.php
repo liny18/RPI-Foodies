@@ -5,12 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="icon" type="image/x-icon" href="../pictures/RPIFoodies.png">
     <title>RPI Foodies</title>
     <link rel="stylesheet" href="../style.css">
     <link href="upload.css" rel="stylesheet">
-    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
     <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script defer src="upload.js"></script>
 </head>
@@ -39,13 +42,10 @@
     function checkFile($file)
     {
         // make sure normal photo types are uploaded and apple photos are also allowed
-        $allowed = array("jpg", "jpeg", "png"); 
-        if(in_array($file, $allowed))
-        {
+        $allowed = array("jpg", "jpeg", "png");
+        if (in_array($file, $allowed)) {
             return true;
-        }
-        else
-        {
+        } else {
             return false;
         }
     }
@@ -60,31 +60,35 @@
 
     if (array_key_exists('submitUpload', $_POST)) {
         // create an insert statement
-        $upload = $conn->prepare("INSERT INTO Posts (postTime, userID, likes, mainComment, postPhoto, location, tag1, foodName) VALUES (NOW(), :userID, 0, :mainComment, :postPhoto, :location, :tag1, :foodName)");
+        $upload = $conn->prepare("INSERT INTO Posts (postTime, userID, likes, mainComment, postPhoto, location, tag1, foodName) VALUES (:postTime, :userID, 0, :mainComment, :postPhoto, :location, :tag1, :foodName)");
 
         // get file name and location
         $fileName = $_FILES['postPhoto']['name'];
         $ext = pathinfo($fileName, PATHINFO_EXTENSION);
         $fileTmpName = $_FILES['postPhoto']['tmp_name'];
-        
+        $fileSize = $_FILES['postPhoto']['size'];
 
-        if (checkFile($ext)) {
 
+        if (checkFile($ext) && $fileSize < 5000000) {
+
+            // get timezone
+            date_default_timezone_set('America/New_York');
+            $time = (date("Y-m-d H:i:s"));
 
             // transfer and hash the filename
             move_uploaded_file($fileTmpName, "../postImages/$fileName");
 
             $hash = hash_file('sha256', "../postImages/$fileName");
-            
+
             $out = "$hash.$ext";
 
-            
+
             // // rename the file
             rename("../postImages/$fileName", "../postImages/$out");
-    
+
             // // set the file name to the hashed name
             $fileName = $out;
-            
+
 
             // grab all the data from the form
             $userID = $_SESSION['userID'];
@@ -94,13 +98,13 @@
             $foodName = $_POST['foodName'];
 
             // execute the insert statement
-            $upload->execute([':userID' => $userID, ':mainComment' => $mainComment, ':postPhoto' => $fileName, ':location' => $location, ':tag1' => $tag1, ':foodName' => $foodName]);
-    
-            // redirect to the home page
-            header("Location: ../main/main.php");
+            $upload->execute([':postTime' => $time, ':userID' => $userID, ':mainComment' => $mainComment, ':postPhoto' => $fileName, ':location' => $location, ':tag1' => $tag1, ':foodName' => $foodName]);
+
+           
         } else {
             echo "<h2 class='text-center h2'>File type not supported</h2>";
             echo "<h3 class='text-center h3'>Please upload a .jpg, .jpeg, or .png file</h3>";
+            echo "<h4 class='text-center h4'>File size must be less than 5MB</h4>";
         }
     }
 
