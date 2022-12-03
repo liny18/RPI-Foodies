@@ -136,10 +136,20 @@
                                     <select class="form-select" aria-label="Dining Hall Selection" name="tag1" required>
                                         <option value="">What type of food was it?</option>
                                         <option value="Vegetarian">Vegetarian</option>
+                                        <opiton value="Vegan">Vegan</opiton>
+                                        <option value="Non-Dairy">Non-Dairy</option>
+                                        <option value="Dessert">Dessert</option>
                                         <option value="Beef">Beef</option>
                                         <option value="Chicken">Chicken</option>
-                                        <option value="Non-Dairy">Non-Dairy</option>
-                                        <option value="Desert">Desert</option>
+                                        <option value="Pasta">Pasta</option>
+                                        <option value="Seafood">Seafood</option>
+                                        <option value="Burger">Burger</option>
+                                        <option value="French Fries">French Fries</option>
+                                        <option value="Pizza">Pizza</option>
+                                        <option value="Sandwich">Sandwich</option>
+                                        <option value="Salad">Salad</option>
+                                        <option value="Fruit">Fruit</option>
+                                        <option value="Other">Other</option>
                                     </select>
                                 </div>
                             </div>

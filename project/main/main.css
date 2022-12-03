@@ -31,6 +31,8 @@
   object-fit: cover;
   border-radius: 20px;
   margin-top: 1rem;
+  max-width: 70.3vw;
+  max-height: 166.8vh;
 }
 
 .card {
