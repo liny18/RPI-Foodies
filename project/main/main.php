@@ -110,7 +110,7 @@
                 for ($i = 0; $i < 3 && $i < $len; $i++) {
                   echo "<button type='submit' name='mostLiked" . $i . "' value='mostLiked" . $i . "' id='mostLiked" . $i . "'>";
                   echo '<li class="list-group-item">';
-                  echo '<i class="fa-solid fa-bowl-food"></i>' . $row[$i]['foodName'];
+                  echo '<i class="fa-solid fa-bowl-food"></i> ' . $row[$i]['foodName'];
                   echo '</li>';
                   echo '</button>';
                   if ($i == 0) {
@@ -159,21 +159,21 @@
               if (str_contains($row[$i]['userID'], $_SESSION['query']) || str_contains(strtolower($row[$i]['mainComment']), $_SESSION['query']) || str_contains($row[$i]['location'], $_SESSION['query']) || str_contains($row[$i]['tag1'], $_SESSION['query']) || str_contains($row[$i]['foodName'], $_SESSION['query'])) {
                 echo '<div class="card text-center">';
                 echo '<div class="card-header p-2"> <div class="location p-2">';
-                echo '<i class="fa-solid fa-location-arrow"></i>' . $row[$i]['location'] . '</div>';
+                echo '<i class="fa-solid fa-location-arrow"></i> ' . $row[$i]['location'] . '</div>';
                 echo '<p class="time"><i class="fa-solid fa-clock"></i> ' . calculate_time($row[$i]['postTime']) . '</p>';
                 echo '</div>';
                 echo '<img class="card-img-top" src="../postImages/' . $row[$i]['postPhoto'] . '"alt="Card image">';
-                echo '<div class="card-body"><h5 class="card-title"><i class="fa-solid fa-tags"></i>';
+                echo '<div class="card-body"><h5 class="card-title"><i class="fa-solid fa-tags"></i> ';
                 echo $row[$i]['tag1'] . '</h5>';
                 echo '<p class="card-text">';
-                echo '<i class="fa-solid fa-quote-left"></i>';
+                echo '<i class="fa-solid fa-quote-left"></i> ';
                 echo $row[$i]['mainComment'];
-                echo '<i class="fa-solid fa-quote-right"></i></p></div>';
+                echo ' <i class="fa-solid fa-quote-right"></i></p></div>';
                 echo '<div class="card-footer d-flex justify-content-between pl-5 pr-5">';
                 echo '<button class="like" onclick="likeCounter(' . $row[$i]['postID'] . ', ' . $_SESSION['userID'];
                 echo ', this)"><i class="fa-regular fa-heart" ></i> ';
                 echo $row[$i]['likes'] . ' likes</button>';
-                echo '<div class="comment"><i class="fa-regular fa-comment"></i>';
+                echo '<div class="comment"><i class="fa-regular fa-comment"></i> ';
                 echo 0 . ' comments</div></div></div>';
                 // ADD A BUTTON THAT ON SUBMIT WILL INCREMENT LIKES BY 1 
                 // ALSO HAVE IT AS A FUNCTION THAT TAKES IN A POST ID
@@ -196,20 +196,20 @@
           for ($i = 0; $i < 10 && $i < $len; $i++) {
             echo '<div class="card text-center">';
             echo '<div class="card-header p-2"> <div class="location p-2">';
-            echo '<i class="fa-solid fa-location-arrow"></i>' . $row[$i]['location'] . '</div>';
+            echo '<i class="fa-solid fa-location-arrow"></i> ' . $row[$i]['location'] . '</div>';
             echo '<p class="time"><i class="fa-solid fa-clock"></i> ' . calculate_time($row[$i]['postTime']) . '</p>';
             echo '</div>';
             echo '<img class="card-img-top" src="../postImages/' . $row[$i]['postPhoto'] . '"alt="Card image">';
-            echo '<div class="card-body"><h5 class="card-title"><i class="fa-solid fa-tags"></i>';
+            echo '<div class="card-body"><h5 class="card-title"><i class="fa-solid fa-tags"></i> ';
             echo $row[$i]['tag1'] . '</h5>';
-            echo '<p class="card-text"><i class="fa-solid fa-quote-left"></i>';
+            echo '<p class="card-text"><i class="fa-solid fa-quote-left"></i> ';
             echo $row[$i]['mainComment'];
-            echo '<i class="fa-solid fa-quote-right"></i></p></div>';
+            echo ' <i class="fa-solid fa-quote-right"></i></p></div>';
             echo '<div class="card-footer d-flex justify-content-between pl-5 pr-5">';
             echo '<button class="like" onclick="likeCounter(' . $row[$i]['postID'] . ', ' . $_SESSION['userID'];
             echo ', this)"><i class="fa-regular fa-heart" ></i> ';
             echo $row[$i]['likes'] . ' likes</button>';
-            echo '<div class="comment"><i class="fa-regular fa-comment"></i>';
+            echo '<div class="comment"><i class="fa-regular fa-comment"></i> ';
             echo 0 . ' comments</div></div></div>';
           }
           // reset querys to 0
@@ -224,21 +224,21 @@
           for ($i = 0; $i < 10 && $i < $len; $i++) {
             echo '<div class="card text-center">';
             echo '<div class="card-header p-2"> <div class="location p-2">';
-            echo '<i class="fa-solid fa-location-arrow"></i>' . $row[$i]['location'] . '</div>';
+            echo '<i class="fa-solid fa-location-arrow"></i> ' . $row[$i]['location'] . '</div>';
             echo '<p class="time"><i class="fa-solid fa-clock"></i> ' . calculate_time($row[$i]['postTime']) . '</p>';
             echo '</div>';
             echo '<img class="card-img-top" src="../postImages/' . $row[$i]['postPhoto'] . '"alt="Card image">';
-            echo '<div class="card-body"><h5 class="card-title"><i class="fa-solid fa-tags"></i>';
+            echo '<div class="card-body"><h5 class="card-title"><i class="fa-solid fa-tags"></i> ';
             echo $row[$i]['tag1'] . '</h5>';
             echo '<p class="card-text">';
-            echo '<i class="fa-solid fa-quote-left"></i>';
+            echo '<i class="fa-solid fa-quote-left"></i> ';
             echo $row[$i]['mainComment'];
-            echo '<i class="fa-solid fa-quote-right"></i></p></div>';
+            echo ' <i class="fa-solid fa-quote-right"></i></p></div>';
             echo '<div class="card-footer d-flex justify-content-between pl-5 pr-5">';
             echo '<button class="like" onclick="likeCounter(' . $row[$i]['postID'] . ', ' . $_SESSION['userID'];
             echo ', this)"><i class="fa-regular fa-heart" ></i> ';
             echo $row[$i]['likes'] . ' likes</button>';
-            echo '<div class="comment"><i class="fa-regular fa-comment"></i>';
+            echo '<div class="comment"><i class="fa-regular fa-comment"></i> ';
             echo 0 . ' comments</div></div></div>';
           }
         }
