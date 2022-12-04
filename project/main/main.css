@@ -14,7 +14,8 @@
 .like:hover,
 .comment:hover,
 .location:hover,
-.list-group-item:hover {
+.list-group-item:hover,
+.liked-this-post {
   color: #f04320;
   cursor: pointer;
   transform: scale(1.1);
