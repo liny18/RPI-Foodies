@@ -157,6 +157,8 @@
               // should only match if the userID, main Comment has some similar word, location is the same, tags are the same
               // or the foodName is the same as the search item
               if (str_contains($row[$i]['userID'], $_SESSION['query']) || str_contains(strtolower($row[$i]['mainComment']), $_SESSION['query']) || str_contains($row[$i]['location'], $_SESSION['query']) || str_contains($row[$i]['tag1'], $_SESSION['query']) || str_contains($row[$i]['foodName'], $_SESSION['query'])) {
+                $liked = $conn->prepare("SELECT * FROM likes WHERE postID = :postID AND userID = :userID");
+                $liked->execute([":postID" => $row[$i]['postID'], ":userID" => $_SESSION['userID']]);
                 echo '<div class="card text-center">';
                 echo '<div class="card-header p-2"> <div class="location p-2">';
                 echo '<i class="fa-solid fa-location-arrow"></i> ' . $row[$i]['location'] . '</div>';
@@ -171,8 +173,11 @@
                 echo ' <i class="fa-solid fa-quote-right"></i></p></div>';
                 echo '<div class="card-footer d-flex justify-content-between pl-5 pr-5">';
                 echo '<button class="like" onclick="likeCounter(' . $row[$i]['postID'] . ', ' . $_SESSION['userID'];
-                echo ', this)"><i class="fa-regular fa-heart" ></i> ';
-                echo $row[$i]['likes'] . ' likes</button>';
+                echo ', this)"><i class="fa-regular fa-heart';
+                if ($liked->rowCount() != 0) {
+                  echo ' liked-this-post';
+                }
+                echo '"></i> ' . $row[$i]['likes'] . ' likes</button>';
                 echo '<div class="comment"><i class="fa-regular fa-comment"></i> ';
                 echo 0 . ' comments</div></div></div>';
                 // ADD A BUTTON THAT ON SUBMIT WILL INCREMENT LIKES BY 1 
@@ -194,6 +199,8 @@
           $len = count($row);
           // print out data for most liked foods
           for ($i = 0; $i < 10 && $i < $len; $i++) {
+            $liked = $conn->prepare("SELECT * FROM likes WHERE postID = :postID AND userID = :userID");
+            $liked->execute([":postID" => $row[$i]['postID'], ":userID" => $_SESSION['userID']]);
             echo '<div class="card text-center">';
             echo '<div class="card-header p-2"> <div class="location p-2">';
             echo '<i class="fa-solid fa-location-arrow"></i> ' . $row[$i]['location'] . '</div>';
@@ -207,8 +214,11 @@
             echo ' <i class="fa-solid fa-quote-right"></i></p></div>';
             echo '<div class="card-footer d-flex justify-content-between pl-5 pr-5">';
             echo '<button class="like" onclick="likeCounter(' . $row[$i]['postID'] . ', ' . $_SESSION['userID'];
-            echo ', this)"><i class="fa-regular fa-heart" ></i> ';
-            echo $row[$i]['likes'] . ' likes</button>';
+            echo ', this)"><i class="fa-regular fa-heart';
+            if ($liked->rowCount() != 0) {
+              echo ' liked-this-post';
+            }
+            echo '"></i> ' . $row[$i]['likes'] . ' likes</button>';
             echo '<div class="comment"><i class="fa-regular fa-comment"></i> ';
             echo 0 . ' comments</div></div></div>';
           }
@@ -222,6 +232,8 @@
           $len = count($row);
           // print out data for most liked foods
           for ($i = 0; $i < 10 && $i < $len; $i++) {
+            $liked = $conn->prepare("SELECT * FROM likes WHERE postID = :postID AND userID = :userID");
+            $liked->execute([":postID" => $row[$i]['postID'], ":userID" => $_SESSION['userID']]);
             echo '<div class="card text-center">';
             echo '<div class="card-header p-2"> <div class="location p-2">';
             echo '<i class="fa-solid fa-location-arrow"></i> ' . $row[$i]['location'] . '</div>';
@@ -236,8 +248,11 @@
             echo ' <i class="fa-solid fa-quote-right"></i></p></div>';
             echo '<div class="card-footer d-flex justify-content-between pl-5 pr-5">';
             echo '<button class="like" onclick="likeCounter(' . $row[$i]['postID'] . ', ' . $_SESSION['userID'];
-            echo ', this)"><i class="fa-regular fa-heart" ></i> ';
-            echo $row[$i]['likes'] . ' likes</button>';
+            echo ', this)"><i class="fa-regular fa-heart';
+            if ($liked->rowCount() != 0) {
+              echo ' liked-this-post';
+            }
+            echo '"></i> ' . $row[$i]['likes'] . ' likes</button>';
             echo '<div class="comment"><i class="fa-regular fa-comment"></i> ';
             echo 0 . ' comments</div></div></div>';
           }
