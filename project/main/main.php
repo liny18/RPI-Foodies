@@ -5,7 +5,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
   <link href="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css" rel="stylesheet">
   <link rel="stylesheet" href="../style.css">
@@ -13,7 +14,9 @@
   <link rel="icon" type="image/x-icon" href="../pictures/RPIFoodies.png">
   <title>RPI Foodies</title>
   <script defer src="https://kit.fontawesome.com/bb67f860a0.js" crossorigin="anonymous"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
   <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
   <script defer src="main.js"></script>
 </head>
@@ -29,12 +32,12 @@
     @session_start();
 
 
-  include '../time_function/time.php';
+    include '../time_function/time.php';
 
-  $servername = "localhost";
-  $database = "rpiFoodies";
-  $username = "root";
-  $password = "";
+    $servername = "localhost";
+    $database = "rpiFoodies";
+    $username = "root";
+    $password = "";
 
 
 
@@ -172,11 +175,13 @@
                 echo $row[$i]['mainComment'];
                 echo ' <i class="fa-solid fa-quote-right"></i></p></div>';
                 echo '<div class="card-footer d-flex justify-content-between pl-5 pr-5">';
-                echo '<button class="like" onclick="likeCounter(' . $row[$i]['postID'] . ', ' . $_SESSION['userID'];
-                echo ', this)"><i class="fa-regular fa-heart';
-                if ($liked->rowCount() != 0) {
-                  echo ' liked-this-post';
+                echo '<button class="like ';
+                $count = $liked->fetchAll();
+                if (count($count) != 0) {
+                  echo 'liked-this-post';
                 }
+                echo '" onclick="likeCounter(' . $row[$i]['postID'] . ', ' . $_SESSION['userID'];
+                echo ', this)"><i class="fa-regular fa-heart';
                 echo '"></i> ' . $row[$i]['likes'] . ' likes</button>';
                 echo '<div class="comment"><i class="fa-regular fa-comment"></i> ';
                 echo 0 . ' comments</div></div></div>';
@@ -187,77 +192,81 @@
                 // When terry does modals add that shit to the end of this for loop
               }
             }
-           
-          $_SESSION['isSearch'] = false;
-          $_SESSION['query'] = "";
-        } else if (isset($_SESSION['query']) && $_SESSION['query'] != '') {
-          // create new query based on the button pressed
-          $grabByPostID = $conn->prepare($_SESSION['query']);
-          $grabByPostID->execute();
-          // grab the rows of the query
-          $row = $grabByPostID->fetchAll();
-          $len = count($row);
-          // print out data for most liked foods
-          for ($i = 0; $i < 10 && $i < $len; $i++) {
-            $liked = $conn->prepare("SELECT * FROM likes WHERE postID = :postID AND userID = :userID");
-            $liked->execute([":postID" => $row[$i]['postID'], ":userID" => $_SESSION['userID']]);
-            echo '<div class="card text-center">';
-            echo '<div class="card-header p-2"> <div class="location p-2">';
-            echo '<i class="fa-solid fa-location-arrow"></i> ' . $row[$i]['location'] . '</div>';
-            echo '<p class="time"><i class="fa-solid fa-clock"></i> ' . calculate_time($row[$i]['postTime']) . '</p>';
-            echo '</div>';
-            echo '<img class="card-img-top" src="../postImages/' . $row[$i]['postPhoto'] . '"alt="Card image">';
-            echo '<div class="card-body"><h5 class="card-title"><i class="fa-solid fa-tags"></i> ';
-            echo $row[$i]['tag1'] . '</h5>';
-            echo '<p class="card-text"><i class="fa-solid fa-quote-left"></i> ';
-            echo $row[$i]['mainComment'];
-            echo ' <i class="fa-solid fa-quote-right"></i></p></div>';
-            echo '<div class="card-footer d-flex justify-content-between pl-5 pr-5">';
-            echo '<button class="like" onclick="likeCounter(' . $row[$i]['postID'] . ', ' . $_SESSION['userID'];
-            echo ', this)"><i class="fa-regular fa-heart';
-            if ($liked->rowCount() != 0) {
-              echo ' liked-this-post';
+
+            $_SESSION['isSearch'] = false;
+            $_SESSION['query'] = "";
+          } else if (isset($_SESSION['query']) && $_SESSION['query'] != '') {
+            // create new query based on the button pressed
+            $grabByPostID = $conn->prepare($_SESSION['query']);
+            $grabByPostID->execute();
+            // grab the rows of the query
+            $row = $grabByPostID->fetchAll();
+            $len = count($row);
+            // print out data for most liked foods
+            for ($i = 0; $i < 10 && $i < $len; $i++) {
+              $liked = $conn->prepare("SELECT * FROM likes WHERE postID = :postID AND userID = :userID");
+              $liked->execute([":postID" => $row[$i]['postID'], ":userID" => $_SESSION['userID']]);
+              echo '<div class="card text-center">';
+              echo '<div class="card-header p-2"> <div class="location p-2">';
+              echo '<i class="fa-solid fa-location-arrow"></i> ' . $row[$i]['location'] . '</div>';
+              echo '<p class="time"><i class="fa-solid fa-clock"></i> ' . calculate_time($row[$i]['postTime']) . '</p>';
+              echo '</div>';
+              echo '<img class="card-img-top" src="../postImages/' . $row[$i]['postPhoto'] . '"alt="Card image">';
+              echo '<div class="card-body"><h5 class="card-title"><i class="fa-solid fa-tags"></i> ';
+              echo $row[$i]['tag1'] . '</h5>';
+              echo '<p class="card-text"><i class="fa-solid fa-quote-left"></i> ';
+              echo $row[$i]['mainComment'];
+              echo ' <i class="fa-solid fa-quote-right"></i></p></div>';
+              echo '<div class="card-footer d-flex justify-content-between pl-5 pr-5">';
+              echo '<button class="like ';
+              $count = $liked->fetchAll();
+              if (count($count) != 0) {
+                echo 'liked-this-post';
+              }
+              echo '" onclick="likeCounter(' . $row[$i]['postID'] . ', ' . $_SESSION['userID'];
+              echo ', this)"><i class="fa-regular fa-heart';
+              echo '"></i> ' . $row[$i]['likes'] . ' likes</button>';
+              echo '<div class="comment"><i class="fa-regular fa-comment"></i> ';
+              echo 0 . ' comments</div></div></div>';
             }
-            echo '"></i> ' . $row[$i]['likes'] . ' likes</button>';
-            echo '<div class="comment"><i class="fa-regular fa-comment"></i> ';
-            echo 0 . ' comments</div></div></div>';
+            // reset querys to 0
+            $_SESSION['query'] = "";
           }
-          // reset querys to 0
-          $_SESSION['query'] = "";
-        }
-        // print out a normal post stream
-        else {
-          // grab the rows of the query
-          $row = $grabByPostID->fetchAll();
-          $len = count($row);
-          // print out data for most liked foods
-          for ($i = 0; $i < 10 && $i < $len; $i++) {
-            $liked = $conn->prepare("SELECT * FROM likes WHERE postID = :postID AND userID = :userID");
-            $liked->execute([":postID" => $row[$i]['postID'], ":userID" => $_SESSION['userID']]);
-            echo '<div class="card text-center">';
-            echo '<div class="card-header p-2"> <div class="location p-2">';
-            echo '<i class="fa-solid fa-location-arrow"></i> ' . $row[$i]['location'] . '</div>';
-            echo '<p class="time"><i class="fa-solid fa-clock"></i> ' . calculate_time($row[$i]['postTime']) . '</p>';
-            echo '</div>';
-            echo '<img class="card-img-top" src="../postImages/' . $row[$i]['postPhoto'] . '"alt="Card image">';
-            echo '<div class="card-body"><h5 class="card-title"><i class="fa-solid fa-tags"></i> ';
-            echo $row[$i]['tag1'] . '</h5>';
-            echo '<p class="card-text">';
-            echo '<i class="fa-solid fa-quote-left"></i> ';
-            echo $row[$i]['mainComment'];
-            echo ' <i class="fa-solid fa-quote-right"></i></p></div>';
-            echo '<div class="card-footer d-flex justify-content-between pl-5 pr-5">';
-            echo '<button class="like" onclick="likeCounter(' . $row[$i]['postID'] . ', ' . $_SESSION['userID'];
-            echo ', this)"><i class="fa-regular fa-heart';
-            if ($liked->rowCount() != 0) {
-              echo ' liked-this-post';
+          // print out a normal post stream
+          else {
+            // grab the rows of the query
+            $row = $grabByPostID->fetchAll();
+            $len = count($row);
+            // print out data for most liked foods
+            for ($i = 0; $i < 10 && $i < $len; $i++) {
+              $liked = $conn->prepare("SELECT * FROM likes WHERE postID = :postID AND userID = :userID");
+              $liked->execute([":postID" => $row[$i]['postID'], ":userID" => $_SESSION['userID']]);
+              echo '<div class="card text-center">';
+              echo '<div class="card-header p-2"> <div class="location p-2">';
+              echo '<i class="fa-solid fa-location-arrow"></i> ' . $row[$i]['location'] . '</div>';
+              echo '<p class="time"><i class="fa-solid fa-clock"></i> ' . calculate_time($row[$i]['postTime']) . '</p>';
+              echo '</div>';
+              echo '<img class="card-img-top" src="../postImages/' . $row[$i]['postPhoto'] . '"alt="Card image">';
+              echo '<div class="card-body"><h5 class="card-title"><i class="fa-solid fa-tags"></i> ';
+              echo $row[$i]['tag1'] . '</h5>';
+              echo '<p class="card-text">';
+              echo '<i class="fa-solid fa-quote-left"></i> ';
+              echo $row[$i]['mainComment'];
+              echo ' <i class="fa-solid fa-quote-right"></i></p></div>';
+              echo '<div class="card-footer d-flex justify-content-between pl-5 pr-5">';
+              echo '<button class="like ';
+              $count = $liked->fetchAll();
+              if (count($count) != 0) {
+                echo 'liked-this-post';
+              }
+              echo '" onclick="likeCounter(' . $row[$i]['postID'] . ', ' . $_SESSION['userID'];
+              echo ', this)"><i class="fa-regular fa-heart';
+              echo '"></i> ' . $row[$i]['likes'] . ' likes</button>';
+              echo '<div class="comment"><i class="fa-regular fa-comment"></i> ';
+              echo 0 . ' comments</div></div></div>';
             }
-            echo '"></i> ' . $row[$i]['likes'] . ' likes</button>';
-            echo '<div class="comment"><i class="fa-regular fa-comment"></i> ';
-            echo 0 . ' comments</div></div></div>';
           }
-        }
-        ?>
+          ?>
 
           <!--        
         <div class="card text-center">

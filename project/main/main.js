@@ -7,7 +7,9 @@ function likeCounter(postID, userID, text) {
     xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             if (this.responseText != -1) {
+                $(text).toggleClass('liked-this-post');
                 text.innerHTML = '<i class="fa-regular fa-heart" ></i> ' + this.responseText + ' Likes';
+                
             }
         }
     }
