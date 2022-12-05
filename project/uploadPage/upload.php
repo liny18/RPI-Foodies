@@ -55,7 +55,6 @@
             $upload = $conn->prepare("INSERT INTO Posts (postTime, userID, likes, mainComment, postPhoto, location, tag1, foodName) VALUES (:postTime, :userID, 0, :mainComment, :postPhoto, :location, :tag1, :foodName)");
             // get file name and location
             $fileName = $_FILES['postPhoto']['name'];
-            $ext = pathinfo($fileName, PATHINFO_EXTENSION);
             $fileTmpName = $_FILES['postPhoto']['tmp_name'];
 
             if (checkFile($fileTmpName)) {
