@@ -39,7 +39,7 @@
         function checkFile($file)
         {
             // check if the content type of the file is image
-            return (strpos(mime_content_type($file), "image" !== false));
+            return (strpos(mime_content_type($file), "image") !== false);
         }
 
         try {
