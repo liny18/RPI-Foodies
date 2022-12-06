@@ -55,9 +55,13 @@
             $upload = $conn->prepare("INSERT INTO Posts (postTime, userID, likes, mainComment, postPhoto, location, tag1, foodName) VALUES (:postTime, :userID, 0, :mainComment, :postPhoto, :location, :tag1, :foodName)");
             // get file name and location
             $fileName = $_FILES['postPhoto']['name'];
+            // get file extension
+            $ext = pathinfo($fileName, PATHINFO_EXTENSION);
             $fileTmpName = $_FILES['postPhoto']['tmp_name'];
+            // get file size
+            $fileSize = $_FILES['postPhoto']['size'];
 
-            if (checkFile($fileTmpName)) {
+            if (checkFile($fileTmpName) && $fileSize < 1500000) {
 
                 // get timezone
                 date_default_timezone_set('America/New_York');
