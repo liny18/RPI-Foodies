@@ -91,6 +91,50 @@
     } else if (array_key_exists('quick5', $_POST)) {
       $_SESSION['query'] = "SELECT * FROM Posts WHERE tag1 = 'Dessert' ORDER BY likes DESC";
     }
+
+
+    if (array_key_exists('delete', $_POST)) {
+      $taskId = $_POST["postID"];
+      $sql1 = 'SELECT * FROM Posts WHERE postID = :task_id';
+      $stmt3 = $conn->prepare($sql1);
+      $stmt3->bindValue(':task_id', $_POST['postID']);
+      $stmt3->execute();
+      $username = $stmt3->fetchAll();
+      $username = $username[0]['userID'];
+      $sql11 = 'UPDATE users SET BannedPosts = BannedPosts-1 WHERE userID = :task_id';
+      $stmt4 = $conn->prepare($sql11);
+      $stmt4->bindValue(':task_id', $username);
+      $stmt4->execute();
+  
+      $users = 'SELECT * FROM users WHERE userID = :task_id';
+      $stmt5 = $conn->prepare($users);
+      $stmt5->bindValue(':task_id', $username);
+      $stmt5->execute();
+      $stmt5 = $stmt5->fetchAll();
+      if($stmt5[0]['BannedPosts'] == 0){
+        $sql12 = 'UPDATE users SET DateBanned = DATE_ADD(CURDATE(), INTERVAL 5 DAY) WHERE userID = :task_id';
+        $stmt6 = $conn->prepare($sql12);
+        $stmt6->bindValue(':task_id', $username);
+        $stmt6->execute();       
+      }
+      $sql = 'DELETE FROM Reports WHERE postID = :task_id';
+      $stmt = $conn->prepare($sql);
+      $stmt->bindValue(':task_id', $taskId);
+      $stmt->execute();
+  
+      $sql2 = 'DELETE FROM Posts WHERE postID = :task_id';
+      $stmt2 = $conn->prepare($sql2);
+      $stmt2->bindValue(':task_id', $taskId);
+      $stmt2->execute();
+    }
+  
+    if (array_key_exists('deleteAdmin', $_POST)) {
+      $taskId = $_POST["postID"];
+      $sql2 = 'DELETE FROM Posts WHERE postID = :task_id';
+      $stmt2 = $conn->prepare($sql2);
+      $stmt2->bindValue(':task_id', $taskId);
+      $stmt2->execute();
+    }
     ?>
 
     <div class="container">
@@ -125,23 +169,6 @@
                   }
                 }
                 ?>
-                <!--              
-              <button type="submit" id="mostLiked1" name="mostLiked1" value="mostLiked1">
-                <li class="list-group-item">
-                  <i class="fa-solid fa-bowl-food"></i> Pasta
-                </li>
-              </button>
-              
-              <a href="">
-                <li class="list-group-item">
-                  <i class="fa-solid fa-bowl-food"></i> Orange chicken
-                </li>
-              </a>
-              <a href="">
-                <li class="list-group-item">
-                  <i class="fa-solid fa-bowl-food"></i> Korean pulled pork
-                </li>
-              </a> -->
               </ul>
             </form>
           </div>
@@ -183,6 +210,24 @@
                 echo '" onclick="likeCounter(' . $row[$i]['postID'] . ', ' . $_SESSION['userID'];
                 echo ', this)"><i class="fa-regular fa-heart';
                 echo '"></i> ' . $row[$i]['likes'] . ' likes</button>';
+                if($row[$i]['admin'] == 1){
+                  echo '<button type="button" class="btn btn-info"> Admin </button>';
+                } 
+                if(isset($_SESSION['admin']) && $_SESSION['admin'] == 1){
+                  if($row[$i]['admin'] == 1){
+                    echo '<form action="main.php" method="post">';
+                    echo  '<input type="hidden" name="postID" value=" ' . $row[$i]['postID'] . '"/>';
+                    echo '<button type="submit" name="deleteAdmin" value="deleteAdmin" class="btn btn-danger">Delete</button>';
+                    echo '</form>';
+                  } else {
+                    echo '<form action="main.php" method="post">';
+                    echo  '<input type="hidden" name="postID" value=" ' . $row[$i]['postID'] . '"/>';
+                    echo '<button type="submit" name="delete" value="delete" class="btn btn-danger">Delete</button>';
+                    echo '</form>';
+                  }
+                } else {
+                  echo '<button type="button" class="btn btn-danger" onclick="report('.$row[$i]['postID'].", ".$_SESSION['userID'].', this)"> Report </button>';
+                }
                 echo '<div class="comment"><i class="fa-regular fa-comment"></i> ';
                 echo 0 . ' comments</div></div></div>';
                 // ADD A BUTTON THAT ON SUBMIT WILL INCREMENT LIKES BY 1 
@@ -226,6 +271,24 @@
               echo '" onclick="likeCounter(' . $row[$i]['postID'] . ', ' . $_SESSION['userID'];
               echo ', this)"><i class="fa-regular fa-heart';
               echo '"></i> ' . $row[$i]['likes'] . ' likes</button>';
+              if($row[$i]['admin'] == 1){
+                echo '<button type="button" class="btn btn-info"> Admin </button>';
+              } 
+              if(isset($_SESSION['admin']) && $_SESSION['admin'] == 1){
+                if($row[$i]['admin'] == 1){
+                  echo '<form action="main.php" method="post">';
+                  echo  '<input type="hidden" name="postID" value=" ' . $row[$i]['postID'] . '"/>';
+                  echo '<button type="submit" name="deleteAdmin" value="deleteAdmin" class="btn btn-danger">Delete</button>';
+                  echo '</form>';
+                } else {
+                  echo '<form action="main.php" method="post">';
+                  echo  '<input type="hidden" name="postID" value=" ' . $row[$i]['postID'] . '"/>';
+                  echo '<button type="submit" name="delete" value="delete" class="btn btn-danger">Delete</button>';
+                  echo '</form>';
+                }
+              } else {
+                echo '<button type="button" class="btn btn-danger" onclick="report('.$row[$i]['postID'].", ".$_SESSION['userID'].', this)"> Report </button>';
+              }
               echo '<div class="comment"><i class="fa-regular fa-comment"></i> ';
               echo 0 . ' comments</div></div></div>';
             }
@@ -262,111 +325,29 @@
               echo '" onclick="likeCounter(' . $row[$i]['postID'] . ', ' . $_SESSION['userID'];
               echo ', this)"><i class="fa-regular fa-heart';
               echo '"></i> ' . $row[$i]['likes'] . ' likes</button>';
+              if($row[$i]['admin'] == 1){
+                echo '<button type="button" class="btn btn-info"> Admin </button>';
+              } 
+              if(isset($_SESSION['admin']) && $_SESSION['admin'] == 1){
+                if($row[$i]['admin'] == 1){
+                  echo '<form action="main.php" method="post">';
+                  echo  '<input type="hidden" name="postID" value=" ' . $row[$i]['postID'] . '"/>';
+                  echo '<button type="submit" name="deleteAdmin" value="deleteAdmin" class="btn btn-danger">Delete</button>';
+                  echo '</form>';
+                } else {
+                  echo '<form action="main.php" method="post">';
+                  echo  '<input type="hidden" name="postID" value=" ' . $row[$i]['postID'] . '"/>';
+                  echo '<button type="submit" name="delete" value="delete" class="btn btn-danger">Delete</button>';
+                  echo '</form>';
+                }
+              } else {
+                echo '<button type="button" class="btn btn-danger" onclick="report('.$row[$i]['postID'].", ".$_SESSION['userID'].', this)"> Report </button>';
+              }
               echo '<div class="comment"><i class="fa-regular fa-comment"></i> ';
               echo 0 . ' comments</div></div></div>';
             }
           }
           ?>
-
-          <!--        
-        <div class="card text-center">
-          <div class="card-header p-2">
-            <div class="location p-2">
-              <i class="fa-solid fa-location-arrow"></i> Blitman Dining Hall
-            </div>
-            <p class="time">
-              <i class="fa-solid fa-clock"></i> Just Now
-            </p>
-          </div>
-          <img class="card-img-top" src="../pictures/food1.svg" alt="Card image">
-          <div class="card-body">
-            <h5 class="card-title">
-              <i class="fa-solid fa-tags"></i>
-              Asian, Noodles, Spicy
-            </h5>
-            <p class="card-text">
-              <i class="fa-solid fa-quote-left"></i>
-              The Stir Fry is amazing! I love Blitman Dining Hall!
-              <i class="fa-solid fa-quote-right"></i>
-            </p>
-          </div>
-          <div class="card-footer d-flex justify-content-between pl-5 pr-5">
-            <div class="like">
-              <i class="fa-regular fa-heart"></i>
-              0 likes
-            </div>
-            <div class="comment">
-              <i class="fa-regular fa-comment"></i>
-              0 comments
-            </div>
-          </div>
-        </div>
-
-        <div class="card text-center">
-          <div class="card-header p-2">
-            <p class="location p-2">
-              <i class="fa-solid fa-location-arrow"></i> Commons Dining Hall
-            </p>
-            <p class="time">
-              <i class="fa-solid fa-clock"></i> 2 minutes ago
-            </p>
-          </div>
-          <img class="card-img-top" src="../pictures/food2.webp" alt="Card image">
-          <div class="card-body">
-            <h5 class="card-title">
-              <i class="fa-solid fa-tags"></i>
-              Burger
-            </h5>
-            <p class="card-text">
-              <i class="fa-solid fa-quote-left"></i>
-              cheeks
-              <i class="fa-solid fa-quote-right"></i>
-            </p>
-          </div>
-          <div class="card-footer d-flex justify-content-between pl-5 pr-5">
-            <div class="like">
-              <i class="fa-regular fa-heart"></i>
-              5 likes
-            </div>
-            <div class="comment">
-              <i class="fa-regular fa-comment"></i>
-              1 comments
-            </div>
-          </div>
-        </div>
-
-        <div class="card text-center">
-          <div class="card-header">
-            <p class="location p-2">
-              <i class="fa-solid fa-location-arrow"></i> Sage Dining Hall
-            </p>
-            <p class="time">
-              <i class="fa-solid fa-clock"></i> 5 minutes ago
-            </p>
-          </div>
-          <img class="card-img-top" src="../pictures/food3.jpg" alt="Card image">
-          <div class="card-body">
-            <h5 class="card-title">
-              <i class="fa-solid fa-tags"></i>
-              Salad, Vegetables
-            </h5>
-            <p class="card-text">
-              <i class="fa-solid fa-quote-left"></i>
-              mid asf salad
-              <i class="fa-solid fa-quote-right"></i>
-            </p>
-          </div>
-          <div class="card-footer d-flex justify-content-between pl-5 pr-5">
-            <div class="like">
-              <i class="fa-regular fa-heart"></i>
-              4 likes
-            </div>
-            <div class="comment">
-              <i class="fa-regular fa-comment"></i>
-              0 comments
-            </div>
-          </div>
-        </div>-->
         </div>
 
         <!-- using a button gropu and the forms we will save the required query and transfer to the next page -->
