@@ -11,7 +11,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../main/main.css">
-    <link rel="stylesheet" href="./login.css">
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <script defer src="../main/main.js"></script>
   <?php
@@ -70,7 +69,7 @@
             echo ', this)"><i class="fa-regular fa-heart" ></i> ';
             echo $row[$i]['likes'] . ' likes</button>';
             echo '<div class="comment"><i class="fa-regular fa-comment"></i>';
-            echo 0 . ' comments</div></div></div>';
+            echo ' comments</div></div></div>';
           }
         ?>
       </div>
