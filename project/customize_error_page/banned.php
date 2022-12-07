@@ -44,7 +44,7 @@
         }
 
         $userID = $_SESSION["userID"];
-        $sql = $db->prepare("SELECT * FROM users WHERE userID = :userID");
+        $sql = $conn->prepare("SELECT * FROM users WHERE userID = :userID");
         $sql->execute([":userID" => $userID]);
         $result = $sql->fetch();
         $time = $result[0]["DateBanned"];
