@@ -38,12 +38,8 @@
 
         function checkFile($file)
         {
-            $allowed = array("jpg", "jpeg", "png");
-            if (in_array($file, $allowed)) {
-                return true;
-            } else {
-                return false;
-            }
+            // check if the content type of the file is image
+            return (strpos(mime_content_type($file), "image") !== false);
         }
 
         try {
@@ -56,14 +52,16 @@
 
         if (array_key_exists('submitUpload', $_POST)) {
             // create an insert statement
-            $upload = $conn->prepare("INSERT INTO Posts (postTime, userID, likes, mainComment, postPhoto, location, tag1, foodName) VALUES (:postTime, :userID, 0, :mainComment, :postPhoto, :location, :tag1, :foodName)");
+            $upload = $conn->prepare("INSERT INTO Posts (postTime, userID, likes, mainComment, postPhoto, location, tag1, foodName, admin) VALUES (NOW(), :userID, 0, :mainComment, :postPhoto, :location, :tag1, :foodName, :admin)");
             // get file name and location
             $fileName = $_FILES['postPhoto']['name'];
+            // get file extension
             $ext = pathinfo($fileName, PATHINFO_EXTENSION);
             $fileTmpName = $_FILES['postPhoto']['tmp_name'];
+            // get file size
             $fileSize = $_FILES['postPhoto']['size'];
 
-            if (checkFile($ext) && $fileSize < 1500000) {
+            if (checkFile($fileTmpName) && $fileSize < 1500000) {
 
                 // get timezone
                 date_default_timezone_set('America/New_York');
@@ -73,27 +71,25 @@
                 move_uploaded_file($fileTmpName, "../postImages/$fileName");
 
                 $hash = hash_file('sha256', "../postImages/$fileName");
-
                 $out = "$hash.$ext";
-
 
                 // // rename the file
                 rename("../postImages/$fileName", "../postImages/$out");
-
                 // // set the file name to the hashed name
                 $fileName = $out;
 
-
                 // grab all the data from the form
                 $userID = $_SESSION['userID'];
+                $admin = $_SESSION['admin'];
                 $mainComment = $_POST['caption'];
                 $location = $_POST['Location'];
                 $tag1 = $_POST['tag1'];
                 $foodName = $_POST['foodName'];
 
                 // execute the insert statement
-                $upload->execute([':postTime' => $time, ':userID' => $userID, ':mainComment' => $mainComment, ':postPhoto' => $fileName, ':location' => $location, ':tag1' => $tag1, ':foodName' => $foodName]);
+                $upload->execute([':userID' => $userID, ':mainComment' => $mainComment, ':postPhoto' => $fileName, ':location' => $location, ':tag1' => $tag1, ':foodName' => $foodName, ':admin' => $admin]);
 
+                header("Location: ../main/main.php");
             } else {
                 echo "<h2 class='text-center h2'>File type not supported</h2>";
                 echo "<h3 class='text-center h3'>Please upload a .jpg, .jpeg, or .png file</h3>";

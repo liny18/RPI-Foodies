@@ -53,8 +53,9 @@
       $stmt5->bindValue(':task_id', $username);
       $stmt5->execute();
       $stmt5 = $stmt5->fetchAll();
+      $date = date("Y-m-d");
       if($stmt5[0]['BannedPosts'] == 0){
-        $sql12 = 'UPDATE users SET DateBanned = DATE_ADD(CURDATE(), INTERVAL 5 DAY) WHERE userID = :task_id';
+        $sql12 = 'UPDATE users SET DateBanned = DATE_ADD('.$date.', INTERVAL 5 DAY) WHERE userID = :task_id';
         $stmt6 = $conn->prepare($sql12);
         $stmt6->bindValue(':task_id', $username);
         $stmt6->execute();       
