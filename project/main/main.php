@@ -275,7 +275,7 @@
                 echo '<div class="col-12" id="CommentPlace' . $row[$i]['postID'] . '">';
 
                 // prepare query for comments table
-                $comments = $conn->prepare('SELECT * FROM comments WHERE postID = :postID ORDER BY commentID DESC');
+                $comments = $conn->prepare('SELECT * FROM Comments WHERE postID = :postID ORDER BY commentID DESC');
                 $comments->execute(['postID' => $row[$i]['postID']]);
                 $comments = $comments->fetchAll();
                 // commenting starts here
@@ -433,7 +433,7 @@
               echo '<div class="col-12" id="CommentPlace' . $row[$i]['postID'] . '">';
 
               // prepare query for comments table
-              $comments = $conn->prepare('SELECT * FROM comments WHERE postID = :postID ORDER BY commentID DESC');
+              $comments = $conn->prepare('SELECT * FROM Comments WHERE postID = :postID ORDER BY commentID DESC');
               $comments->execute(['postID' => $row[$i]['postID']]);
               $comments = $comments->fetchAll();
               // commenting starts here
@@ -589,7 +589,7 @@
               echo '<div class="col-12" id="CommentPlace' . $row[$i]['postID'] . '">';
 
               // prepare query for comments table
-              $comments = $conn->prepare('SELECT * FROM comments WHERE postID = :postID ORDER BY commentID DESC');
+              $comments = $conn->prepare('SELECT * FROM Comments WHERE postID = :postID ORDER BY commentID DESC');
               $comments->execute(['postID' => $row[$i]['postID']]);
               $comments = $comments->fetchAll();
               // commenting starts here
