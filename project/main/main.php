@@ -192,7 +192,10 @@
                 $stmt->bindValue(':task_id', $row[$i]['userID']);
                 $stmt->execute();
                 $user = $stmt->fetchAll();
-                echo '<form action="../UserPage/index.php?userID=' . $row[$i]['userID'] . '&userName=' . $user[0]['username'] . '" method="get">';
+
+                echo '<form action="../UserPage/index.php?userID='.$row[$i]['userID'].'&userName='.$user[0]['username'].'" method="post">';
+
+
                 echo '<button type="submit" name="submit" value="submit" class="btn btn-danger">' . $user[0]['username'] . '</button>';
                 echo '</form>';
                 echo '<div class="card-header p-2"> <div class="location p-2">';
@@ -253,7 +256,9 @@
               $stmt->bindValue(':task_id', $row[$i]['userID']);
               $stmt->execute();
               $user = $stmt->fetchAll();
-              echo '<form action="../UserPage/index.php?userID=' . $row[$i]['userID'] . '&userName=' . $user[0]['username'] . '" method="get">';
+
+              echo '<form action="../UserPage/index.php?userID='.$row[$i]['userID'].'&userName='.$user[0]['username'].'" method="post">';
+
               echo '<button type="submit" name="submit" value="submit" class="btn btn-danger">' . $user[0]['username'] . '</button>';
               echo '</form>';
               echo '<div class="card-header p-2"> <div class="location p-2">';
@@ -305,7 +310,9 @@
               $stmt->bindValue(':task_id', $row[$i]['userID']);
               $stmt->execute();
               $user = $stmt->fetchAll();
-              echo '<form action="../UserPage/index.php?userID=' . $row[$i]['userID'] . '&userName=' . $user[0]['username'] . '" method="get">';
+
+              echo '<form action="../UserPage/index.php?userID='.$row[$i]['userID'].'&userName='.$user[0]['username'].'" method="post">';
+
               echo '<button type="submit" name="submit" value="submit" class="btn btn-danger">' . $user[0]['username'] . '</button>';
               echo '</form>';
               echo '<div class="card-header p-2"> <div class="location p-2">';
