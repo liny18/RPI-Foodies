@@ -215,7 +215,7 @@
                 echo '</div>';
                 echo '<div class="location p-2">';
                 echo '<i class="fa-solid fa-location-arrow"></i> ' . $row[$i]['location'] . '</div>';
-                echo '<p class="time"><i class="fa-solid fa-clock pt-1 pb-1"></i> ' . calculate_time($row[$i]['postTime']) . '</p>';
+                echo '<p class="time"><i class="fa-solid fa-clock pt-1"></i> ' . calculate_time($row[$i]['postTime']) . '</p>';
                 echo '</div>';
                 echo '<img class="card-img-top" src="../postImages/' . $row[$i]['postPhoto'] . '"alt="Card image">';
                 echo '<div class="card-body"><h5 class="card-title"><i class="fa-solid fa-tags"></i> ';
@@ -285,7 +285,7 @@
               echo '</div>';
               echo '<div class="location p-2">';
               echo '<i class="fa-solid fa-location-arrow"></i> ' . $row[$i]['location'] . '</div>';
-              echo '<p class="time"><i class="fa-solid fa-clock pt-1 pb-1"></i> ' . calculate_time($row[$i]['postTime']) . '</p>';
+              echo '<p class="time"><i class="fa-solid fa-clock pt-1"></i> ' . calculate_time($row[$i]['postTime']) . '</p>';
               echo '</div>';
               echo '<img class="card-img-top" src="../postImages/' . $row[$i]['postPhoto'] . '"alt="Card image">';
               echo '<div class="card-body"><h5 class="card-title"><i class="fa-solid fa-tags"></i> ';
@@ -346,7 +346,7 @@
               echo '</div>';
               echo '<div class="location p-2">';
               echo '<i class="fa-solid fa-location-arrow"></i> ' . $row[$i]['location'] . '</div>';
-              echo '<p class="time"><i class="fa-solid fa-clock pt-1 pb-1"></i> ' . calculate_time($row[$i]['postTime']) . '</p>';
+              echo '<p class="time"><i class="fa-solid fa-clock pt-1"></i> ' . calculate_time($row[$i]['postTime']) . '</p>';
               echo '</div>';
               echo '<img class="card-img-top" src="../postImages/' . $row[$i]['postPhoto'] . '"alt="Card image">';
               echo '<div class="card-body"><h5 class="card-title"><i class="fa-solid fa-tags"></i> ';
