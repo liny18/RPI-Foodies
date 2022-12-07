@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../main/main.css">
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-    <script defer src="../main/main.js"></script>
+    <script defer src="main.js"></script>
   <?php
       @session_start();
 
@@ -78,9 +78,13 @@
               echo ', this)"><i class="fa-regular fa-heart" ></i> ';
               echo $row[$i]['likes'] . ' likes</button>';
               echo '<form action="main.php" method="post">';
-              echo '<input type="hidden" name="postID" value=" ' . $row[$i]['postID'] . '"/>';
-              echo '<button type="submit" name="delete" value="delete" class="btn btn-danger">Delete</button>';
-              echo '</form>';     
+              if($_SESSION['postID'] == $row[$i]['postID']){
+                echo '<input type="hidden" name="postID" value=" ' . $row[$i]['postID'] . '"/>';
+                echo '<button type="submit" name="delete" value="delete" class="btn btn-danger">Delete</button>';
+                echo '</form>'; 
+              } else {
+                echo '<button type="button" class="btn btn-danger" onclick="report(' . $row[$i]['postID'] . ", " . $_SESSION['userID'] . ', this)"> Report </button>';
+              }    
               echo '<div class="comment"><i class="fa-regular fa-comment"></i>';
               echo ' comments</div></div></div>';
             }
