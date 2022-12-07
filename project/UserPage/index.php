@@ -31,6 +31,14 @@
       } catch (PDOException $e) {
           echo "Connection failed: " . $e->getMessage();
       }
+
+      if (array_key_exists('delete', $_POST)) {
+        $taskId = $_POST["postID"];
+        $sql2 = 'DELETE FROM Posts WHERE postID = :task_id';
+        $stmt2 = $conn->prepare($sql2);
+        $stmt2->bindValue(':task_id', $taskId);
+        $stmt2->execute();
+      }
   ?>
 </head>
 <body>
@@ -68,6 +76,10 @@
             echo '<button class="like" onclick="likeCounter(' . $row[$i]['postID'] . ', ' . $_SESSION['userID'];
             echo ', this)"><i class="fa-regular fa-heart" ></i> ';
             echo $row[$i]['likes'] . ' likes</button>';
+            echo '<form action="main.php" method="post">';
+            echo '<input type="hidden" name="postID" value=" ' . $row[$i]['postID'] . '"/>';
+            echo '<button type="submit" name="delete" value="delete" class="btn btn-danger">Delete</button>';
+            echo '</form>';     
             echo '<div class="comment"><i class="fa-regular fa-comment"></i>';
             echo ' comments</div></div></div>';
           }
