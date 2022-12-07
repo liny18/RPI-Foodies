@@ -25,7 +25,7 @@
     <img src="./error.png" alt="error" id="error_image">
     <br>
     <br>
-    <h1>Your banned</h1>
+    <h1>Get banned bozo</h1>
     <br>
     <?php
         @session_start();
