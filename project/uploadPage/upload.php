@@ -61,8 +61,17 @@
             // get file size
             $fileSize = $_FILES['postPhoto']['size'];
 
-            if (checkFile($fileTmpName) && $fileSize < 1500000) {
-
+            if (!(checkFile($fileTmpName) && $fileSize < 1500000)) {
+                echo "<h2 class='text-center h2'>File type not supported</h2>";
+                echo "<h3 class='text-center h3'>Please upload a .jpg, .jpeg, or .png file</h3>";
+                echo "<h4 class='text-center h4'>File size must be less than 1.5MB</h4>";
+            } elseif (strlen($_POST['caption']) > 255) {
+                echo "<h2 class='text-center h2'>Caption is too long</h2>";
+                echo "<h3 class='text-center h3'>Maximum length for captions are 255 characters</h3>";
+            } elseif (strlen($_POST['foodName']) > 40) {
+                echo "<h2 class='text-center h2'>Food name is too long</h2>";
+                echo "<h3 class='text-center h3'>Maximum length for food name is 40 characters</h3>";
+            } else {
                 // get timezone
                 date_default_timezone_set('America/New_York');
                 $time = (date("Y-m-d H:i:s"));
@@ -89,10 +98,6 @@
                 $upload->execute([':time' => $time, ':userID' => $userID, ':mainComment' => $mainComment, ':postPhoto' => $fileName, ':location' => $location, ':tag1' => $tag1, ':foodName' => $foodName]);
 
                 header("Location: ../main/main.php");
-            } else {
-                echo "<h2 class='text-center h2'>File type not supported</h2>";
-                echo "<h3 class='text-center h3'>Please upload a .jpg, .jpeg, or .png file</h3>";
-                echo "<h4 class='text-center h4'>File size must be less than 1.5MB</h4>";
             }
         }
 
@@ -113,7 +118,7 @@
                         <hr class="bg-dark border-5 border-top border-dark">
                         <div id="postText">
                             <div class="form-floating fix-floating-label p-1">
-                                <textarea class="form-control" id="Caption" rows="5" name="caption" required></textarea>
+                                <textarea class="form-control" id="Caption" rows="5" name="caption" maxlenth="255" required></textarea>
                                 <label class="form-label" for="Caption">Enter A Caption</label>
                             </div>
                             <div class="row">
@@ -152,7 +157,7 @@
                                 <!-- WHEN READING THIS IN AS DATA CONVERT IT TO ALL LOWERCASE USING EITHER JS OR PHP CAN DO BOTH -->
                                 <div class="pe-3 ps-3">
                                     <input type="text" class="form-control" id="foodName" placeholder="Name of the Dish"
-                                        name="foodName" required>
+                                        name="foodName" maxlenth="40" required>
                                     <label for="foodName"></label>
                                 </div>
                             </div>
