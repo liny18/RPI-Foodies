@@ -88,7 +88,10 @@
                 // execute the insert statement
                 $upload->execute([':time' => $time, ':userID' => $userID, ':mainComment' => $mainComment, ':postPhoto' => $fileName, ':location' => $location, ':tag1' => $tag1, ':foodName' => $foodName]);
 
-                header("Location: ../main/main.php");
+                // after the posting is done, go back to the home page(main.php)
+                echo "<script>window.location.href='../main/main.php';</script>";
+                exit;
+
             } else {
                 echo "<h2 class='text-center h2'>File type not supported</h2>";
                 echo "<h3 class='text-center h3'>Please upload a .jpg, .jpeg, or .png file</h3>";
