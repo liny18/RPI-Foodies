@@ -25,9 +25,9 @@
 
 <body>
     <div id="content-wrap">
-        <main>
+        <main class="container">
             <h1 class="main-slogan"> RPI Foodies, find out what you love!</h1>
-            <div class="row">
+            <div class="row mt-0">
                 <div class="colm-logo">
                     <img src="../pictures/RPIFoodies.png" alt="Logo" class="team-logo">
                 </div>
@@ -82,7 +82,7 @@
                                 header("Location: ../errorPage/banned.php");
                             }
                         } else {
-                            echo '<p class="cas_info">*This website is connected to RPI CAS login system, you need to have a RPI
+                            echo '<p class="cas_info">*This website is connected to RPI CAS login system. You need a RPI
                             account to login.</p>';
                             echo "<a href='login.php' class='login_button'>Login</a>";
                         }

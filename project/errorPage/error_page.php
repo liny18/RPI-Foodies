@@ -27,7 +27,7 @@
     <br>
     <h1>Error Message</h1>
     <br>
-    <p>Sorry, we have met some problems, please return to the home page or try again later, thank you for your understanding</p>
+    <p>Sorry, we ran into some problems. Please return to the home page or try again later. Thank you.</p>
 </div>
 
 
