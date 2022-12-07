@@ -37,7 +37,7 @@
     $servername = "localhost";
     $database = "rpiFoodies";
     $username = "root";
-    $password = "";    
+    $password = "";
 
     try {
       $conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
@@ -52,19 +52,6 @@
       $_SESSION['query'] = $_POST['search'];
       $_SESSION['isSearch'] = true;
     }
-
-
-    // first grab all the data in descending order because newer posts will have a larger postid
-    $grabByPostID = $conn->prepare("SELECT * FROM Posts ORDER BY postID DESC");
-    $grabByPostID->execute();
-
-    // grab data by most likes
-    $grabByLikes = $conn->prepare("SELECT * FROM Posts ORDER BY likes DESC");
-    $grabByLikes->execute();
-
-    // grab data by most likes in commons
-    $grabByLikesCommons = $conn->prepare("SELECT * FROM Posts WHERE location = 'Commons' ORDER BY likes DESC");
-    $grabByLikesCommons->execute();
 
 
     // based on if a button is clicked then go to the search page with the query needed
@@ -103,29 +90,29 @@
       $stmt4 = $conn->prepare($sql11);
       $stmt4->bindValue(':task_id', $username);
       $stmt4->execute();
-  
+
       $users = 'SELECT * FROM users WHERE userID = :task_id';
       $stmt5 = $conn->prepare($users);
       $stmt5->bindValue(':task_id', $username);
       $stmt5->execute();
       $stmt5 = $stmt5->fetchAll();
-      if($stmt5[0]['BannedPosts'] == 0){
+      if ($stmt5[0]['BannedPosts'] == 0) {
         $sql12 = 'UPDATE users SET DateBanned = DATE_ADD(CURDATE(), INTERVAL 5 DAY) WHERE userID = :task_id';
         $stmt6 = $conn->prepare($sql12);
         $stmt6->bindValue(':task_id', $username);
-        $stmt6->execute();       
+        $stmt6->execute();
       }
       $sql = 'DELETE FROM Reports WHERE postID = :task_id';
       $stmt = $conn->prepare($sql);
       $stmt->bindValue(':task_id', $taskId);
       $stmt->execute();
-  
+
       $sql2 = 'DELETE FROM Posts WHERE postID = :task_id';
       $stmt2 = $conn->prepare($sql2);
       $stmt2->bindValue(':task_id', $taskId);
       $stmt2->execute();
     }
-  
+
     if (array_key_exists('deleteAdmin', $_POST)) {
       $taskId = $_POST["postID"];
       $sql2 = 'DELETE FROM Posts WHERE postID = :task_id';
@@ -133,6 +120,18 @@
       $stmt2->bindValue(':task_id', $taskId);
       $stmt2->execute();
     }
+
+    // first grab all the data in descending order because newer posts will have a larger postid
+    $grabByPostID = $conn->prepare("SELECT * FROM Posts ORDER BY postID DESC");
+    $grabByPostID->execute();
+
+    // grab data by most likes
+    $grabByLikes = $conn->prepare("SELECT * FROM Posts ORDER BY likes DESC");
+    $grabByLikes->execute();
+
+    // grab data by most likes in commons
+    $grabByLikesCommons = $conn->prepare("SELECT * FROM Posts WHERE location = 'Commons' ORDER BY likes DESC");
+    $grabByLikesCommons->execute();
     ?>
 
     <div class="container">
@@ -193,7 +192,7 @@
                 $stmt->bindValue(':task_id', $row[$i]['userID']);
                 $stmt->execute();
                 $user = $stmt->fetchAll();
-                echo '<form action="../UserPage/index.php?userID='.$row[$i]['userID'].'&userName='.$user[0]['username'].'" method="get">';
+                echo '<form action="../UserPage/index.php?userID=' . $row[$i]['userID'] . '&userName=' . $user[0]['username'] . '" method="get">';
                 echo '<button type="submit" name="submit" value="submit" class="btn btn-danger">' . $user[0]['username'] . '</button>';
                 echo '</form>';
                 echo '<div class="card-header p-2"> <div class="location p-2">';
@@ -216,26 +215,17 @@
                 echo '" onclick="likeCounter(' . $row[$i]['postID'] . ', ' . $_SESSION['userID'];
                 echo ', this)"><i class="fa-regular fa-heart';
                 echo '"></i> ' . $row[$i]['likes'] . ' likes</button>';
-                if($row[$i]['admin'] == 1){
-                  echo '<button type="button" class="btn btn-info"> Admin </button>';
-                } 
-                if(isset($_SESSION['admin']) && $_SESSION['admin'] == 1){
-                  if($row[$i]['admin'] == 1){
-                    echo '<form action="main.php" method="post">';
-                    echo  '<input type="hidden" name="postID" value=" ' . $row[$i]['postID'] . '"/>';
-                    echo '<button type="submit" name="deleteAdmin" value="deleteAdmin" class="btn btn-danger">Delete</button>';
-                    echo '</form>';
-                  } else {
-                    echo '<form action="main.php" method="post">';
-                    echo  '<input type="hidden" name="postID" value=" ' . $row[$i]['postID'] . '"/>';
-                    echo '<button type="submit" name="delete" value="delete" class="btn btn-danger">Delete</button>';
-                    echo '</form>';
-                  }
+
+                if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
+                  echo '<form action="main.php" method="post">';
+                  echo '<input type="hidden" name="postID" value=" ' . $row[$i]['postID'] . '"/>';
+                  echo '<button type="submit" name="delete" value="delete" class="btn btn-danger">Delete</button>';
+                  echo '</form>';
                 } else {
-                  echo '<button type="button" class="btn btn-danger" onclick="report('.$row[$i]['postID'].", ".$_SESSION['userID'].', this)"> Report </button>';
+                  echo '<button type="button" class="btn btn-danger" onclick="report(' . $row[$i]['postID'] . ", " . $_SESSION['userID'] . ', this)"> Report </button>';
                 }
                 echo '<div class="comment"><i class="fa-regular fa-comment"></i> ';
-                echo 0 . ' comments</div></div></div>';
+                echo 'comments</div></div></div>';
                 // ADD A BUTTON THAT ON SUBMIT WILL INCREMENT LIKES BY 1 
                 // ALSO HAVE IT AS A FUNCTION THAT TAKES IN A POST ID
                 // CAN BE DONE IN THE FOR LOOP SHIT
@@ -263,7 +253,7 @@
               $stmt->bindValue(':task_id', $row[$i]['userID']);
               $stmt->execute();
               $user = $stmt->fetchAll();
-              echo '<form action="../UserPage/index.php?userID='.$row[$i]['userID'].'&userName='.$user[0]['username'].'" method="get">';
+              echo '<form action="../UserPage/index.php?userID=' . $row[$i]['userID'] . '&userName=' . $user[0]['username'] . '" method="get">';
               echo '<button type="submit" name="submit" value="submit" class="btn btn-danger">' . $user[0]['username'] . '</button>';
               echo '</form>';
               echo '<div class="card-header p-2"> <div class="location p-2">';
@@ -285,26 +275,17 @@
               echo '" onclick="likeCounter(' . $row[$i]['postID'] . ', ' . $_SESSION['userID'];
               echo ', this)"><i class="fa-regular fa-heart';
               echo '"></i> ' . $row[$i]['likes'] . ' likes</button>';
-              if($row[$i]['admin'] == 1){
-                echo '<button type="button" class="btn btn-info"> Admin </button>';
-              } 
-              if(isset($_SESSION['admin']) && $_SESSION['admin'] == 1){
-                if($row[$i]['admin'] == 1){
-                  echo '<form action="main.php" method="post">';
-                  echo  '<input type="hidden" name="postID" value=" ' . $row[$i]['postID'] . '"/>';
-                  echo '<button type="submit" name="deleteAdmin" value="deleteAdmin" class="btn btn-danger">Delete</button>';
-                  echo '</form>';
-                } else {
-                  echo '<form action="main.php" method="post">';
-                  echo  '<input type="hidden" name="postID" value=" ' . $row[$i]['postID'] . '"/>';
-                  echo '<button type="submit" name="delete" value="delete" class="btn btn-danger">Delete</button>';
-                  echo '</form>';
-                }
+
+              if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
+                echo '<form action="main.php" method="post">';
+                echo '<input type="hidden" name="postID" value=" ' . $row[$i]['postID'] . '"/>';
+                echo '<button type="submit" name="delete" value="delete" class="btn btn-danger">Delete</button>';
+                echo '</form>';
               } else {
-                echo '<button type="button" class="btn btn-danger" onclick="report('.$row[$i]['postID'].", ".$_SESSION['userID'].', this)"> Report </button>';
+                echo '<button type="button" class="btn btn-danger" onclick="report(' . $row[$i]['postID'] . ", " . $_SESSION['userID'] . ', this)"> Report </button>';
               }
               echo '<div class="comment"><i class="fa-regular fa-comment"></i> ';
-              echo 0 . ' comments</div></div></div>';
+              echo 'comments</div></div></div>';
             }
             // reset querys to 0
             $_SESSION['query'] = "";
@@ -324,7 +305,7 @@
               $stmt->bindValue(':task_id', $row[$i]['userID']);
               $stmt->execute();
               $user = $stmt->fetchAll();
-              echo '<form action="../UserPage/index.php?userID='.$row[$i]['userID'].'&userName='.$user[0]['username'].'" method="get">';
+              echo '<form action="../UserPage/index.php?userID=' . $row[$i]['userID'] . '&userName=' . $user[0]['username'] . '" method="get">';
               echo '<button type="submit" name="submit" value="submit" class="btn btn-danger">' . $user[0]['username'] . '</button>';
               echo '</form>';
               echo '<div class="card-header p-2"> <div class="location p-2">';
@@ -347,26 +328,17 @@
               echo '" onclick="likeCounter(' . $row[$i]['postID'] . ', ' . $_SESSION['userID'];
               echo ', this)"><i class="fa-regular fa-heart';
               echo '"></i> ' . $row[$i]['likes'] . ' likes</button>';
-              if($row[$i]['admin'] == 1){
-                echo '<button type="button" class="btn btn-info"> Admin </button>';
-              } 
-              if(isset($_SESSION['admin']) && $_SESSION['admin'] == 1){
-                if($row[$i]['admin'] == 1){
-                  echo '<form action="main.php" method="post">';
-                  echo  '<input type="hidden" name="postID" value=" ' . $row[$i]['postID'] . '"/>';
-                  echo '<button type="submit" name="deleteAdmin" value="deleteAdmin" class="btn btn-danger">Delete</button>';
-                  echo '</form>';
-                } else {
-                  echo '<form action="main.php" method="post">';
-                  echo  '<input type="hidden" name="postID" value=" ' . $row[$i]['postID'] . '"/>';
-                  echo '<button type="submit" name="delete" value="delete" class="btn btn-danger">Delete</button>';
-                  echo '</form>';
-                }
+
+              if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
+                echo '<form action="main.php" method="post">';
+                echo '<input type="hidden" name="postID" value=" ' . $row[$i]['postID'] . '"/>';
+                echo '<button type="submit" name="delete" value="delete" class="btn btn-danger">Delete</button>';
+                echo '</form>';
               } else {
-                echo '<button type="button" class="btn btn-danger" onclick="report('.$row[$i]['postID'].", ".$_SESSION['userID'].', this)"> Report </button>';
+                echo '<button type="button" class="btn btn-danger" onclick="report(' . $row[$i]['postID'] . ", " . $_SESSION['userID'] . ', this)"> Report </button>';
               }
               echo '<div class="comment"><i class="fa-regular fa-comment"></i> ';
-              echo 0 . ' comments</div></div></div>';
+              echo 'comments</div></div></div>';
             }
           }
           ?>

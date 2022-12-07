@@ -52,7 +52,7 @@
 
         if (array_key_exists('submitUpload', $_POST)) {
             // create an insert statement
-            $upload = $conn->prepare("INSERT INTO Posts (postTime, userID, likes, mainComment, postPhoto, location, tag1, foodName, admin) VALUES (NOW(), :userID, 0, :mainComment, :postPhoto, :location, :tag1, :foodName, :admin)");
+            $upload = $conn->prepare("INSERT INTO Posts (postTime, userID, likes, mainComment, postPhoto, location, tag1, foodName) VALUES (NOW(), :userID, 0, :mainComment, :postPhoto, :location, :tag1, :foodName)");
             // get file name and location
             $fileName = $_FILES['postPhoto']['name'];
             // get file extension
@@ -80,14 +80,13 @@
 
                 // grab all the data from the form
                 $userID = $_SESSION['userID'];
-                $admin = $_SESSION['admin'];
                 $mainComment = $_POST['caption'];
                 $location = $_POST['Location'];
                 $tag1 = $_POST['tag1'];
                 $foodName = $_POST['foodName'];
 
                 // execute the insert statement
-                $upload->execute([':userID' => $userID, ':mainComment' => $mainComment, ':postPhoto' => $fileName, ':location' => $location, ':tag1' => $tag1, ':foodName' => $foodName, ':admin' => $admin]);
+                $upload->execute([':userID' => $userID, ':mainComment' => $mainComment, ':postPhoto' => $fileName, ':location' => $location, ':tag1' => $tag1, ':foodName' => $foodName]);
 
                 header("Location: ../main/main.php");
             } else {
