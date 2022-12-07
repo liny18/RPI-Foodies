@@ -71,7 +71,18 @@
                             $result = $sql->execute([":username" => $username]);
                             $row = $sql->fetch();
                             $_SESSION['userID'] = $row['userID'];
-                            header("Location: ../main/main.php");
+                            $_SESSION['admin'] = $row[0]['admin'];
+
+                            $date = date("Y-m-d");
+                            if($date > $row[0]['DateBanned']){
+                                if($row[0]['BannedPosts'] <= 0){
+                                    $sql = $db->prepare( "UPDATE users SET BannedPosts = 3 WHERE username = :username");
+                                    $result = $sql->execute([":username" => $username]);
+                                }
+                                header("Location: ../main/main.php");
+                            } else {
+                                header("Location: ../AdminPage/banned.php");
+                            }
                         } else {
                             echo "<a href='login.php' class='login_button'>Login</a>";
                         }
