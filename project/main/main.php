@@ -37,9 +37,7 @@
     $servername = "localhost";
     $database = "rpiFoodies";
     $username = "root";
-    $password = "";
-
-
+    $password = "";    
 
     try {
       $conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
