@@ -194,21 +194,14 @@
                 $user = $stmt->fetchAll();
                 echo '<div class="card-header p-2">';
                 echo '<div class="d-flex justify-content-between p-1">';
-                echo '<form action="../UserPage/index.php?userID='.$row[$i]['userID'].'&userName='.$user[0]['username'].'" method="get">';
+                echo '<form action="../UserPage/index.php?userID='.$row[$i]['userID'].'&userName='.$user[0]['username'].'" method="post">';
                 echo '<button type="submit" name="submit" value="submit" class="btn tbn-link text-decoration-none postRCS">' . $user[0]['username'] . '</button>';
                 echo '</form>';
                 if(isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
-                  if($row[$i]['admin'] == 1){
-                    echo '<form action="main.php" method="post">';
-                    echo  '<input type="hidden" name="postID" value=" ' . $row[$i]['postID'] . '"/>';
-                    echo '<button type="submit" name="deleteAdmin" value="deleteAdmin" class="btn btn-link text-danger text-decoration-none">Delete</button>';
-                    echo '</form>';
-                  } else {
                     echo '<form action="main.php" method="post">';
                     echo  '<input type="hidden" name="postID" value=" ' . $row[$i]['postID'] . '"/>';
                     echo '<button type="submit" name="delete" value="delete" class="btn btn-link text-danger text-decoration-none">Delete</button>';
                     echo '</form>';
-                  }
                 } else {
                   echo '<button type="button" class="btn btn-link text-danger text-decoration-none" onclick="report('.$row[$i]['postID'].", ".$_SESSION['userID'].', this)"> Report </button>';
                 }
@@ -264,21 +257,14 @@
               $user = $stmt->fetchAll();
               echo '<div class="card-header p-2">';
               echo '<div class="d-flex justify-content-between p-1">';
-              echo '<form action="../UserPage/index.php?userID='.$row[$i]['userID'].'&userName='.$user[0]['username'].'" method="get">';
+              echo '<form action="../UserPage/index.php?userID='.$row[$i]['userID'].'&userName='.$user[0]['username'].'" method="post">';
               echo '<button type="submit" name="submit" value="submit" class="btn tbn-link text-decoration-none postRCS">' . $user[0]['username'] . '</button>';
               echo '</form>';
               if(isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
-                if($row[$i]['admin'] == 1){
-                  echo '<form action="main.php" method="post">';
-                  echo  '<input type="hidden" name="postID" value=" ' . $row[$i]['postID'] . '"/>';
-                  echo '<button type="submit" name="deleteAdmin" value="deleteAdmin" class="btn btn-link text-danger text-decoration-none">Delete</button>';
-                  echo '</form>';
-                } else {
                   echo '<form action="main.php" method="post">';
                   echo  '<input type="hidden" name="postID" value=" ' . $row[$i]['postID'] . '"/>';
                   echo '<button type="submit" name="delete" value="delete" class="btn btn-link text-danger text-decoration-none">Delete</button>';
                   echo '</form>';
-                }
               } else {
                 echo '<button type="button" class="btn btn-link text-danger text-decoration-none" onclick="report('.$row[$i]['postID'].", ".$_SESSION['userID'].', this)"> Report </button>';
               }
@@ -325,21 +311,14 @@
               $user = $stmt->fetchAll();
               echo '<div class="card-header p-2">';
               echo '<div class="d-flex justify-content-between p-1">';
-              echo '<form action="../UserPage/index.php?userID='.$row[$i]['userID'].'&userName='.$user[0]['username'].'" method="get">';
+              echo '<form action="../UserPage/index.php?userID='.$row[$i]['userID'].'&userName='.$user[0]['username'].'" method="post">';
               echo '<button type="submit" name="submit" value="submit" class="btn tbn-link text-decoration-none postRCS">' . $user[0]['username'] . '</button>';
               echo '</form>';
               if(isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
-                if($row[$i]['admin'] == 1){
-                  echo '<form action="main.php" method="post">';
-                  echo  '<input type="hidden" name="postID" value=" ' . $row[$i]['postID'] . '"/>';
-                  echo '<button type="submit" name="deleteAdmin" value="deleteAdmin" class="btn btn-link text-danger text-decoration-none">Delete</button>';
-                  echo '</form>';
-                } else {
                   echo '<form action="main.php" method="post">';
                   echo  '<input type="hidden" name="postID" value=" ' . $row[$i]['postID'] . '"/>';
                   echo '<button type="submit" name="delete" value="delete" class="btn btn-link text-danger text-decoration-none">Delete</button>';
                   echo '</form>';
-                }
               } else {
                 echo '<button type="button" class="btn btn-link text-danger text-decoration-none" onclick="report('.$row[$i]['postID'].", ".$_SESSION['userID'].', this)"> Report </button>';
               }
