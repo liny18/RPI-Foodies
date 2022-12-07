@@ -196,7 +196,7 @@
                 echo '<div class="card-header p-2">';
                 echo '<div class="d-flex justify-content-between p-1">';
                 echo '<form action="../UserPage/index.php?userID='.$row[$i]['userID'].'&userName='.$user[0]['username'].'" method="get">';
-                echo '<button type="submit" name="submit" value="submit" class="btn tbn-link text-decoration-none" id="postRCS">' . $user[0]['username'] . '</button>';
+                echo '<button type="submit" name="submit" value="submit" class="btn tbn-link text-decoration-none postRCS">' . $user[0]['username'] . '</button>';
                 echo '</form>';
                 if(isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
                   if($row[$i]['admin'] == 1){
@@ -266,7 +266,7 @@
               echo '<div class="card-header p-2">';
               echo '<div class="d-flex justify-content-between p-1">';
               echo '<form action="../UserPage/index.php?userID='.$row[$i]['userID'].'&userName='.$user[0]['username'].'" method="get">';
-              echo '<button type="submit" name="submit" value="submit" class="btn tbn-link text-decoration-none" id="postRCS">' . $user[0]['username'] . '</button>';
+              echo '<button type="submit" name="submit" value="submit" class="btn tbn-link text-decoration-none postRCS">' . $user[0]['username'] . '</button>';
               echo '</form>';
               if(isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
                 if($row[$i]['admin'] == 1){
@@ -327,7 +327,7 @@
               echo '<div class="card-header p-2">';
               echo '<div class="d-flex justify-content-between p-1">';
               echo '<form action="../UserPage/index.php?userID='.$row[$i]['userID'].'&userName='.$user[0]['username'].'" method="get">';
-              echo '<button type="submit" name="submit" value="submit" class="btn tbn-link text-decoration-none" id="postRCS">' . $user[0]['username'] . '</button>';
+              echo '<button type="submit" name="submit" value="submit" class="btn tbn-link text-decoration-none postRCS">' . $user[0]['username'] . '</button>';
               echo '</form>';
               if(isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
                 if($row[$i]['admin'] == 1){
