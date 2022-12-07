@@ -39,6 +39,10 @@
     $username = "root";
     $password = "";
 
+    function sanitize_xss($value) {
+      return htmlspecialchars(strip_tags($value));
+    }
+
     try {
       $conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
       // set the PDO error mode to exception
@@ -181,9 +185,10 @@
             $len = count($row);
             // print out data for the specific searched item
             for ($i = 0; $i < 10 && $i < $len; $i++) {
+              $query = sanitize_xss($_SESSION['query']);
               // should only match if the userID, main Comment has some similar word, location is the same, tags are the same
               // or the foodName is the same as the search item
-              if (str_contains($row[$i]['userID'], $_SESSION['query']) || str_contains(strtolower($row[$i]['mainComment']), $_SESSION['query']) || str_contains($row[$i]['location'], $_SESSION['query']) || str_contains($row[$i]['tag1'], $_SESSION['query']) || str_contains($row[$i]['foodName'], $_SESSION['query'])) {
+              if (str_contains($row[$i]['userID'], $query) || str_contains(strtolower($row[$i]['mainComment']), $query) || str_contains($row[$i]['location'], $query) || str_contains($row[$i]['tag1'], $query) || str_contains($row[$i]['foodName'], $query)) {
                 $liked = $conn->prepare("SELECT * FROM likes WHERE postID = :postID AND userID = :userID");
                 $liked->execute([":postID" => $row[$i]['postID'], ":userID" => $_SESSION['userID']]);
                 echo '<div class="card text-center">';
