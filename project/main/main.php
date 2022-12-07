@@ -39,7 +39,8 @@
     $username = "root";
     $password = "";
 
-    function sanitize_xss($value) {
+    function sanitize_xss($value)
+    {
       return htmlspecialchars(strip_tags($value));
     }
 
@@ -199,7 +200,7 @@
                 $user = $stmt->fetchAll();
                 echo '<div class="card-header p-2">';
                 echo '<div class="d-flex justify-content-between p-1">';
-                echo '<form action="../UserPage/index.php?userID='.$row[$i]['userID'].'&userName='.$user[0]['username'].'" method="post">';
+                echo '<form action="../UserPage/index.php?userID=' . $row[$i]['userID'] . '&userName=' . $user[0]['username'] . '" method="post">';
                 echo '<button type="submit" name="submit" value="submit" class="btn tbn-link text-decoration-none postRCS">' . $user[0]['username'] . '</button>';
                 echo '</form>';
 
@@ -209,11 +210,11 @@
                   echo '<button type="submit" name="deleteAdmin" value="deleteAdmin" class="btn btn-link text-danger text-decoration-none">Delete</button>';
                   echo '</form>';
                 } else {
-                  if($row[$i]['userID'] == $_SESSION['userID']){
+                  if ($row[$i]['userID'] == $_SESSION['userID']) {
                     echo '<form action="main.php" method="post">';
                     echo '<input type="hidden" name="postID" value=" ' . $row[$i]['postID'] . '"/>';
                     echo '<button type="submit" name="delete" value="delete" class="btn btn-link text-danger text-decoration-none">Delete</button>';
-                    echo '</form>';     
+                    echo '</form>';
                   } else {
                     echo '<button type="button" class="btn btn-link text-danger text-decoration-none" onclick="report(' . $row[$i]['postID'] . ", " . $_SESSION['userID'] . ', this)"> Report </button>';
                   }
@@ -239,13 +240,102 @@
                 echo '" onclick="likeCounter(' . $row[$i]['postID'] . ', ' . $_SESSION['userID'];
                 echo ', this)"><i class="fa-regular fa-heart';
                 echo '"></i> ' . $row[$i]['likes'] . ' likes</button>';
-                echo '<div class="comment"><i class="fa-regular fa-comment"></i> ';
-                echo 'comments</div></div></div>';
-                // ADD A BUTTON THAT ON SUBMIT WILL INCREMENT LIKES BY 1 
-                // ALSO HAVE IT AS A FUNCTION THAT TAKES IN A POST ID
-                // CAN BE DONE IN THE FOR LOOP SHIT
-          
-                // When terry does modals add that shit to the end of this for loop
+                // modal for comments that pops up and displays
+                echo '<div class="comment" data-bs-toggle="modal" data-bs-target="#commentModal' . $row[$i]['postID'] . ' "><i class="fa-regular fa-comment"></i> ';
+                echo ' comments</div></div>';
+                //modal
+                echo '<div class="modal fade" id="commentModal' . $row[$i]['postID'] . '" tabindex="-1" aria-labelledby="commentModalLabel" aria-hidden="true">';
+                echo '<div class="modal-dialog"><div class="modal-content"><div class="modal-header">';
+                echo '<h1 class="modal-title fs-5" id="commentModalLabel' . $row[$i]['postID'] . '">Comments</h1>';
+                echo '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>';
+                echo '</div>';
+                echo '<div class="modal-body" style="background-color: #f7f6f6;">';
+                echo '<section>';
+                echo '<div class="container">';
+                echo '<div class="row d-flex">';
+                echo '<div class="container w-100 d-flex justify-content-between" id="comment' . $row[$i]['postID'] . '">';
+                echo '<div class="f">';
+                echo '<textarea name="text ' . $row[$i]['postID'] . '" maxlength="255" placeholder="Add Your Comment" id="text' . $row[$i]['postID'] . '"></textarea>';
+                echo '<div class="d-flex justify-content-between">';
+                echo '<button class="btn btn-dark" onclick="createComt(' . $_SESSION['userID'] . ',' . $row[$i]['postID'] . ',\'text' . $row[$i]['postID'] . '\',\'CommentPlace' . $row[$i]['postID'] . '\')">Comment</button>';
+                echo '<div class="d-flex justify-content-between">';
+                echo '<div class="card m-0">';
+                echo '<div class="card-body p-1 d-flex align-items-center">';
+                echo '<h6 class="text-primary fw-bold small mb-0 me-2">Sort by Likes</h6>';
+                echo '<div class="form-check form-switch pt-1">';
+                echo '<input class="form-check-input" type="checkbox" id="switch' . $row[$i]['postID'] . '" />';
+                echo '<label class="form-check-label" for="switch' . $row[$i]['postID'] . '"></label>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+                echo '<div class="col-12" id="CommentPlace' . $row[$i]['postID'] . '">';
+
+                // prepare query for comments table
+                $comments = $conn->prepare('SELECT * FROM comments WHERE postID = :postID ORDER BY commentID DESC');
+                $comments->execute(['postID' => $row[$i]['postID']]);
+                $comments = $comments->fetchAll();
+                // commenting starts here
+                for ($j = 0; $j < count($comments); $j++) {
+                  echo '<div class="card mb-3">';
+                  echo '<div class="card-body">';
+                  echo '<div class="d-flex flex-start">';
+                  echo '<div class="w-100">';
+                  echo '<div class="d-flex text-start flex-column">';
+                  echo '<div>';
+                  echo '<h6 class="color fw-bold">';
+                  // username goes here
+                  // also grab username from users table
+                  $user = $conn->prepare('SELECT * FROM users WHERE userID = :userID');
+                  $user->execute(['userID' => $comments[$j]['userID']]);
+                  $user = $user->fetch();
+                  echo $user['username'];
+                  echo '</h6>';
+                  echo '</div>';
+                  echo '<div class="border-top border-bottom pt-2 pb-2">';
+                  echo '<p class="mb-0">';
+                  // comment goes here
+                  echo $comments[$j]['comment'];
+                  echo '</p>';
+                  echo '</div>';
+                  echo '<div>';
+                  echo '<p class="small text-secondary mb-1">';
+                  // date goes here
+                  echo $comments[$j]['commentTime'];
+                  echo '</p>';
+                  echo '</div>';
+                  echo '</div>';
+                  echo '<div class="d-flex justify-content-between align-items-center">';
+                  echo '<div class="semi-like border-0 p-0 bg-transparent">';
+                  echo '<i class="fa-regular fa-heart"></i>';
+                  echo '</div>';
+                  echo '<div>';
+                  // only show delete if the user is the one who posted the comment
+                  if ($comments[$j]['userID'] == $_SESSION['userID']) {
+                    echo '<button class="del btn btn-link p-0 text-danger text-decoration-none">';
+                    echo 'Delete';
+                    echo '</button>';
+                  }
+                  echo '</div>';
+                  echo '</div>';
+                  echo '</div>';
+                  echo '</div>';
+                  echo '</div>';
+                  echo '</div>';
+                }
+                // commenting ends here
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+                echo '</section>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
               }
             }
 
@@ -270,7 +360,7 @@
               $user = $stmt->fetchAll();
               echo '<div class="card-header p-2">';
               echo '<div class="d-flex justify-content-between p-1">';
-              echo '<form action="../UserPage/index.php?userID='.$row[$i]['userID'].'&userName='.$user[0]['username'].'" method="post">';
+              echo '<form action="../UserPage/index.php?userID=' . $row[$i]['userID'] . '&userName=' . $user[0]['username'] . '" method="post">';
               echo '<button type="submit" name="submit" value="submit" class="btn tbn-link text-decoration-none postRCS">' . $user[0]['username'] . '</button>';
               echo '</form>';
               if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
@@ -279,11 +369,11 @@
                 echo '<button type="submit" name="deleteAdmin" value="deleteAdmin" class="btn btn-link text-danger text-decoration-none">Delete</button>';
                 echo '</form>';
               } else {
-                if($row[$i]['userID'] == $_SESSION['userID']){
+                if ($row[$i]['userID'] == $_SESSION['userID']) {
                   echo '<form action="main.php" method="post">';
                   echo '<input type="hidden" name="postID" value=" ' . $row[$i]['postID'] . '"/>';
                   echo '<button type="submit" name="delete" value="delete" class="btn btn-link text-danger text-decoration-none">Delete</button>';
-                  echo '</form>';     
+                  echo '</form>';
                 } else {
                   echo '<button type="button" class="btn btn-link text-danger text-decoration-none" onclick="report(' . $row[$i]['postID'] . ", " . $_SESSION['userID'] . ', this)"> Report </button>';
                 }
@@ -308,8 +398,102 @@
               echo '" onclick="likeCounter(' . $row[$i]['postID'] . ', ' . $_SESSION['userID'];
               echo ', this)"><i class="fa-regular fa-heart';
               echo '"></i> ' . $row[$i]['likes'] . ' likes</button>';
-              echo '<div class="comment"><i class="fa-regular fa-comment"></i> ';
-              echo 'comments</div></div></div>';
+              // modal for comments that pops up and displays
+              echo '<div class="comment" data-bs-toggle="modal" data-bs-target="#commentModal' . $row[$i]['postID'] . ' "><i class="fa-regular fa-comment"></i> ';
+              echo ' comments</div></div>';
+              //modal
+              echo '<div class="modal fade" id="commentModal' . $row[$i]['postID'] . '" tabindex="-1" aria-labelledby="commentModalLabel" aria-hidden="true">';
+              echo '<div class="modal-dialog"><div class="modal-content"><div class="modal-header">';
+              echo '<h1 class="modal-title fs-5" id="commentModalLabel' . $row[$i]['postID'] . '">Comments</h1>';
+              echo '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>';
+              echo '</div>';
+              echo '<div class="modal-body" style="background-color: #f7f6f6;">';
+              echo '<section>';
+              echo '<div class="container">';
+              echo '<div class="row d-flex">';
+              echo '<div class="container w-100 d-flex justify-content-between" id="comment' . $row[$i]['postID'] . '">';
+              echo '<div class="f">';
+              echo '<textarea name="text ' . $row[$i]['postID'] . '" maxlength="255" placeholder="Add Your Comment" id="text' . $row[$i]['postID'] . '"></textarea>';
+              echo '<div class="d-flex justify-content-between">';
+              echo '<button class="btn btn-dark" onclick="createComt(' . $_SESSION['userID'] . ',' . $row[$i]['postID'] . ',\'text' . $row[$i]['postID'] . '\',\'CommentPlace' . $row[$i]['postID'] . '\')">Comment</button>';
+              echo '<div class="d-flex justify-content-between">';
+              echo '<div class="card m-0">';
+              echo '<div class="card-body p-1 d-flex align-items-center">';
+              echo '<h6 class="text-primary fw-bold small mb-0 me-2">Sort by Likes</h6>';
+              echo '<div class="form-check form-switch pt-1">';
+              echo '<input class="form-check-input" type="checkbox" id="switch' . $row[$i]['postID'] . '" />';
+              echo '<label class="form-check-label" for="switch' . $row[$i]['postID'] . '"></label>';
+              echo '</div>';
+              echo '</div>';
+              echo '</div>';
+              echo '</div>';
+              echo '</div>';
+              echo '</div>';
+              echo '</div>';
+              echo '<div class="col-12" id="CommentPlace' . $row[$i]['postID'] . '">';
+
+              // prepare query for comments table
+              $comments = $conn->prepare('SELECT * FROM comments WHERE postID = :postID ORDER BY commentID DESC');
+              $comments->execute(['postID' => $row[$i]['postID']]);
+              $comments = $comments->fetchAll();
+              // commenting starts here
+              for ($j = 0; $j < count($comments); $j++) {
+                echo '<div class="card mb-3">';
+                echo '<div class="card-body">';
+                echo '<div class="d-flex flex-start">';
+                echo '<div class="w-100">';
+                echo '<div class="d-flex text-start flex-column">';
+                echo '<div>';
+                echo '<h6 class="color fw-bold">';
+                // username goes here
+                // also grab username from users table
+                $user = $conn->prepare('SELECT * FROM users WHERE userID = :userID');
+                $user->execute(['userID' => $comments[$j]['userID']]);
+                $user = $user->fetch();
+                echo $user['username'];
+                echo '</h6>';
+                echo '</div>';
+                echo '<div class="border-top border-bottom pt-2 pb-2">';
+                echo '<p class="mb-0">';
+                // comment goes here
+                echo $comments[$j]['comment'];
+                echo '</p>';
+                echo '</div>';
+                echo '<div>';
+                echo '<p class="small text-secondary mb-1">';
+                // date goes here
+                echo $comments[$j]['commentTime'];
+                echo '</p>';
+                echo '</div>';
+                echo '</div>';
+                echo '<div class="d-flex justify-content-between align-items-center">';
+                echo '<div class="semi-like border-0 p-0 bg-transparent">';
+                echo '<i class="fa-regular fa-heart"></i>';
+                echo '</div>';
+                echo '<div>';
+                // only show delete if the user is the one who posted the comment
+                if ($comments[$j]['userID'] == $_SESSION['userID']) {
+                  echo '<button class="del btn btn-link p-0 text-danger text-decoration-none">';
+                  echo 'Delete';
+                  echo '</button>';
+                }
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+              }
+              // commenting ends here
+              echo '</div>';
+              echo '</div>';
+              echo '</div>';
+              echo '</div>';
+              echo '</section>';
+              echo '</div>';
+              echo '</div>';
+              echo '</div>';
+              echo '</div>';
             }
             // reset querys to 0
             $_SESSION['query'] = "";
@@ -331,7 +515,7 @@
               $user = $stmt->fetchAll();
               echo '<div class="card-header p-2">';
               echo '<div class="d-flex justify-content-between p-1">';
-              echo '<form action="../UserPage/index.php?userID='.$row[$i]['userID'].'&userName='.$user[0]['username'].'" method="post">';
+              echo '<form action="../UserPage/index.php?userID=' . $row[$i]['userID'] . '&userName=' . $user[0]['username'] . '" method="post">';
               echo '<button type="submit" name="submit" value="submit" class="btn tbn-link text-decoration-none postRCS">' . $user[0]['username'] . '</button>';
               echo '</form>';
               if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
@@ -340,11 +524,11 @@
                 echo '<button type="submit" name="deleteAdmin" value="deleteAdmin" class="btn btn-link text-danger text-decoration-none">Delete</button>';
                 echo '</form>';
               } else {
-                if($row[$i]['userID'] == $_SESSION['userID']){
+                if ($row[$i]['userID'] == $_SESSION['userID']) {
                   echo '<form action="main.php" method="post">';
                   echo '<input type="hidden" name="postID" value=" ' . $row[$i]['postID'] . '"/>';
                   echo '<button type="submit" name="delete" value="delete" class="btn btn-link text-danger text-decoration-none">Delete</button>';
-                  echo '</form>';     
+                  echo '</form>';
                 } else {
                   echo '<button type="button" class="btn btn-link text-danger text-decoration-none" onclick="report(' . $row[$i]['postID'] . ", " . $_SESSION['userID'] . ', this)"> Report </button>';
                 }
@@ -370,8 +554,102 @@
               echo '" onclick="likeCounter(' . $row[$i]['postID'] . ', ' . $_SESSION['userID'];
               echo ', this)"><i class="fa-regular fa-heart';
               echo '"></i> ' . $row[$i]['likes'] . ' likes</button>';
-              echo '<div class="comment"><i class="fa-regular fa-comment"></i> ';
-              echo 'comments</div></div></div>';
+              // modal for comments that pops up and displays
+              echo '<div class="comment" data-bs-toggle="modal" data-bs-target="#commentModal' . $row[$i]['postID'] . ' "><i class="fa-regular fa-comment"></i> ';
+              echo ' comments</div></div>';
+              //modal
+              echo '<div class="modal fade" id="commentModal' . $row[$i]['postID'] . '" tabindex="-1" aria-labelledby="commentModalLabel" aria-hidden="true">';
+              echo '<div class="modal-dialog"><div class="modal-content"><div class="modal-header">';
+              echo '<h1 class="modal-title fs-5" id="commentModalLabel' . $row[$i]['postID'] . '">Comments</h1>';
+              echo '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>';
+              echo '</div>';
+              echo '<div class="modal-body" style="background-color: #f7f6f6;">';
+              echo '<section>';
+              echo '<div class="container">';
+              echo '<div class="row d-flex">';
+              echo '<div class="container w-100 d-flex justify-content-between" id="comment' . $row[$i]['postID'] . '">';
+              echo '<div class="f">';
+              echo '<textarea name="text ' . $row[$i]['postID'] . '" maxlength="255" placeholder="Add Your Comment" id="text' . $row[$i]['postID'] . '"></textarea>';
+              echo '<div class="d-flex justify-content-between">';
+              echo '<button class="btn btn-dark" onclick="createComt(' . $_SESSION['userID'] . ',' . $row[$i]['postID'] . ',\'text' . $row[$i]['postID'] . '\',\'CommentPlace' . $row[$i]['postID'] . '\')">Comment</button>';
+              echo '<div class="d-flex justify-content-between">';
+              echo '<div class="card m-0">';
+              echo '<div class="card-body p-1 d-flex align-items-center">';
+              echo '<h6 class="text-primary fw-bold small mb-0 me-2">Sort by Likes</h6>';
+              echo '<div class="form-check form-switch pt-1">';
+              echo '<input class="form-check-input" type="checkbox" id="switch' . $row[$i]['postID'] . '" />';
+              echo '<label class="form-check-label" for="switch' . $row[$i]['postID'] . '"></label>';
+              echo '</div>';
+              echo '</div>';
+              echo '</div>';
+              echo '</div>';
+              echo '</div>';
+              echo '</div>';
+              echo '</div>';
+              echo '<div class="col-12" id="CommentPlace' . $row[$i]['postID'] . '">';
+
+              // prepare query for comments table
+              $comments = $conn->prepare('SELECT * FROM comments WHERE postID = :postID ORDER BY commentID DESC');
+              $comments->execute(['postID' => $row[$i]['postID']]);
+              $comments = $comments->fetchAll();
+              // commenting starts here
+              for ($j = 0; $j < count($comments); $j++) {
+                echo '<div class="card mb-3">';
+                echo '<div class="card-body">';
+                echo '<div class="d-flex flex-start">';
+                echo '<div class="w-100">';
+                echo '<div class="d-flex text-start flex-column">';
+                echo '<div>';
+                echo '<h6 class="color fw-bold">';
+                // username goes here
+                // also grab username from users table
+                $user = $conn->prepare('SELECT * FROM users WHERE userID = :userID');
+                $user->execute(['userID' => $comments[$j]['userID']]);
+                $user = $user->fetch();
+                echo $user['username'];
+                echo '</h6>';
+                echo '</div>';
+                echo '<div class="border-top border-bottom pt-2 pb-2">';
+                echo '<p class="mb-0">';
+                // comment goes here
+                echo $comments[$j]['comment'];
+                echo '</p>';
+                echo '</div>';
+                echo '<div>';
+                echo '<p class="small text-secondary mb-1">';
+                // date goes here
+                echo $comments[$j]['commentTime'];
+                echo '</p>';
+                echo '</div>';
+                echo '</div>';
+                echo '<div class="d-flex justify-content-between align-items-center">';
+                echo '<div class="semi-like border-0 p-0 bg-transparent">';
+                echo '<i class="fa-regular fa-heart"></i>';
+                echo '</div>';
+                echo '<div>';
+                // only show delete if the user is the one who posted the comment
+                if ($comments[$j]['userID'] == $_SESSION['userID']) {
+                  echo '<button class="del btn btn-link p-0 text-danger text-decoration-none">';
+                  echo 'Delete';
+                  echo '</button>';
+                }
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+              }
+              // commenting ends here
+              echo '</div>';
+              echo '</div>';
+              echo '</div>';
+              echo '</div>';
+              echo '</section>';
+              echo '</div>';
+              echo '</div>';
+              echo '</div>';
+              echo '</div>';
             }
           }
           ?>

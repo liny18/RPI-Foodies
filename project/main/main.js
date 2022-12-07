@@ -16,7 +16,7 @@ function likeCounter(postID, userID, text) {
     xmlhttp.send();
 }
 
-function report(postID, userID, element){
+function report(postID, userID, element) {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
@@ -26,5 +26,22 @@ function report(postID, userID, element){
         }
     }
     xmlhttp.open("POST", "report.php?postID=" + postID + "&userID=" + userID, true);
-    xmlhttp.send();    
+    xmlhttp.send();
+}
+
+// function to run a php script to add a comment to a post
+function createComt(userID, postID, comment, element) {
+    text = document.getElementById(comment).value;
+    document.getElementById(comment).value = "";
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            if (this.responseText != -1) {
+                document.getElementById(element).innerHTML += this.responseText;
+
+            }
+        }
+    }
+    xmlhttp.open("POST", "addComment.php?postID=" + postID + "&userID=" + userID + "&comment=" + text, true);
+    xmlhttp.send();
 }
