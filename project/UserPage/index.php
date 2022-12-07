@@ -59,29 +59,33 @@
           $posts->execute();
           $row = $posts->fetchAll();
           $len = count($row);
-          for ($i = 0; $i < $len; $i++) {
-            echo '<div class="card text-center">';
-            echo '<div class="card-header p-2"> <div class="location p-2">';
-            echo '<i class="fa-solid fa-location-arrow"></i>' . $row[$i]['location'] . '</div>';
-            echo '<p class="time"><i class="fa-solid fa-clock"></i> ' . calculate_time($row[$i]['postTime']) . '</p>';
-            echo '</div>';
-            echo '<img class="card-img-top" src="../postImages/' . $row[$i]['postPhoto'] . '"alt="Card image">';
-            echo '<div class="card-body"><h5 class="card-title"><i class="fa-solid fa-tags"></i>';
-            echo $row[$i]['tag1'] . '</h5>';
-            echo '<p class="card-text">';
-            echo '<i class="fa-solid fa-quote-left"></i>';
-            echo $row[$i]['mainComment'];
-            echo '<i class="fa-solid fa-quote-right"></i></p></div>';
-            echo '<div class="card-footer d-flex justify-content-between pl-5 pr-5">';
-            echo '<button class="like" onclick="likeCounter(' . $row[$i]['postID'] . ', ' . $_SESSION['userID'];
-            echo ', this)"><i class="fa-regular fa-heart" ></i> ';
-            echo $row[$i]['likes'] . ' likes</button>';
-            echo '<form action="main.php" method="post">';
-            echo '<input type="hidden" name="postID" value=" ' . $row[$i]['postID'] . '"/>';
-            echo '<button type="submit" name="delete" value="delete" class="btn btn-danger">Delete</button>';
-            echo '</form>';     
-            echo '<div class="comment"><i class="fa-regular fa-comment"></i>';
-            echo ' comments</div></div></div>';
+          if($len != 0){
+            for ($i = 0; $i < $len; $i++) {
+              echo '<div class="card text-center">';
+              echo '<div class="card-header p-2"> <div class="location p-2">';
+              echo '<i class="fa-solid fa-location-arrow"></i>' . $row[$i]['location'] . '</div>';
+              echo '<p class="time"><i class="fa-solid fa-clock"></i> ' . calculate_time($row[$i]['postTime']) . '</p>';
+              echo '</div>';
+              echo '<img class="card-img-top" src="../postImages/' . $row[$i]['postPhoto'] . '"alt="Card image">';
+              echo '<div class="card-body"><h5 class="card-title"><i class="fa-solid fa-tags"></i>';
+              echo $row[$i]['tag1'] . '</h5>';
+              echo '<p class="card-text">';
+              echo '<i class="fa-solid fa-quote-left"></i>';
+              echo $row[$i]['mainComment'];
+              echo '<i class="fa-solid fa-quote-right"></i></p></div>';
+              echo '<div class="card-footer d-flex justify-content-between pl-5 pr-5">';
+              echo '<button class="like" onclick="likeCounter(' . $row[$i]['postID'] . ', ' . $_SESSION['userID'];
+              echo ', this)"><i class="fa-regular fa-heart" ></i> ';
+              echo $row[$i]['likes'] . ' likes</button>';
+              echo '<form action="main.php" method="post">';
+              echo '<input type="hidden" name="postID" value=" ' . $row[$i]['postID'] . '"/>';
+              echo '<button type="submit" name="delete" value="delete" class="btn btn-danger">Delete</button>';
+              echo '</form>';     
+              echo '<div class="comment"><i class="fa-regular fa-comment"></i>';
+              echo ' comments</div></div></div>';
+            }
+          } else {
+            echo '<h1> No posts </h1>';
           }
         ?>
       </div>
