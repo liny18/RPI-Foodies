@@ -38,12 +38,8 @@
 
         function checkFile($file)
         {
-            $allowed = array("jpg", "jpeg", "png");
-            if (in_array($file, $allowed)) {
-                return true;
-            } else {
-                return false;
-            }
+            // check if the content type of the file is image
+            return (strpos(mime_content_type($file), "image") !== false);
         }
 
         try {
@@ -59,11 +55,13 @@
             $upload = $conn->prepare("INSERT INTO Posts (postTime, userID, likes, mainComment, postPhoto, location, tag1, foodName, admin) VALUES (NOW(), :userID, 0, :mainComment, :postPhoto, :location, :tag1, :foodName, :admin)");
             // get file name and location
             $fileName = $_FILES['postPhoto']['name'];
+            // get file extension
             $ext = pathinfo($fileName, PATHINFO_EXTENSION);
             $fileTmpName = $_FILES['postPhoto']['tmp_name'];
+            // get file size
             $fileSize = $_FILES['postPhoto']['size'];
 
-            if (checkFile($ext) && $fileSize < 1500000) {
+            if (checkFile($fileTmpName) && $fileSize < 1500000) {
 
                 // get timezone
                 date_default_timezone_set('America/New_York');
@@ -73,16 +71,12 @@
                 move_uploaded_file($fileTmpName, "../postImages/$fileName");
 
                 $hash = hash_file('sha256', "../postImages/$fileName");
-
                 $out = "$hash.$ext";
-
 
                 // // rename the file
                 rename("../postImages/$fileName", "../postImages/$out");
-
                 // // set the file name to the hashed name
                 $fileName = $out;
-
 
                 // grab all the data from the form
                 $userID = $_SESSION['userID'];
