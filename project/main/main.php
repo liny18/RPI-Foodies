@@ -215,7 +215,7 @@
                     echo '<button type="submit" name="delete" value="delete" class="btn btn-link text-danger text-decoration-none">Delete</button>';
                     echo '</form>';     
                   } else {
-                    echo '<button type="button" class="btn btn-danger" onclick="report(' . $row[$i]['postID'] . ", " . $_SESSION['userID'] . ', this)"> Report </button>';
+                    echo '<button type="button" class="btn btn-link text-danger text-decoration-none" onclick="report(' . $row[$i]['postID'] . ", " . $_SESSION['userID'] . ', this)"> Report </button>';
                   }
                 }
                 echo '</div>';
@@ -285,7 +285,7 @@
                   echo '<button type="submit" name="delete" value="delete" class="btn btn-link text-danger text-decoration-none">Delete</button>';
                   echo '</form>';     
                 } else {
-                  echo '<button type="button" class="btn btn-danger" onclick="report(' . $row[$i]['postID'] . ", " . $_SESSION['userID'] . ', this)"> Report </button>';
+                  echo '<button type="button" class="btn btn-link text-danger text-decoration-none" onclick="report(' . $row[$i]['postID'] . ", " . $_SESSION['userID'] . ', this)"> Report </button>';
                 }
               }
               echo '</div>';
@@ -346,7 +346,7 @@
                   echo '<button type="submit" name="delete" value="delete" class="btn btn-link text-danger text-decoration-none">Delete</button>';
                   echo '</form>';     
                 } else {
-                  echo '<button type="button" class="btn btn-danger" onclick="report(' . $row[$i]['postID'] . ", " . $_SESSION['userID'] . ', this)"> Report </button>';
+                  echo '<button type="button" class="btn btn-link text-danger text-decoration-none" onclick="report(' . $row[$i]['postID'] . ", " . $_SESSION['userID'] . ', this)"> Report </button>';
                 }
               }
               echo '</div>';
