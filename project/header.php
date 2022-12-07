@@ -87,6 +87,11 @@ if(array_key_exists('submitSearch', $_POST)){
                     <a href="../UserPage/index.php" class="navbar-brand" title="Upload">
                         <img src="../pictures/addPostIcon.svg" alt="add post button" width="40" height="40">
                     </a>
+                    <?php
+                        echo '<form action="../UserPage/index.php?userID='.$_SESSION['userID'].'&userName='.$_SESSION['userName'].'" method="post">';
+                        echo '<button type="submit" name="submit" value="submit" class="btn btn-danger">Profile</button>';
+                        echo '</form>';
+                    ?>
                 </li>
                 <?php
                     if(isset($_SESSION['admin']) && $_SESSION['admin'] == 1){

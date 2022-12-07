@@ -71,6 +71,7 @@
                             $result = $sql->execute([":username" => $username]);
                             $row = $sql->fetch();
                             $_SESSION['userID'] = $row['userID'];
+                            $_SESSION['userName'] = $row['userName'];
                             $_SESSION['admin'] = $row['admin'];
 
                             $date = date("Y-m-d");
