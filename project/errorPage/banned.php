@@ -16,10 +16,6 @@
     <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </head>
 <body>
-<header>
-    <?php include '../header.php'; ?>
-</header>
-
 
 <div class="error">
     <img src="./error.png" alt="error" id="error_image">

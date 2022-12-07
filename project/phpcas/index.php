@@ -25,10 +25,6 @@
 
 <body>
     <div id="content-wrap">
-        <header>
-            <?php include '../headerLogin.php'; ?>
-        </header>
-
         <main>
             <h1 class="main-slogan"> RPI Foodies, find out what you love!</h1>
             <div class="row">
@@ -86,11 +82,11 @@
                                 header("Location: ../errorPage/banned.php");
                             }
                         } else {
+                            echo '<p class="cas_info">*This website is connected to RPI CAS login system, you need to have a RPI
+                            account to login.</p>';
                             echo "<a href='login.php' class='login_button'>Login</a>";
                         }
                         ?>
-                        <p class="cas_info">*This website is connected to RPI CAS login system, you need to have a RPI
-                            account to login.</p>
                     </div>
                 </div>
             </div>
