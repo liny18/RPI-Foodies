@@ -370,8 +370,90 @@
               echo '" onclick="likeCounter(' . $row[$i]['postID'] . ', ' . $_SESSION['userID'];
               echo ', this)"><i class="fa-regular fa-heart';
               echo '"></i> ' . $row[$i]['likes'] . ' likes</button>';
-              echo '<div class="comment"><i class="fa-regular fa-comment"></i> ';
-              echo 'comments</div></div></div>';
+
+
+              // modal for comments that pops up and displays
+
+
+              echo '<div class="comment" data-bs-toggle="modal" data-bs-target="#commentModal' . $row[$i]['postID'] . ' "><i class="fa-regular fa-comment"></i> ';
+              echo ' comments</div></div></div>';
+              //modal
+              echo '<div class="modal fade" id="commentModal' . $row[$i]['postID'] . '" tabindex="-1" aria-labelledby="commentModalLabel" aria-hidden="true">';
+              echo '<div class="modal-dialog"><div class="modal-content"><div class="modal-header">';
+              echo '<h1 class="modal-title fs-5" id="commentModalLabel'. $row[$i]['postID'] .'">Comments</h1>';
+              echo '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>';
+              echo '</div>';
+              echo '<div class="modal-body" style="background-color: #f7f6f6;">';
+              echo '<section>';
+              echo '<div class="container">';
+              echo '<div class="row d-flex">';
+              echo '<div class="container w-100 d-flex justify-content-between" id="comment' . $row[$i]['postID'] . '">';
+              echo '<div class="f">';
+              echo '<form onsubmit="">';
+              echo '<textarea name="comment" maxlength="255" placeholder="Add Your Comment"></textarea>';
+              echo '<div class="d-flex justify-content-between">';
+              echo '<input class="btn btn-dark" type="submit" value="Comment">';
+              echo '<div class="d-flex justify-content-between">';
+              echo '<div class="card m-0">';
+              echo '<div class="card-body p-1 d-flex align-items-center">';
+              echo '<h6 class="text-primary fw-bold small mb-0 me-2">Sort by Likes</h6>';
+              echo '<div class="form-check form-switch pt-1">';
+              echo '<input class="form-check-input" type="checkbox" id="switch' . $row[$i]['postID'] .'" />';
+              echo '<label class="form-check-label" for="switch' . $row[$i]['postID'] . '"></label>';
+              echo '</div>';
+              echo '</div>';
+              echo '</div>';
+              echo '</div>';
+              echo '</div>';
+              echo '</form>';
+              echo '</div>';
+              echo '</div>';
+              echo '<div class="col-12">';
+              // commenting starts here
+              echo '<div class="card mb-3">';
+              echo '<div class="card-body">';
+              echo '<div class="d-flex flex-start">';
+              echo '<div class="w-100">';
+              echo '<div class="d-flex text-start flex-column">';
+              echo '<div>';
+              echo '<h6 class="color fw-bold">';
+              // username goes here
+              echo '</h6>';
+              echo '</div>';
+              echo '<div class="border-top border-bottom pt-2 pb-2">';
+              echo '<p class="mb-0">';
+              // comment goes here
+              echo '</p>';
+              echo '</div>';
+              echo '<div>';
+              echo '<p class="small text-secondary mb-1">';
+              // date goes here
+              echo '</p>';
+              echo '</div>';
+              echo '</div>';
+              echo '<div class="d-flex justify-content-between align-items-center">';
+              echo '<div class="semi-like border-0 p-0 bg-transparent">';
+              echo '<i class="fa-regular fa-heart"></i>';
+              echo '</div>';
+              echo '<div>';
+              // only show delete if the user is the one who posted the comment
+              echo '<button class="del btn btn-link p-0 text-danger text-decoration-none">';
+              echo 'Delete';
+              echo '</button>';
+              echo '</div>';
+              echo '</div>';
+              echo '</div>';
+              echo '</div>';
+              echo '</div>';
+              echo '</div>';
+              echo '</div>';
+              echo '</div>';
+              echo '</div>';
+              echo '</section>';
+              echo '</div>';
+              echo '</div>';
+              echo '</div>';
+              echo '</div>';
             }
           }
           ?>
