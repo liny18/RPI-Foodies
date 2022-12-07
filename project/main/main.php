@@ -201,13 +201,13 @@
                 if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
                   echo '<form action="main.php" method="post">';
                   echo '<input type="hidden" name="postID" value=" ' . $row[$i]['postID'] . '"/>';
-                  echo '<button type="submit" name="deleteAdmin" value="deleteAdmin" class="btn btn-danger">Delete</button>';
+                  echo '<button type="submit" name="deleteAdmin" value="deleteAdmin" class="btn btn-link text-danger text-decoration-none">Delete</button>';
                   echo '</form>';
                 } else {
                   if($row[$i]['userID'] == $_SESSION['userID']){
                     echo '<form action="main.php" method="post">';
                     echo '<input type="hidden" name="postID" value=" ' . $row[$i]['postID'] . '"/>';
-                    echo '<button type="submit" name="delete" value="delete" class="btn btn-danger">Delete</button>';
+                    echo '<button type="submit" name="delete" value="delete" class="btn btn-link text-danger text-decoration-none">Delete</button>';
                     echo '</form>';     
                   } else {
                     echo '<button type="button" class="btn btn-danger" onclick="report(' . $row[$i]['postID'] . ", " . $_SESSION['userID'] . ', this)"> Report </button>';
@@ -271,13 +271,13 @@
               if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
                 echo '<form action="main.php" method="post">';
                 echo '<input type="hidden" name="postID" value=" ' . $row[$i]['postID'] . '"/>';
-                echo '<button type="submit" name="deleteAdmin" value="deleteAdmin" class="btn btn-danger">Delete</button>';
+                echo '<button type="submit" name="deleteAdmin" value="deleteAdmin" class="btn btn-link text-danger text-decoration-none">Delete</button>';
                 echo '</form>';
               } else {
                 if($row[$i]['userID'] == $_SESSION['userID']){
                   echo '<form action="main.php" method="post">';
                   echo '<input type="hidden" name="postID" value=" ' . $row[$i]['postID'] . '"/>';
-                  echo '<button type="submit" name="delete" value="delete" class="btn btn-danger">Delete</button>';
+                  echo '<button type="submit" name="delete" value="delete" class="btn btn-link text-danger text-decoration-none">Delete</button>';
                   echo '</form>';     
                 } else {
                   echo '<button type="button" class="btn btn-danger" onclick="report(' . $row[$i]['postID'] . ", " . $_SESSION['userID'] . ', this)"> Report </button>';
@@ -332,13 +332,13 @@
               if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
                 echo '<form action="main.php" method="post">';
                 echo '<input type="hidden" name="postID" value=" ' . $row[$i]['postID'] . '"/>';
-                echo '<button type="submit" name="deleteAdmin" value="deleteAdmin" class="btn btn-danger">Delete</button>';
+                echo '<button type="submit" name="deleteAdmin" value="deleteAdmin" class="btn btn-link text-danger text-decoration-none">Delete</button>';
                 echo '</form>';
               } else {
                 if($row[$i]['userID'] == $_SESSION['userID']){
                   echo '<form action="main.php" method="post">';
                   echo '<input type="hidden" name="postID" value=" ' . $row[$i]['postID'] . '"/>';
-                  echo '<button type="submit" name="delete" value="delete" class="btn btn-danger">Delete</button>';
+                  echo '<button type="submit" name="delete" value="delete" class="btn btn-link text-danger text-decoration-none">Delete</button>';
                   echo '</form>';     
                 } else {
                   echo '<button type="button" class="btn btn-danger" onclick="report(' . $row[$i]['postID'] . ", " . $_SESSION['userID'] . ', this)"> Report </button>';
