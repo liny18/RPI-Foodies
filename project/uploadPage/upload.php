@@ -36,10 +36,12 @@
 
         $conn;
 
-        function checkFile($file)
-        {
-            // check if the content type of the file is image
+        // check if the content type of the file is image
+        function checkFile($file) {
             return (strpos(mime_content_type($file), "image") !== false);
+        }
+        function sanitize_xss($value) {
+            return htmlspecialchars(strip_tags($value));
         }
 
         try {
@@ -89,10 +91,10 @@
 
                 // grab all the data from the form
                 $userID = $_SESSION['userID'];
-                $mainComment = $_POST['caption'];
+                $mainComment = sanitize_xss($_POST['caption']);
                 $location = $_POST['Location'];
                 $tag1 = $_POST['tag1'];
-                $foodName = $_POST['foodName'];
+                $foodName = sanitize_xss($_POST['foodName']);
 
                 // execute the insert statement
                 $upload->execute([':time' => $time, ':userID' => $userID, ':mainComment' => $mainComment, ':postPhoto' => $fileName, ':location' => $location, ':tag1' => $tag1, ':foodName' => $foodName]);
