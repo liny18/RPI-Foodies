@@ -80,7 +80,8 @@
                                     $sql = $db->prepare( "UPDATE users SET BannedPosts = 3 WHERE username = :username");
                                     $result = $sql->execute([":username" => $username]);
                                 }
-                                header("Location: ../main/main.php");
+                                echo "<script>window.location.href='../main/main.php';</script>";
+                                exit;
                             } else {
                                 header("Location: ../errorPage/banned.php");
                             }
