@@ -1,6 +1,5 @@
 <?php
 @session_start();
-// a function to increase or decrease the like counter by 1 or maybe leave it the same
 $userID = $_GET['userID'];
 if ($userID != $_SESSION['userID']) {
     echo -1;

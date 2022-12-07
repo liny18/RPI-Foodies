@@ -47,8 +47,11 @@
   </header>
   <div class="container">
     <?php
-        $user = $_GET['userName'];
-        $userID = $_GET['userID'];
+        function sanitize_xss($value) {
+            return htmlspecialchars(strip_tags($value));
+        }
+        $user = sanitize_xss($_GET['userName']);
+        $userID = sanitize_xss($_GET['userID']);
         echo '<h1>' . $user ."'s Posts</h1>";
     ?>
     <h1> </h1>
