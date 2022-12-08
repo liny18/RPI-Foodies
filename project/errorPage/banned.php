@@ -44,12 +44,8 @@
         $sql->execute([":userID" => $userID]);
         $result = $sql->fetch();
         $time = $result["DateBanned"];
-
-        $currentDate = date("Y-m-d");
-        $timestamp1 = strtotime($time);
-        $timestamp2 = strtotime($currentDate);
-        $difference = $timestamp2 - $timestamp1;
-        echo '<p>You have been banned, please wait for ' . $difference . ' to gain acccess to your account</p>';
+        
+        echo '<p>You have been banned, please wait until ' . $time . '.</p>';
     ?>
 </div>
 
