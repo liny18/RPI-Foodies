@@ -281,14 +281,14 @@
 
                 if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
                   echo '<div class="container d-flex justify-content-end">';
-                  echo '<button type="button" class="btn btn-link text-danger text-decoration-none" data-bs-toggle="modal" data-bs-target="#deleteModal">';
+                  echo '<button type="button" class="btn btn-link text-danger text-decoration-none" data-bs-toggle="modal" data-bs-target="#deleteModal' . $row[$i]['postID'] . '">';
                   echo 'Delete';
                   echo '</button>';
-                  echo '<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">';
+                  echo '<div class="modal fade" id="deleteModal' . $row[$i]['postID'] . '" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">';
                   echo '<div class="modal-dialog modal-sm">';
                   echo '<div class="modal-content">';
                   echo '<div class="modal-header">';
-                  echo '<h5 class="modal-title" id="deleteModalLabel">Delete?</h5>';
+                  echo '<h5 class="modal-title" id="deleteModalLabel' . $row[$i]['postID'] . '">Delete?</h5>';
                   echo '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>';
                   echo '</div>';
                   echo '<div class="modal-body">';
@@ -304,14 +304,14 @@
                   echo '</div>';
                   echo '</div>';
   
-                  echo '<button type="button" class="btn btn-link text-danger text-decoration-none" data-bs-toggle="modal" data-bs-target="#banModal">';
+                  echo '<button type="button" class="btn btn-link text-danger text-decoration-none" data-bs-toggle="modal" data-bs-target="#banModal' . $row[$i]['postID'] . '">';
                   echo 'Ban User';
                   echo '</button>';
-                  echo '<div class="modal fade" id="banModal" tabindex="-1" aria-labelledby="banModalLabel" aria-hidden="true">';
+                  echo '<div class="modal fade" id="banModal' . $row[$i]['postID'] . '" tabindex="-1" aria-labelledby="banModalLabel" aria-hidden="true">';
                   echo '<div class="modal-dialog modal-sm">';
                   echo '<div class="modal-content">';
                   echo '<div class="modal-header">';
-                  echo '<h5 class="modal-title" id="banModalLabel">Ban?</h5>';
+                  echo '<h5 class="modal-title" id="banModalLabel' . $row[$i]['postID'] . '">Ban?</h5>';
                   echo '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>';
                   echo '</div>';
                   echo '<div class="modal-body">';
@@ -330,14 +330,14 @@
                 } else {
                   if($row[$i]['userID'] == $_SESSION['userID']){
                     echo '<div class="container">';
-                    echo '<button type="button" class="btn btn-link text-danger text-decoration-none" data-bs-toggle="modal" data-bs-target="#deleteModal">';
+                    echo '<button type="button" class="btn btn-link text-danger text-decoration-none" data-bs-toggle="modal" data-bs-target="#deleteModal' . $row[$i]['postID'] . '">';
                     echo 'Delete';
                     echo '</button>';
-                    echo '<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">';
+                    echo '<div class="modal fade" id="deleteModal' . $row[$i]['postID'] . '" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">';
                     echo '<div class="modal-dialog modal-sm">';
                     echo '<div class="modal-content">';
                     echo '<div class="modal-header">';
-                    echo '<h5 class="modal-title" id="deleteModalLabel">Delete?</h5>';
+                    echo '<h5 class="modal-title" id="deleteModalLabel' . $row[$i]['postID'] . '">Delete?</h5>';
                     echo '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>';
                     echo '</div>';
                     echo '<div class="modal-body">';
@@ -354,14 +354,14 @@
                     echo '</div>'; 
                     echo '</div>';
                   } else {
-                    echo '<button type="button" class="btn btn-link text-danger text-decoration-none" data-bs-toggle="modal" data-bs-target="#reportModal">';
+                    echo '<button type="button" class="btn btn-link text-danger text-decoration-none" data-bs-toggle="modal" data-bs-target="#reportModal' . $row[$i]['postID'] . '">';
                     echo 'Report';
                     echo '</button>';
-                    echo '<div class="modal fade" id="reportModal" tabindex="-1" aria-labelledby="reportModalLabel" aria-hidden="true">';
+                    echo '<div class="modal fade" id="reportModal' . $row[$i]['postID'] . '" tabindex="-1" aria-labelledby="reportModalLabel" aria-hidden="true">';
                     echo '<div class="modal-dialog modal-sm">';
                     echo '<div class="modal-content">';
                     echo '<div class="modal-header">';
-                    echo '<h5 class="modal-title" id="reportModalLabel">Report?</h5>';
+                    echo '<h5 class="modal-title" id="reportModalLabel' . $row[$i]['postID'] . '">Report?</h5>';
                     echo '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>';
                     echo '</div>';
                     echo '<div class="modal-body">';
@@ -539,20 +539,20 @@
               echo '</form>';
               if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
                 echo '<div class="container d-flex justify-content-end">';
-                echo '<button type="button" class="btn btn-link text-danger text-decoration-none" data-bs-toggle="modal" data-bs-target="#deleteModal">';
+                echo '<button type="button" class="btn btn-link text-danger text-decoration-none" data-bs-toggle="modal" data-bs-target="#deleteModal' . $row[$i]['postID'] . '">';
                 echo 'Delete';
                 echo '</button>';
-                echo '<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">';
+                echo '<div class="modal fade" id="deleteModal' . $row[$i]['postID'] . '" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">';
                 echo '<div class="modal-dialog modal-sm">';
                 echo '<div class="modal-content">';
                 echo '<div class="modal-header">';
-                echo '<h5 class="modal-title" id="deleteModalLabel">Delete?</h5>';
+                echo '<h5 class="modal-title" id="deleteModalLabel' . $row[$i]['postID'] . '">Delete?</h5>';
                 echo '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>';
                 echo '</div>';
                 echo '<div class="modal-body">';
                 echo '<div class="container d-flex flex-row justify-content-center">';
                 echo '<form class="me-3" action="main.php" method="post">';
-                echo '<input type="hidden" name="' . $row[$i]['postID'] . '" value=" ' . $row[$i]['postID'] . '"/>';
+                echo '<input type="hidden" name="postID" value=" ' . $row[$i]['postID'] . '"/>';
                 echo '<button type="submit" name="deleteAdmin" value="deleteAdmin" class="btn btn-outline-danger" data-bs-dismiss="modal">Yes</button>';
                 echo '</form>';
                 echo '<button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">No</button>';
@@ -562,14 +562,14 @@
                 echo '</div>';
                 echo '</div>';
 
-                echo '<button type="button" class="btn btn-link text-danger text-decoration-none" data-bs-toggle="modal" data-bs-target="#banModal">';
+                echo '<button type="button" class="btn btn-link text-danger text-decoration-none" data-bs-toggle="modal" data-bs-target="#banModal' . $row[$i]['postID'] . '">';
                 echo 'Ban User';
                 echo '</button>';
-                echo '<div class="modal fade" id="banModal" tabindex="-1" aria-labelledby="banModalLabel" aria-hidden="true">';
+                echo '<div class="modal fade" id="banModal' . $row[$i]['postID'] . '" tabindex="-1" aria-labelledby="banModalLabel" aria-hidden="true">';
                 echo '<div class="modal-dialog modal-sm">';
                 echo '<div class="modal-content">';
                 echo '<div class="modal-header">';
-                echo '<h5 class="modal-title" id="banModalLabel">Ban?</h5>';
+                echo '<h5 class="modal-title" id="banModalLabel' . $row[$i]['postID'] . '">Ban?</h5>';
                 echo '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>';
                 echo '</div>';
                 echo '<div class="modal-body">';
@@ -588,20 +588,20 @@
               } else {
                 if($row[$i]['userID'] == $_SESSION['userID']){
                   echo '<div class="container">';
-                  echo '<button type="button" class="btn btn-link text-danger text-decoration-none" data-bs-toggle="modal" data-bs-target="#deleteModal">';
+                  echo '<button type="button" class="btn btn-link text-danger text-decoration-none" data-bs-toggle="modal" data-bs-target="#deleteModal' . $row[$i]['postID'] . '">';
                   echo 'Delete';
                   echo '</button>';
-                  echo '<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">';
+                  echo '<div class="modal fade" id="deleteModal' . $row[$i]['postID'] . '" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">';
                   echo '<div class="modal-dialog modal-sm">';
                   echo '<div class="modal-content">';
                   echo '<div class="modal-header">';
-                  echo '<h5 class="modal-title" id="deleteModalLabel">Delete?</h5>';
+                  echo '<h5 class="modal-title" id="deleteModalLabel' . $row[$i]['postID'] . '">Delete?</h5>';
                   echo '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>';
                   echo '</div>';
                   echo '<div class="modal-body">';
                   echo '<div class="container d-flex flex-row justify-content-center">';
                   echo '<form class="me-3" action="main.php" method="post">';
-                  echo '<input type="hidden" name="' . $row[$i]['postID'] . '" value=" ' . $row[$i]['postID'] . '"/>';
+                  echo '<input type="hidden" name="postID" value=" ' . $row[$i]['postID'] . '"/>';
                   echo '<button type="submit" name="delete" value="delete" class="btn btn-outline-danger" data-bs-dismiss="modal">Yes</button>';
                   echo '</form>';
                   echo '<button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">No</button>';
@@ -612,14 +612,14 @@
                   echo '</div>'; 
                   echo '</div>';
                 } else {
-                  echo '<button type="button" class="btn btn-link text-danger text-decoration-none" data-bs-toggle="modal" data-bs-target="#reportModal">';
+                  echo '<button type="button" class="btn btn-link text-danger text-decoration-none" data-bs-toggle="modal" data-bs-target="#reportModal' . $row[$i]['postID'] . '">';
                   echo 'Report';
                   echo '</button>';
-                  echo '<div class="modal fade" id="reportModal" tabindex="-1" aria-labelledby="reportModalLabel" aria-hidden="true">';
+                  echo '<div class="modal fade" id="reportModal' . $row[$i]['postID'] . '" tabindex="-1" aria-labelledby="reportModalLabel" aria-hidden="true">';
                   echo '<div class="modal-dialog modal-sm">';
                   echo '<div class="modal-content">';
                   echo '<div class="modal-header">';
-                  echo '<h5 class="modal-title" id="reportModalLabel">Report?</h5>';
+                  echo '<h5 class="modal-title" id="reportModalLabel' . $row[$i]['postID'] . '">Report?</h5>';
                   echo '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>';
                   echo '</div>';
                   echo '<div class="modal-body">';
@@ -792,20 +792,20 @@
               echo '</form>';
               if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
                 echo '<div class="container d-flex justify-content-end">';
-                echo '<button type="button" class="btn btn-link text-danger text-decoration-none" data-bs-toggle="modal" data-bs-target="#deleteModal">';
+                echo '<button type="button" class="btn btn-link text-danger text-decoration-none" data-bs-toggle="modal" data-bs-target="#deleteModal' . $row[$i]['postID'] . '">';
                 echo 'Delete';
                 echo '</button>';
-                echo '<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">';
+                echo '<div class="modal fade" id="deleteModal' . $row[$i]['postID'] . '" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">';
                 echo '<div class="modal-dialog modal-sm">';
                 echo '<div class="modal-content">';
                 echo '<div class="modal-header">';
-                echo '<h5 class="modal-title" id="deleteModalLabel">Delete?</h5>';
+                echo '<h5 class="modal-title" id="deleteModalLabel' . $row[$i]['postID'] . '">Delete?</h5>';
                 echo '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>';
                 echo '</div>';
                 echo '<div class="modal-body">';
                 echo '<div class="container d-flex flex-row justify-content-center">';
                 echo '<form class="me-3"action="main.php" method="post">';
-                echo '<input type="hidden" name="' . $row[$i]['postID'] . '" value=" ' . $row[$i]['postID'] . '"/>';
+                echo '<input type="hidden" name="postID" value=" ' . $row[$i]['postID'] . '"/>';
                 echo '<button type="submit" name="deleteAdmin" value="deleteAdmin" class="btn btn-outline-danger" data-bs-dismiss="modal">Yes</button>';
                 echo '</form>';
                 echo '<button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">No</button>';
@@ -815,14 +815,14 @@
                 echo '</div>';
                 echo '</div>';
 
-                echo '<button type="button" class="btn btn-link text-danger text-decoration-none" data-bs-toggle="modal" data-bs-target="#banModal">';
+                echo '<button type="button" class="btn btn-link text-danger text-decoration-none" data-bs-toggle="modal" data-bs-target="#banModal' . $row[$i]['postID'] . '">';
                 echo 'Ban User';
                 echo '</button>';
-                echo '<div class="modal fade" id="banModal" tabindex="-1" aria-labelledby="banModalLabel" aria-hidden="true">';
+                echo '<div class="modal fade" id="banModal' . $row[$i]['postID'] . '" tabindex="-1" aria-labelledby="banModalLabel" aria-hidden="true">';
                 echo '<div class="modal-dialog modal-sm">';
                 echo '<div class="modal-content">';
                 echo '<div class="modal-header">';
-                echo '<h5 class="modal-title" id="banModalLabel">Ban?</h5>';
+                echo '<h5 class="modal-title" id="banModalLabel' . $row[$i]['postID'] . '">Ban?</h5>';
                 echo '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>';
                 echo '</div>';
                 echo '<div class="modal-body">';
@@ -841,20 +841,20 @@
               } else {
                 if($row[$i]['userID'] == $_SESSION['userID']){
                   echo '<div class="container">';
-                  echo '<button type="button" class="btn btn-link text-danger text-decoration-none" data-bs-toggle="modal" data-bs-target="#deleteModal">';
+                  echo '<button type="button" class="btn btn-link text-danger text-decoration-none" data-bs-toggle="modal" data-bs-target="#deleteModal' . $row[$i]['postID'] . '">';
                   echo 'Delete';
                   echo '</button>';
-                  echo '<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">';
+                  echo '<div class="modal fade" id="deleteModal' . $row[$i]['postID'] . '" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">';
                   echo '<div class="modal-dialog modal-sm">';
                   echo '<div class="modal-content">';
                   echo '<div class="modal-header">';
-                  echo '<h5 class="modal-title" id="deleteModalLabel">Delete?</h5>';
+                  echo '<h5 class="modal-title" id="deleteModalLabel' . $row[$i]['postID'] . '">Delete?</h5>';
                   echo '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>';
                   echo '</div>';
                   echo '<div class="modal-body">';
                   echo '<div class="container d-flex flex-row justify-content-center">';
                   echo '<form class="me-3" action="main.php" method="post">';
-                  echo '<input type="hidden" name="' . $row[$i]['postID'] . '" value=" ' . $row[$i]['postID'] . '"/>';
+                  echo '<input type="hidden" name="postID" value=" ' . $row[$i]['postID'] . '"/>';
                   echo '<button type="submit" name="delete" value="delete" class="btn btn-outline-danger" data-bs-dismiss="modal">Yes</button>';
                   echo '</form>';
                   echo '<button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">No</button>';
@@ -865,14 +865,14 @@
                   echo '</div>'; 
                   echo '</div>';
                 } else {
-                  echo '<button type="button" class="btn btn-link text-danger text-decoration-none" data-bs-toggle="modal" data-bs-target="#reportModal">';
+                  echo '<button type="button" class="btn btn-link text-danger text-decoration-none" data-bs-toggle="modal" data-bs-target="#reportModal' . $row[$i]['postID'] . '">';
                   echo 'Report';
                   echo '</button>';
-                  echo '<div class="modal fade" id="reportModal" tabindex="-1" aria-labelledby="reportModalLabel" aria-hidden="true">';
+                  echo '<div class="modal fade" id="reportModal' . $row[$i]['postID'] . '" tabindex="-1" aria-labelledby="reportModalLabel" aria-hidden="true">';
                   echo '<div class="modal-dialog modal-sm">';
                   echo '<div class="modal-content">';
                   echo '<div class="modal-header">';
-                  echo '<h5 class="modal-title" id="reportModalLabel">Report?</h5>';
+                  echo '<h5 class="modal-title" id="reportModalLabel' . $row[$i]['postID'] . '">Report?</h5>';
                   echo '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>';
                   echo '</div>';
                   echo '<div class="modal-body">';
