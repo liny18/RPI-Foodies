@@ -21,6 +21,11 @@
   <?php 
     include '../time_function/time.php';
     @session_start();
+
+    if (!isset($_SESSION['admin'])) {
+      header("Location: ../errorPage/banned.php");
+    }
+
     $servername = "localhost";
     $database = "rpiFoodies";
     $username = "root";
@@ -34,16 +39,6 @@
       echo "Connection failed: " . $e->getMessage();
     }
 
-    $sql1 = 'SELECT * FROM users WHERE userID = :task_id';
-    $stmt3 = $conn->prepare($sql1);
-    $stmt3->bindValue(':task_id', $_SERVER['userID']);
-    $stmt3->execute();
-    $banned = $stmt3->fetchAll();
-    if ($banned[0]['admin'] == 0) {
-      header("Location: ../errorPage/banned.php");
-      exit;
-    }
-    
     $taskId = $_POST["postID"];
     if(isset($_POST["delete"]) && array_key_exists('delete', $_POST)){
       $sql1 = 'SELECT * FROM Posts WHERE postID = :task_id';

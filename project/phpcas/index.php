@@ -70,6 +70,7 @@
                             $_SESSION['userID'] = $row['userID'];
                             $_SESSION['userName'] = $row['username'];
                             $_SESSION['admin'] = $row['admin'];
+                            $_SESSION['Banned'] = $row['Banned'];
 
                             if($row['Banned'] == 1 && $date > $row['DateBanned']){
                                 $sql = $db->prepare( "UPDATE users SET BannedPosts = 3 AND Banned = 0 AND DateBanned = '0000-00-00' WHERE username = :username");

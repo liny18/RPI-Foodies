@@ -34,6 +34,10 @@
   
     include '../time_function/time.php';
 
+    if (isset($_SESSION['Banned'])) {
+      header("Location: ../errorPage/banned.php");
+    }
+
     $servername = "localhost";
     $database = "rpiFoodies";
     $username = "root";
@@ -50,16 +54,6 @@
       $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     } catch (PDOException $e) {
       echo "Connection failed: " . $e->getMessage();
-    }
-
-    $sql1 = 'SELECT * FROM users WHERE userID = :task_id';
-    $stmt3 = $conn->prepare($sql1);
-    $stmt3->bindValue(':task_id', $_SESSION['userID']);
-    $stmt3->execute();
-    $banned = $stmt3->fetchAll();
-    if ($banned[0]['Banned'] == 1) {
-      header("Location: ../errorPage/banned.php");
-      exit;
     }
 
     // if something is submited go to search.php and do the query
