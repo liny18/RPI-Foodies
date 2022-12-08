@@ -24,83 +24,69 @@
 </head>
 
 <body>
-    <div id="content-wrap">
-        <main class="container">
-            <h1 class="main-slogan"> RPI Foodies, find out what you love!</h1>
-            <div class="row mt-0">
-                <div class="colm-logo">
-                    <img src="../pictures/RPIFoodies.png" alt="Logo" class="team-logo">
-                </div>
-                <div class="colm-form">
-                    <div class="form-container">
-                        <?php
-                        include_once("./CAS-1.4.0/CAS.php");
-                        phpCAS::client(CAS_VERSION_2_0, 'cas.auth.rpi.edu', 443, '/cas');
+    <?php
+    include_once("./CAS-1.4.0/CAS.php");
+    phpCAS::client(CAS_VERSION_2_0, 'cas.auth.rpi.edu', 443, '/cas');
 
-                        // This is not recommended in the real world!
-                        // But we don't have the apparatus to install our own certs...
-                        phpCAS::setNoCasServerValidation();
+    // This is not recommended in the real world!
+    // But we don't have the apparatus to install our own certs...
+    phpCAS::setNoCasServerValidation();
 
-                        if (phpCAS::isAuthenticated()) {
-                            try {
-                                // connect to database using pdo
-                                $db = new PDO('mysql:host=localhost;dbname=rpiFoodies', 'root', '');
-                                $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                            } catch (PDOException $e) {
-                                echo "Connection failed: " . $e->getMessage();
-                            }
+    if (phpCAS::isAuthenticated()) {
+        try {
+            // connect to database using pdo
+            $db = new PDO('mysql:host=localhost;dbname=rpiFoodies', 'root', '');
+            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException $e) {
+            echo "Connection failed: " . $e->getMessage();
+        }
 
-                            // get the user's username, this is the RCS id of the user, this is the userID in the table
-                            $username = phpCAS::getUser();
-                            // check if the userID is already in the database, if not, insert the userID into the database, and make the username same with the userID as default
-                            // if the userID is already in the database, do nothing
-                            $date = date("Y-m-d");
-                            $sql = $db->prepare("SELECT * FROM users WHERE username = :username");
-                            $sql->execute([":username" => $username]);
-                            $result = $sql->fetch();
-                            if ($result[0] == 0) {
-                                $sql = $db->prepare("INSERT INTO users (username, admin, BannedPosts, DateBanned, Banned) VALUES (:username, 0, 3, 0000-00-00, 0)");
-                                $sql->execute([":username" => $username]);
-                            }
+        // get the user's username, this is the RCS id of the user, this is the userID in the table
+        $username = phpCAS::getUser();
+        // check if the userID is already in the database, if not, insert the userID into the database, and make the username same with the userID as default
+        // if the userID is already in the database, do nothing
+        $date = date("Y-m-d");
+        $sql = $db->prepare("SELECT * FROM users WHERE username = :username");
+        $sql->execute([":username" => $username]);
+        $result = $sql->fetch();
+        if ($result[0] == 0) {
+            $sql = $db->prepare("INSERT INTO users (username, admin, BannedPosts, DateBanned, Banned) VALUES (:username, 0, 3, 0000-00-00, 0)");
+            $sql->execute([":username" => $username]);
+        }
 
-                            // get the userID from the database
-                            $sql = $db->prepare( "SELECT * FROM users WHERE username = :username");
-                            $result = $sql->execute([":username" => $username]);
-                            $row = $sql->fetch();
-                            $_SESSION['userID'] = $row['userID'];
-                            $_SESSION['userName'] = $row['username'];
-                            $_SESSION['admin'] = $row['admin'];
-                            $_SESSION['Banned'] = $row['Banned'];
+        // get the userID from the database
+        $sql = $db->prepare( "SELECT * FROM users WHERE username = :username");
+        $result = $sql->execute([":username" => $username]);
+        $row = $sql->fetch();
+        $_SESSION['userID'] = $row['userID'];
+        $_SESSION['userName'] = $row['username'];
+        $_SESSION['admin'] = $row['admin'];
+        $_SESSION['Banned'] = $row['Banned'];
 
-                            if($row['Banned'] == 1 && $date > $row['DateBanned']){
-                                $sql = $db->prepare( "UPDATE users SET BannedPosts = 3 AND Banned = 0 AND DateBanned = '0000-00-00' WHERE username = :username");
-                                $result = $sql->execute([":username" => $username]);
-                            }
+        include '../errorPage/check_if_banned.php';
+        header("Location: ../errorPage/banned.php");
 
-                            if($row['Banned'] == 0 && $row['DateBanned'] == '0000-00-00'){
-                                if($row['BannedPosts'] <= 0){
-                                    $sql = $db->prepare( "UPDATE users SET BannedPosts = 3 WHERE username = :username");
-                                    $result = $sql->execute([":username" => $username]);
-                                }
-                                echo "<script>window.location.href='../main/main.php';</script>";
-                                exit;
-                            } else {
-                                header("Location: ../errorPage/banned.php");
-                            }
-                        } else {
-                            echo '<p class="cas_info">*This website is connected to RPI CAS login system. You need a RPI
-                            account to login.</p>';
-                            echo "<a href='login.php' class='login_button'>Login</a>";
-                        }
-                        ?>
-                    </div>
-                </div>
-            </div>
-        </main>
-    </div>
-    <footer>
-        <?php include '../footer.html'; ?>
-    </footer>
+    } else {
+        echo "<div id='content-wrap'>";
+        echo "<main class='container'>";
+        echo "<h1 class='main-slogan'> RPI Foodies, find out what you love!</h1>";
+        echo "<div class='row mt-0'>";
+        echo "<div class='colm-logo'>";
+        echo "<img src='../pictures/RPIFoodies.png' alt='Logo' class='team-logo'>";
+        echo "</div>";
+        echo "<div class='colm-form'>";
+        echo "<div class='form-container'>";
+        echo "<p class='cas_info'>*This website is connected to RPI CAS login system. You need a RPI account to login.</p>";
+        echo "<a href='login.php' class='login_button'>Login</a>";
+        echo "</div>"
+        echo "</div>"
+        echo "</div>"
+        echo "</main>"
+        echo "</div>"
+        echo "<footer>"
+        include '../footer.html';
+        echo "</footer>"
+    ?>
 
 </body>
 
