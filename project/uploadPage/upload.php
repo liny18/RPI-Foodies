@@ -14,39 +14,19 @@
 </head>
 
 <body>
-    <!-- ADD HEADER -->
 
     <div id="content-wrap">
-        <header>
-            <?php include '../header.php'; ?>
-        </header>
-
-
         <?php
 
-
-        // we want to accept the form and upload everything to our server
+        include '../errorPage/check_if_banned.php';
         
         @session_start();
-
-        if (isset($_SESSION['Banned'])) {
-            header("Location: ../errorPage/banned.php");
-        }
-
         $servername = "localhost";
         $database = "rpiFoodies";
         $username = "root";
         $password = "";
 
         $conn;
-        // check if the content type of the file is image
-        function checkFile($file) {
-            return (strpos(mime_content_type($file), "image") !== false);
-        }
-        function sanitize_xss($value) {
-            return htmlspecialchars(strip_tags($value));
-        }
-
         try {
             $conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
             // set the PDO error mode to exception
@@ -54,15 +34,13 @@
         } catch (PDOException $e) {
             echo "Connection failed: " . $e->getMessage();
         }
-
-        $sql1 = 'SELECT * FROM users WHERE userID = :task_id';
-        $stmt3 = $conn->prepare($sql1);
-        $stmt3->bindValue(':task_id', $_SESSION['userID']);
-        $stmt3->execute();
-        $banned = $stmt3->fetchAll();
-        if ($banned[0]['Banned'] == 1) {
-          header("Location: ../errorPage/banned.php");
-          exit;
+        
+        // check if the content type of the file is image
+        function checkFile($file) {
+            return (strpos(mime_content_type($file), "image") !== false);
+        }
+        function sanitize_xss($value) {
+            return htmlspecialchars(strip_tags($value));
         }
 
         if (array_key_exists('submitUpload', $_POST)) {
@@ -121,6 +99,11 @@
         }
 
         ?>
+
+    <!-- ADD HEADER -->
+        <header>
+            <?php include '../header.php'; ?>
+        </header>
 
 <main>
             <form id="uploadPost" class="container" action="upload.php" method="post" enctype="multipart/form-data">

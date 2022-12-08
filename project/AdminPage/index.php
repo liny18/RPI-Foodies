@@ -14,12 +14,11 @@
   <title>Admin page</title>
 </head>
 <body>
-  <header>
-      <?php include '../header.php'; ?>
-  </header>
 
   <?php 
+    include '../errorPage/check_if_banned.php';
     include '../time_function/time.php';
+
     @session_start();
 
     if (!isset($_SESSION['admin'])) {
@@ -96,7 +95,9 @@
       $stmt6->execute(); 
     }
   ?>
-
+  <header>
+      <?php include '../header.php'; ?>
+  </header>
 <div class="container">
       <div class="row vh-100">
           <div class="text-center">
