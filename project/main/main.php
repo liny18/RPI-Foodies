@@ -222,7 +222,7 @@
                 echo '</div>';
                 echo '<div class="location p-2">';
                 echo '<i class="fa-solid fa-location-arrow"></i> ' . $row[$i]['location'] . '</div>';
-                echo '<p class="time"><i class="fa-solid fa-clock pt-1"></i> ' . calculate_time($row[$i]['postTime']) . '</p>';
+                echo '<p class="time mt-1"><i class="fa-solid fa-clock pt-1"></i> ' . calculate_time($row[$i]['postTime']) . '</p>';
                 echo '</div>';
                 echo '<div>';
                 echo '<h5 class="card-title"><i class="fa-solid fa-utensils me-2 mt-2"></i>';
@@ -386,7 +386,7 @@
               echo '</div>';
               echo '<div class="location p-2">';
               echo '<i class="fa-solid fa-location-arrow"></i> ' . $row[$i]['location'] . '</div>';
-              echo '<p class="time"><i class="fa-solid fa-clock pt-1"></i> ' . calculate_time($row[$i]['postTime']) . '</p>';
+              echo '<p class="time mt-1"><i class="fa-solid fa-clock pt-1"></i> ' . calculate_time($row[$i]['postTime']) . '</p>';
               echo '</div>';
               echo '<div>';
               echo '<h5 class="card-title"><i class="fa-solid fa-utensils me-2 mt-2"></i>';
@@ -546,7 +546,7 @@
               echo '</div>';
               echo '<div class="location p-2">';
               echo '<i class="fa-solid fa-location-arrow"></i> ' . $row[$i]['location'] . '</div>';
-              echo '<p class="time"><i class="fa-solid fa-clock pt-1"></i> ' . calculate_time($row[$i]['postTime']) . '</p>';
+              echo '<p class="time mt-1"><i class="fa-solid fa-clock pt-1"></i> ' . calculate_time($row[$i]['postTime']) . '</p>';
               echo '</div>';
               echo '<div>';
               echo '<h5 class="card-title"><i class="fa-solid fa-utensils me-2 mt-2"></i>';
