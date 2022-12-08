@@ -54,11 +54,12 @@
                             $username = phpCAS::getUser();
                             // check if the userID is already in the database, if not, insert the userID into the database, and make the username same with the userID as default
                             // if the userID is already in the database, do nothing
+                            $date = date("Y-m-d");
                             $sql = $db->prepare("SELECT * FROM users WHERE username = :username");
                             $sql->execute([":username" => $username]);
                             $result = $sql->fetch();
                             if ($result[0] == 0) {
-                                $sql = $db->prepare("INSERT INTO users (username, admin) VALUES (:username, 0)");
+                                $sql = $db->prepare("INSERT INTO users (username, admin, BannedPost, Banned) VALUES (:username, 0, 3, 0");
                                 $sql->execute([":username" => $username]);
                             }
 
@@ -70,8 +71,7 @@
                             $_SESSION['userName'] = $row['username'];
                             $_SESSION['admin'] = $row['admin'];
 
-                            $date = date("Y-m-d");
-                            if($row['Banned'] == 0){
+                            if($row['Banned'] == 0 && $date < $row['dateBanned']){
                                 if($row['BannedPosts'] <= 0){
                                     $sql = $db->prepare( "UPDATE users SET BannedPosts = 3 WHERE username = :username");
                                     $result = $sql->execute([":username" => $username]);
