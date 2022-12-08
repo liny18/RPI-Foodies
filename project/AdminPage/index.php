@@ -26,6 +26,17 @@
     $username = "root";
     $password = "";
         
+
+    $sql1 = 'SELECT * FROM users WHERE userID = :task_id';
+    $stmt3 = $conn->prepare($sql1);
+    $stmt3->bindValue(':task_id', $_SERVER['userID']);
+    $stmt3->execute();
+    $banned = $stmt3->fetchAll();
+    if ($banned[0]['admin'] == 0) {
+      header("Location: ../errorPage/banned.php");
+      exit;
+    }
+
     try {
       $conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
       // set the PDO error mode to exception
@@ -57,7 +68,12 @@
         $sql12 = 'UPDATE users SET DateBanned = DATE_ADD('.$date.', INTERVAL 5 DAY) WHERE userID = :task_id';
         $stmt6 = $conn->prepare($sql12);
         $stmt6->bindValue(':task_id', $username);
-        $stmt6->execute();       
+        $stmt6->execute(); 
+        
+        $sql13 =  'UPDATE users SET Banned = 1 WHERE userID = :task_id';
+        $stmt6 = $conn->prepare($sql13);
+        $stmt6->bindValue(':task_id', $username);
+        $stmt6->execute(); 
       }
 
       $sql = 'DELETE FROM Reports WHERE postID = :task_id';
@@ -76,6 +92,14 @@
       $stmt = $conn->prepare($sql);
       $stmt->bindValue(':task_id', $taskId);
       $stmt->execute();
+    }
+
+    if(isset($_POST["ban"]) && array_key_exists('ban', $_POST)){
+      $sql13 =  'UPDATE users SET Banned = 1 WHERE userID = :task_id';
+      $stmt6 = $conn->prepare($sql13);
+      $username = $_POST['userID'];
+      $stmt6->bindValue(':task_id', $username);
+      $stmt6->execute(); 
     }
   ?>
 
@@ -112,6 +136,10 @@
                   echo '<form action="index.php" method="post">';
                   echo  '<input type="hidden" name="postID" value=" ' . $row[0]['postID'] . '"/>';
                   echo '<button type="submit" name="delete" value="delete" class="btn btn-danger">Delete</button>';
+                  echo '</form>';
+                  echo '<form action="index.php" method="post">';
+                  echo  '<input type="hidden" name="userID" value=" ' . $row[0]['userID'] . '"/>';
+                  echo '<button type="submit" name="ban" value="ban" class="btn btn-danger">Ban User</button>';
                   echo '</form>';
                   echo '</div></div>';
                 }

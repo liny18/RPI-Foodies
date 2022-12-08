@@ -71,7 +71,7 @@
                             $_SESSION['admin'] = $row['admin'];
 
                             $date = date("Y-m-d");
-                            if($date > $row['DateBanned']){
+                            if($row['Banned'] == 0){
                                 if($row['BannedPosts'] <= 0){
                                     $sql = $db->prepare( "UPDATE users SET BannedPosts = 3 WHERE username = :username");
                                     $result = $sql->execute([":username" => $username]);

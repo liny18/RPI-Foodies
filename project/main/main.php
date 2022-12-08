@@ -44,6 +44,16 @@
       return htmlspecialchars(strip_tags($value));
     }
 
+    $sql1 = 'SELECT * FROM users WHERE userID = :task_id';
+    $stmt3 = $conn->prepare($sql1);
+    $stmt3->bindValue(':task_id', $_SESSION['userID']);
+    $stmt3->execute();
+    $banned = $stmt3->fetchAll();
+    if ($banned[0]['Banned'] == 1) {
+      header("Location: ../errorPage/banned.php");
+      exit;
+    }
+
     try {
       $conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
       // set the PDO error mode to exception
@@ -182,6 +192,14 @@
       $stmt2->execute();
     }
 
+    if(isset($_POST["ban"]) && array_key_exists('ban', $_POST)){
+      $sql13 =  'UPDATE users SET Banned = 1 WHERE userID = :task_id';
+      $stmt6 = $conn->prepare($sql13);
+      $username = $_POST['userID'];
+      $stmt6->bindValue(':task_id', $username);
+      $stmt6->execute(); 
+    }
+
     // first grab all the data in descending order because newer posts will have a larger postid
     $grabByPostID = $conn->prepare("SELECT * FROM Posts ORDER BY postID DESC");
     $grabByPostID->execute();
@@ -276,6 +294,29 @@
                   echo '<form action="main.php" method="post">';
                   echo '<input type="hidden" name="postID" value=" ' . $row[$i]['postID'] . '"/>';
                   echo '<button type="submit" name="deleteAdmin" value="deleteAdmin" class="btn btn-outline-danger" data-bs-dismiss="modal">Yes</button>';
+                  echo '</form>';
+                  echo '<button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">No</button>';
+                  echo '</div>';
+                  echo '</div>';
+                  echo '</div>';
+                  echo '</div>';
+                  echo '</div>';
+
+                  echo '<button type="button" class="btn btn-link text-danger text-decoration-none" data-bs-toggle="modal" data-bs-target="#deleteModal">';
+                  echo 'Ban User';
+                  echo '</button>';
+                  echo '<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">';
+                  echo '<div class="modal-dialog modal-sm">';
+                  echo '<div class="modal-content">';
+                  echo '<div class="modal-header">';
+                  echo '<h5 class="modal-title" id="deleteModalLabel">Delete?</h5>';
+                  echo '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>';
+                  echo '</div>';
+                  echo '<div class="modal-body">';
+                  echo '<div class="container">';
+                  echo '<form action="index.php" method="post">';
+                  echo  '<input type="hidden" name="userID" value=" ' . $row[0]['userID'] . '"/>';
+                  echo '<button type="submit" name="ban" value="ban" class="btn btn-danger">Ban User</button>';
                   echo '</form>';
                   echo '<button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">No</button>';
                   echo '</div>';
@@ -514,6 +555,29 @@
                 echo '</div>';
                 echo '</div>';
                 echo '</div>';
+
+                echo '<button type="button" class="btn btn-link text-danger text-decoration-none" data-bs-toggle="modal" data-bs-target="#deleteModal">';
+                echo 'Ban User';
+                echo '</button>';
+                echo '<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">';
+                echo '<div class="modal-dialog modal-sm">';
+                echo '<div class="modal-content">';
+                echo '<div class="modal-header">';
+                echo '<h5 class="modal-title" id="deleteModalLabel">Delete?</h5>';
+                echo '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>';
+                echo '</div>';
+                echo '<div class="modal-body">';
+                echo '<div class="container">';
+                echo '<form action="index.php" method="post">';
+                echo  '<input type="hidden" name="userID" value=" ' . $row[0]['userID'] . '"/>';
+                echo '<button type="submit" name="ban" value="ban" class="btn btn-danger">Ban User</button>';
+                echo '</form>';
+                echo '<button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">No</button>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
               } else {
                 if($row[$i]['userID'] == $_SESSION['userID']){
                   echo '<button type="button" class="btn btn-link text-danger text-decoration-none" data-bs-toggle="modal" data-bs-target="#deleteModal">';
@@ -733,6 +797,29 @@
                 echo '<form action="main.php" method="post">';
                 echo '<input type="hidden" name="postID" value=" ' . $row[$i]['postID'] . '"/>';
                 echo '<button type="submit" name="deleteAdmin" value="deleteAdmin" class="btn btn-outline-danger" data-bs-dismiss="modal">Yes</button>';
+                echo '</form>';
+                echo '<button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">No</button>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+
+                echo '<button type="button" class="btn btn-link text-danger text-decoration-none" data-bs-toggle="modal" data-bs-target="#deleteModal">';
+                echo 'Ban User';
+                echo '</button>';
+                echo '<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">';
+                echo '<div class="modal-dialog modal-sm">';
+                echo '<div class="modal-content">';
+                echo '<div class="modal-header">';
+                echo '<h5 class="modal-title" id="deleteModalLabel">Delete?</h5>';
+                echo '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>';
+                echo '</div>';
+                echo '<div class="modal-body">';
+                echo '<div class="container">';
+                echo '<form action="index.php" method="post">';
+                echo  '<input type="hidden" name="userID" value=" ' . $row[0]['userID'] . '"/>';
+                echo '<button type="submit" name="ban" value="ban" class="btn btn-danger">Ban User</button>';
                 echo '</form>';
                 echo '<button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">No</button>';
                 echo '</div>';

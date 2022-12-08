@@ -36,6 +36,15 @@
 
         $conn;
 
+        $sql1 = 'SELECT * FROM users WHERE userID = :task_id';
+        $stmt3 = $conn->prepare($sql1);
+        $stmt3->bindValue(':task_id', $_SESSION['userID']);
+        $stmt3->execute();
+        $banned = $stmt3->fetchAll();
+        if ($banned[0]['Banned'] == 1) {
+          header("Location: ../errorPage/banned.php");
+          exit;
+        }
         // check if the content type of the file is image
         function checkFile($file) {
             return (strpos(mime_content_type($file), "image") !== false);

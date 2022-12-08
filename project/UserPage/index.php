@@ -18,11 +18,20 @@
 
       include '../time_function/time.php';
       
-
       $servername = "localhost";
       $database = "rpiFoodies";
       $username = "root";
       $password = "";
+
+      $sql1 = 'SELECT * FROM users WHERE userID = :task_id';
+      $stmt3 = $conn->prepare($sql1);
+      $stmt3->bindValue(':task_id', $_SESSION['userID']);
+      $stmt3->execute();
+      $banned = $stmt3->fetchAll();
+      if ($banned[0]['Banned'] == 1) {
+        header("Location: ../errorPage/banned.php");
+        exit;
+      }
 
       try {
           $conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
