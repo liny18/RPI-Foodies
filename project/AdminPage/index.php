@@ -102,66 +102,58 @@
       $stmt6->execute(); 
     }
   ?>
-  <header>
-      <?php include '../header.php'; ?>
-  </header>
-<div class="container">
-      <div class="row">
-          <div class="text-center">
-            <div class="col-md-6 py-3">
-              <h1 class="display-4">Reported Posts</h1>
-            <?php
-                $posts = $conn->prepare("SELECT * FROM Reports");
-                $posts->execute();
-                $numPosts = $posts->fetchAll();
-                $hosts = $conn->prepare("SELECT * FROM Posts WHERE postID = :postID");
-                for ($i = 0; $i < count($numPosts); $i++) {
-                  $hosts->execute([':postID' => $numPosts[$i]['postID']]);
-                  $row = $hosts->fetchAll();
-                  echo '<div class="card text-center">';
-                  echo '<div class="card-header p-2"> <div class="location p-2">';
-                  echo '<i class="fa-solid fa-location-arrow"></i>' . $row[0]['location'] . '</div>';
-                  echo '<p class="time"><i class="fa-solid fa-clock"></i> ' . calculate_time($row[0]['postTime']) . '</p>';
-                  echo '</div>';
-                  echo '<img class="card-img-top" src="../postImages/' . $row[0]['postPhoto'] . '"alt="Card image">';
-                  echo '<div class="card-body"><h5 class="card-title"><i class="fa-solid fa-tags"></i>';
-                  echo $row[0]['tag1'] . '</h5>';
-                  echo '<p class="card-text">';
-                  echo '<i class="fa-solid fa-quote-left"></i>';
-                  echo $row[0]['mainComment'];
-                  echo '<i class="fa-solid fa-quote-right"></i></p></div>';
-                  echo '<div class="card-footer d-flex justify-content-between pl-5 pr-5">';
-                  echo '<button class="like" onclick="likeCounter(' . $row[0]['postID'] . ', ' . $_SESSION['userID'];
-                  echo ', this)"><i class="fa-regular fa-heart" ></i> ';
-                  echo $row[0]['likes'] . ' likes</button>';
-                  echo '<div class="comment"><i class="fa-regular fa-comment"></i>';
-                  echo 0 . ' comments</div></div>';
-                  echo '<form action="index.php" method="post">';
-                  echo  '<input type="hidden" name="postID" value=" ' . $row[0]['postID'] . '"/>';
-                  echo '<button type="submit" name="aprove" value="aprove" class="btn btn-danger">Approve</button>';
-                  echo '</form>';
-                  echo  '<input type="hidden" name="postID" value=" ' . $row[0]['postID'] . '"/>';
-                  echo '<button type="submit" name="delete" value="delete" class="btn btn-danger">Delete</button>';
-                  echo '</form>';
-                  echo '<form action="index.php" method="post">';
-                  echo  '<input type="hidden" name="userID" value=" ' . $row[0]['userID'] . '"/>';
-                  echo '<button type="submit" name="ban" value="ban" class="btn btn-danger">Ban User</button>';
-                  echo '</form>';
-                  echo '</div></div>';
-                }
-              ?>
-            </div>
-        </div>
+
+  <div class="container">
+        <div class="row d-flex justify-content-center align-items-center">
+              <div class="col-md-6 py-3">
+                <h1 class="display-4">Reported Posts</h1>
+                <?php
+                    $posts = $conn->prepare("SELECT * FROM Reports");
+                    $posts->execute();
+                    $numPosts = $posts->fetchAll();
+                    $hosts = $conn->prepare("SELECT * FROM Posts WHERE postID = :postID");
+                    for ($i = 0; $i < count($numPosts); $i++) {
+                      $hosts->execute([':postID' => $numPosts[$i]['postID']]);
+                      $row = $hosts->fetchAll();
+                      echo '<div class="card text-center">';
+                      echo '<div class="card-header p-2"> <div class="location p-2">';
+                      echo '<i class="fa-solid fa-location-arrow"></i>' . $row[0]['location'] . '</div>';
+                      echo '<p class="time"><i class="fa-solid fa-clock"></i> ' . calculate_time($row[0]['postTime']) . '</p>';
+                      echo '</div>';
+                      echo '<img class="card-img-top" src="../postImages/' . $row[0]['postPhoto'] . '"alt="Card image">';
+                      echo '<div class="card-body"><h5 class="card-title"><i class="fa-solid fa-tags"></i>';
+                      echo $row[0]['tag1'] . '</h5>';
+                      echo '<p class="card-text">';
+                      echo '<i class="fa-solid fa-quote-left"></i>';
+                      echo $row[0]['mainComment'];
+                      echo '<i class="fa-solid fa-quote-right"></i></p></div>';
+                      echo '<div class="card-footer d-flex justify-content-between pl-5 pr-5">';
+                      echo '<button class="like" onclick="likeCounter(' . $row[0]['postID'] . ', ' . $_SESSION['userID'];
+                      echo ', this)"><i class="fa-regular fa-heart" ></i> ';
+                      echo $row[0]['likes'] . ' likes</button>';
+                      echo '<div class="comment"><i class="fa-regular fa-comment"></i>';
+                      echo 0 . ' comments</div></div>';
+                      echo '<form action="index.php" method="post">';
+                      echo  '<input type="hidden" name="postID" value=" ' . $row[0]['postID'] . '"/>';
+                      echo '<button type="submit" name="aprove" value="aprove" class="btn btn-danger">Approve</button>';
+                      echo '</form>';
+                      echo  '<input type="hidden" name="postID" value=" ' . $row[0]['postID'] . '"/>';
+                      echo '<button type="submit" name="delete" value="delete" class="btn btn-danger">Delete</button>';
+                      echo '</form>';
+                      echo '<form action="index.php" method="post">';
+                      echo  '<input type="hidden" name="userID" value=" ' . $row[0]['userID'] . '"/>';
+                      echo '<button type="submit" name="ban" value="ban" class="btn btn-danger">Ban User</button>';
+                      echo '</form>';
+                      echo '</div>';
+                    }
+                  ?>
+              </div>
+          </div>
       </div>
   </div>
-  </div>
-
 
   <footer>
       <?php include '../footer.html'; ?>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-    crossorigin="anonymous"></script>
 </body>
 </html>
