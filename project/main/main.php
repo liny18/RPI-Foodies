@@ -34,6 +34,10 @@
   
     include '../time_function/time.php';
 
+    if (isset($_SESSION['Banned'])) {
+      header("Location: ../errorPage/banned.php");
+    }
+
     $servername = "localhost";
     $database = "rpiFoodies";
     $username = "root";
@@ -50,16 +54,6 @@
       $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     } catch (PDOException $e) {
       echo "Connection failed: " . $e->getMessage();
-    }
-
-    $sql1 = 'SELECT * FROM users WHERE userID = :task_id';
-    $stmt3 = $conn->prepare($sql1);
-    $stmt3->bindValue(':task_id', $_SESSION['userID']);
-    $stmt3->execute();
-    $banned = $stmt3->fetchAll();
-    if ($banned[0]['Banned'] == 1) {
-      header("Location: ../errorPage/banned.php");
-      exit;
     }
 
     // if something is submited go to search.php and do the query
@@ -300,7 +294,7 @@
                   echo '<div class="modal-body">';
                   echo '<div class="container">';
                   echo '<form action="main.php" method="post">';
-                  echo '<input type="hidden" name="postID" value=" ' . $row[$i]['postID'] . '"/>';
+                  echo '<input type="hidden" name="' . $row[$i]['postID'] . '" value=" ' . $row[$i]['postID'] . '"/>';
                   echo '<button type="submit" name="deleteAdmin" value="deleteAdmin" class="btn btn-outline-danger" data-bs-dismiss="modal">Yes</button>';
                   echo '</form>';
                   echo '<button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">No</button>';
@@ -349,7 +343,7 @@
                     echo '<div class="modal-body">';
                     echo '<div class="container d-flex flex-row justify-content-center">';
                     echo '<form action="main.php" method="post">';
-                    echo '<input type="hidden" name="postID" value=" ' . $row[$i]['postID'] . '"/>';
+                    echo '<input type="hidden" name="' . $row[$i]['postID'] . '" value=" ' . $row[$i]['postID'] . '"/>';
                     echo '<button type="submit" name="delete" value="delete" class="btn btn-outline-danger" data-bs-dismiss="modal">Yes</button>';
                     echo '</form>';
                     echo '<button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">No</button>';
@@ -558,7 +552,7 @@
                 echo '<div class="modal-body">';
                 echo '<div class="container">';
                 echo '<form action="main.php" method="post">';
-                echo '<input type="hidden" name="postID" value=" ' . $row[$i]['postID'] . '"/>';
+                echo '<input type="hidden" name="' . $row[$i]['postID'] . '" value=" ' . $row[$i]['postID'] . '"/>';
                 echo '<button type="submit" name="deleteAdmin" value="deleteAdmin" class="btn btn-outline-danger" data-bs-dismiss="modal">Yes</button>';
                 echo '</form>';
                 echo '<button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">No</button>';
@@ -607,7 +601,7 @@
                   echo '<div class="modal-body">';
                   echo '<div class="container d-flex flex-row justify-content-center">';
                   echo '<form action="main.php" method="post">';
-                  echo '<input type="hidden" name="postID" value=" ' . $row[$i]['postID'] . '"/>';
+                  echo '<input type="hidden" name="' . $row[$i]['postID'] . '" value=" ' . $row[$i]['postID'] . '"/>';
                   echo '<button type="submit" name="delete" value="delete" class="btn btn-outline-danger" data-bs-dismiss="modal">Yes</button>';
                   echo '</form>';
                   echo '<button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">No</button>';
@@ -811,7 +805,7 @@
                 echo '<div class="modal-body">';
                 echo '<div class="container">';
                 echo '<form action="main.php" method="post">';
-                echo '<input type="hidden" name="postID" value=" ' . $row[$i]['postID'] . '"/>';
+                echo '<input type="hidden" name="' . $row[$i]['postID'] . '" value=" ' . $row[$i]['postID'] . '"/>';
                 echo '<button type="submit" name="deleteAdmin" value="deleteAdmin" class="btn btn-outline-danger" data-bs-dismiss="modal">Yes</button>';
                 echo '</form>';
                 echo '<button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">No</button>';
@@ -860,7 +854,7 @@
                   echo '<div class="modal-body">';
                   echo '<div class="container d-flex flex-row justify-content-center">';
                   echo '<form action="main.php" method="post">';
-                  echo '<input type="hidden" name="postID" value=" ' . $row[$i]['postID'] . '"/>';
+                  echo '<input type="hidden" name="' . $row[$i]['postID'] . '" value=" ' . $row[$i]['postID'] . '"/>';
                   echo '<button type="submit" name="delete" value="delete" class="btn btn-outline-danger" data-bs-dismiss="modal">Yes</button>';
                   echo '</form>';
                   echo '<button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">No</button>';

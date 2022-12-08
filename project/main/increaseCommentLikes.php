@@ -1,5 +1,8 @@
 <?php
 @session_start();
+if (isset($_SESSION['Banned'])) {
+    header("Location: ../errorPage/banned.php");
+}
 // a function to increase or decrease the like counter by 1 or maybe leave it the same
 $userID = $_GET['userID'];
 $userID = htmlspecialchars(trim($userID));

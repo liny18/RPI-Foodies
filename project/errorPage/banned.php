@@ -44,7 +44,7 @@
         $sql->execute([":userID" => $userID]);
         $result = $sql->fetch();
         $time = $result["DateBanned"];
-        
+
         echo '<p>You have been banned, please wait until ' . $time . '.</p>';
     ?>
 </div>
