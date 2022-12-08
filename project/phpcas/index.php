@@ -63,8 +63,8 @@
         $_SESSION['admin'] = $row['admin'];
         $_SESSION['Banned'] = $row['Banned'];
 
-        include '../errorPage/check_if_banned.php';
-        header("Location: ../main/main.php");
+        include '../../errorPage/check_if_banned.php';
+        header("Location: ../../main/main.php");
 
     } else {
         echo "<div id='content-wrap'>";
@@ -84,7 +84,7 @@
         echo "</main>";
         echo "</div>";
         echo "<footer>";
-        include '../footer.html';
+        include '../../footer.html';
         echo "</footer>";
     ?>
 
