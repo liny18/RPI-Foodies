@@ -93,3 +93,7 @@ textarea {
   color: black;
   font-weight: bold;
 }
+
+.btn-link:hover {
+  text-decoration: underline;
+}
