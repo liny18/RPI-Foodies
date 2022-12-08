@@ -304,7 +304,10 @@
                   echo '<div>';
                   echo '<p class="small text-secondary mb-1">';
                   // date goes here
-                  echo $comments[$j]['commentTime'];
+                  //use time function in time_function, calculate the time difference
+                  $temp = $comments[$j]['commentTime'];
+                  $temp_out = calculate_time($temp);
+                  echo $temp_out;
                   echo '</p>';
                   echo '</div>';
                   echo '</div>';
@@ -462,7 +465,9 @@
                 echo '<div>';
                 echo '<p class="small text-secondary mb-1">';
                 // date goes here
-                echo $comments[$j]['commentTime'];
+                $temp = $comments[$j]['commentTime'];
+                $temp_out = calculate_time($temp);
+                echo $temp_out;
                 echo '</p>';
                 echo '</div>';
                 echo '</div>';
@@ -618,7 +623,9 @@
                 echo '<div>';
                 echo '<p class="small text-secondary mb-1">';
                 // date goes here
-                echo $comments[$j]['commentTime'];
+                $temp = $comments[$j]['commentTime'];
+                $temp_out = calculate_time($temp);
+                echo $temp_out;
                 echo '</p>';
                 echo '</div>';
                 echo '</div>';
