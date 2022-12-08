@@ -25,7 +25,9 @@ function calculate_time($date1) {
         $diff = round($diff / 60);
         $diff > 1 ? $unit = "minutes" : $unit = "minute";
     } else {
-        $diff > 1 ? $unit = "seconds" : $unit = "second";
+        // seconds will count as just now
+        $diff = "Just Now";
+        return $diff;
     }
     return $diff . " " . $unit . " ago";
 }
