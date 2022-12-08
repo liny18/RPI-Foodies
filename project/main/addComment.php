@@ -1,4 +1,5 @@
 <?php
+include "../time_function/time.php";
 @session_start();
 // a function to increase or decrease the like counter by 1 or maybe leave it the same
 $userID = $_GET['userID'];
@@ -72,7 +73,9 @@ echo '</div>';
 echo '<div>';
 echo '<p class="small text-secondary mb-1">';
 // date goes here
-echo $commentTime;
+$temp = $commentTime;
+$temp_out = calculate_time($temp);
+echo $temp_out;
 echo '</p>';
 echo '</div>';
 echo '</div>';
