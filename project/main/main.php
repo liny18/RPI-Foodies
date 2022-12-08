@@ -285,6 +285,10 @@
                 $comments = $comments->fetchAll();
                 // commenting starts here
                 for ($j = 0; $j < count($comments); $j++) {
+                  // references commentLikes table to get who liked what comment
+                  $commentLikes = $conn->prepare('SELECT * FROM commentLikes WHERE commentID = :commentID');
+                  $commentLikes->execute(['commentID' => $comments[$j]['commentID']]);
+                  $commentLikes = $commentLikes->fetchAll();
                   echo '<div class="card mb-3">';
                   echo '<div class="card-body">';
                   echo '<div class="d-flex flex-start">';
@@ -318,7 +322,13 @@
                   echo '</div>';
                   echo '<div class="d-flex justify-content-between align-items-center">';
                   echo '<div class="semi-like border-0 p-0 bg-transparent">';
-                  echo '<i class="fa-regular fa-heart"></i>';
+                  echo '<button class="like ';
+                  if (count($commentLikes) != 0) {
+                    echo 'liked-this-post';
+                  }
+                  echo '" onclick="likeCounterComment(' . $comments[$j]['commentID'] . ', ' . $_SESSION['userID'];
+                  echo ', this)"><i class="fa-regular fa-heart';
+                  echo '"></i></button>';
                   echo '</div>';
                   echo '<div>';
                   // only show delete if the user is the one who posted the comment
@@ -451,6 +461,10 @@
               $comments = $comments->fetchAll();
               // commenting starts here
               for ($j = 0; $j < count($comments); $j++) {
+                // references commentLikes table to get who liked what comment
+                $commentLikes = $conn->prepare('SELECT * FROM commentLikes WHERE commentID = :commentID');
+                $commentLikes->execute(['commentID' => $comments[$j]['commentID']]);
+                $commentLikes = $commentLikes->fetchAll();
                 echo '<div class="card mb-3">';
                 echo '<div class="card-body">';
                 echo '<div class="d-flex flex-start">';
@@ -483,7 +497,12 @@
                 echo '</div>';
                 echo '<div class="d-flex justify-content-between align-items-center">';
                 echo '<div class="semi-like border-0 p-0 bg-transparent">';
-                echo '<i class="fa-regular fa-heart"></i>';
+                if (count($commentLikes) != 0) {
+                  echo 'liked-this-post';
+                }
+                echo '" onclick="likeCounterComment(' . $comments[$j]['commentID'] . ', ' . $_SESSION['userID'];
+                echo ', this)"><i class="fa-regular fa-heart';
+                echo '"></i></button>';
                 echo '</div>';
                 echo '<div>';
                 // only show delete if the user is the one who posted the comment
@@ -614,6 +633,10 @@
               $comments = $comments->fetchAll();
               // commenting starts here
               for ($j = 0; $j < count($comments); $j++) {
+                // references commentLikes table to get who liked what comment
+                $commentLikes = $conn->prepare('SELECT * FROM commentLikes WHERE commentID = :commentID');
+                $commentLikes->execute(['commentID' => $comments[$j]['commentID']]);
+                $commentLikes = $commentLikes->fetchAll();
                 echo '<div class="card mb-3">';
                 echo '<div class="card-body">';
                 echo '<div class="d-flex flex-start">';
@@ -646,7 +669,12 @@
                 echo '</div>';
                 echo '<div class="d-flex justify-content-between align-items-center">';
                 echo '<div class="semi-like border-0 p-0 bg-transparent">';
-                echo '<i class="fa-regular fa-heart"></i>';
+                if (count($commentLikes) != 0) {
+                  echo 'liked-this-post';
+                }
+                echo '" onclick="likeCounterComment(' . $comments[$j]['commentID'] . ', ' . $_SESSION['userID'];
+                echo ', this)"><i class="fa-regular fa-heart';
+                echo '"></i></button>';
                 echo '</div>';
                 echo '<div>';
                 // only show delete if the user is the one who posted the comment
