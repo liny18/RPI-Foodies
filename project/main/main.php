@@ -674,7 +674,7 @@
         <div class="col-md-3 py-3">
           <div class="card text-center">
             <div class="card-header">
-              <i class="fa-solid fa-utensils"></i> Quick Search
+              <i class="fa-solid fa-fire"></i> Quick Search
             </div>
             <form class="card-body" action="main.php" method="post">
               <h5 class="card-title">Popular tags</h5>
