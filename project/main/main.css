@@ -10,13 +10,22 @@
   transition: 0.5s;
 }
 
-
+.semi-like:hover,
 .like:hover,
 .comment:hover,
 .location:hover,
 .list-group-item:hover,
 .liked-this-post {
   color: #f04320;
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.del {
+  transition: 0.5s;
+}
+
+.del:hover {
   cursor: pointer;
   transform: scale(1.1);
 }
