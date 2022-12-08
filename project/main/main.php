@@ -551,7 +551,7 @@
                 echo '</div>';
                 echo '<div class="modal-body">';
                 echo '<div class="container d-flex flex-row justify-content-center">';
-                echo '<form action="main.php" method="post">';
+                echo '<form class="me-3" action="main.php" method="post">';
                 echo '<input type="hidden" name="' . $row[$i]['postID'] . '" value=" ' . $row[$i]['postID'] . '"/>';
                 echo '<button type="submit" name="deleteAdmin" value="deleteAdmin" class="btn btn-outline-danger" data-bs-dismiss="modal">Yes</button>';
                 echo '</form>';
@@ -600,7 +600,7 @@
                   echo '</div>';
                   echo '<div class="modal-body">';
                   echo '<div class="container d-flex flex-row justify-content-center">';
-                  echo '<form action="main.php" method="post">';
+                  echo '<form class="me-3" action="main.php" method="post">';
                   echo '<input type="hidden" name="' . $row[$i]['postID'] . '" value=" ' . $row[$i]['postID'] . '"/>';
                   echo '<button type="submit" name="delete" value="delete" class="btn btn-outline-danger" data-bs-dismiss="modal">Yes</button>';
                   echo '</form>';
@@ -804,7 +804,7 @@
                 echo '</div>';
                 echo '<div class="modal-body">';
                 echo '<div class="container d-flex flex-row justify-content-center">';
-                echo '<form action="main.php" method="post">';
+                echo '<form class="me-3"action="main.php" method="post">';
                 echo '<input type="hidden" name="' . $row[$i]['postID'] . '" value=" ' . $row[$i]['postID'] . '"/>';
                 echo '<button type="submit" name="deleteAdmin" value="deleteAdmin" class="btn btn-outline-danger" data-bs-dismiss="modal">Yes</button>';
                 echo '</form>';
@@ -853,7 +853,7 @@
                   echo '</div>';
                   echo '<div class="modal-body">';
                   echo '<div class="container d-flex flex-row justify-content-center">';
-                  echo '<form action="main.php" method="post">';
+                  echo '<form class="me-3" action="main.php" method="post">';
                   echo '<input type="hidden" name="' . $row[$i]['postID'] . '" value=" ' . $row[$i]['postID'] . '"/>';
                   echo '<button type="submit" name="delete" value="delete" class="btn btn-outline-danger" data-bs-dismiss="modal">Yes</button>';
                   echo '</form>';
