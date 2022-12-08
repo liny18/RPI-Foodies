@@ -32,18 +32,12 @@
 <body>
   <!-- Top navbar includes links to login and search bar along with  -->
   <div id="content-wrap">
+
+    <?php include '../errorPage/check_if_banned.php'; ?>
+
     <header>
       <?php include '../header.php'; ?>
     </header>
-
-    <?php
-      @session_start();
-      if ($banned[0]['Banned'] == 1) {
-        header("Location: ../errorPage/banned.php");
-        exit;
-      }
-    ?>
-
     <div class="d-flex pt-5 align-items-center justify-content-center">
       <h1 class="">Dining Halls</h1>
     </div>

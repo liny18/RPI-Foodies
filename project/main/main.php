@@ -23,30 +23,17 @@
 
 <body>
   <div id="content-wrap">
-    <header>
-      <?php include '../header.php'; ?>
-    </header>
 
     <?php
 
-    @session_start();
-
-  
+    include '../errorPage/check_if_banned.php';
     include '../time_function/time.php';
 
-    if (isset($_SESSION['Banned'])) {
-      header("Location: ../errorPage/banned.php");
-    }
-
+    @session_start();
     $servername = "localhost";
     $database = "rpiFoodies";
     $username = "root";
     $password = "";
-
-    function sanitize_xss($value)
-    {
-      return htmlspecialchars(strip_tags($value));
-    }
 
     try {
       $conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
@@ -62,6 +49,9 @@
       $_SESSION['isSearch'] = true;
     }
 
+    function sanitize_xss($value) {
+      return htmlspecialchars(strip_tags($value));
+    }
 
     // based on if a button is clicked then go to the search page with the query needed
     if (array_key_exists('mostLiked0', $_POST) && isset($_SESSION['topPost1'])) {
@@ -214,6 +204,10 @@
     $grabByLikesCommons->execute();
     ?>
 
+    <header>
+      <?php include '../header.php'; ?>
+    </header>
+
     <div class="container">
       <div class="row">
         <div class="col-md-3 py-3">
@@ -316,7 +310,7 @@
                   echo '</div>';
                   echo '<div class="modal-body">';
                   echo '<div class="container d-flex flex-row justify-content-center">';
-                  echo '<form class="me-3" action="main.php" method="post">';
+                  echo '<form class="me-3" action="index.php" method="post">';
                   echo  '<input type="hidden" name="userID" value=" ' . $row[0]['userID'] . '"/>';
                   echo '<button type="submit" name="ban" value="ban" class="btn btn-outline-danger" data-bs-dismiss="modal">Yes</button>';
                   echo '</form>';
@@ -574,7 +568,7 @@
                 echo '</div>';
                 echo '<div class="modal-body">';
                 echo '<div class="container d-flex flex-row justify-content-center">';
-                echo '<form class="me-3" action="main.php" method="post">';
+                echo '<form class="me-3" action="index.php" method="post">';
                 echo  '<input type="hidden" name="userID" value=" ' . $row[0]['userID'] . '"/>';
                 echo '<button type="submit" name="ban" value="ban" class="btn btn-outline-danger" data-bs-dismiss="modal">Yes</button>';
                 echo '</form>';
@@ -827,7 +821,7 @@
                 echo '</div>';
                 echo '<div class="modal-body">';
                 echo '<div class="container d-flex flex-row justify-content-center">';
-                echo '<form class="me-3" action="main.php" method="post">';
+                echo '<form class="me-3" action="index.php" method="post">';
                 echo  '<input type="hidden" name="userID" value=" ' . $row[0]['userID'] . '"/>';
                 echo '<button type="submit" name="ban" value="ban" class="btn btn-outline-danger" data-bs-dismiss="modal">Yes</button>';
                 echo '</form>';
