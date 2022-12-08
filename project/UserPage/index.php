@@ -23,6 +23,14 @@
       $username = "root";
       $password = "";
 
+      try {
+          $conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
+          // set the PDO error mode to exception
+          $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      } catch (PDOException $e) {
+          echo "Connection failed: " . $e->getMessage();
+      }
+
       $sql1 = 'SELECT * FROM users WHERE userID = :task_id';
       $stmt3 = $conn->prepare($sql1);
       $stmt3->bindValue(':task_id', $_SESSION['userID']);
@@ -33,14 +41,7 @@
         exit;
       }
 
-      try {
-          $conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
-          // set the PDO error mode to exception
-          $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-      } catch (PDOException $e) {
-          echo "Connection failed: " . $e->getMessage();
-      }
-
+      
       if (array_key_exists('delete', $_POST)) {
         $taskId = $_POST["postID"];
         $sql2 = 'DELETE FROM Posts WHERE postID = :task_id';

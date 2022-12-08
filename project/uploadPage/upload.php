@@ -35,16 +35,6 @@
         $password = "";
 
         $conn;
-
-        $sql1 = 'SELECT * FROM users WHERE userID = :task_id';
-        $stmt3 = $conn->prepare($sql1);
-        $stmt3->bindValue(':task_id', $_SESSION['userID']);
-        $stmt3->execute();
-        $banned = $stmt3->fetchAll();
-        if ($banned[0]['Banned'] == 1) {
-          header("Location: ../errorPage/banned.php");
-          exit;
-        }
         // check if the content type of the file is image
         function checkFile($file) {
             return (strpos(mime_content_type($file), "image") !== false);
@@ -61,6 +51,16 @@
             echo "Connection failed: " . $e->getMessage();
         }
 
+        $sql1 = 'SELECT * FROM users WHERE userID = :task_id';
+        $stmt3 = $conn->prepare($sql1);
+        $stmt3->bindValue(':task_id', $_SESSION['userID']);
+        $stmt3->execute();
+        $banned = $stmt3->fetchAll();
+        if ($banned[0]['Banned'] == 1) {
+          header("Location: ../errorPage/banned.php");
+          exit;
+        }
+        
         if (array_key_exists('submitUpload', $_POST)) {
             // create an insert statement
             $upload = $conn->prepare("INSERT INTO Posts (postTime, userID, likes, mainComment, postPhoto, location, tag1, foodName) VALUES (:time, :userID, 0, :mainComment, :postPhoto, :location, :tag1, :foodName)");

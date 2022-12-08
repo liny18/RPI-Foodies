@@ -26,6 +26,13 @@
     $username = "root";
     $password = "";
         
+    try {
+      $conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
+      // set the PDO error mode to exception
+      $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    } catch(PDOException $e) {
+      echo "Connection failed: " . $e->getMessage();
+    }
 
     $sql1 = 'SELECT * FROM users WHERE userID = :task_id';
     $stmt3 = $conn->prepare($sql1);
@@ -36,15 +43,7 @@
       header("Location: ../errorPage/banned.php");
       exit;
     }
-
-    try {
-      $conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
-      // set the PDO error mode to exception
-      $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    } catch(PDOException $e) {
-      echo "Connection failed: " . $e->getMessage();
-    }
-
+    
     $taskId = $_POST["postID"];
     if(isset($_POST["delete"]) && array_key_exists('delete', $_POST)){
       $sql1 = 'SELECT * FROM Posts WHERE postID = :task_id';
