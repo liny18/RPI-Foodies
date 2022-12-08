@@ -12,12 +12,16 @@ if ($userID != $_SESSION['userID']) {
     exit;
 }
 
+function sanitize_xss($value) {
+    return htmlspecialchars(strip_tags($value));
+}
+
 $postID = $_GET['postID'];
-$postID = htmlspecialchars(trim($postID));
+$postID = sanitize_xss(trim($postID));
 
 // get comment
 $comment = $_GET['comment'];
-$comment = htmlspecialchars(trim($comment));
+$comment = sanitize_xss(trim($comment));
 
 $servername = "localhost";
 $database = "rpiFoodies";
