@@ -21,13 +21,11 @@
   <script defer src="../main/main.js"></script>
 </head>
 <body>
-  <div id="content-wrap">
-  <header>
-      <?php include '../header.php'; ?>
-  </header>
 
   <?php 
+    include '../errorPage/check_if_banned.php';
     include '../time_function/time.php';
+
     @session_start();
 
     if (!isset($_SESSION['admin'])) {
@@ -136,6 +134,9 @@
                       echo '<div class="comment"><i class="fa-regular fa-comment"></i>';
                       echo 0 . ' comments</div></div>';
                       echo '<form action="index.php" method="post">';
+                      echo  '<input type="hidden" name="postID" value=" ' . $row[0]['postID'] . '"/>';
+                      echo '<button type="submit" name="aprove" value="aprove" class="btn btn-danger">Approve</button>';
+                      echo '</form>';
                       echo  '<input type="hidden" name="postID" value=" ' . $row[0]['postID'] . '"/>';
                       echo '<button type="submit" name="delete" value="delete" class="btn btn-danger">Delete</button>';
                       echo '</form>';
