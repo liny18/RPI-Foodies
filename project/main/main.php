@@ -292,7 +292,7 @@
                   echo '<div class="modal-body">';
                   echo '<div class="container">';
                   echo '<form action="main.php" method="post">';
-                  echo '<input type="hidden" name="postID" value=" ' . $row[$i]['postID'] . '"/>';
+                  echo '<input type="hidden" name="' . $row[$i]['postID'] . '" value=" ' . $row[$i]['postID'] . '"/>';
                   echo '<button type="submit" name="deleteAdmin" value="deleteAdmin" class="btn btn-outline-danger" data-bs-dismiss="modal">Yes</button>';
                   echo '</form>';
                   echo '<button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">No</button>';
@@ -315,7 +315,7 @@
                   echo '<div class="modal-body">';
                   echo '<div class="container">';
                   echo '<form action="index.php" method="post">';
-                  echo  '<input type="hidden" name="userID" value=" ' . $row[0]['userID'] . '"/>';
+                  echo  '<input type="hidden" name="' . $row[0]['userID'] . '" value=" ' . $row[0]['userID'] . '"/>';
                   echo '<button type="submit" name="ban" value="ban" class="btn btn-danger">Ban User</button>';
                   echo '</form>';
                   echo '<button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">No</button>';
@@ -339,7 +339,7 @@
                     echo '<div class="modal-body">';
                     echo '<div class="container">';
                     echo '<form action="main.php" method="post">';
-                    echo '<input type="hidden" name="postID" value=" ' . $row[$i]['postID'] . '"/>';
+                    echo '<input type="hidden" name="' . $row[$i]['postID'] . '" value=" ' . $row[$i]['postID'] . '"/>';
                     echo '<button type="submit" name="delete" value="delete" class="btn btn-outline-danger" data-bs-dismiss="modal">Yes</button>';
                     echo '</form>';
                     echo '<button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">No</button>';
@@ -546,7 +546,7 @@
                 echo '<div class="modal-body">';
                 echo '<div class="container">';
                 echo '<form action="main.php" method="post">';
-                echo '<input type="hidden" name="postID" value=" ' . $row[$i]['postID'] . '"/>';
+                echo '<input type="hidden" name="' . $row[$i]['postID'] . '" value=" ' . $row[$i]['postID'] . '"/>';
                 echo '<button type="submit" name="deleteAdmin" value="deleteAdmin" class="btn btn-outline-danger" data-bs-dismiss="modal">Yes</button>';
                 echo '</form>';
                 echo '<button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">No</button>';
@@ -569,7 +569,7 @@
                 echo '<div class="modal-body">';
                 echo '<div class="container">';
                 echo '<form action="index.php" method="post">';
-                echo  '<input type="hidden" name="userID" value=" ' . $row[0]['userID'] . '"/>';
+                echo  '<input type="hidden" name="' . $row[0]['userID'] . '" value=" ' . $row[0]['userID'] . '"/>';
                 echo '<button type="submit" name="ban" value="ban" class="btn btn-danger">Ban User</button>';
                 echo '</form>';
                 echo '<button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">No</button>';
@@ -593,7 +593,7 @@
                   echo '<div class="modal-body">';
                   echo '<div class="container">';
                   echo '<form action="main.php" method="post">';
-                  echo '<input type="hidden" name="postID" value=" ' . $row[$i]['postID'] . '"/>';
+                  echo '<input type="hidden" name="' . $row[$i]['postID'] . '" value=" ' . $row[$i]['postID'] . '"/>';
                   echo '<button type="submit" name="delete" value="delete" class="btn btn-outline-danger" data-bs-dismiss="modal">Yes</button>';
                   echo '</form>';
                   echo '<button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">No</button>';
@@ -795,7 +795,7 @@
                 echo '<div class="modal-body">';
                 echo '<div class="container">';
                 echo '<form action="main.php" method="post">';
-                echo '<input type="hidden" name="postID" value=" ' . $row[$i]['postID'] . '"/>';
+                echo '<input type="hidden" name="' . $row[$i]['postID'] . '" value=" ' . $row[$i]['postID'] . '"/>';
                 echo '<button type="submit" name="deleteAdmin" value="deleteAdmin" class="btn btn-outline-danger" data-bs-dismiss="modal">Yes</button>';
                 echo '</form>';
                 echo '<button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">No</button>';
@@ -818,7 +818,7 @@
                 echo '<div class="modal-body">';
                 echo '<div class="container">';
                 echo '<form action="index.php" method="post">';
-                echo  '<input type="hidden" name="userID" value=" ' . $row[0]['userID'] . '"/>';
+                echo  '<input type="hidden" name="' . $row[0]['userID'] . '" value=" ' . $row[0]['userID'] . '"/>';
                 echo '<button type="submit" name="ban" value="ban" class="btn btn-danger">Ban User</button>';
                 echo '</form>';
                 echo '<button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">No</button>';
@@ -842,7 +842,7 @@
                   echo '<div class="modal-body">';
                   echo '<div class="container">';
                   echo '<form action="main.php" method="post">';
-                  echo '<input type="hidden" name="postID" value=" ' . $row[$i]['postID'] . '"/>';
+                  echo '<input type="hidden" name="' . $row[$i]['postID'] . '" value=" ' . $row[$i]['postID'] . '"/>';
                   echo '<button type="submit" name="delete" value="delete" class="btn btn-outline-danger" data-bs-dismiss="modal">Yes</button>';
                   echo '</form>';
                   echo '<button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">No</button>';
