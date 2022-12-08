@@ -53,3 +53,17 @@ $("textarea").each(function () {
     this.style.height = 0;
     this.style.height = (this.scrollHeight) + "px";
 });
+
+// function to run a php script to increase likes for a comment
+function likeCounterComment(commentID, userID, text) {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            if (this.responseText != -1) {
+                $(text).toggleClass("liked-this-post");
+            }
+        }
+    }
+    xmlhttp.open("POST", "increaseCommentLikes.php?commentID=" + commentID + "&userID=" + userID, true);
+    xmlhttp.send();
+}
