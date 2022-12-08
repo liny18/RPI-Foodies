@@ -94,6 +94,14 @@ textarea {
   font-weight: bold;
 }
 
+.postRCS:hover {
+  color: #f04320;
+}
+
 .btn-link:hover {
   text-decoration: underline;
+}
+
+.like {
+  padding: 3px 10px;
 }

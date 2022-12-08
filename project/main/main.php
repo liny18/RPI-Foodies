@@ -280,7 +280,7 @@
                 echo '</form>';
 
                 if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
-                  echo '<div class="container">';
+                  echo '<div class="container d-flex justify-content-end">';
                   echo '<button type="button" class="btn btn-link text-danger text-decoration-none" data-bs-toggle="modal" data-bs-target="#deleteModal">';
                   echo 'Delete';
                   echo '</button>';
@@ -488,7 +488,7 @@
                   echo '</div>';
                   echo '<div>';
                   // only show delete if the user is the one who posted the comment
-                  if ($comments[$j]['userID'] == $_SESSION['userID']) {
+                  if ($comments[$j]['userID'] == $_SESSION['userID'] || (isset($_SESSION['admin']) && $_SESSION['admin'] == 1)) {
                     echo '<button class="del btn btn-link p-0 text-danger text-decoration-none">';
                     echo 'Delete';
                     echo '</button>';
@@ -538,7 +538,7 @@
               echo '<button type="submit" name="submit" value="submit" class="btn tbn-link text-decoration-none postRCS">' . $user[0]['username'] . '</button>';
               echo '</form>';
               if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
-                echo '<div class="container">';
+                echo '<div class="container d-flex justify-content-end">';
                 echo '<button type="button" class="btn btn-link text-danger text-decoration-none" data-bs-toggle="modal" data-bs-target="#deleteModal">';
                 echo 'Delete';
                 echo '</button>';
@@ -744,7 +744,7 @@
                 echo '</div>';
                 echo '<div>';
                 // only show delete if the user is the one who posted the comment
-                if ($comments[$j]['userID'] == $_SESSION['userID']) {
+                if ($comments[$j]['userID'] == $_SESSION['userID'] || (isset($_SESSION['admin']) && $_SESSION['admin'] == 1)) {
                   echo '<button class="del btn btn-link p-0 text-danger text-decoration-none">';
                   echo 'Delete';
                   echo '</button>';
@@ -791,7 +791,7 @@
               echo '<button type="submit" name="submit" value="submit" class="btn tbn-link text-decoration-none postRCS">' . $user[0]['username'] . '</button>';
               echo '</form>';
               if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
-                echo '<div class="container">';
+                echo '<div class="container d-flex justify-content-end">';
                 echo '<button type="button" class="btn btn-link text-danger text-decoration-none" data-bs-toggle="modal" data-bs-target="#deleteModal">';
                 echo 'Delete';
                 echo '</button>';
@@ -998,7 +998,7 @@
                 echo '</div>';
                 echo '<div>';
                 // only show delete if the user is the one who posted the comment
-                if ($comments[$j]['userID'] == $_SESSION['userID']) {
+                if ($comments[$j]['userID'] == $_SESSION['userID'] || (isset($_SESSION['admin']) && $_SESSION['admin'] == 1)) {
                   echo '<button class="del btn btn-link p-0 text-danger text-decoration-none">';
                   echo 'Delete';
                   echo '</button>';
