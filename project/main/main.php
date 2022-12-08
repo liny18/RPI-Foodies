@@ -497,6 +497,7 @@
                 echo '</div>';
                 echo '<div class="d-flex justify-content-between align-items-center">';
                 echo '<div class="semi-like border-0 p-0 bg-transparent">';
+                echo '<button class="like ';
                 if (count($commentLikes) != 0) {
                   echo 'liked-this-post';
                 }
@@ -669,10 +670,11 @@
                 echo '</div>';
                 echo '<div class="d-flex justify-content-between align-items-center">';
                 echo '<div class="semi-like border-0 p-0 bg-transparent">';
+                echo '<button class="like ';
                 if (count($commentLikes) != 0) {
                   echo 'liked-this-post';
                 }
-                echo '" onclick="likeCounterComment(' . $comments[$j]['commentID'] . ', ' . $_SESSION['userID'];
+                echo '"onclick="likeCounterComment(' . $comments[$j]['commentID'] . ', ' . $_SESSION['userID'];
                 echo ', this)"><i class="fa-regular fa-heart';
                 echo '"></i></button>';
                 echo '</div>';
