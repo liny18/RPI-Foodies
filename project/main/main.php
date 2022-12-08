@@ -323,8 +323,8 @@
                   echo '</div>';
                 } else {
                   if($row[$i]['userID'] == $_SESSION['userID']){
-                    echo '<div class="container">';
-                    echo '<button type="button" class="btn btn-link text-danger text-decoration-none" data-bs-toggle="modal" data-bs-target="#deleteModal' . $row[$i]['postID'] . '">';
+                    echo '<div class="container d-flex justify-content-end">';
+                    echo '<button type="button" class="btn btn-link text-danger text-decoration-none" data-bs-toggle="modal" data-bs-target="#deleteModal">';
                     echo 'Delete';
                     echo '</button>';
                     echo '<div class="modal fade" id="deleteModal' . $row[$i]['postID'] . '" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">';
@@ -581,8 +581,8 @@
                 echo '</div>';
               } else {
                 if($row[$i]['userID'] == $_SESSION['userID']){
-                  echo '<div class="container">';
-                  echo '<button type="button" class="btn btn-link text-danger text-decoration-none" data-bs-toggle="modal" data-bs-target="#deleteModal' . $row[$i]['postID'] . '">';
+                  echo '<div class="container d-flex justify-content-end">';
+                  echo '<button type="button" class="btn btn-link text-danger text-decoration-none" data-bs-toggle="modal" data-bs-target="#deleteModal">';
                   echo 'Delete';
                   echo '</button>';
                   echo '<div class="modal fade" id="deleteModal' . $row[$i]['postID'] . '" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">';
@@ -834,8 +834,8 @@
                 echo '</div>';
               } else {
                 if($row[$i]['userID'] == $_SESSION['userID']){
-                  echo '<div class="container">';
-                  echo '<button type="button" class="btn btn-link text-danger text-decoration-none" data-bs-toggle="modal" data-bs-target="#deleteModal' . $row[$i]['postID'] . '">';
+                  echo '<div class="container d-flex justify-content-end">';
+                  echo '<button type="button" class="btn btn-link text-danger text-decoration-none" data-bs-toggle="modal" data-bs-target="#deleteModal">';
                   echo 'Delete';
                   echo '</button>';
                   echo '<div class="modal fade" id="deleteModal' . $row[$i]['postID'] . '" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">';
