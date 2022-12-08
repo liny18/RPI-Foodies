@@ -18,7 +18,6 @@
 
       include '../time_function/time.php';
       
-
       $servername = "localhost";
       $database = "rpiFoodies";
       $username = "root";
@@ -32,6 +31,17 @@
           echo "Connection failed: " . $e->getMessage();
       }
 
+      $sql1 = 'SELECT * FROM users WHERE userID = :task_id';
+      $stmt3 = $conn->prepare($sql1);
+      $stmt3->bindValue(':task_id', $_SESSION['userID']);
+      $stmt3->execute();
+      $banned = $stmt3->fetchAll();
+      if ($banned[0]['Banned'] == 1) {
+        header("Location: ../errorPage/banned.php");
+        exit;
+      }
+
+      
       if (array_key_exists('delete', $_POST)) {
         $taskId = $_POST["postID"];
         $sql2 = 'DELETE FROM Posts WHERE postID = :task_id';
