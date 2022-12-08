@@ -198,6 +198,13 @@
       $username = $_POST['userID'];
       $stmt6->bindValue(':task_id', $username);
       $stmt6->execute(); 
+
+      $date = Date("Y-m-d");
+      $sql13 =  'UPDATE users SET DateBanned = ' . $date . ' WHERE userID = :task_id';
+      $stmt6 = $conn->prepare($sql13);
+      $username = $_POST['userID'];
+      $stmt6->bindValue(':task_id', $username);
+      $stmt6->execute(); 
     }
 
     // first grab all the data in descending order because newer posts will have a larger postid
