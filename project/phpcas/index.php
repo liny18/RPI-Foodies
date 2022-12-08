@@ -59,7 +59,7 @@
                             $sql->execute([":username" => $username]);
                             $result = $sql->fetch();
                             if ($result[0] == 0) {
-                                $sql = $db->prepare("INSERT INTO users (username, admin, BannedPost, Banned) VALUES (:username, 0, 3, 0");
+                                $sql = $db->prepare("INSERT INTO users (username, admin, BannedPosts, DateBanned, Banned) VALUES (:username, 0, 3, 0000-00-00, 0)");
                                 $sql->execute([":username" => $username]);
                             }
 
