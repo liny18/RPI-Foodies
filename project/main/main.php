@@ -128,7 +128,7 @@
       $stmt->execute();
 
       // delete the likes for the post
-      $sql = 'DELETE FROM Likes WHERE postID = :task_id';
+      $sql = 'DELETE FROM likes WHERE postID = :task_id';
       $stmt = $conn->prepare($sql);
       $stmt->bindValue(':task_id', $taskId);
       $stmt->execute();
