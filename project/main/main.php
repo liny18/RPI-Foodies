@@ -229,7 +229,7 @@
                 echo $row[$i]["foodName"];
                 echo '</h5>';
                 echo '</div>';
-                echo '<img class="card-img-top" src="../postImages/' . $row[$i]['postPhoto'] . '"alt="Card image">';
+                echo '<img class="card-img-top mt-0" src="../postImages/' . $row[$i]['postPhoto'] . '"alt="Card image">';
                 echo '<div class="card-body"><h5 class="card-title"><i class="fa-solid fa-tags"></i> ';
                 echo $row[$i]['tag1'] . '</h5>';
                 echo '<p class="card-text">';
@@ -393,7 +393,7 @@
               echo $row[$i]["foodName"];
               echo '</h5>';
               echo '</div>';
-              echo '<img class="card-img-top" src="../postImages/' . $row[$i]['postPhoto'] . '"alt="Card image">';
+              echo '<img class="card-img-top mt-0" src="../postImages/' . $row[$i]['postPhoto'] . '"alt="Card image">';
               echo '<div class="card-body"><h5 class="card-title"><i class="fa-solid fa-tags"></i> ';
               echo $row[$i]['tag1'] . '</h5>';
               echo '<p class="card-text"><i class="fa-solid fa-quote-left"></i> ';
@@ -553,7 +553,7 @@
               echo $row[$i]["foodName"];
               echo '</h5>';
               echo '</div>';
-              echo '<img class="card-img-top" src="../postImages/' . $row[$i]['postPhoto'] . '"alt="Card image">';
+              echo '<img class="card-img-top mt-0" src="../postImages/' . $row[$i]['postPhoto'] . '"alt="Card image">';
               echo '<div class="card-body"><h5 class="card-title"><i class="fa-solid fa-tags"></i> ';
               echo $row[$i]['tag1'] . '</h5>';
               echo '<p class="card-text">';
