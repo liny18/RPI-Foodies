@@ -86,6 +86,7 @@
         echo "<footer>";
         include '../../footer.html';
         echo "</footer>";
+    }
     ?>
 
 </body>
