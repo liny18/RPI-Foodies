@@ -29,6 +29,10 @@
         
         @session_start();
 
+        if (isset($_SESSION['Banned'])) {
+            header("Location: ../errorPage/banned.php");
+        }
+
         $servername = "localhost";
         $database = "rpiFoodies";
         $username = "root";
@@ -60,7 +64,7 @@
           header("Location: ../errorPage/banned.php");
           exit;
         }
-        
+
         if (array_key_exists('submitUpload', $_POST)) {
             // create an insert statement
             $upload = $conn->prepare("INSERT INTO Posts (postTime, userID, likes, mainComment, postPhoto, location, tag1, foodName) VALUES (:time, :userID, 0, :mainComment, :postPhoto, :location, :tag1, :foodName)");
