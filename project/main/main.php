@@ -292,7 +292,7 @@
                   echo '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>';
                   echo '</div>';
                   echo '<div class="modal-body">';
-                  echo '<div class="container">';
+                  echo '<div class="container d-flex flex-row justify-content-center">';
                   echo '<form action="main.php" method="post">';
                   echo '<input type="hidden" name="' . $row[$i]['postID'] . '" value=" ' . $row[$i]['postID'] . '"/>';
                   echo '<button type="submit" name="deleteAdmin" value="deleteAdmin" class="btn btn-outline-danger" data-bs-dismiss="modal">Yes</button>';
@@ -550,7 +550,7 @@
                 echo '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>';
                 echo '</div>';
                 echo '<div class="modal-body">';
-                echo '<div class="container">';
+                echo '<div class="container d-flex flex-row justify-content-center">';
                 echo '<form action="main.php" method="post">';
                 echo '<input type="hidden" name="' . $row[$i]['postID'] . '" value=" ' . $row[$i]['postID'] . '"/>';
                 echo '<button type="submit" name="deleteAdmin" value="deleteAdmin" class="btn btn-outline-danger" data-bs-dismiss="modal">Yes</button>';
@@ -803,7 +803,7 @@
                 echo '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>';
                 echo '</div>';
                 echo '<div class="modal-body">';
-                echo '<div class="container">';
+                echo '<div class="container d-flex flex-row justify-content-center">';
                 echo '<form action="main.php" method="post">';
                 echo '<input type="hidden" name="' . $row[$i]['postID'] . '" value=" ' . $row[$i]['postID'] . '"/>';
                 echo '<button type="submit" name="deleteAdmin" value="deleteAdmin" class="btn btn-outline-danger" data-bs-dismiss="modal">Yes</button>';
