@@ -61,6 +61,25 @@
   text-decoration: none;
 }
 
+.color {
+  color: #f04320;
+}
+
+/* https://stackoverflow.com/questions/454202/creating-a-textarea-with-auto-resize
+*/
+textarea {
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid #aaa;
+    background-color: transparent;
+    resize: none;
+    outline: none;
+}
+
+.comment-container>.f {
+  flex : 1;
+}
+
 .postRCS {
   color: black;
   font-weight: bold;

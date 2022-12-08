@@ -253,7 +253,7 @@
                 echo '<section>';
                 echo '<div class="container">';
                 echo '<div class="row d-flex">';
-                echo '<div class="container w-100 d-flex justify-content-between" id="comment' . $row[$i]['postID'] . '">';
+                echo '<div class="comment-container container w-100 d-flex justify-content-between" id="comment' . $row[$i]['postID'] . '">';
                 echo '<div class="f">';
                 echo '<textarea name="text ' . $row[$i]['postID'] . '" maxlength="255" placeholder="Add Your Comment" id="text' . $row[$i]['postID'] . '"></textarea>';
                 echo '<div class="d-flex justify-content-between">';
@@ -411,7 +411,7 @@
               echo '<section>';
               echo '<div class="container">';
               echo '<div class="row d-flex">';
-              echo '<div class="container w-100 d-flex justify-content-between" id="comment' . $row[$i]['postID'] . '">';
+              echo '<div class="comment-container container w-100 d-flex justify-content-between" id="comment' . $row[$i]['postID'] . '">';
               echo '<div class="f">';
               echo '<textarea name="text ' . $row[$i]['postID'] . '" maxlength="255" placeholder="Add Your Comment" id="text' . $row[$i]['postID'] . '"></textarea>';
               echo '<div class="d-flex justify-content-between">';
@@ -567,7 +567,7 @@
               echo '<section>';
               echo '<div class="container">';
               echo '<div class="row d-flex">';
-              echo '<div class="container w-100 d-flex justify-content-between" id="comment' . $row[$i]['postID'] . '">';
+              echo '<div class="comment-container container w-100 d-flex justify-content-between" id="comment' . $row[$i]['postID'] . '">';
               echo '<div class="f">';
               echo '<textarea name="text ' . $row[$i]['postID'] . '" maxlength="255" placeholder="Add Your Comment" id="text' . $row[$i]['postID'] . '"></textarea>';
               echo '<div class="d-flex justify-content-between">';
