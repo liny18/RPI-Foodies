@@ -14,10 +14,10 @@
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <script defer src="main.js"></script>
   <?php
-      @session_start();
-
+      include '../errorPage/check_if_banned.php';
       include '../time_function/time.php';
-      
+
+      @session_start();
       $servername = "localhost";
       $database = "rpiFoodies";
       $username = "root";
@@ -30,17 +30,6 @@
       } catch (PDOException $e) {
           echo "Connection failed: " . $e->getMessage();
       }
-
-      $sql1 = 'SELECT * FROM users WHERE userID = :task_id';
-      $stmt3 = $conn->prepare($sql1);
-      $stmt3->bindValue(':task_id', $_SESSION['userID']);
-      $stmt3->execute();
-      $banned = $stmt3->fetchAll();
-      if ($banned[0]['Banned'] == 1) {
-        header("Location: ../errorPage/banned.php");
-        exit;
-      }
-
       
       if (array_key_exists('delete', $_POST)) {
         $taskId = $_POST["postID"];
