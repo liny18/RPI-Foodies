@@ -16,17 +16,17 @@ function likeCounter(postID, userID, text) {
     xmlhttp.send();
 }
 
-function report(postID, userID, element) {
+function report(postID, userID, element){
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             if (this.responseText != -1) {
-                element.className = "btn btn-success";
+                element.classList.add("disabled");
             }
         }
     }
     xmlhttp.open("POST", "report.php?postID=" + postID + "&userID=" + userID, true);
-    xmlhttp.send();
+    xmlhttp.send();    
 }
 
 // function to run a php script to add a comment to a post
