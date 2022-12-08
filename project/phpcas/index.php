@@ -64,7 +64,7 @@
         $_SESSION['Banned'] = $row['Banned'];
 
         include '../errorPage/check_if_banned.php';
-        header("Location: ../errorPage/banned.php");
+        header("Location: ../main/main.php");
 
     } else {
         echo "<div id='content-wrap'>";
@@ -78,14 +78,14 @@
         echo "<div class='form-container'>";
         echo "<p class='cas_info'>*This website is connected to RPI CAS login system. You need a RPI account to login.</p>";
         echo "<a href='login.php' class='login_button'>Login</a>";
-        echo "</div>"
-        echo "</div>"
-        echo "</div>"
-        echo "</main>"
-        echo "</div>"
-        echo "<footer>"
+        echo "</div>";
+        echo "</div>";
+        echo "</div>";
+        echo "</main>";
+        echo "</div>";
+        echo "<footer>";
         include '../footer.html';
-        echo "</footer>"
+        echo "</footer>";
     ?>
 
 </body>
