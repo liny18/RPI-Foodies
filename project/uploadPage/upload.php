@@ -53,7 +53,9 @@
             $fileTmpName = $_FILES['postPhoto']['tmp_name'];
             // get file size
             $fileSize = $_FILES['postPhoto']['size'];
+            echo $fileSize;
             define('MB', 1048576);
+            echo $fileSize / MB;
             if (!checkFile($fileTmpName)) {
                 echo "<h2 class='text-center h2'>File type not supported</h2>";
                 echo "<h3 class='text-center h3'>Please upload a .jpg, .jpeg, or .png file</h3>";
