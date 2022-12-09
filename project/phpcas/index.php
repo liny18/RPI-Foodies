@@ -85,7 +85,7 @@
         echo "</main>";
         echo "</div>";
         echo "<footer>";
-        include '../../footer.html';
+        include '../footer.html';
         echo "</footer>";
     }
     ?>
