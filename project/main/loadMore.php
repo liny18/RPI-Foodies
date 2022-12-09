@@ -24,7 +24,7 @@ if ($_SESSION['type'] == 1) {
         echo -1;
     }
     $result_count = 0;
-    for ($i; $result_count < 10 && $i < $len; $i++) {
+    for ($i = $i; $result_count < 10 && $i < $len; $i++) {
       // $_SESSION['query'] = sanitize_xss($_SESSION['query']); // only needs to happen once
       $query = $_SESSION['query'];
       // should only match if the userID, main Comment has some similar word, location is the same, tags are the same
