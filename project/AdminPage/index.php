@@ -79,15 +79,39 @@
         $stmt6->execute();
       }
 
-      $sql = 'DELETE FROM Reports WHERE postID = :task_id';
-      $stmt = $conn->prepare($sql);
-      $stmt->bindValue(':task_id', $taskId);
-      $stmt->execute();
-
-      $sql2 = 'DELETE FROM Posts WHERE postID = :task_id';
-      $stmt2 = $conn->prepare($sql2);
-      $stmt2->bindValue(':task_id', $taskId);
-      $stmt2->execute();
+      $commentLikes = $conn->prepare('SELECT * FROM Comments WHERE postID = :postID');
+        $commentLikes->bindValue(':postID', $taskId);
+        $commentLikes->execute();
+  
+        // loop through and delete each comment
+        while ($row = $commentLikes->fetch(PDO::FETCH_ASSOC)) {
+          $sql = 'DELETE FROM commentLikes WHERE commentID = :task_id';
+          $stmt = $conn->prepare($sql);
+          $stmt->bindValue(':task_id', $row['commentID']);
+          $stmt->execute();
+        }
+  
+        // delete the comments for the post
+        $sql = 'DELETE FROM Comments WHERE postID = :task_id';
+        $stmt = $conn->prepare($sql);
+        $stmt->bindValue(':task_id', $taskId);
+        $stmt->execute();
+  
+        // delete the likes for the post
+        $sql = 'DELETE FROM Likes WHERE postID = :task_id';
+        $stmt = $conn->prepare($sql);
+        $stmt->bindValue(':task_id', $taskId);
+        $stmt->execute();
+  
+        $sql = 'DELETE FROM Reports WHERE postID = :task_id';
+        $stmt = $conn->prepare($sql);
+        $stmt->bindValue(':task_id', $taskId);
+        $stmt->execute();
+  
+        $sql2 = 'DELETE FROM Posts WHERE postID = :task_id';
+        $stmt2 = $conn->prepare($sql2);
+        $stmt2->bindValue(':task_id', $taskId);
+        $stmt2->execute();
     }
 
     if (isset($_POST["aprove"]) && array_key_exists('aprove', $_POST)) {
