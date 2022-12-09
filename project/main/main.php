@@ -324,7 +324,6 @@
                   echo '</div>';
                 } else {
                   if($row[$i]['userID'] == $_SESSION['userID']){
-                    echo '<div class="container d-flex justify-content-end">';
                     echo '<button type="button" class="btn btn-link text-danger text-decoration-none" data-bs-toggle="modal" data-bs-target="#deleteModal' . $row[$i]['postID'] . '">';
                     echo 'Delete';
                     echo '</button>';
@@ -342,7 +341,6 @@
                     echo '<button type="submit" name="deleteAdmin" value="deleteAdmin" class="btn btn-outline-danger" data-bs-dismiss="modal">Yes</button>';
                     echo '</form>';
                     echo '<button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">No</button>';
-                    echo '</div>';
                     echo '</div>';
                     echo '</div>';
                     echo '</div>';
@@ -588,7 +586,6 @@
                 echo '</div>';
               } else {
                 if($row[$i]['userID'] == $_SESSION['userID']){
-                  echo '<div class="container d-flex justify-content-end">';
                   echo '<button type="button" class="btn btn-link text-danger text-decoration-none" data-bs-toggle="modal" data-bs-target="#deleteModal' . $row[$i]['postID'] . '">';
                   echo 'Delete';
                   echo '</button>';
@@ -606,7 +603,6 @@
                   echo '<button type="submit" name="deleteAdmin" value="deleteAdmin" class="btn btn-outline-danger" data-bs-dismiss="modal">Yes</button>';
                   echo '</form>';
                   echo '<button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">No</button>';
-                  echo '</div>';
                   echo '</div>';
                   echo '</div>';
                   echo '</div>';
@@ -846,7 +842,6 @@
                 echo '</div>';
               } else {
                 if($row[$i]['userID'] == $_SESSION['userID']){
-                  echo '<div class="container d-flex justify-content-end">';
                   echo '<button type="button" class="btn btn-link text-danger text-decoration-none" data-bs-toggle="modal" data-bs-target="#deleteModal' . $row[$i]['postID'] . '">';
                   echo 'Delete';
                   echo '</button>';
@@ -864,7 +859,6 @@
                   echo '<button type="submit" name="deleteAdmin" value="deleteAdmin" class="btn btn-outline-danger" data-bs-dismiss="modal">Yes</button>';
                   echo '</form>';
                   echo '<button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">No</button>';
-                  echo '</div>';
                   echo '</div>';
                   echo '</div>';
                   echo '</div>';
