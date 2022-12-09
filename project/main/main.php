@@ -254,12 +254,14 @@
             // grab the rows of the query
             $row = $grabByPostID->fetchAll();
             $len = count($row);
+            $result_count = 0;
             // print out data for the specific searched item
-            for ($i = 0; $i < 10 && $i < $len; $i++) {
+            for ($i = 0; $result_count < 10 && $i < $len; $i++) {
               $query = sanitize_xss($_SESSION['query']);
               // should only match if the userID, main Comment has some similar word, location is the same, tags are the same
               // or the foodName is the same as the search item
               if (str_contains($row[$i]['userID'], $query) || str_contains(strtolower($row[$i]['mainComment']), $query) || str_contains($row[$i]['location'], $query) || str_contains($row[$i]['tag1'], $query) || str_contains($row[$i]['foodName'], $query)) {
+                $result_count++;
                 $liked = $conn->prepare("SELECT * FROM likes WHERE postID = :postID AND userID = :userID");
                 $liked->execute([":postID" => $row[$i]['postID'], ":userID" => $_SESSION['userID']]);
                 echo '<div class="card text-center">';
@@ -508,9 +510,9 @@
                 echo '</div>';
               }
             }
-
             $_SESSION['isSearch'] = false;
             $_SESSION['query'] = "";
+
           } else if (isset($_SESSION['query']) && $_SESSION['query'] != '') {
             // create new query based on the button pressed
             $grabByPostID = $conn->prepare($_SESSION['query']);
