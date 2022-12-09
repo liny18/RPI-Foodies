@@ -42,7 +42,7 @@
   if ($isBanned) {
     echo '<img src="./error.png" alt="error" id="error_image">';
     echo '<br><br><h1>Get banned bozo</h1><br>';
-    echo '<p>You have been banned, please wait until ' . $time . '.</p>';
+    echo '<p>You have been banned. Please contact an admin.</p>';
   } else {
     header("Location: ../main/main.php");
     exit;
