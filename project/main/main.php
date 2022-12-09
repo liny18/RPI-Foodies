@@ -347,6 +347,7 @@
                     echo '</div>';
                     echo '</div>';
                     echo '</div>';
+                    echo '</div>';
                   } else {
                     echo '<button type="button" class="btn btn-link text-danger text-decoration-none" data-bs-toggle="modal" data-bs-target="#reportModal' . $row[$i]['postID'] . '">';
                     echo 'Report';
@@ -610,6 +611,7 @@
                   echo '</div>';
                   echo '</div>';
                   echo '</div>';
+                  echo '</div>';
                 } else {
                   echo '<button type="button" class="btn btn-link text-danger text-decoration-none" data-bs-toggle="modal" data-bs-target="#reportModal' . $row[$i]['postID'] . '">';
                   echo 'Report';
@@ -862,6 +864,7 @@
                   echo '<button type="submit" name="deleteAdmin" value="deleteAdmin" class="btn btn-outline-danger" data-bs-dismiss="modal">Yes</button>';
                   echo '</form>';
                   echo '<button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">No</button>';
+                  echo '</div>';
                   echo '</div>';
                   echo '</div>';
                   echo '</div>';
