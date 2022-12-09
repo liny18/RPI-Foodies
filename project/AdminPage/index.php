@@ -164,7 +164,7 @@
               echo '<div class="container d-flex justify-content-end">';
               echo '<form action="index.php" method="post">';
               echo '<input type="hidden" name="postID" value=" ' . $row[0]['postID'] . '"/>';
-              echo '<button type="submit" name="aprove" value="aprove" class="btn btn-danger">Keep Post</button>';
+              echo '<button type="submit" name="aprove" value="aprove" class="btn btn-link text-primary text-decoration-none">Keep Post</button>';
               echo '</form>';
               echo '<button type="button" class="btn btn-link text-danger text-decoration-none" data-bs-toggle="modal" data-bs-target="#deleteModal' . $row[0]['postID'] . '">';
               echo 'Delete';
