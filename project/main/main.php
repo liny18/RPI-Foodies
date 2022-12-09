@@ -200,9 +200,6 @@
     $grabByLikes = $conn->prepare("SELECT * FROM Posts ORDER BY likes DESC");
     $grabByLikes->execute();
 
-    // grab data by most likes in commons
-    $grabByLikesCommons = $conn->prepare("SELECT * FROM Posts WHERE location = 'Commons' ORDER BY likes DESC");
-    $grabByLikesCommons->execute();
     ?>
 
     <header>
