@@ -52,15 +52,13 @@
             $ext = pathinfo($fileName, PATHINFO_EXTENSION);
             $fileTmpName = $_FILES['postPhoto']['tmp_name'];
             // get file size
-            $fileSize = $_FILES['postPhoto']['size'];
-            echo $fileSize;
-            define('MB', 1048576);
-            echo $fileSize / MB;
+            $fileSize = filesize($fileTmpName);
+            //1,572,864
             if (!checkFile($fileTmpName)) {
                 echo "<h2 class='text-center h2'>File type not supported</h2>";
                 echo "<h3 class='text-center h3'>Please upload a .jpg, .jpeg, or .png file</h3>";
                 echo "<h4 class='text-center h4'>File size must be less than 1.5MB</h4>";
-            } elseif ($fileSize > 1.5*MB) {
+            } elseif ($fileSize >1572864) {
                 echo "<h2 class='text-center h2'>File size is too large</h2>";
                 echo "<h3 class='text-center h3'>Maximum file size is 1.5mb</h3>";
             } elseif (strlen($_POST['caption']) > 255) {
