@@ -245,7 +245,7 @@
             </form>
           </div>
         </div>
-        <div class="col-md-6 py-3">
+        <div class="col-md-6 py-3" id="PostContainer">
 
 
           <?php
@@ -510,6 +510,11 @@
                 echo '</div>';
               }
             }
+            // have the query ready for load more
+            $_SESSION['rows'] = $row;
+            $_SESSION['len'] = $len;
+            $_SESSION['type'] = 1;
+            // reset querys to 0
             $_SESSION['isSearch'] = false;
             $_SESSION['query'] = "";
 
@@ -766,6 +771,10 @@
               echo '</div>';
               echo '</div>';
             }
+            // have the query ready for load more
+            $_SESSION['rows'] = $row;
+            $_SESSION['len'] = $len;
+            $_SESSION['type'] = 2;
             // reset querys to 0
             $_SESSION['query'] = "";
           }
@@ -1021,8 +1030,15 @@
               echo '</div>';
               echo '</div>';
             }
+            // have the query ready for load more
+            $_SESSION['rows'] = $row;
+            $_SESSION['len'] = $len;
+            $_SESSION['type'] = 3;
           }
+          $_SESSION['i'] = 10;
+          echo '<div class="load-more text-center"><button class="btn btn-primary" onclick="loadMore(this)">Load More</button></div>';
           ?>
+
         </div>
 
         <!-- using a button gropu and the forms we will save the required query and transfer to the next page -->
