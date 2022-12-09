@@ -117,197 +117,39 @@
                       $numPosts = $posts->fetchAll();
                       $hosts = $conn->prepare("SELECT * FROM Posts WHERE postID = :postID");
                       for ($i = 0; $i < count($numPosts); $i++) {
-                        $hosts->execute([':postID' => $numPosts[0]['postID']]);
+                        $hosts->execute([':postID' => $numPosts[$i]['postID']]);
                         $row = $hosts->fetchAll();
                         echo '<div class="card text-center">';
-                        echo '<div class="card-header p-2">';
-                        echo '<div class="d-flex justify-content-between p-1">';
-                        echo '<form action="../UserPage/index.php?userID=' . $row[0]['userID'] . '&userName=' . $user[0]['username'] . '" method="post">';
-                        echo '<button type="submit" name="submit" value="submit" class="btn tbn-link text-decoration-none postRCS">' . $user[0]['username'] . '</button>';
+                        echo '<div class="card-header p-2"> <div class="location p-2">';
+                        echo '<i class="fa-solid fa-location-arrow"></i>' . $row[0]['location'] . '</div>';
+                        echo '<p class="time"><i class="fa-solid fa-clock"></i> ' . calculate_time($row[0]['postTime']) . '</p>';
+                        echo '</div>';
+                        echo '<img class="card-img-top" src="../postImages/' . $row[0]['postPhoto'] . '"alt="Card image">';
+                        echo '<div class="card-body"><h5 class="card-title"><i class="fa-solid fa-tags"></i>';
+                        echo $row[0]['tag1'] . '</h5>';
+                        echo '<p class="card-text">';
+                        echo '<i class="fa-solid fa-quote-left"></i>';
+                        echo $row[0]['mainComment'];
+                        echo '<i class="fa-solid fa-quote-right"></i></p></div>';
+                        echo '<div class="card-footer d-flex justify-content-between pl-5 pr-5">';
+                        echo '<button class="like" onclick="likeCounter(' . $row[0]['postID'] . ', ' . $_SESSION['userID'];
+                        echo ', this)"><i class="fa-regular fa-heart" ></i> ';
+                        echo $row[0]['likes'] . ' likes</button>';
+                        echo '<div class="comment"><i class="fa-regular fa-comment"></i>';
+                        echo 0 . ' comments</div></div>';
+                        echo '<form action="index.php" method="post">';
+                        echo  '<input type="hidden" name="postID" value=" ' . $row[0]['postID'] . '"/>';
+                        echo '<button type="submit" name="aprove" value="aprove" class="btn btn-danger">Approve</button>';
                         echo '</form>';
-                        echo '<div class="container d-flex justify-content-end">';
-                        echo '<button type="button" class="btn btn-link text-danger text-decoration-none" data-bs-toggle="modal" data-bs-target="#deleteModal' . $row[0]['postID'] . '">';
-                        echo 'Delete';
-                        echo '</button>';
-                        echo '<div class="modal fade" id="deleteModal' . $row[0]['postID'] . '" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">';
-                        echo '<div class="modal-dialog modal-sm">';
-                        echo '<div class="modal-content">';
-                        echo '<div class="modal-header">';
-                        echo '<h5 class="modal-title" id="deleteModalLabel' . $row[0]['postID'] . '">Delete?</h5>';
-                        echo '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>';
-                        echo '</div>';
-                        echo '<div class="modal-body">';
-                        echo '<div class="container d-flex flex-row justify-content-center">';
-                        echo '<form action="main.php" method="post">';
-                        echo '<input type="hidden" name="postID" value=" ' . $row[0]['postID'] . '"/>';
-                        echo '<button type="submit" name="deleteAdmin" value="deleteAdmin" class="btn btn-outline-danger" data-bs-dismiss="modal">Yes</button>';
+                        echo  '<input type="hidden" name="postID" value=" ' . $row[0]['postID'] . '"/>';
+                        echo '<button type="submit" name="delete" value="delete" class="btn btn-danger">Delete</button>';
                         echo '</form>';
-                        echo '<button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">No</button>';
-                        echo '</div>';
-                        echo '</div>';
-                        echo '</div>';
-                        echo '</div>';
-                        echo '</div>';
-        
-                        echo '<button type="button" class="btn btn-link text-danger text-decoration-none" data-bs-toggle="modal" data-bs-target="#banModal' . $row[0]['postID'] . '">';
-                        echo 'Ban User';
-                        echo '</button>';
-                        echo '<div class="modal fade" id="banModal' . $row[0]['postID'] . '" tabindex="-1" aria-labelledby="banModalLabel" aria-hidden="true">';
-                        echo '<div class="modal-dialog modal-sm">';
-                        echo '<div class="modal-content">';
-                        echo '<div class="modal-header">';
-                        echo '<h5 class="modal-title" id="banModalLabel' . $row[0]['postID'] . '">Ban?</h5>';
-                        echo '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>';
-                        echo '</div>';
-                        echo '<div class="modal-body">';
-                        echo '<div class="container d-flex flex-row justify-content-center">';
-                        echo '<form class="me-3" action="index.php" method="post">';
+                        echo '<form action="index.php" method="post">';
                         echo  '<input type="hidden" name="userID" value=" ' . $row[0]['userID'] . '"/>';
-                        echo '<button type="submit" name="ban" value="ban" class="btn btn-outline-danger" data-bs-dismiss="modal">Yes</button>';
+                        echo '<button type="submit" name="ban" value="ban" class="btn btn-danger">Ban User</button>';
                         echo '</form>';
-                        echo '<button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">No</button>';
-                        echo '</div>';
-                        echo '</div>';
-                        echo '</div>';
-                        echo '</div>';
-                        echo '</div>';
                         echo '</div>';
                       }
-                      echo '</div>';
-                      echo '<div class="location p-2">';
-                      echo '<i class="fa-solid fa-location-arrow"></i> ' . $row[0]['location'] . '</div>';
-                      echo '<p class="time mt-1"><i class="fa-solid fa-clock pt-1"></i> ' . calculate_time($row[0]['postTime']) . '</p>';
-                      echo '</div>';
-                      echo '<div>';
-                      echo '<h5 class="card-title"><i class="fa-solid fa-utensils me-2 mt-2"></i>';
-                      echo $row[0]["foodName"];
-                      echo '</h5>';
-                      echo '</div>';
-                      echo '<img class="card-img-top mt-0" src="../postImages/' . $row[0]['postPhoto'] . '"alt="Card image">';
-                      echo '<div class="card-body"><h5 class="card-title"><i class="fa-solid fa-tags"></i> ';
-                      echo $row[0]['tag1'] . '</h5>';
-                      echo '<p class="card-text">';
-                      echo '<i class="fa-solid fa-quote-left"></i> ';
-                      echo $row[0]['mainComment'];
-                      echo ' <i class="fa-solid fa-quote-right"></i></p></div>';
-                      echo '<div class="card-footer d-flex justify-content-between pl-5 pr-5">';
-                      echo '<button class="like ';
-                      $count = $liked->fetchAll();
-                      if (count($count) != 0) {
-                        echo 'liked-this-post';
-                      }
-                      echo '" onclick="likeCounter(' . $row[0]['postID'] . ', ' . $_SESSION['userID'];
-                      echo ', this)"><i class="fa-regular fa-heart';
-                      echo '"></i> ' . $row[0]['likes'] . ' likes</button>';
-                      // modal for comments that pops up and displays
-                      echo '<div class="comment" data-bs-toggle="modal" data-bs-target="#commentModal' . $row[0]['postID'] . ' "><i class="fa-regular fa-comment"></i> ';
-                      echo ' comments</div></div>';
-                      //modal
-                      echo '<div class="modal fade" id="commentModal' . $row[0]['postID'] . '" tabindex="-1" aria-labelledby="commentModalLabel" aria-hidden="true">';
-                      echo '<div class="modal-dialog"><div class="modal-content"><div class="modal-header">';
-                      echo '<h1 class="modal-title fs-5" id="commentModalLabel' . $row[0]['postID'] . '">Comments</h1>';
-                      echo '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>';
-                      echo '</div>';
-                      echo '<div class="modal-body" style="background-color: #f7f6f6;">';
-                      echo '<section>';
-                      echo '<div class="container">';
-                      echo '<div class="row d-flex">';
-                      echo '<div class="comment-container container w-100 d-flex justify-content-between" id="comment' . $row[0]['postID'] . '">';
-                      echo '<div class="f">';
-                      echo '<textarea name="text ' . $row[0]['postID'] . '" maxlength="255" placeholder="Add Your Comment" id="text' . $row[0]['postID'] . '"></textarea>';
-                      echo '<div class="d-flex justify-content-between">';
-                      echo '<button class="btn btn-dark" onclick="createComt(' . $_SESSION['userID'] . ',' . $row[0]['postID'] . ',\'text' . $row[0]['postID'] . '\',\'CommentPlace' . $row[0]['postID'] . '\')">Comment</button>';
-                      echo '<div class="d-flex justify-content-between">';
-                      echo '<div class="card m-0">';
-                      echo '<div class="card-body p-1 d-flex align-items-center">';
-                      echo '<h6 class="text-primary fw-bold small mb-0 me-2">Sort by Likes</h6>';
-                      echo '<div class="form-check form-switch pt-1">';
-                      echo '<input class="form-check-input" type="checkbox" id="switch' . $row[0]['postID'] . '" />';
-                      echo '<label class="form-check-label" for="switch' . $row[0]['postID'] . '"></label>';
-                      echo '</div>';
-                      echo '</div>';
-                      echo '</div>';
-                      echo '</div>';
-                      echo '</div>';
-                      echo '</div>';
-                      echo '</div>';
-                      echo '<div class="col-12" id="CommentPlace' . $row[0]['postID'] . '">';
-      
-                      // prepare query for comments table
-                      $comments = $conn->prepare('SELECT * FROM Comments WHERE postID = :postID ORDER BY commentID DESC');
-                      $comments->execute(['postID' => $row[0]['postID']]);
-                      $comments = $comments->fetchAll();
-                      // commenting starts here
-                      for ($j = 0; $j < count($comments); $j++) {
-                        // references commentLikes table to get who liked what comment
-                        $commentLikes = $conn->prepare('SELECT * FROM commentLikes WHERE commentID = :commentID');
-                        $commentLikes->execute(['commentID' => $comments[$j]['commentID']]);
-                        $commentLikes = $commentLikes->fetchAll();
-                        echo '<div class="card mb-3">';
-                        echo '<div class="card-body">';
-                        echo '<div class="d-flex flex-start">';
-                        echo '<div class="w-100">';
-                        echo '<div class="d-flex text-start flex-column">';
-                        echo '<div>';
-                        echo '<h6 class="color fw-bold">';
-                        // username goes here
-                        // also grab username from users table
-                        $user = $conn->prepare('SELECT * FROM users WHERE userID = :userID');
-                        $user->execute(['userID' => $comments[$j]['userID']]);
-                        $user = $user->fetch();
-                        echo $user['username'];
-                        echo '</h6>';
-                        echo '</div>';
-                        echo '<div class="border-top border-bottom pt-2 pb-2">';
-                        echo '<p class="mb-0">';
-                        // comment goes here
-                        echo $comments[$j]['comment'];
-                        echo '</p>';
-                        echo '</div>';
-                        echo '<div>';
-                        echo '<p class="small text-secondary mb-1">';
-                        // date goes here
-                        //use time function in time_function, calculate the time difference
-                        $temp = $comments[$j]['commentTime'];
-                        $temp_out = calculate_time($temp);
-                        echo $temp_out;
-                        echo '</p>';
-                        echo '</div>';
-                        echo '</div>';
-                        echo '<div class="d-flex justify-content-between align-items-center">';
-                        echo '<div class="semi-like border-0 p-0 bg-transparent">';
-                        echo '<button class="like ';
-                        if (count($commentLikes) != 0) {
-                          echo 'liked-this-post';
-                        }
-                        echo '" onclick="likeCounterComment(' . $comments[$j]['commentID'] . ', ' . $_SESSION['userID'];
-                        echo ', this)"><i class="fa-regular fa-heart';
-                        echo '"></i></button>';
-                        echo '</div>';
-                        echo '<div>';
-                        // only show delete if the user is the one who posted the comment
-                        if ($comments[$j]['userID'] == $_SESSION['userID'] || (isset($_SESSION['admin']) && $_SESSION['admin'] == 1)) {
-                          echo '<button class="del btn btn-link p-0 text-danger text-decoration-none">';
-                          echo 'Delete';
-                          echo '</button>';
-                        }
-                        echo '</div>';
-                        echo '</div>';
-                        echo '</div>';
-                        echo '</div>';
-                        echo '</div>';
-                        echo '</div>';
-                      }
-                      // commenting ends here
-                      echo '</div>';
-                      echo '</div>';
-                      echo '</div>';
-                      echo '</div>';
-                      echo '</section>';
-                      echo '</div>';
-                      echo '</div>';
-                      echo '</div>';
-                      echo '</div>';
                     ?>
                 </div>
             </div>
