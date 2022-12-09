@@ -67,3 +67,23 @@ function likeCounterComment(commentID, userID, text) {
     xmlhttp.open("POST", "increaseCommentLikes.php?commentID=" + commentID + "&userID=" + userID, true);
     xmlhttp.send();
 }
+
+
+function loadMore(self) {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            if (this.responseText != -1) {
+                self.remove();
+                document.getElementById('PostContainer').innerHTML += this.responseText;
+                document.getElementById('PostContainer').innerHTML += '<div class="load-more text-center"><button class="btn btn-primary" onclick="loadMore(this)">Load More</button></div>';
+            }
+            else {
+                self.remove();
+                document.getElementById('PostContainer').innerHTML += '<div class="text-center"><h2>No more posts to load!</h2></div>';
+            }
+        }
+    }
+    xmlhttp.open("POST", "loadMore.php", true);
+    xmlhttp.send();
+}
