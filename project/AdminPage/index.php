@@ -30,7 +30,7 @@
       @session_start();
 
       if (!isset($_SESSION['admin'])) {
-        header("Location: ../errorPage/banned.php");
+        header("Location: ../errorPage/error_page.php");
       }
 
       $servername = "localhost";
