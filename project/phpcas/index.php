@@ -61,9 +61,9 @@
         $_SESSION['userID'] = $row['userID'];
         $_SESSION['userName'] = $row['username'];
         $_SESSION['admin'] = $row['admin'];
-        $_SESSION['Banned'] = $row['Banned'];
 
         include '../../errorPage/check_if_banned.php';
+        $_SESSION['Banned'] = $row['Banned'];
         header("Location: ../../main/main.php");
 
     } else {
