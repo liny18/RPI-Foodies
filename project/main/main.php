@@ -257,7 +257,8 @@
             $result_count = 0;
             // print out data for the specific searched item
             for ($i = 0; $result_count < 10 && $i < $len; $i++) {
-              $query = sanitize_xss($_SESSION['query']);
+              $_SESSION['query'] = sanitize_xss($_SESSION['query']);
+              $query = $_SESSION['query'];
               // should only match if the userID, main Comment has some similar word, location is the same, tags are the same
               // or the foodName is the same as the search item
               if (str_contains($row[$i]['userID'], $query) || str_contains(strtolower($row[$i]['mainComment']), $query) || str_contains($row[$i]['location'], $query) || str_contains($row[$i]['tag1'], $query) || str_contains($row[$i]['foodName'], $query)) {
@@ -1090,7 +1091,7 @@
             $_SESSION['type'] = 3;
           }
           $_SESSION['i'] = 10;
-          echo '<div class="load-more text-center"><button class="btn btn-primary" onclick="loadMore(this)">Load More</button></div>';
+          echo '<div class="load-more text-center"><button class="btn btn-link text-primary text-decoration-none" onclick="loadMore(this)">Load more</button></div>';
           ?>
 
         </div>

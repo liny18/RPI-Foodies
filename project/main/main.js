@@ -76,7 +76,7 @@ function loadMore(self) {
             if (this.responseText != -1) {
                 self.remove();
                 document.getElementById('PostContainer').innerHTML += this.responseText;
-                document.getElementById('PostContainer').innerHTML += '<div class="load-more text-center"><button class="btn btn-primary" onclick="loadMore(this)">Load More</button></div>';
+                document.getElementById('PostContainer').innerHTML += '<div class="load-more text-center"><button class="btn btn-link text-primary text-decoration-none" onclick="loadMore(this)">Load more</button></div>';
             }
             else {
                 self.remove();
