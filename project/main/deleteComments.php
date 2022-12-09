@@ -31,6 +31,6 @@ $commentID = htmlspecialchars(trim($commentID));
 $postID = $_GET['postID'];
 $postID = htmlspecialchars(trim($postID));
 
-$conn->prepare("DELETE FROM Comments WHERE commentID = :commentID AND postID = :postID")->execute([":commentID" => $commentID]);
+$conn->prepare("DELETE FROM Comments WHERE commentID = :commentID")->execute([":commentID" => $commentID);
 
 ?>
