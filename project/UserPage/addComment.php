@@ -92,7 +92,8 @@ echo '<i class="fa-regular fa-heart"></i>';
 echo '</div>';
 echo '<div>';
 echo '<button class="del btn btn-link p-0 text-danger text-decoration-none">';
-echo 'Delete';
+// link to deleteComment.php to delete the comment
+echo '<a class="commentA text-danger text-decoration-none" href="deleteComments.php?commentID=' . $commentID . '&postID=' . $postID . '">Delete</a>';
 echo '</button>';
 echo '</div>';
 echo '</div>';
