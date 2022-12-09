@@ -176,6 +176,7 @@
       $stmt2->execute();
     }
 
+    // this is where banning users is
     if(isset($_POST["ban"]) && array_key_exists('ban', $_POST)){
       $sql13 =  'UPDATE users SET Banned = 1 WHERE userID = :task_id';
       $stmt6 = $conn->prepare($sql13);
@@ -310,7 +311,7 @@
                   echo '</div>';
                   echo '<div class="modal-body">';
                   echo '<div class="container d-flex flex-row justify-content-center">';
-                  echo '<form class="me-3" action="index.php" method="post">';
+                  echo '<form class="me-3" action="main.php" method="post">';
                   echo  '<input type="hidden" name="userID" value=" ' . $row[0]['userID'] . '"/>';
                   echo '<button type="submit" name="ban" value="ban" class="btn btn-outline-danger" data-bs-dismiss="modal">Yes</button>';
                   echo '</form>';
@@ -568,7 +569,7 @@
                 echo '</div>';
                 echo '<div class="modal-body">';
                 echo '<div class="container d-flex flex-row justify-content-center">';
-                echo '<form class="me-3" action="index.php" method="post">';
+                echo '<form class="me-3" action="main.php" method="post">';
                 echo  '<input type="hidden" name="userID" value=" ' . $row[0]['userID'] . '"/>';
                 echo '<button type="submit" name="ban" value="ban" class="btn btn-outline-danger" data-bs-dismiss="modal">Yes</button>';
                 echo '</form>';
@@ -821,7 +822,7 @@
                 echo '</div>';
                 echo '<div class="modal-body">';
                 echo '<div class="container d-flex flex-row justify-content-center">';
-                echo '<form class="me-3" action="index.php" method="post">';
+                echo '<form class="me-3" action="main.php" method="post">';
                 echo  '<input type="hidden" name="userID" value=" ' . $row[0]['userID'] . '"/>';
                 echo '<button type="submit" name="ban" value="ban" class="btn btn-outline-danger" data-bs-dismiss="modal">Yes</button>';
                 echo '</form>';
