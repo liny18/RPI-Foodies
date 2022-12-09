@@ -16,42 +16,41 @@
     <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </head>
 <body>
-
 <div class="error">
-    <img src="./error.png" alt="error" id="error_image">
-    <br>
-    <br>
-    <h1>Get banned bozo</h1>
-    <br>
-    <?php
-        @session_start();
+  <?php
+  @session_start();
 
-        $servername = "localhost";
-        $database = "rpiFoodies";
-        $username = "root";
-        $password = "";
+  $servername = "localhost";
+  $database = "rpiFoodies";
+  $username = "root";
+  $password = "";
 
-        try {
-            $conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
-            // set the PDO error mode to exception
-            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        } catch (PDOException $e) {
-            echo "Connection failed: " . $e->getMessage();
-        }
+  try {
+    $conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
+    // set the PDO error mode to exception
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  } catch (PDOException $e) {
+    echo "Connection failed: " . $e->getMessage();
+  }
 
-        $userID = $_SESSION["userID"];
-        $sql = $conn->prepare("SELECT * FROM users WHERE userID = :userID");
-        $sql->execute([":userID" => $userID]);
-        $result = $sql->fetch();
-        $time = $result["DateBanned"];
-
-        echo '<p>You have been banned, please wait until ' . $time . '.</p>';
-    ?>
+  $userID = $_SESSION["userID"];
+  $sql = $conn->prepare("SELECT * FROM users WHERE userID = :userID");
+  $sql->execute([":userID" => $userID]);
+  $result = $sql->fetch();
+  $time = $result["DateBanned"];
+  $isBanned = $result["Banned"];
+  if ($isBanned) {
+    echo '<img src="./error.png" alt="error" id="error_image">';
+    echo '<br><br><h1>Get banned bozo</h1><br>';
+    echo '<p>You have been banned, please wait until ' . $time . '.</p>';
+  } else {
+    header("Location: ../main/main.php");
+    exit;
+  }
+  ?>
 </div>
-
-
 <footer>
-    <?php include '../footer.html'; ?>
+  <?php include '../footer.html'; ?>
 </footer>
 </body>
 </html>
