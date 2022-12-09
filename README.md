@@ -1,8 +1,15 @@
 # ITWS2110-F22-ErrorCats
 Team 8
 
-Welcome to RPI Foodgram, a website where RPI students can share photos of their favorite food from around campus. You can also like and comment on other people's posts, just like on a social media platform.
+Welcome to RPI Foodies! Our website is a social media platform for RPI students to share and discover the food served in the dining halls. With RPI Foodies, students can easily access information about the food options on campus and make informed decisions about what to eat.
 
-To get started, simply create an account and start posting pictures of your favorite RPI eats. You can also browse the posts of other users to discover new and delicious food options on campus.
+Our website features include:
 
-With RPI Foodgram, you'll never have to settle for a boring meal again. Join the community today and start sharing your food adventures with other RPI students. Happy eating!
+Posting and viewing photos of the food served in the dining halls
+Adding reviews and ratings of the food to help other students
+Searching for specific dining halls or types of food
+Categorizing posts by type of food (vegan/vegetarian, snacks, desserts, etc.)
+Login and create account page for students to access their personal profile and posts
+RPI Foodies is a valuable resource for all RPI students, especially first-year students and sophomores who are required to have a meal plan. It also benefits parents who want to know what their children are eating, and Sodexo and Rensselaer Dining who can use the data to improve their menus and services. Clubs and organizations can also use the platform to promote their events and free food.
+
+Join RPI Foodies and never worry about risking a swipe on unappetizing food again!
