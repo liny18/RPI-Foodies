@@ -65,6 +65,7 @@
           $row = $posts->fetchAll();
           $len = count($row);
           if($len != 0){
+            // print out data for most liked foods
             for ($i = 0; $i < $len; $i++) {
               $liked = $conn->prepare("SELECT * FROM likes WHERE postID = :postID AND userID = :userID");
               $liked->execute([":postID" => $row[$i]['postID'], ":userID" => $_SESSION['userID']]);
@@ -88,7 +89,7 @@
                 echo '<div class="modal-dialog modal-sm">';
                 echo '<div class="modal-content">';
                 echo '<div class="modal-header">';
-                echo '<h5 class="modal-title" id="deleteModalLabel' . $row[$i]['postID'] . '">Delete?</h5>';
+                echo '<h5 class="modal-title" id="deleteModalLabel' . $row[$i]['postID'] . '">Delete post?</h5>';
                 echo '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>';
                 echo '</div>';
                 echo '<div class="modal-body">';
@@ -111,13 +112,13 @@
                 echo '<div class="modal-dialog modal-sm">';
                 echo '<div class="modal-content">';
                 echo '<div class="modal-header">';
-                echo '<h5 class="modal-title" id="banModalLabel' . $row[$i]['postID'] . '">Ban?</h5>';
+                echo '<h5 class="modal-title" id="banModalLabel' . $row[$i]['postID'] . '">Ban ' . $user[0]['username'] . '?</h5>';
                 echo '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>';
                 echo '</div>';
                 echo '<div class="modal-body">';
                 echo '<div class="container d-flex flex-row justify-content-center">';
-                echo '<form class="me-3" action="index.php" method="post">';
-                echo  '<input type="hidden" name="userID" value=" ' . $row[0]['userID'] . '"/>';
+                echo '<form class="me-3" action="main.php" method="post">';
+                echo  '<input type="hidden" name="userID" value=" ' . $row[$i]['userID'] . '"/>';
                 echo '<button type="submit" name="ban" value="ban" class="btn btn-outline-danger" data-bs-dismiss="modal">Yes</button>';
                 echo '</form>';
                 echo '<button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">No</button>';
@@ -137,7 +138,7 @@
                   echo '<div class="modal-dialog modal-sm">';
                   echo '<div class="modal-content">';
                   echo '<div class="modal-header">';
-                  echo '<h5 class="modal-title" id="deleteModalLabel' . $row[$i]['postID'] . '">Delete?</h5>';
+                  echo '<h5 class="modal-title" id="deleteModalLabel' . $row[$i]['postID'] . '">Delete post?</h5>';
                   echo '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>';
                   echo '</div>';
                   echo '<div class="modal-body">';
@@ -161,7 +162,7 @@
                   echo '<div class="modal-dialog modal-sm">';
                   echo '<div class="modal-content">';
                   echo '<div class="modal-header">';
-                  echo '<h5 class="modal-title" id="reportModalLabel' . $row[$i]['postID'] . '">Report?</h5>';
+                  echo '<h5 class="modal-title" id="reportModalLabel' . $row[$i]['postID'] . '">Report post?</h5>';
                   echo '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>';
                   echo '</div>';
                   echo '<div class="modal-body">';
@@ -289,7 +290,8 @@
                 // only show delete if the user is the one who posted the comment
                 if ($comments[$j]['userID'] == $_SESSION['userID'] || (isset($_SESSION['admin']) && $_SESSION['admin'] == 1)) {
                   echo '<button class="del btn btn-link p-0 text-danger text-decoration-none">';
-                  echo 'Delete';
+                  // link to deleteComments.php if user click on delete, delete the comment
+                  echo '<a class="commentA text-danger text-decoration-none" href="deleteComments.php?commentID=' . $comments[$j]['commentID'] . '">Delete</a>';
                   echo '</button>';
                 }
                 echo '</div>';
