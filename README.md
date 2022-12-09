@@ -1,6 +1,5 @@
 # ITWS2110-F22-ErrorCats
 Team 8
-RPI Foodgram
 
 Welcome to RPI Foodgram, a website where RPI students can share photos of their favorite food from around campus. You can also like and comment on other people's posts, just like on a social media platform.
 
