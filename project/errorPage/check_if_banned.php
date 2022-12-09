@@ -28,10 +28,10 @@
     // }
 
 
-    // // if the user is still banned redirect to banned page
-    // if ($banned[0]['Banned'] == 1) {
-    //   header("Location: ../errorPage/banned.php");
-    //   exit;
-    // }
+    // if the user is still banned redirect to banned page
+    if ($banned[0]['Banned'] == 1) {
+      header("Location: ../errorPage/banned.php");
+      exit;
+    }
 
 ?>
