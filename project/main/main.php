@@ -324,7 +324,6 @@
                   echo '</div>';
                 } else {
                   if($row[$i]['userID'] == $_SESSION['userID']){
-                    echo '<div class="container d-flex justify-content-end">';
                     echo '<button type="button" class="btn btn-link text-danger text-decoration-none" data-bs-toggle="modal" data-bs-target="#deleteModal' . $row[$i]['postID'] . '">';
                     echo 'Delete';
                     echo '</button>';
@@ -587,7 +586,6 @@
                 echo '</div>';
               } else {
                 if($row[$i]['userID'] == $_SESSION['userID']){
-                  echo '<div class="container d-flex justify-content-end">';
                   echo '<button type="button" class="btn btn-link text-danger text-decoration-none" data-bs-toggle="modal" data-bs-target="#deleteModal' . $row[$i]['postID'] . '">';
                   echo 'Delete';
                   echo '</button>';
@@ -844,7 +842,6 @@
                 echo '</div>';
               } else {
                 if($row[$i]['userID'] == $_SESSION['userID']){
-                  echo '<div class="container d-flex justify-content-end">';
                   echo '<button type="button" class="btn btn-link text-danger text-decoration-none" data-bs-toggle="modal" data-bs-target="#deleteModal' . $row[$i]['postID'] . '">';
                   echo 'Delete';
                   echo '</button>';
