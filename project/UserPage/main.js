@@ -21,10 +21,49 @@ function report(postID, userID, element){
     xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             if (this.responseText != -1) {
-                element.className = "btn btn-success";
+                element.classList.add("disabled");
             }
         }
     }
     xmlhttp.open("POST", "report.php?postID=" + postID + "&userID=" + userID, true);
     xmlhttp.send();    
+}
+
+// function to run a php script to add a comment to a post
+function createComt(userID, postID, comment, element) {
+    text = document.getElementById(comment).value;
+    document.getElementById(comment).value = "";
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            if (this.responseText != -1) {
+                document.getElementById(element).innerHTML += this.responseText;
+
+            }
+        }
+    }
+    xmlhttp.open("POST", "addComment.php?postID=" + postID + "&userID=" + userID + "&comment=" + text, true);
+    xmlhttp.send();
+}
+
+// https://stackoverflow.com/questions/454202/creating-a-textarea-with-auto-resize
+$("textarea").each(function () {
+    this.setAttribute("style", "height:" + (Math.max(30, this.scrollHeight)) + "px;overflow-y:hidden;");
+}).on("input", function () {
+    this.style.height = 0;
+    this.style.height = (this.scrollHeight) + "px";
+});
+
+// function to run a php script to increase likes for a comment
+function likeCounterComment(commentID, userID, text) {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            if (this.responseText != -1) {
+                $(text).toggleClass("liked-this-post");
+            }
+        }
+    }
+    xmlhttp.open("POST", "increaseCommentLikes.php?commentID=" + commentID + "&userID=" + userID, true);
+    xmlhttp.send();
 }
