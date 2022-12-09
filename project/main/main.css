@@ -101,7 +101,7 @@ textarea {
 .del:hover,
 .commentA:hover,
 .btn-link:hover {
-  text-decoration: underline;
+  text-decoration: underline !important;
 }
 
 .like {
