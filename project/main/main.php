@@ -486,9 +486,9 @@
                   echo '<div>';
                   // only show delete if the user is the one who posted the comment
                   if ($comments[$j]['userID'] == $_SESSION['userID'] || (isset($_SESSION['admin']) && $_SESSION['admin'] == 1)) {
-                    echo '<button class="del btn btn-link p-0 text-danger text-decoration-none">';
+                    echo '<button class="del btn btn-link p-0">';
                     // link to deleteComments.php if user click on delete, delete the comment
-                    echo '<a href="deleteComments.php?commentID=' . $comments[$j]['commentID'] . '">Delete</a>';
+                    echo '<a class="commentA text-danger text-decoration-none" href="deleteComments.php?commentID=' . $comments[$j]['commentID'] . '">Delete</a>';
                     echo '</button>';
                   }
                   echo '</div>';
@@ -743,9 +743,9 @@
                 echo '<div>';
                 // only show delete if the user is the one who posted the comment
                 if ($comments[$j]['userID'] == $_SESSION['userID'] || (isset($_SESSION['admin']) && $_SESSION['admin'] == 1)) {
-                  echo '<button class="del btn btn-link p-0 text-danger text-decoration-none">';
+                  echo '<button class="del btn btn-link p-0">';
                   // link to deleteComments.php if user click on delete, delete the comment
-                  echo '<a href="deleteComments.php?commentID=' . $comments[$j]['commentID'] . '">Delete</a>';
+                  echo '<a class="commentA text-danger text-decoration-none" href="deleteComments.php?commentID=' . $comments[$j]['commentID'] . '">Delete</a>';
                   echo '</button>';
                 }
                 echo '</div>';
@@ -998,9 +998,9 @@
                 echo '<div>';
                 // only show delete if the user is the one who posted the comment
                 if ($comments[$j]['userID'] == $_SESSION['userID'] || (isset($_SESSION['admin']) && $_SESSION['admin'] == 1)) {
-                  echo '<button class="del btn btn-link p-0 text-danger text-decoration-none">';
+                  echo '<button class="del btn btn-link p-0">';
                   // link to deleteComments.php if user click on delete, delete the comment
-                  echo '<a href="deleteComments.php?commentID=' . $comments[$j]['commentID'] . '">Delete</a>';
+                  echo '<a class="commentA text-danger text-decoration-none" href="deleteComments.php?commentID=' . $comments[$j]['commentID'] . '">Delete</a>';
                   echo '</button>';
                 }
                 echo '</div>';

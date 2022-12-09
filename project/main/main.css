@@ -98,6 +98,7 @@ textarea {
   color: #f04320;
 }
 
+.commentA:hover,
 .btn-link:hover {
   text-decoration: underline;
 }
