@@ -485,8 +485,7 @@
                   if ($comments[$j]['userID'] == $_SESSION['userID'] || (isset($_SESSION['admin']) && $_SESSION['admin'] == 1)) {
                     echo '<button class="del btn btn-link p-0 text-danger text-decoration-none">';
                     // link to deleteComments.php if user click on delete, delete the comment
-                    echo '<a href="deleteComments.php?commentID=' . $comments[$j]['commentID'] . '&postID=' . $row[$i]['postID'] . '">Delete</a>';
-//                    echo 'Delete';
+                    echo '<a href="deleteComments.php?commentID=' . $comments[$j]['commentID'] . '">Delete</a>';
                     echo '</button>';
                   }
                   echo '</div>';
@@ -742,7 +741,8 @@
                 // only show delete if the user is the one who posted the comment
                 if ($comments[$j]['userID'] == $_SESSION['userID'] || (isset($_SESSION['admin']) && $_SESSION['admin'] == 1)) {
                   echo '<button class="del btn btn-link p-0 text-danger text-decoration-none">';
-                  echo 'Delete';
+                  // link to deleteComments.php if user click on delete, delete the comment
+                  echo '<a href="deleteComments.php?commentID=' . $comments[$j]['commentID'] . '">Delete</a>';
                   echo '</button>';
                 }
                 echo '</div>';
@@ -996,7 +996,8 @@
                 // only show delete if the user is the one who posted the comment
                 if ($comments[$j]['userID'] == $_SESSION['userID'] || (isset($_SESSION['admin']) && $_SESSION['admin'] == 1)) {
                   echo '<button class="del btn btn-link p-0 text-danger text-decoration-none">';
-                  echo 'Delete';
+                  // link to deleteComments.php if user click on delete, delete the comment
+                  echo '<a href="deleteComments.php?commentID=' . $comments[$j]['commentID'] . '">Delete</a>';
                   echo '</button>';
                 }
                 echo '</div>';

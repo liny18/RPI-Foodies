@@ -27,10 +27,14 @@ try {
 // get the commentID
 $commentID = $_GET['commentID'];
 $commentID = htmlspecialchars(trim($commentID));
-// get the postID
-$postID = $_GET['postID'];
-$postID = htmlspecialchars(trim($postID));
 
-$conn->prepare("DELETE FROM Comments WHERE commentID = :commentID")->execute([":commentID" => $commentID);
+
+
+// delete all the commentLikes
+$conn->prepare("DELETE FROM CommentLikes WHERE commentID = :commentID")->execute([":commentID" => $commentID]);
+
+$conn->prepare("DELETE FROM Comments WHERE commentID = :commentID")->execute([":commentID" => $commentID]);
+
+header("Location: ../main/main.php");
 
 ?>
