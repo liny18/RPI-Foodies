@@ -31,7 +31,7 @@ $commentID = htmlspecialchars(trim($commentID));
 
 
 // delete all the commentLikes
-$conn->prepare("DELETE FROM CommentLikes WHERE commentID = :commentID")->execute([":commentID" => $commentID]);
+$conn->prepare("DELETE FROM commentLikes WHERE commentID = :commentID")->execute([":commentID" => $commentID]);
 
 $conn->prepare("DELETE FROM Comments WHERE commentID = :commentID")->execute([":commentID" => $commentID]);
 
