@@ -64,7 +64,7 @@
 
 //        include '../project/errorPage/check_if_banned.php';
         // $_SESSION['Banned'] = $row['Banned'];
-        $_SESSION['Banned'] = 0;
+//        $_SESSION['Banned'] = 0;
         header("Location: ../main/main.php");
 
     } else {
