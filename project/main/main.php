@@ -283,7 +283,7 @@
                   echo '<div class="modal-dialog modal-sm">';
                   echo '<div class="modal-content">';
                   echo '<div class="modal-header">';
-                  echo '<h5 class="modal-title" id="deleteModalLabel' . $row[$i]['postID'] . '">Delete Post?</h5>';
+                  echo '<h5 class="modal-title" id="deleteModalLabel' . $row[$i]['postID'] . '">Delete post?</h5>';
                   echo '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>';
                   echo '</div>';
                   echo '<div class="modal-body">';
@@ -306,7 +306,7 @@
                   echo '<div class="modal-dialog modal-sm">';
                   echo '<div class="modal-content">';
                   echo '<div class="modal-header">';
-                  echo '<h5 class="modal-title" id="banModalLabel' . $row[$i]['postID'] . '">Ban ' . $user[0]['username'] . ' ?</h5>';
+                  echo '<h5 class="modal-title" id="banModalLabel' . $row[$i]['postID'] . '">Ban ' . $user[0]['username'] . '?</h5>';
                   echo '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>';
                   echo '</div>';
                   echo '<div class="modal-body">';
@@ -332,7 +332,7 @@
                     echo '<div class="modal-dialog modal-sm">';
                     echo '<div class="modal-content">';
                     echo '<div class="modal-header">';
-                    echo '<h5 class="modal-title" id="deleteModalLabel' . $row[$i]['postID'] . '">Delete Post?</h5>';
+                    echo '<h5 class="modal-title" id="deleteModalLabel' . $row[$i]['postID'] . '">Delete post?</h5>';
                     echo '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>';
                     echo '</div>';
                     echo '<div class="modal-body">';
@@ -356,7 +356,7 @@
                     echo '<div class="modal-dialog modal-sm">';
                     echo '<div class="modal-content">';
                     echo '<div class="modal-header">';
-                    echo '<h5 class="modal-title" id="reportModalLabel' . $row[$i]['postID'] . '">Report Post?</h5>';
+                    echo '<h5 class="modal-title" id="reportModalLabel' . $row[$i]['postID'] . '">Report post?</h5>';
                     echo '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>';
                     echo '</div>';
                     echo '<div class="modal-body">';
@@ -541,7 +541,7 @@
                 echo '<div class="modal-dialog modal-sm">';
                 echo '<div class="modal-content">';
                 echo '<div class="modal-header">';
-                echo '<h5 class="modal-title" id="deleteModalLabel' . $row[$i]['postID'] . '">Delete Post?</h5>';
+                echo '<h5 class="modal-title" id="deleteModalLabel' . $row[$i]['postID'] . '">Delete post?</h5>';
                 echo '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>';
                 echo '</div>';
                 echo '<div class="modal-body">';
@@ -564,7 +564,7 @@
                 echo '<div class="modal-dialog modal-sm">';
                 echo '<div class="modal-content">';
                 echo '<div class="modal-header">';
-                echo '<h5 class="modal-title" id="banModalLabel' . $row[$i]['postID'] . '">Ban ' . $user[0]['username'] . ' ?</h5>';
+                echo '<h5 class="modal-title" id="banModalLabel' . $row[$i]['postID'] . '">Ban ' . $user[0]['username'] . '?</h5>';
                 echo '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>';
                 echo '</div>';
                 echo '<div class="modal-body">';
@@ -590,7 +590,7 @@
                   echo '<div class="modal-dialog modal-sm">';
                   echo '<div class="modal-content">';
                   echo '<div class="modal-header">';
-                  echo '<h5 class="modal-title" id="deleteModalLabel' . $row[$i]['postID'] . '">Delete Post?</h5>';
+                  echo '<h5 class="modal-title" id="deleteModalLabel' . $row[$i]['postID'] . '">Delete post?</h5>';
                   echo '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>';
                   echo '</div>';
                   echo '<div class="modal-body">';
@@ -614,7 +614,7 @@
                   echo '<div class="modal-dialog modal-sm">';
                   echo '<div class="modal-content">';
                   echo '<div class="modal-header">';
-                  echo '<h5 class="modal-title" id="reportModalLabel' . $row[$i]['postID'] . '">Report Post?</h5>';
+                  echo '<h5 class="modal-title" id="reportModalLabel' . $row[$i]['postID'] . '">Report post?</h5>';
                   echo '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>';
                   echo '</div>';
                   echo '<div class="modal-body">';
@@ -794,7 +794,7 @@
                 echo '<div class="modal-dialog modal-sm">';
                 echo '<div class="modal-content">';
                 echo '<div class="modal-header">';
-                echo '<h5 class="modal-title" id="deleteModalLabel' . $row[$i]['postID'] . '">Delete Post?</h5>';
+                echo '<h5 class="modal-title" id="deleteModalLabel' . $row[$i]['postID'] . '">Delete post?</h5>';
                 echo '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>';
                 echo '</div>';
                 echo '<div class="modal-body">';
@@ -817,7 +817,7 @@
                 echo '<div class="modal-dialog modal-sm">';
                 echo '<div class="modal-content">';
                 echo '<div class="modal-header">';
-                echo '<h5 class="modal-title" id="banModalLabel' . $row[$i]['postID'] . '">Ban ' . $user[0]['username'] . ' ?</h5>';
+                echo '<h5 class="modal-title" id="banModalLabel' . $row[$i]['postID'] . '">Ban ' . $user[0]['username'] . '?</h5>';
                 echo '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>';
                 echo '</div>';
                 echo '<div class="modal-body">';
@@ -843,7 +843,7 @@
                   echo '<div class="modal-dialog modal-sm">';
                   echo '<div class="modal-content">';
                   echo '<div class="modal-header">';
-                  echo '<h5 class="modal-title" id="deleteModalLabel' . $row[$i]['postID'] . '">Delete Post?</h5>';
+                  echo '<h5 class="modal-title" id="deleteModalLabel' . $row[$i]['postID'] . '">Delete post?</h5>';
                   echo '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>';
                   echo '</div>';
                   echo '<div class="modal-body">';
@@ -867,7 +867,7 @@
                   echo '<div class="modal-dialog modal-sm">';
                   echo '<div class="modal-content">';
                   echo '<div class="modal-header">';
-                  echo '<h5 class="modal-title" id="reportModalLabel' . $row[$i]['postID'] . '">Report Post?</h5>';
+                  echo '<h5 class="modal-title" id="reportModalLabel' . $row[$i]['postID'] . '">Report post?</h5>';
                   echo '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>';
                   echo '</div>';
                   echo '<div class="modal-body">';
