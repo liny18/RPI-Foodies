@@ -98,14 +98,12 @@ textarea {
   color: #f04320;
 }
 
+.del:hover,
+.commentA:hover,
 .btn-link:hover {
-  text-decoration: underline;
+  text-decoration: underline !important;
 }
 
 .like {
   padding: 3px 10px;
-}
-
-.commentA:hover {
-  text-decoration: underline;
 }

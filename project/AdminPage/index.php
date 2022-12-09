@@ -139,10 +139,10 @@
                         echo 0 . ' comments</div></div>';
                         echo '<form action="index.php" method="post">';
                         echo  '<input type="hidden" name="postID" value=" ' . $row[0]['postID'] . '"/>';
-                        echo '<button type="submit" name="aprove" value="aprove" class="btn btn-danger">Approve</button>';
+                        echo '<button type="submit" name="aprove" value="aprove" class="btn btn-danger">Delete Post</button>';
                         echo '</form>';
                         echo  '<input type="hidden" name="postID" value=" ' . $row[0]['postID'] . '"/>';
-                        echo '<button type="submit" name="delete" value="delete" class="btn btn-danger">Delete</button>';
+                        echo '<button type="submit" name="delete" value="delete" class="btn btn-danger">Report Post</button>';
                         echo '</form>';
                         echo '<form action="index.php" method="post">';
                         echo  '<input type="hidden" name="userID" value=" ' . $row[0]['userID'] . '"/>';
