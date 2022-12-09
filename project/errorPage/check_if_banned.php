@@ -20,8 +20,9 @@
     $stmt3->execute();
     $banned = $stmt3->fetchAll();
 
+    $data = Date("Y-m-d");
     // automatically unbans user if date is greater than ban-until date in database
-    if($banned[0]['Banned'] == 1 && $date > $row['DateBanned']){
+    if($banned[0]['Banned'] == 1 && $date > $banned[0]['DateBanned']){
         $sql = $db->prepare( "UPDATE users SET BannedPosts = 3 AND Banned = 0 AND DateBanned = '0000-00-00' WHERE username = :username");
         $result = $sql->execute([":username" => $username]);
     }
