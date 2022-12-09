@@ -214,16 +214,16 @@
         <div class="col-md-3 py-3">
           <div class="card text-center">
             <div class="card-header">
-              <i class="fa-regular fa-face-laugh-squint"></i> Best Food Today in Commons
+              <i class="fa-regular fa-face-laugh-squint"></i> What do students love?
             </div>
             <form class="card-body" action="main.php" method="post">
-              <h5 class="card-title">Commons Dinning Hall</h5>
+              <h5 class="card-title">Most Liked Dishes</h5>
               <ul class="list-group">
 
                 <?php
 
                 // grab the rows of the query
-                $row = $grabByLikesCommons->fetchAll();
+                $row = $grabByLikes->fetchAll();
                 $len = count($row);
                 // print out data for most liked foods
                 for ($i = 0; $i < 3 && $i < $len; $i++) {
