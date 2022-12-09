@@ -761,28 +761,10 @@
                 echo '<div>';
                 // only show delete if the user is the one who posted the comment
                 if ($comments[$j]['userID'] == $_SESSION['userID'] || (isset($_SESSION['admin']) && $_SESSION['admin'] == 1)) {
-                  echo '<button type="button" class="del btn btn-link text-danger text-decoration-none" data-bs-toggle="modal" data-bs-target="#deleteCommentModal' . $comments[$j]['commentID'] . '">';
-                  echo 'Delete';
-                  echo '</button>';
-                  echo '<div class="modal fade" id="deleteCommentModal' . $comments[$j]['commentID'] . '" tabindex="-1" aria-labelledby="deleteCommentModalLabel" aria-hidden="true">';
-                  echo '<div class="modal-dialog modal-sm">';
-                  echo '<div class="modal-content">';
-                  echo '<div class="modal-header">';
-                  echo '<h5 class="modal-title" id="deleteCommentModalLabel' . $comments[$j]['commentID'] . '">Delete comment?</h5>';
-                  echo '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>';
-                  echo '</div>';
-                  echo '<div class="modal-body">';
-                  echo '<div class="container d-flex flex-row justify-content-center">';
-                  echo '<button class="del btn btn-outline-danger" data-bs-dismiss="modal">';
+                  echo '<button class="del btn btn-link p-0 text-danger text-decoration-none">';
                   // link to deleteComments.php if user click on delete, delete the comment
-                  echo '<a class="commentA" href="deleteComments.php?commentID=' . $comments[$j]['commentID'] . '">Yes</a>';
+                  echo '<a href="deleteComments.php?commentID=' . $comments[$j]['commentID'] . '">Delete</a>';
                   echo '</button>';
-                  echo '<button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">No</button>';
-                  echo '</div>';
-                  echo '</div>';
-                  echo '</div>';
-                  echo '</div>';
-                  echo '</div>';
                 }
                 echo '</div>';
                 echo '</div>';
