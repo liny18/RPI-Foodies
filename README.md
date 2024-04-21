@@ -1,6 +1,3 @@
-# ITWS2110-F22-ErrorCats
-Team 8
-
 Welcome to RPI Foodies! Our website is a social media platform for RPI students to share and discover the food served in the dining halls. With RPI Foodies, students can easily access information about the food options on campus and make informed decisions about what to eat.
 
 Our website features include:
